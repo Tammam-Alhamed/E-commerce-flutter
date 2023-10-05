@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235768477147",
+    "project_id": "al3ashra-3c5a3",
+    "storage_bucket": "al3ashra-3c5a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235768477147:android:7544ed3c625dab20eca3fe",
+        "android_client_info": {
+          "package_name": "com.waelabohamza.ecommercecourse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235768477147-61e86gr564155eu6fofav6sv17mkia1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHrFO4pCD8FFW2atCUAcFFJIooGG_ZnZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235768477147-61e86gr564155eu6fofav6sv17mkia1l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
