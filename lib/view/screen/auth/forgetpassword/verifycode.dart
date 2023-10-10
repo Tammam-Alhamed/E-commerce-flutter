@@ -18,7 +18,7 @@ class VerfiyCode extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Text('Verification Code',
+        title: Text("61".tr,
             style: Theme.of(context)
                 .textTheme
                 .headline1!
@@ -28,7 +28,7 @@ class VerfiyCode extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(children: [
           const SizedBox(height: 20),
-          const CustomTextTitleAuth(text: "Check code"),
+           CustomTextTitleAuth(text: "62".tr),
           const SizedBox(height: 10),
           const CustomTextBodyAuth(
               text:

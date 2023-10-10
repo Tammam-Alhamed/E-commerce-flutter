@@ -65,6 +65,10 @@ class MyTranslation extends Translations {
       "57":"تواصل معنا",
       "58":"تسجيل خروج",
       "59":"ل.س",
+      "60":"تعيين كلمة مرور جديدة",
+      "61":"رمز التأكيد",
+      "62":"التحقق من الكود",
+      "63":"ادخل الكود الذي ارسلناه الى البريد الخاص بك"
     },
     "en": {
       "1": "Choose Language",
@@ -130,6 +134,10 @@ class MyTranslation extends Translations {
       "57":"Contact us",
       "58":"Logout",
       "59":"\$",
+      "60":"ResetPassword",
+      "61":"Verification Code",
+      "62":"Check code",
+      "63":"Please Enter The Digit Code Sent To your email",
     },
     "ru":{
       "1": "Выберите язык",
@@ -195,6 +203,10 @@ class MyTranslation extends Translations {
       "57":"Связаться с нами",
       "58":"Выйти",
       "59":"\$",
+      "60":"Сброс пароля",
+      "61":"Проверочный код",
+      "62":"Проверить код",
+      "63":"Пожалуйста, введите цифровой код, отправленный на вашу электронную почту",
 
 
     }
