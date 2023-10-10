@@ -17,6 +17,7 @@ class CartModel {
   String? itemsDate;
   String? itemsCat;
   String? itemsStatus ;
+  String? itemsDelay ;
 
   CartModel(
       {this.itemsprice,
@@ -37,6 +38,7 @@ class CartModel {
       this.itemsDate,
       this.itemsCat,
       this.itemsStatus,
+        this.itemsDelay
 
       });
 
@@ -59,6 +61,7 @@ class CartModel {
     itemsDate = json['items_date'];
     itemsCat = json['items_cat'];
     itemsStatus = json['items_status'];
+    itemsDelay = json['items_delay'];
   }
 
   Map<String, dynamic> toJson() {
@@ -81,6 +84,7 @@ class CartModel {
     data['items_date'] = this.itemsDate;
     data['items_cat'] = this.itemsCat;
     data['items_status'] = this.itemsStatus;
+    data['items_delay'] = this.itemsDelay;
     return data;
   }
 }
