@@ -1,10 +1,16 @@
 import 'package:ecommercecourse/core/class/crud.dart';
 import 'package:ecommercecourse/linkapi.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class HomeData {
   Crud crud;
   HomeData(this.crud);
   getData() async {
+
+      String? mytoken = await FirebaseMessaging.instance.getToken();
+      print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+      print(mytoken);
+
     var response = await crud.postData(AppLink.homepage, {});
     return response.fold((l) => l, (r) => r);
   }

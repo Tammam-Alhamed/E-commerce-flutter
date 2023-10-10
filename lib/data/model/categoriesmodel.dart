@@ -18,7 +18,7 @@ class CategoriesModel {
     categoriesId = json['categories_id'];
     categoriesshope = json['categories_shope'];
     categoriesName = json['categories_name'];
-    categoriesNamaAr = json['categories_nama_ar'];
+    categoriesNamaAr = json['categories_name_ar'];
     categoriesImage = json['categories_image'];
     categoriesDatetime = json['categories_datetime'];
   }
@@ -28,7 +28,7 @@ class CategoriesModel {
     data['categories_id'] = this.categoriesId;
     data['categories_shope'] = this.categoriesshope;
     data['categories_name'] = this.categoriesName;
-    data['categories_nama_ar'] = this.categoriesNamaAr;
+    data['categories_name_ar'] = this.categoriesNamaAr;
     data['categories_image'] = this.categoriesImage;
     data['categories_datetime'] = this.categoriesDatetime;
     return data;

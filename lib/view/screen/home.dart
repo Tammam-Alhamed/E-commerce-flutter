@@ -5,6 +5,7 @@ import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
+import 'package:ecommercecourse/view/screen/slideimage.dart';
 import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/home/customcardhome.dart';
 import 'package:ecommercecourse/view/widget/home/customtitlehome.dart';
@@ -41,12 +42,10 @@ class HomePage extends StatelessWidget {
                 HandlingDataView(
                     statusRequest: controller.statusRequest,
                     widget: !controller.isSearch
-                        ? const Column(
+                        ?  Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children:  [
-                              CustomCardHome(
-                                  title: "A summer surprise",
-                                  body: "Cashback 20%"),
+                              ImageSliderScreen(),
                               CustomTitleHome(title: "Categories"),
                               ListCategoriesHome(),
                               CustomTitleHome(title: "Product for you"),

@@ -65,7 +65,9 @@ class OrdersDetails extends StatelessWidget {
                                         Text("${controller.data[index].countitems}", textAlign: TextAlign.center),
                                         Text("${controller.data[index].itemsprice}",
                                             textAlign: TextAlign.center),
-                                    Text(controller.data[index].itemsStatus == "0"
+                                    Text(controller.data[index].itemsDelay == "0"
+                                        ? ""
+                                        : controller.data[index].itemsStatus == "0"
                                         ? "panding"
                                         : controller.data[index].itemsStatus == "1"
                                         ? "with agint"
