@@ -22,7 +22,7 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
             children: [
               Row(
                 children: [
-                  Text("Order Number : #${listdata.ordersId}",
+                  Text("${"81".tr} : #${listdata.ordersId}",
                       style: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.bold)),
                   const Spacer(),
@@ -37,17 +37,17 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
               ),
               const Divider(),
               Text(
-                  "Order Type : ${controller.printOrderType(listdata.ordersType!)}"),
-              Text("Order Price : ${listdata.ordersPrice} \$"),
-              Text("Delivery Price : ${listdata.ordersPricedelivery} \$ "),
+                  "${"82".tr} : ${controller.printOrderType(listdata.ordersType!)}"),
+              Text("${"83".tr} : ${listdata.ordersPrice}  ${"59".tr}"),
+              Text("Delivery Price : ${listdata.ordersPricedelivery}  ${"59".tr} "),
               Text(
-                  "Payment Method : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
+                  "${"84".tr} : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
               Text(
-                  "Order Status : ${controller.printOrderStatus(listdata.ordersStatus!)} "),
+                  "${"85".tr} : ${controller.printOrderStatus(listdata.ordersStatus!)} "),
               const Divider(),
               Row(
                 children: [
-                  Text("Total Price : ${listdata.ordersId} \$ ",
+                  Text("${"52".tr} : ${listdata.ordersId}  ${"59".tr} ",
                       style: const TextStyle(
                           color: AppColor.primaryColor,
                           fontWeight: FontWeight.bold)),
@@ -59,7 +59,7 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
                     },
                     color: AppColor.thirdColor,
                     textColor: AppColor.secondColor,
-                    child: const Text("Details"),
+                    child:  Text("86".tr),
                   ),
                 ],
               ),

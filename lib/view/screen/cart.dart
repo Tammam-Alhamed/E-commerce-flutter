@@ -16,7 +16,7 @@ class Cart extends StatelessWidget {
     CartController cartController = Get.put(CartController());
     return Scaffold(
         appBar: AppBar(
-          title: Text("My Cart"),
+          title: Text("42".tr),
         ),
         bottomNavigationBar: GetBuilder<CartController>(
             builder: (controller) => BottomNavgationBarCart(
@@ -36,7 +36,7 @@ class Cart extends StatelessWidget {
                     SizedBox(height: 10),
                     TopCardCart(
                         message:
-                            "You Have ${cartController.totalcountitems} Items in Your List"),
+                            "${"43".tr} ${cartController.totalcountitems} ${"44".tr}"),
                     Container(
                       padding: EdgeInsets.all(10),
                       child: Column(
@@ -58,7 +58,7 @@ class Cart extends StatelessWidget {
                                     "${cartController.data[index].itemsImage}",
                                 name: "${cartController.data[index].itemsName}",
                                 price:
-                                    "${cartController.data[index].itemsprice} \$",
+                                    "${cartController.data[index].itemsprice}  ${"59".tr}",
                                 count:
                                     "${cartController.data[index].countitems}"),
                           )

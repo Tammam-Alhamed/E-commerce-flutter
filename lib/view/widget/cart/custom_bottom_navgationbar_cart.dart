@@ -45,18 +45,18 @@ class BottomNavgationBarCart extends GetView<CartController> {
                             isDense: true,
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 8, horizontal: 10),
-                            hintText: "Coupon Code",
+                            hintText: "48".tr,
                             border: OutlineInputBorder()),
                       )),
                   SizedBox(width: 5),
                   Expanded(
                       flex: 1,
                       child: CustomButtonCoupon(
-                        textbutton: "apply",
+                        textbutton: "49".tr,
                         onPressed: onApplyCoupon,
                       ))
                 ]))
-                : Container(child: Text("Coupon Code ${controller.couponname!}" , style: TextStyle(color: AppColor.primaryColor , fontWeight: FontWeight.bold),))
+                : Container(child: Text("${"48".tr} ${controller.couponname!}" , style: TextStyle(color: AppColor.primaryColor , fontWeight: FontWeight.bold),))
                 ),
         Container(
           margin: EdgeInsets.all(10),
@@ -70,10 +70,10 @@ class BottomNavgationBarCart extends GetView<CartController> {
               children: [
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("price", style: TextStyle(fontSize: 16))),
+                    child: Text("50".tr, style: TextStyle(fontSize: 16))),
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("$price \$", style: TextStyle(fontSize: 16)))
+                    child: Text("$price  ${"59".tr}", style: TextStyle(fontSize: 16)))
               ],
             ),
             Row(
@@ -81,7 +81,7 @@ class BottomNavgationBarCart extends GetView<CartController> {
               children: [
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("discount", style: TextStyle(fontSize: 16))),
+                    child: Text("51".tr, style: TextStyle(fontSize: 16))),
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Text("$discount ", style: TextStyle(fontSize: 16)))
@@ -104,14 +104,14 @@ class BottomNavgationBarCart extends GetView<CartController> {
               children: [
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("Total Price",
+                    child: Text("52".tr,
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: AppColor.primaryColor))),
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("$totalprice \$",
+                    child: Text("$totalprice  ${"59".tr}",
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -122,7 +122,7 @@ class BottomNavgationBarCart extends GetView<CartController> {
         ),
         SizedBox(height: 10),
         CustomButtonCart(
-          textbutton: "Order",
+          textbutton: "53".tr,
           onPressed: () { 
             controller.goToPageCheckout() ; 
           },
