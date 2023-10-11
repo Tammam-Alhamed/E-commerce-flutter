@@ -2,8 +2,10 @@ class ItemsModel {
   String? itemsId;
   String? itemsName;
   String? itemsNameAr;
+  String? itemsNameRu;
   String? itemsDesc;
   String? itemsDescAr;
+  String? itemsDescRu;
   String? itemsImage;
   String? itemsCount;
   String? itemsActive;
@@ -14,6 +16,7 @@ class ItemsModel {
   String? categoriesId;
   String? categoriesName;
   String? categoriesNamaAr;
+  String? categoriesNamaRu;
   String? categoriesImage;
   String? categoriesDatetime;
   String? favorite;
@@ -24,8 +27,10 @@ class ItemsModel {
       {this.itemsId,
       this.itemsName,
       this.itemsNameAr,
+        this.itemsNameRu,
       this.itemsDesc,
       this.itemsDescAr,
+        this.itemsDescRu,
       this.itemsImage,
       this.itemsCount,
       this.itemsActive,
@@ -38,6 +43,7 @@ class ItemsModel {
       this.categoriesId,
       this.categoriesName,
       this.categoriesNamaAr,
+        this.categoriesNamaRu,
       this.categoriesImage,
       this.categoriesDatetime,
       this.favorite});
@@ -46,8 +52,10 @@ class ItemsModel {
     itemsId = json['items_id'];
     itemsName = json['items_name'];
     itemsNameAr = json['items_name_ar'];
+    itemsNameRu = json['items_name_ru'];
     itemsDesc = json['items_desc'];
     itemsDescAr = json['items_desc_ar'];
+    itemsDescRu = json['items_desc_ru'];
     itemsImage = json['items_image'];
     itemsCount = json['items_count'];
     itemsActive = json['items_active'];
@@ -60,6 +68,7 @@ class ItemsModel {
     categoriesId = json['categories_id'];
     categoriesName = json['categories_name'];
     categoriesNamaAr = json['categories_nama_ar'];
+    categoriesNamaRu = json['categories_nama_ru'];
     categoriesImage = json['categories_image'];
     categoriesDatetime = json['categories_datetime'];
     favorite = json['favorite'];
@@ -70,8 +79,10 @@ class ItemsModel {
     data['items_id'] = this.itemsId;
     data['items_name'] = this.itemsName;
     data['items_name_ar'] = this.itemsNameAr;
+    data['items_name_ru'] = this.itemsNameRu;
     data['items_desc'] = this.itemsDesc;
     data['items_desc_ar'] = this.itemsDescAr;
+    data['items_desc_ru'] = this.itemsDescRu;
     data['items_image'] = this.itemsImage;
     data['items_count'] = this.itemsCount;
     data['items_active'] = this.itemsActive;
@@ -83,6 +94,7 @@ class ItemsModel {
     data['categories_id'] = this.categoriesId;
     data['categories_name'] = this.categoriesName;
     data['categories_nama_ar'] = this.categoriesNamaAr;
+    data['categories_nama_ru'] = this.categoriesNamaRu;
     data['categories_image'] = this.categoriesImage;
     data['categories_datetime'] = this.categoriesDatetime;
     return data;

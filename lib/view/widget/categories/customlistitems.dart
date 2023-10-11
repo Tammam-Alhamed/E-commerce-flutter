@@ -42,7 +42,7 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                       const SizedBox(height: 10),
                       Text(
                           translateDatabase(
-                              categoriesModel.categoriesNamaAr, categoriesModel.categoriesName),
+                              categoriesModel.categoriesNamaAr, categoriesModel.categoriesName , categoriesModel.categoriesNamaRu),
                           style: const TextStyle(
                               color: AppColor.black,
                               fontSize: 16,

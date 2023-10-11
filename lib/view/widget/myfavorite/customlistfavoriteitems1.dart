@@ -42,7 +42,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                   const SizedBox(height: 10),
                   Text(
                       translateDatabase(
-                          itemsModel.itemsNameAr, itemsModel.itemsName),
+                          itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
                       style: const TextStyle(
                           color: AppColor.black,
                           fontSize: 16,

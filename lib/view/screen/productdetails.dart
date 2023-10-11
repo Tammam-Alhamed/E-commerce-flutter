@@ -7,6 +7,8 @@ import 'package:ecommercecourse/view/widget/productdetails/toppageproductdetails
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/functions/translatefatabase.dart';
+
 class ProductDetails extends StatelessWidget {
   const ProductDetails({Key? key}) : super(key: key);
 
@@ -45,7 +47,8 @@ class ProductDetails extends StatelessWidget {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("${controller.itemsModel.itemsName}",
+                              Text(translateDatabase(
+                                  controller.itemsModel.categoriesNamaAr, controller.itemsModel.itemsName ,controller.itemsModel.itemsNameRu),
                                   style: Theme.of(context)
                                       .textTheme
                                       .headline1!
@@ -64,7 +67,8 @@ class ProductDetails extends StatelessWidget {
                                       "${controller.itemsModel.itemsPriceDiscount}",
                                   count: "${controller.countitems}"),
                               const SizedBox(height: 10),
-                              Text("${controller.itemsModel.itemsDesc}",
+                              Text( translateDatabase(
+                                  controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyText1!

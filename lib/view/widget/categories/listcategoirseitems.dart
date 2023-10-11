@@ -60,7 +60,8 @@ class Categories extends GetView<CategoriesControllerImp> {
                     child: Text(
                       "${translateDatabase(
                           Shopesmodel.shopesNameAr,
-                          Shopesmodel.shopesName)}",
+                          Shopesmodel.shopesName,
+                          Shopesmodel.shopesNameRu)}",
                       style:
                           const TextStyle(fontSize: 20, color: AppColor.grey2),
                     ),

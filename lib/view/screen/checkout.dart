@@ -102,7 +102,7 @@ class Checkout extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 20),
-                      if (controller.deliveryType == "0")
+
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -118,19 +118,17 @@ class Checkout extends StatelessWidget {
                               controller.dataaddress.length,
                               (index) => InkWell(
                                 onTap: () {
-                                  controller.chooseShippingAddress(
-                                      controller.dataaddress[index].addressId!);
+
                                 },
-                                child: CardShppingAddressCheckout(
+                                child: const CardShppingAddressCheckout(
                                     title:
-                                        "${controller.dataaddress[index].addressName}",
+                                        "jableh",
                                     body:
-                                        "${controller.dataaddress[index].addressCity} ${controller.dataaddress[index].addressStreet}",
-                                    isactive: controller.addressid ==
-                                            controller
-                                                .dataaddress[index].addressId
+                                        "on the way",
+                                    isactive: "1" ==
+                                            "1"
                                         ? true
-                                        : false),
+                                        : true),
                               ),
                             )
                           ],

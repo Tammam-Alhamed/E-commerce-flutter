@@ -7,8 +7,10 @@ class CartModel {
   String? itemsId;
   String? itemsName;
   String? itemsNameAr;
+  String? itemsNameRu;
   String? itemsDesc;
   String? itemsDescAr;
+  String? itemsDescRu;
   String? itemsImage;
   String? itemsCount;
   String? itemsActive;
@@ -30,6 +32,7 @@ class CartModel {
       this.itemsNameAr,
       this.itemsDesc,
       this.itemsDescAr,
+      this.itemsDescRu,
       this.itemsImage,
       this.itemsCount,
       this.itemsActive,
@@ -51,8 +54,10 @@ class CartModel {
     itemsId = json['items_id'];
     itemsName = json['items_name'];
     itemsNameAr = json['items_name_ar'];
+    itemsNameRu = json['items_name_ru'];
     itemsDesc = json['items_desc'];
     itemsDescAr = json['items_desc_ar'];
+    itemsDescRu = json['items_desc_ru'];
     itemsImage = json['items_image'];
     itemsCount = json['items_count'];
     itemsActive = json['items_active'];
@@ -74,8 +79,10 @@ class CartModel {
     data['items_id'] = this.itemsId;
     data['items_name'] = this.itemsName;
     data['items_name_ar'] = this.itemsNameAr;
+    data['items_name_ru'] = this.itemsNameRu;
     data['items_desc'] = this.itemsDesc;
     data['items_desc_ar'] = this.itemsDescAr;
+    data['items_desc_ru'] = this.itemsDescRu;
     data['items_image'] = this.itemsImage;
     data['items_count'] = this.itemsCount;
     data['items_active'] = this.itemsActive;
