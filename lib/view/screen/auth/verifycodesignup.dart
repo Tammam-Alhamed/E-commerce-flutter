@@ -19,7 +19,7 @@ class VerfiyCodeSignUp extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Text('Verification Code',
+        title: Text('61'.tr,
             style: Theme.of(context)
                 .textTheme
                 .headline1!
@@ -33,11 +33,11 @@ class VerfiyCodeSignUp extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                 child: ListView(children: [
                   const SizedBox(height: 20),
-                  const CustomTextTitleAuth(text: "Check code"),
+                  CustomTextTitleAuth(text: "62".tr),
                   const SizedBox(height: 10),
                     CustomTextBodyAuth(
                       text:
-                          "Please Enter The Digit Code Sent To ${controller.email}"),
+                          "${"64".tr} ${controller.email}"),
                   const SizedBox(height: 15),
                   OtpTextField(
                     fieldWidth: 50.0,
@@ -58,7 +58,7 @@ class VerfiyCodeSignUp extends StatelessWidget {
                   const SizedBox(height: 40),
                   InkWell(onTap: (){
                     controller.reSend() ; 
-                  },child: Center(child: Text("Resend verfiy code" , style: TextStyle(color: AppColor.primaryColor , fontSize: 20 ),)),)
+                  },child: Center(child: Text("65".tr , style: TextStyle(color: AppColor.primaryColor , fontSize: 20 ),)),)
                 ]),
               ))),
     );

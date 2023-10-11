@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
               children: [
                 CustomAppBar(
                   mycontroller: controller.search!,
-                  titleappbar: "Find Product",
+                  titleappbar: "39".tr,
                   // onPressedIcon: () {},
                   onPressedSearch: () {
                     controller.onSearchItems();
@@ -46,9 +46,9 @@ class HomePage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children:  [
                               ImageSliderScreen(),
-                              CustomTitleHome(title: "Categories"),
+                              CustomTitleHome(title: "40".tr),
                               ListCategoriesHome(),
-                              CustomTitleHome(title: "Product for you"),
+                              CustomTitleHome(title: "41".tr),
                               ListItemsHome(),
                             ],
                           )
