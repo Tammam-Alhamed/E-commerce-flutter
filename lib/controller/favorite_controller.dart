@@ -37,8 +37,8 @@ class FavoriteController extends GetxController {
       // Start backend
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            title: "اشعار",
-            messageText: const Text("تم اضافة المنتج من المفضلة "));
+            title: "99".tr,
+            messageText:  Text("107".tr));
         // data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -58,8 +58,8 @@ class FavoriteController extends GetxController {
       // Start backend
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            title: "اشعار",
-            messageText: const Text("تم حذف المنتج من المفضلة "));
+            title: "99".tr,
+            messageText:  Text("117".tr));
         // data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;

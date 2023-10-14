@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 Future<bool> alertExitApp() {
   Get.defaultDialog(
-      title: "تنبيه",
+      title: "101".tr,
       titleStyle:const  TextStyle(color: AppColor.primaryColor , fontWeight: FontWeight.bold),
-      middleText: "هل تريد الخروج من التطبيق",
+      middleText: "108".tr,
       actions: [
         ElevatedButton(
             style: ButtonStyle(
@@ -15,7 +15,7 @@ Future<bool> alertExitApp() {
             onPressed: () {
               exit(0);
             },
-            child:const Text("تاكيد")),
+            child: Text("109".tr)),
         ElevatedButton(
             style: ButtonStyle(
                 backgroundColor:
@@ -23,7 +23,7 @@ Future<bool> alertExitApp() {
             onPressed: () {
               Get.back();
             },
-            child:const Text("الغاء"))
+            child: Text("110".tr))
       ]);
   return Future.value(true);
 }
