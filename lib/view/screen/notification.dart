@@ -21,7 +21,7 @@ class NotificationView extends StatelessWidget {
                      Center(
                         child: Text(
                       "45".tr,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 18,
                           color: AppColor.primaryColor,
                           fontWeight: FontWeight.bold),

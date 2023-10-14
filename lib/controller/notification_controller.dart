@@ -17,13 +17,18 @@ class NotificationController extends GetxController {
     statusRequest = StatusRequest.loading;
     var response = await notificationData
         .getData(myServices.sharedPreferences.getString("id")!);
+    var response1 = await notificationData
+        .getData("0");
+
 
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
+    statusRequest = handlingData(response1);
     if (StatusRequest.success == statusRequest) {
       // Start backend
-      if (response['status'] == "success") {
+      if (response ['status'] == "success" && response1 ['status'] == "success") {
         data.addAll(response['data']);
+        data.addAll(response1['data']);
       } else {
         statusRequest = StatusRequest.failure;
       }

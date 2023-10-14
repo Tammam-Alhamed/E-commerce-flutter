@@ -58,13 +58,13 @@ class Settings extends StatelessWidget {
                   trailing: Icon(Icons.card_travel),
                   title: Text("55".tr),
                 ),
-                ListTile(
-                  onTap: () {
-                    Get.toNamed(AppRoute.addressview);
-                  },
-                  trailing: Icon(Icons.location_on_outlined),
-                  title: Text("Address"),
-                ),
+                // ListTile(
+                //   onTap: () {
+                //     Get.toNamed(AppRoute.addressview);
+                //   },
+                //   trailing: Icon(Icons.location_on_outlined),
+                //   title: Text("Address"),
+                // ),
                 ListTile(
                   onTap: () {},
                   trailing: Icon(Icons.help_outline_rounded),

@@ -3,6 +3,7 @@
 import 'package:ecommercecourse/controller/orders/details_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -60,20 +61,21 @@ class OrdersDetails extends StatelessWidget {
                               ...List.generate(
                                   controller.data.length,
                                   (index) => TableRow(children: [
-                                        Text("${controller.data[index].itemsName}",
+                                        Text(translateDatabase(
+                                            controller.data[index].itemsNameAr, controller.data[index].itemsName ,controller.data[index].itemsNameRu),
                                             textAlign: TextAlign.center),
                                         Text("${controller.data[index].countitems}", textAlign: TextAlign.center),
                                         Text("${controller.data[index].itemsprice}",
                                             textAlign: TextAlign.center),
                                     Text(controller.data[index].itemsDelay == "0"
                                         ? ""
-                                        : controller.data[index].itemsStatus == "0"
+                                        : controller.data[index].cartStatus == "0"
                                         ? "70".tr
-                                        : controller.data[index].itemsStatus == "1"
+                                        : controller.data[index].cartStatus == "1"
                                         ? "71".tr
-                                        : controller.data[index].itemsStatus == "2"
+                                        : controller.data[index].cartStatus == "2"
                                         ? "72".tr
-                                        : controller.data[index].itemsStatus == "3"
+                                        : controller.data[index].cartStatus == "3"
                                         ? "73".tr
                                         : "55".tr,
                                         textAlign: TextAlign.center),
@@ -93,34 +95,34 @@ class OrdersDetails extends StatelessWidget {
                       ),
                     ),
                   ),
-                if (controller.ordersModel.ordersType == "0")    Card(
-                    child: Container(
-                        child: ListTile(
-                      title: const Text("Shipping Address",
-                          style: TextStyle(
-                              color: AppColor.primaryColor,
-                              fontWeight: FontWeight.bold)),
-                      subtitle: Text(
-                          "${controller.ordersModel.addressCity} ${controller.ordersModel.addressStreet}"),
-                    )),
-                  ),
-              if (controller.ordersModel.ordersType == "0")    Card(
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      height: 300,
-                      width: double.infinity,
-                      child: GoogleMap(
-                        mapType: MapType.normal,
-                        markers: controller.markers.toSet(),
-                        initialCameraPosition: controller.cameraPosition!,
-                        onMapCreated: (GoogleMapController controllermap) {
-                          controller.completercontroller!
-                              .complete(controllermap);
-                        },
-                      ),
-                    ),
-                  )
+              //   if (controller.ordersModel.ordersType == "0")    Card(
+              //       child: Container(
+              //           child: ListTile(
+              //         title: const Text("Shipping Address",
+              //             style: TextStyle(
+              //                 color: AppColor.primaryColor,
+              //                 fontWeight: FontWeight.bold)),
+              //         subtitle: Text(
+              //             "${controller.ordersModel.addressCity} ${controller.ordersModel.addressStreet}"),
+              //       )),
+              //     ),
+              // if (controller.ordersModel.ordersType == "0")    Card(
+              //       child: Container(
+              //         padding:
+              //             EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              //         height: 300,
+              //         width: double.infinity,
+              //         child: GoogleMap(
+              //           mapType: MapType.normal,
+              //           markers: controller.markers.toSet(),
+              //           initialCameraPosition: controller.cameraPosition!,
+              //           onMapCreated: (GoogleMapController controllermap) {
+              //             controller.completercontroller!
+              //                 .complete(controllermap);
+              //           },
+              //         ),
+              //       ),
+              //     )
                 ])))),
       ),
     );

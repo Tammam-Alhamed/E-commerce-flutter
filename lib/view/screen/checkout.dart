@@ -108,7 +108,7 @@ class Checkout extends StatelessWidget {
                           children: [
                              Text(
                               "80".tr,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: AppColor.secondColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16),
@@ -116,19 +116,19 @@ class Checkout extends StatelessWidget {
                             const SizedBox(height: 10),
                             ...List.generate(
                               controller.dataaddress.length,
-                              (index) => InkWell(
+                                  (index) => InkWell(
                                 onTap: () {
                                   controller.chooseShippingAddress(
                                       controller.dataaddress[index].addressId!);
                                 },
                                 child: CardShppingAddressCheckout(
                                     title:
-                                        "${controller.dataaddress[index].addressName}",
+                                    "${controller.dataaddress[index].addressName}",
                                     body:
-                                        "${controller.dataaddress[index].addressCity} ${controller.dataaddress[index].addressStreet}",
+                                    "${controller.dataaddress[index].addressCity} ${controller.dataaddress[index].addressStreet}",
                                     isactive: controller.addressid ==
-                                            controller
-                                                .dataaddress[index].addressId
+                                        controller
+                                            .dataaddress[index].addressId
                                         ? true
                                         : false),
                               ),

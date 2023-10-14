@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -12,5 +14,6 @@ class SettingsController extends GetxController {
     FirebaseMessaging.instance.unsubscribeFromTopic("users${userid}");
     myServices.sharedPreferences.clear();
     Get.offAllNamed(AppRoute.login);
+    exit(0);
   }
 }

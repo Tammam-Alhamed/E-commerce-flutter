@@ -56,7 +56,7 @@ class Categories extends GetView<ItemsControllerImp> {
                                     width: 3, color: AppColor.primaryColor)))
                         : null,
                     child: Text(
-                      "${translateDatabase(categoriesModel.categoriesNamaAr, categoriesModel.categoriesName)}",
+                      "${translateDatabase(categoriesModel.categoriesNamaAr, categoriesModel.categoriesName , categoriesModel.categoriesNamaRu)}",
                       style:
                           const TextStyle(fontSize: 20, color: AppColor.grey2),
                     ),

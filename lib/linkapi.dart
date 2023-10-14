@@ -7,6 +7,7 @@ class AppLink {
   static const String imagestCategories = "$imageststatic/categories";
   static const String imagestShopes = "$imageststatic/shopes";
   static const String imagestItems = "$imageststatic/items";
+  static const String imagestSlides = "$imageststatic/slides";
 // =============================================================
 //
   static const String test = "$server/test.php";
@@ -72,5 +73,9 @@ class AppLink {
   static const String ordersarchive  = "$server/orders/archive.php";
   static const String ordersdetails  = "$server/orders/details.php";
   static const String ordersdelete  = "$server/orders/delete.php";
+
+// slides
+
+
 
 }

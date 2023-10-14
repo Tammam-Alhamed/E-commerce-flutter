@@ -41,7 +41,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                       const SizedBox(height: 5),
                       Text(
                           translateDatabase(
-                              itemsModel.itemsNameAr, itemsModel.itemsName),
+                              itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
                           style: const TextStyle(
                               color: AppColor.black,
                               fontSize: 16,

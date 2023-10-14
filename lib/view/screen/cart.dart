@@ -2,6 +2,7 @@
 import 'package:ecommercecourse/controller/cart_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/view/widget/cart/custom_bottom_navgationbar_cart.dart';
 import 'package:ecommercecourse/view/widget/cart/customitemscartlist.dart';
 import 'package:ecommercecourse/view/widget/cart/topcardCart.dart';
@@ -56,7 +57,8 @@ class Cart extends StatelessWidget {
                                 },
                                 imagename:
                                     "${cartController.data[index].itemsImage}",
-                                name: "${cartController.data[index].itemsName}",
+                                name:translateDatabase(
+                                    cartController.data[index].itemsNameAr, cartController.data[index].itemsName ,cartController.data[index].itemsNameRu),
                                 price:
                                     "${cartController.data[index].itemsprice}  ${"59".tr}",
                                 count:

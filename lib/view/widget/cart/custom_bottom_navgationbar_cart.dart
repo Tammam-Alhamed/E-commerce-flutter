@@ -87,17 +87,7 @@ class BottomNavgationBarCart extends GetView<CartController> {
                     child: Text("$discount ", style: TextStyle(fontSize: 16)))
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("shipping", style: TextStyle(fontSize: 16))),
-                Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("$shipping ", style: TextStyle(fontSize: 16)))
-              ],
-            ),
+
             Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
