@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
+import 'package:ecommercecourse/data/model/slidesmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
 import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
 import 'package:ecommercecourse/view/widget/home/slide.dart';
@@ -23,11 +24,11 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
     int index =0;
 
     var myitems =[ ListView.builder(
-        itemCount: controller.items.length,
+        itemCount: controller.slides.length,
         // scrollDirection: Axis.horizontal,
         itemBuilder: (context, i) {
           return  Home(
-              itemsModel: ItemsModel.fromJson(controller.items[i]));})];
+              slidesModel: slidesmodel.fromJson(controller.slides[i]));})];
 
 
 
@@ -41,7 +42,7 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
         child: Column(
 
           children: [
-            CarouselSlider.builder(itemCount:controller.items.length, itemBuilder: (BuildContext context, int index, int realIndex) {
+            CarouselSlider.builder(itemCount:controller.slides.length, itemBuilder: (BuildContext context, int index, int realIndex) {
               return Container(
                 //  decoration: BoxDecoration(
                 // color: AppColor.black.withOpacity(0.3),
@@ -49,7 +50,7 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
                   height: 120,
                   width: 200,
                   child: Home(
-                      itemsModel: ItemsModel.fromJson(controller.items[index])));
+                      slidesModel: slidesmodel.fromJson(controller.slides[index])));
             } ,
 
                 options: CarouselOptions(

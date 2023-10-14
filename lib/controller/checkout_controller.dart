@@ -8,7 +8,7 @@ import 'package:ecommercecourse/data/model/addressmodel.dart';
 import 'package:get/get.dart';
 
 class CheckoutController extends GetxController {
-  // AddressData addressData = Get.put(AddressData(Get.find()));
+  AddressData addressData = Get.put(AddressData(Get.find()));
   CheckoutData checkoutData = Get.put(CheckoutData(Get.find()));
 
   MyServices myServices = Get.find();
@@ -17,13 +17,13 @@ class CheckoutController extends GetxController {
 
   String? paymentMethod;
   String? deliveryType;
-  // String addressid = "0";
+  String addressid = "0";
 
   late String couponid;
   late String coupondiscount;
   late String priceorders;
 
-  List dataaddress = [1];
+  List<AddressModel> dataaddress = [];
 
   choosePaymentMethod(String val) {
     paymentMethod = val;
@@ -35,33 +35,33 @@ class CheckoutController extends GetxController {
     update();
   }
 
-  // chooseShippingAddress(String val) {
-  //   addressid = val;
-  //   update();
-  // }
+  chooseShippingAddress(String val) {
+    addressid = val;
+    update();
+  }
 
-  // getShippingAddress() async {
-  //   statusRequest = StatusRequest.loading;
-  //
-  //   var response = await addressData
-  //       .getData(myServices.sharedPreferences.getString("id")!);
-  //
-  //   print("=============================== Controller $response ");
-  //
-  //   statusRequest = handlingData(response);
-  //
-  //   if (StatusRequest.success == statusRequest) {
-  //     // Start backend
-  //     if (response['status'] == "success") {
-  //       List listdata = response['data'];
-  //       dataaddress.addAll(listdata.map((e) => AddressModel.fromJson(e)));
-  //     } else {
-  //       statusRequest = StatusRequest.success;
-  //     }
-  //     // End
-  //   }
-  //   update();
-  // }
+  getShippingAddress() async {
+    statusRequest = StatusRequest.loading;
+
+    var response = await addressData
+        .getData(myServices.sharedPreferences.getString("id")!);
+
+    print("=============================== Controller $response ");
+
+    statusRequest = handlingData(response);
+
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        List listdata = response['data'];
+        dataaddress.addAll(listdata.map((e) => AddressModel.fromJson(e)));
+      } else {
+        statusRequest = StatusRequest.success;
+      }
+      // End
+    }
+    update();
+  }
 
   checkout() async {
     if (paymentMethod == null) {
@@ -77,7 +77,7 @@ class CheckoutController extends GetxController {
 
     Map data = {
       "usersid": myServices.sharedPreferences.getString("id"),
-      // "addressid": myServices.sharedPreferences.getString("id"),
+      "addressid": addressid,
       "orderstype": deliveryType.toString(),
       "pricedelivery": "0",
       "ordersprice": priceorders,
@@ -112,7 +112,7 @@ class CheckoutController extends GetxController {
     priceorders = Get.arguments['priceorder'];
     coupondiscount = Get.arguments['discountcoupon'].toString();
 
-    // getShippingAddress();
+    getShippingAddress();
     super.onInit();
   }
 }

@@ -18,10 +18,10 @@ class NotificationView extends StatelessWidget {
               widget: Container(
                   padding: const EdgeInsets.all(10),
                   child: ListView(children: [
-                    const Center(
+                     Center(
                         child: Text(
-                      "Notification",
-                      style: TextStyle(
+                      "45".tr,
+                      style: const TextStyle(
                           fontSize: 18,
                           color: AppColor.primaryColor,
                           fontWeight: FontWeight.bold),

@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class PriceAndCountItems extends StatelessWidget {
   final void Function()? onAdd;
@@ -37,7 +38,7 @@ class PriceAndCountItems extends StatelessWidget {
         ),
         const Spacer(),
         Text(
-          "$price \$",
+          "$price ${"59".tr}",
           style: const TextStyle(
               color: AppColor.primaryColor, fontSize: 30, height: 1.1),
         )

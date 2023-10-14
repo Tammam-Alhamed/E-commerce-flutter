@@ -16,7 +16,7 @@ class OrdersDetails extends StatelessWidget {
     OrdersDetailsController controller = Get.put(OrdersDetailsController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Orders Details'),
+        title:  Text('66'.tr),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -32,22 +32,22 @@ class OrdersDetails extends StatelessWidget {
                           Table(
                             children: [
                               TableRow(children: [
-                                Text("Item",
+                                Text("67".tr,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: AppColor.primaryColor,
                                         fontWeight: FontWeight.bold)),
-                                Text("QTY",
+                                Text("68".tr,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: AppColor.primaryColor,
                                         fontWeight: FontWeight.bold)),
-                                Text("Price",
+                                Text("50".tr,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: AppColor.primaryColor,
                                         fontWeight: FontWeight.bold)),
-                                Text("status",
+                                Text("69".tr,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: AppColor.primaryColor,
@@ -69,15 +69,15 @@ class OrdersDetails extends StatelessWidget {
                                             textAlign: TextAlign.center),
                                     Text(controller.data[index].itemsDelay == "0"
                                         ? ""
-                                        : controller.data[index].itemsStatus == "0"
-                                        ? "panding"
-                                        : controller.data[index].itemsStatus == "1"
-                                        ? "with agint"
-                                        : controller.data[index].itemsStatus == "2"
-                                        ? "on the way"
-                                        : controller.data[index].itemsStatus == "3"
-                                        ? "done"
-                                        : "archive",
+                                        : controller.data[index].cartStatus == "0"
+                                        ? "70".tr
+                                        : controller.data[index].cartStatus == "1"
+                                        ? "71".tr
+                                        : controller.data[index].cartStatus == "2"
+                                        ? "72".tr
+                                        : controller.data[index].cartStatus == "3"
+                                        ? "73".tr
+                                        : "55".tr,
                                         textAlign: TextAlign.center),
                                       ]))
                             ],
@@ -85,7 +85,7 @@ class OrdersDetails extends StatelessWidget {
                           SizedBox(height: 10),
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 10),
-                            child:   Text("Total Price : ${controller.ordersModel.ordersTotalprice}\$",
+                            child:   Text("${"52".tr} : ${controller.ordersModel.ordersTotalprice} ${"59".tr}",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     color: AppColor.primaryColor,
