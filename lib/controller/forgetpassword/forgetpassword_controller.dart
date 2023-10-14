@@ -34,7 +34,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
             "email" : email.text
           });
         } else {
-          Get.defaultDialog(title: "ُWarning" , middleText: "Email Not Found"); 
+          Get.defaultDialog(title: "90".tr , middleText: "94".tr);
           statusRequest = StatusRequest.failure;
         }
       }

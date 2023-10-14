@@ -17,15 +17,15 @@ class OrdersArchiveController extends GetxController {
 
   String printOrderType(String val) {
     if (val == "0") {
-      return "delivery";
+      return "88".tr;
     } else {
-      return "Recive";
+      return "79".tr;
     }
   }
 
   String printPaymentMethod(String val) {
     if (val == "0") {
-      return "Cash On Delivery";
+      return "76".tr;
     } else {
       return "Payment Card";
     }
@@ -33,15 +33,15 @@ class OrdersArchiveController extends GetxController {
 
   String printOrderStatus(String val) {
     if (val == "0") {
-      return "Pending Approval";
+      return "70".tr;
     } else if (val == "1") {
-      return "The Order is being Prepared ";
+      return "71 ".tr;
     } else if (val == "2") {
-      return "Ready To Picked up by Delivery man";
+      return "89".tr;
     }  else if (val == "3") {
-      return "On The Way";
+      return "72".tr;
     } else {
-      return "Archive";
+      return "55".tr;
     }
   }
 

@@ -31,8 +31,8 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
         Get.offNamed(AppRoute.successSignUp);
       } else {
         Get.defaultDialog(
-            title: "ُWarning",
-            middleText: "Verify Code Not Correct");
+            title: "90".tr,
+            middleText: "93".tr);
         statusRequest = StatusRequest.failure;
       }
     }
