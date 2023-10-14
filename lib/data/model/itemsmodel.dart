@@ -67,8 +67,8 @@ class ItemsModel {
     itemsPriceDiscount = json['itemspricedisount'];
     categoriesId = json['categories_id'];
     categoriesName = json['categories_name'];
-    categoriesNamaAr = json['categories_nama_ar'];
-    categoriesNamaRu = json['categories_nama_ru'];
+    categoriesNamaAr = json['categories_name_ar'];
+    categoriesNamaRu = json['categories_name_ru'];
     categoriesImage = json['categories_image'];
     categoriesDatetime = json['categories_datetime'];
     favorite = json['favorite'];
@@ -93,8 +93,8 @@ class ItemsModel {
     data['items_status'] = this.itemsStatus;
     data['categories_id'] = this.categoriesId;
     data['categories_name'] = this.categoriesName;
-    data['categories_nama_ar'] = this.categoriesNamaAr;
-    data['categories_nama_ru'] = this.categoriesNamaRu;
+    data['categories_name_ar'] = this.categoriesNamaAr;
+    data['categories_name_ru'] = this.categoriesNamaRu;
     data['categories_image'] = this.categoriesImage;
     data['categories_datetime'] = this.categoriesDatetime;
     return data;

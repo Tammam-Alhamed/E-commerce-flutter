@@ -48,7 +48,7 @@ class ProductDetails extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(translateDatabase(
-                                  controller.itemsModel.categoriesNamaAr, controller.itemsModel.itemsName ,controller.itemsModel.itemsNameRu),
+                                  controller.itemsModel.itemsNameAr, controller.itemsModel.itemsName ,controller.itemsModel.itemsNameRu),
                                   style: Theme.of(context)
                                       .textTheme
                                       .headline1!
