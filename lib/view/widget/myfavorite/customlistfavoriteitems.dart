@@ -29,13 +29,15 @@ class CustomListFavoriteItems1 extends GetView<ItemsControllerImp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Hero(
-                        tag: "${itemsModel.itemsId}",
-                        child: CachedNetworkImage(
-                          imageUrl:
-                          AppLink.imagestItems + "/" + itemsModel.itemsImage!,
-                          height: 100,
-                          fit: BoxFit.fill,
+                      Flexible(
+                        child: Hero(
+                          tag: "${itemsModel.itemsId}",
+                          child: CachedNetworkImage(
+                            imageUrl:
+                            AppLink.imagestItems + "/" + itemsModel.itemsImage!,
+                            height: 100,
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -66,37 +68,39 @@ class CustomListFavoriteItems1 extends GetView<ItemsControllerImp> {
                           )
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("${itemsModel.itemsPriceDiscount} \$",
-                              style: const TextStyle(
-                                  color: AppColor.primaryColor,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "sans")),
-                          GetBuilder<FavoriteController>(
-                              builder: (controller) => IconButton(
-                                  onPressed: () {
-                                    if (controller.isFavorite[itemsModel.itemsId] ==
-                                        "1") {
-                                      controller.setFavorite(
-                                          itemsModel.itemsId, "0");
-                                      controller
-                                          .removeFavorite(itemsModel.itemsId!);
-                                    } else {
-                                      controller.setFavorite(
-                                          itemsModel.itemsId, "1");
-                                      controller.addFavorite(itemsModel.itemsId!);
-                                    }
-                                  },
-                                  icon: Icon(
-                                    controller.isFavorite[itemsModel.itemsId] == "1"
-                                        ? Icons.favorite
-                                        : Icons.favorite_border_outlined,
+                      Flexible(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("${itemsModel.itemsPriceDiscount}  ${"59".tr}",
+                                style: const TextStyle(
                                     color: AppColor.primaryColor,
-                                  )))
-                        ],
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "sans")),
+                            GetBuilder<FavoriteController>(
+                                builder: (controller) => IconButton(
+                                    onPressed: () {
+                                      if (controller.isFavorite[itemsModel.itemsId] ==
+                                          "1") {
+                                        controller.setFavorite(
+                                            itemsModel.itemsId, "0");
+                                        controller
+                                            .removeFavorite(itemsModel.itemsId!);
+                                      } else {
+                                        controller.setFavorite(
+                                            itemsModel.itemsId, "1");
+                                        controller.addFavorite(itemsModel.itemsId!);
+                                      }
+                                    },
+                                    icon: Icon(
+                                      controller.isFavorite[itemsModel.itemsId] == "1"
+                                          ? Icons.favorite
+                                          : Icons.favorite_border_outlined,
+                                      color: AppColor.primaryColor,
+                                    )))
+                          ],
+                        ),
                       )
                     ]),
               ),

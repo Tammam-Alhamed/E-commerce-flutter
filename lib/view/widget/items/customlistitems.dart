@@ -26,16 +26,19 @@ class CustomListItems extends GetView<ItemsControllerImp> {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
+                  
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Hero(
-                        tag: "${itemsModel.itemsId}",
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              AppLink.imagestItems + "/" + itemsModel.itemsImage!,
-                          height: 100,
-                          fit: BoxFit.fill,
+                      Flexible(
+                        child: Hero(
+                          tag: "${itemsModel.itemsId}",
+                          child: CachedNetworkImage(
+                            imageUrl:
+                                AppLink.imagestItems + "/" + itemsModel.itemsImage!,
+                            height: 100,
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -46,35 +49,42 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                               color: AppColor.black,
                               fontSize: 16,
                               fontWeight: FontWeight.bold)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text("Rating 3.5 ", textAlign: TextAlign.center),
-                          Container(
-                            alignment: Alignment.bottomCenter,
-                            height: 22,
-                            child: Row(
-                              children: [
-                                ...List.generate(
-                                    5,
-                                    (index) => const Icon(
-                                          Icons.star,
-                                          size: 15,
-                                        ))
-                              ],
-                            ),
-                          )
-                        ],
+                      Flexible(child:Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                             Text("Rating", textAlign: TextAlign.start),
+                            Container(
+                              alignment: Alignment.bottomCenter,
+                              height: 22,
+                              child: Flexible(
+
+                                child: Row(
+                                  children: [
+                                    ...List.generate(
+                                        5,
+                                        (index) => const Icon(
+                                              Icons.star,
+                                              size: 15,
+                                            ))
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("${itemsModel.itemsPriceDiscount} \$",
-                              style: const TextStyle(
-                                  color: AppColor.primaryColor,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "sans")),
+                          Expanded(
+                            child: Text("${itemsModel.itemsPriceDiscount} ${"59".tr}",
+                                style: const TextStyle(
+                                    color: AppColor.primaryColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "sans")),
+                          ),
                           GetBuilder<FavoriteController>(
                               builder: (controller) => IconButton(
                                   onPressed: () {

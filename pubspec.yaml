@@ -85,6 +85,7 @@ dependencies:
   jiffy: ^6.2.1
   carousel_slider: ^4.2.1
   icons_plus: ^4.0.0
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:

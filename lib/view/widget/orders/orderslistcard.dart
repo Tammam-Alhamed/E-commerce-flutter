@@ -49,10 +49,12 @@ class CardOrdersList extends GetView<OrdersPendingController> {
               const Divider(),
               Row(
                 children: [
-                  Text("${"52".tr} : ${listdata.ordersTotalprice}  ${"59".tr}",
-                      style: const TextStyle(
-                          color: AppColor.primaryColor,
-                          fontWeight: FontWeight.bold)),
+                  Flexible(
+                    child: Text("${"52".tr} : ${listdata.ordersTotalprice}  ${"59".tr}",
+                        style: const TextStyle(
+                            color: AppColor.primaryColor,
+                            fontWeight: FontWeight.bold)),
+                  ),
                   const Spacer(),
                   MaterialButton(
                     onPressed: () {

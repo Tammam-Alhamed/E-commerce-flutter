@@ -35,7 +35,7 @@ class OrdersPendingController extends GetxController {
     if (val == "0") {
       return "70".tr;
     } else if (val == "1") {
-      return "71 ".tr;
+      return "71".tr;
     } else if (val == "2") {
       return "89".tr;
     }  else if (val == "3") {
