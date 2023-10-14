@@ -22,12 +22,14 @@ class HomeScreenControllerImp extends HomeScreenController {
   List<Widget> listPage = [
     const HomePage(),
     NotificationView() ,
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [Center(child:
-      Lottie.asset(AppImageAsset.offline, width: 250, height: 250),)],
-    ),
-    Settings()
+
+     Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [Center(child:
+        Lottie.asset(AppImageAsset.offline, width: 250, height: 250),)],
+      ),
+
+   Settings(),
   ];
 
   List bottomappbar = [
