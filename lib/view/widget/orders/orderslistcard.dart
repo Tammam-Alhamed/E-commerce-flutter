@@ -35,9 +35,13 @@ class CardOrdersList extends GetView<OrdersPendingController> {
               ),
               Divider(),
               Text(
+
                   "${"82".tr} : ${controller.printOrderType(listdata.ordersType!)}"),
+              // Text("Delivery Price : ${listdata.ordersPricedelivery} \$ "),
+
+
               Text("${"83".tr} : ${listdata.ordersPrice} ${"59".tr}"),
-              Text("Delivery Price : ${listdata.ordersPricedelivery}  ${"59".tr} "),
+              // Text("Delivery Price : ${listdata.ordersPricedelivery}  ${"59".tr} "),
               Text(
                   "${"84".tr}: ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
               Text(

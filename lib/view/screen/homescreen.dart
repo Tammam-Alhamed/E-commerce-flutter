@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/homescreen_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
+import 'package:ecommercecourse/core/functions/alertexitapp.dart';
 import 'package:ecommercecourse/view/widget/home/custombottomappbarhome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,8 +24,11 @@ class HomeScreen extends StatelessWidget {
 
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,
-              bottomNavigationBar:  const CustomBottomAppBarHome(),
-              body: controller.listPage.elementAt(controller.currentpage),
+
+              bottomNavigationBar: const CustomBottomAppBarHome(),
+              body: WillPopScope(onWillPop: alertExitApp ,
+              child: controller.listPage.elementAt(controller.currentpage)),
+
             ));
   }
 }

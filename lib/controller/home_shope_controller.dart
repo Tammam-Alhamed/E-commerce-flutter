@@ -29,7 +29,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   List shope = [];
   List categories = [];
   List items = [];
-  // List items = [];
+  List slides = [];
 
   @override
   initialData() {
@@ -57,6 +57,7 @@ class HomeShopeControllerImp extends HomeShopeController {
       if (response['status'] == "success") {
         shope.addAll(response['shope']['data']);
         items.addAll(response['items']['data']);
+        slides.addAll(response['slides']['data']);
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -89,7 +90,7 @@ class SearchMixController extends GetxController {
   searchData() async {
     statusRequest = StatusRequest.loading;
     var response = await homedata.searchData(search!.text);
-    print("=============================== Controller $response ");
+    // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {

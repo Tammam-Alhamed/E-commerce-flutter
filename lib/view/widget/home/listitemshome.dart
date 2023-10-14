@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/data/model/categoriesmodel.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/data/model/shopesmodel.dart';
@@ -60,7 +61,8 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
           Positioned(
               left: 10,
               child: Text(
-                "${itemsModel.itemsName}",
+    translateDatabase(
+    itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
                 style: const TextStyle(
                     color: Colors.white,
                     // fontWeight: FontWeight.bold,

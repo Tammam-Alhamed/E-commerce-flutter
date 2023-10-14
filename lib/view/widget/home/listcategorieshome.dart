@@ -60,7 +60,7 @@ class Categories extends GetView<HomeShopeControllerImp> {
                 color: AppColor.secondColor),
           ),
           Text(
-            "${translateDatabase(shopemodel.shopesNameAr, shopemodel.shopesName)}",
+            "${translateDatabase(shopemodel.shopesNameAr, shopemodel.shopesName , shopemodel.shopesNameRu)}",
             style: const TextStyle(fontSize: 13, color: AppColor.black),
           )
         ],
