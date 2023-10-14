@@ -34,7 +34,7 @@ class VerifyCodeControllerImp extends VerifyCodeController {
         });
       } else {
         Get.defaultDialog(
-            title: "ُWarning", middleText: "Verify Code Not Correct");
+            title: "90".tr, middleText: "93".tr);
         statusRequest = StatusRequest.failure;
       }
     }
