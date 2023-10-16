@@ -2,9 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
+import 'package:ecommercecourse/view/screen/othersview.dart';
 import 'package:ecommercecourse/view/screen/slideimage.dart';
 import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/home/customcardhome.dart';
@@ -46,7 +48,30 @@ class HomePage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children:  [
                               ImageSliderScreen(),
-                              CustomTitleHome(title: "40".tr),
+                              Row(
+                                children: [
+                                  CustomTitleHome(title: "40".tr),
+                                  Flexible(child:
+
+                                    Container(
+                                      //padding: const EdgeInsets.symmetric(horizontal: 100),
+                                        margin: EdgeInsets.only(right: 170),
+                                      child: MaterialButton(
+                                        color: AppColor.primaryColor,
+                                        textColor: Colors.white,
+                                         onPressed: () {
+                                           Get.bottomSheet(Container(child: OthersView(),));
+                                    },
+                                        child:Row(mainAxisAlignment: MainAxisAlignment.end,
+                                          children: [
+                                            Text("Others"),
+                                           Container(width: 4,),
+                                            Icon(Icons.format_indent_decrease),
+                                          ],
+                                        ),
+                                  )))
+                                ],
+                              ),
                               ListCategoriesHome(),
                               CustomTitleHome(title: "41".tr),
                               ListItemsHome(),
