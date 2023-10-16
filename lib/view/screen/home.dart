@@ -121,6 +121,8 @@ class ListItemsSearch extends GetView<HomeShopeControllerImp> {
                           subtitle: Text(listdatamodel[index].categoriesName!),
                         )),
                   ],
+
+
                 ),
               )),
             ),
