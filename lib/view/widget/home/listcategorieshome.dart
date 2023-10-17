@@ -13,6 +13,7 @@ class ListCategoriesHome extends GetView<HomeShopeControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+
     return SizedBox(
       height: 100,
       child: ListView.separated(
@@ -29,7 +30,6 @@ class ListCategoriesHome extends GetView<HomeShopeControllerImp> {
           );
         },
       ),
-
     );
   }
 }
