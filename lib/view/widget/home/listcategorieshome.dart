@@ -23,15 +23,18 @@ class ListCategoriesHome extends GetView<HomeShopeControllerImp> {
           return Categories(
             i: index,
             categoriesModel:
-                CategoriesModel.fromJson(controller.shope[index]),
-              shopemodel:
-              shopesmodel.fromJson(controller.shope[index]),
+            CategoriesModel.fromJson(controller.shope[index]),
+            shopemodel:
+            shopesmodel.fromJson(controller.shope[index]),
           );
         },
       ),
+
     );
   }
 }
+
+
 
 class Categories extends GetView<HomeShopeControllerImp> {
   final CategoriesModel categoriesModel;

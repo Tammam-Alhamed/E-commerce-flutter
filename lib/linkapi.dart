@@ -2,7 +2,7 @@ class AppLink {
 
 
   static const String server = "https://php-com.preview-domain.com/Bazar";
-  static const String imageststatic = "https://php-com.preview-domain.com/Bazar/upload";
+  static const String imageststatic = "https://tammam-net.preview-domain.com/Bazar_laravel/Bazar";
 //========================== Image ============================
   static const String imagestCategories = "$imageststatic/categories";
   static const String imagestShopes = "$imageststatic/shopes";
@@ -75,7 +75,4 @@ class AppLink {
   static const String ordersdelete  = "$server/orders/delete.php";
 
 // slides
-
-
-
 }

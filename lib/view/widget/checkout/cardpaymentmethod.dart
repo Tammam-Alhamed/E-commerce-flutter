@@ -18,7 +18,7 @@ class CardPaymentMethodCheckout extends StatelessWidget {
           borderRadius: BorderRadius.circular(20)),
       child: Text(title,
           style: TextStyle(
-              color: isActive == true ? Colors.white : AppColor.secondColor,
+              color: isActive == true ? Colors.blueGrey : AppColor.secondColor,
               height: 1,
               fontWeight: FontWeight.bold)),
     );

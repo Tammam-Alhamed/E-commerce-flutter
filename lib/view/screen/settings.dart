@@ -39,11 +39,11 @@ class Settings extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Card(
               child: Column(mainAxisSize: MainAxisSize.min, children: [
-                ListTile(
-                  // onTap: () {},
-                  trailing: Switch(onChanged: (val) {}, value: true),
-                  title: Text("Disable Notificatios"),
-                ),
+                // ListTile(
+                //   onTap: () {},
+                //   trailing: Switch(onChanged: (val) {}, value: true),
+                //   title: Text("Disable Notificatios"),
+                // ),
                 ListTile(
                   onTap: () {
                     Get.toNamed(AppRoute.orderspending);

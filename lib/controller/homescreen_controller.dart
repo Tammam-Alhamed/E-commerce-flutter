@@ -26,7 +26,7 @@ class HomeScreenControllerImp extends HomeScreenController {
      Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [Center(child:
-        Lottie.asset(AppImageAsset.offline, width: 250, height: 250),)],
+        Lottie.asset(AppImageAsset.soon, width: 250, height: 250),)],
       ),
 
    Settings(),
