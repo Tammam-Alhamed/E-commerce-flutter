@@ -7,8 +7,9 @@ class LogoAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-        radius: 70,
-        backgroundColor: Colors.red,
+
+        radius: 80,
+        backgroundColor: Colors.blueGrey,
         child: Padding(
           padding: const EdgeInsets.all(0), // Border radius
           child: ClipOval(

@@ -1,6 +1,6 @@
-# ecommercecourse
+# Базар
 
-Ecommerce App
+Базар
 
 ## Getting Started
 

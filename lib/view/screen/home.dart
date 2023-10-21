@@ -15,6 +15,7 @@ import 'package:ecommercecourse/view/widget/home/listcategorieshome.dart';
 import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -54,19 +55,27 @@ class HomePage extends StatelessWidget {
                                   Flexible(child:
 
                                     Container(
+                                      width: 125,
+
                                       //padding: const EdgeInsets.symmetric(horizontal: 100),
-                                        margin: EdgeInsets.only(right: 170),
+                                        margin: EdgeInsets.symmetric( horizontal: 30 ),
                                       child: MaterialButton(
-                                        color: AppColor.primaryColor,
-                                        textColor: Colors.white,
+                                        elevation: 0,
+                                        color: AppColor.backgroundcolor,
+                                        textColor: AppColor.primaryColor,
                                          onPressed: () {
                                            Get.bottomSheet(Container(child: OthersView(),));
                                     },
-                                        child:Row(mainAxisAlignment: MainAxisAlignment.end,
+                                        child:Row(mainAxisAlignment: MainAxisAlignment.start,
                                           children: [
-                                            Text("Others"),
+                                            Text(
+                                                "Others"
+                                                    ,style: TextStyle(
+                                              fontSize: 20
+                                            ),
+                                            ),
                                            Container(width: 4,),
-                                            Icon(Icons.format_indent_decrease),
+                                            Icon(FontAwesome.amazon),
                                           ],
                                         ),
                                   )))
