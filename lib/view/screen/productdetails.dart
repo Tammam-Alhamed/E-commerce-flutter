@@ -25,7 +25,7 @@ class ProductDetails extends StatelessWidget {
             child: MaterialButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
-                color: AppColor.secondColor,
+                color: AppColor.primaryColor,
                 onPressed: () {
                   Get.toNamed(AppRoute.cart);
                 },
@@ -64,7 +64,8 @@ class ProductDetails extends StatelessWidget {
                                     controller.remove();
                                   },
                                   price:
-                                      "${controller.itemsModel.itemsPriceDiscount}",
+                                      "${translateDatabase(
+                                          controller.itemsModel.itemsPrice, controller.itemsModel.itemsPriceD ,controller.itemsModel.itemsPriceD)}",
                                   count: "${controller.countitems}"),
                               const SizedBox(height: 10),
                               Text( translateDatabase(

@@ -25,24 +25,24 @@ class OrdersDetailsController extends GetxController {
 
   CameraPosition? cameraPosition;
 
-  intialData() {
-    if (ordersModel.ordersType == "0") {
-      cameraPosition = CameraPosition(
-        target: LatLng(double.parse(ordersModel.addressLat!),
-            double.parse(ordersModel.addressLong!)),
-        zoom: 12.4746,
-      );
-      markers.add(Marker(
-          markerId: MarkerId("1"),
-          position: LatLng(double.parse(ordersModel.addressLat!),
-              double.parse(ordersModel.addressLong!))));
-    }
-  }
+  // intialData() {
+  //   if (ordersModel.ordersType == "0") {
+  //     cameraPosition = CameraPosition(
+  //       target: LatLng(double.parse(ordersModel.addressLat!),
+  //           double.parse(ordersModel.addressLong!)),
+  //       zoom: 12.4746,
+  //     );
+  //     markers.add(Marker(
+  //         markerId: MarkerId("1"),
+  //         position: LatLng(double.parse(ordersModel.addressLat!),
+  //             double.parse(ordersModel.addressLong!))));
+  //   }
+  // }
 
   @override
   void onInit() {
     ordersModel = Get.arguments['ordersmodel'];
-    intialData();
+    // intialData();
     getData();
     super.onInit();
   }

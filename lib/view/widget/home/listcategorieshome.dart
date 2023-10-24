@@ -13,27 +13,28 @@ class ListCategoriesHome extends GetView<HomeShopeControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return
-        SizedBox(
-          height: 100,
-          child: ListView.separated(
-            separatorBuilder: (context, index) => const SizedBox(width: 10),
-            itemCount: controller.shope.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return Categories(
-                i: index,
-                categoriesModel:
-                    CategoriesModel.fromJson(controller.shope[index]),
-                  shopemodel:
-                  shopesmodel.fromJson(controller.shope[index]),
-              );
-            },
-          ),
 
+    return SizedBox(
+      height: 100,
+      child: ListView.separated(
+        separatorBuilder: (context, index) => const SizedBox(width: 10),
+        itemCount: controller.shope.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Categories(
+            i: index,
+            categoriesModel:
+            CategoriesModel.fromJson(controller.shope[index]),
+            shopemodel:
+            shopesmodel.fromJson(controller.shope[index]),
+          );
+        },
+      ),
     );
   }
 }
+
+
 
 class Categories extends GetView<HomeShopeControllerImp> {
   final CategoriesModel categoriesModel;

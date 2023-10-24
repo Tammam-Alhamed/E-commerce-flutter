@@ -48,7 +48,7 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
                 // color: AppColor.black.withOpacity(0.3),
                 //  borderRadius: BorderRadius.circular(20)),
                   height: 120,
-                  width: 200,
+                  width: 275,
                   child: Home(
                       slidesModel: slidesmodel.fromJson(controller.slides[index])));
             } ,
@@ -70,8 +70,3 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
 
 
 }
-
-
-
-
-

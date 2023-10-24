@@ -15,7 +15,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
       children: [
         Container(
           height: 180,
-          decoration: const BoxDecoration(color: AppColor.secondColor),
+          decoration: const BoxDecoration(color: AppColor.primaryColor),
         ),
         Positioned(
             top: 30.0,

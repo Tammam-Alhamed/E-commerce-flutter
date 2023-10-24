@@ -5,6 +5,7 @@ import 'package:ecommercecourse/view/screen/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:lottie/lottie.dart';
 
 import '../core/class/statusrequest.dart';
@@ -26,16 +27,16 @@ class HomeScreenControllerImp extends HomeScreenController {
      Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [Center(child:
-        Lottie.asset(AppImageAsset.offline, width: 250, height: 250),)],
+        Lottie.asset(AppImageAsset.soon, width: 250, height: 250),)],
       ),
 
    Settings(),
   ];
 
   List bottomappbar = [
-    {"title": "home", "icon": Icons.home},
-    {"title": "n", "icon": Icons.notifications_active_outlined},
-    {"title": "profile", "icon": Icons.person_pin_sharp},
+    {"title": "home", "icon": FontAwesome.house_user},
+    {"title": "n", "icon": FontAwesome.bell},
+    {"title": "profile", "icon": FontAwesome.arrow_trend_up},
     {"title": "settings", "icon": Icons.settings}
   ];
 

@@ -21,7 +21,7 @@ class Checkout extends StatelessWidget {
       bottomNavigationBar: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: MaterialButton(
-            color: AppColor.secondColor,
+            color: AppColor.primaryColor,
             textColor: Colors.white,
             onPressed: () {
               controller.checkout();
@@ -39,7 +39,7 @@ class Checkout extends StatelessWidget {
                        Text(
                         "75".tr,
                         style: TextStyle(
-                            color: AppColor.secondColor,
+                            color: AppColor.primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 16),
                       ),
@@ -52,7 +52,7 @@ class Checkout extends StatelessWidget {
                             title: "76".tr,
                             isActive: controller.paymentMethod == "0" // cash
                                 ? true
-                                : false),
+                                : true),
                       ),
                       const SizedBox(height: 10),
                       // InkWell(
@@ -69,7 +69,7 @@ class Checkout extends StatelessWidget {
                        Text(
                         "77".tr,
                         style: TextStyle(
-                            color: AppColor.secondColor,
+                            color: AppColor.primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 16),
                       ),
@@ -102,20 +102,20 @@ class Checkout extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 20),
-                      if (controller.deliveryType == "0")
+
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                              Text(
                               "80".tr,
                               style: const TextStyle(
-                                  color: AppColor.secondColor,
+                                  color: AppColor.primaryColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16),
                             ),
                             const SizedBox(height: 10),
                             ...List.generate(
-                              controller.dataaddress.length,
+                              1,
                                   (index) => InkWell(
                                 onTap: () {
                                   controller.chooseShippingAddress(
@@ -123,14 +123,14 @@ class Checkout extends StatelessWidget {
                                 },
                                 child: CardShppingAddressCheckout(
                                     title:
-                                    "${controller.dataaddress[index].addressName}",
+                                    "jablah",
                                     body:
-                                    "${controller.dataaddress[index].addressCity} ${controller.dataaddress[index].addressStreet}",
+                                    "bihand the school",
                                     isactive: controller.addressid ==
                                         controller
                                             .dataaddress[index].addressId
                                         ? true
-                                        : false),
+                                        : true),
                               ),
                             )
                           ],
