@@ -45,6 +45,7 @@ class ProductDetails extends StatelessWidget {
                       statusRequest: controller.statusRequest,
                       widget: Container(
                         padding: const EdgeInsets.all(20),
+
                         child: Flexible(
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,6 +92,7 @@ class ProductDetails extends StatelessWidget {
                                 // const SubitemsList()
                               ]),
                         ),
+
                       ))
                 ])));
   }

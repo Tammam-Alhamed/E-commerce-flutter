@@ -28,7 +28,7 @@ class OthersView extends GetView<LocaleController> {
 
       }else
 
-      if (await canLaunchUrl(whatsappApp)) {
+      if (await launchUrl(whatsappApp)) {
         await launchUrl(whatsappApp);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(

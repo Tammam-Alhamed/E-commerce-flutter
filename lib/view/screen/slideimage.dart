@@ -16,6 +16,10 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
   //final ItemsModel itemsModel;
 
   const ImageSliderScreen( {Key? key} ) : super(key: key);
+
+
+
+
   Widget build(BuildContext context) {
     int index =0;
 
@@ -42,6 +46,7 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
               return Container(
 
 
+
                     child: Home(
                         slidesModel: slidesmodel.fromJson(controller.slides[index])),
                   );
@@ -51,7 +56,11 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
                   /*  autoPlay: true,
                     height: 200,
 
+
                     autoPlayAnimationDuration: const Duration(milliseconds: 300)))*/
+
+
+
 
     height:200,
        disableCenter: true,
@@ -81,8 +90,3 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
 
 
 }
-
-
-
-
-

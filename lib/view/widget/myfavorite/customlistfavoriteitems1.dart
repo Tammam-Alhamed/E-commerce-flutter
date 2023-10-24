@@ -75,7 +75,8 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text("${itemsModel.itemsPrice}  ${"59".tr}",
+                        Text("${translateDatabase(
+                            itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)}  ${"59".tr}",
                             style: const TextStyle(
                                 color: AppColor.primaryColor,
                                 fontSize: 16,

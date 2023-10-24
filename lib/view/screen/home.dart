@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                               Row(
                                 children: [
                                   CustomTitleHome(title: "40".tr),
-                                  Flexible(child:
+
 
                                     Container(
                                       width: 125,
@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                                             Icon(FontAwesome.amazon),
                                           ],
                                         ),
-                                  )))
+                                  ))
                                 ],
                               ),
                               ListCategoriesHome(),

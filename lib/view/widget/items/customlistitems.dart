@@ -78,7 +78,8 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
-                            child: Text("${itemsModel.itemsPriceDiscount} ${"59".tr}",
+                            child: Text("${translateDatabase(
+                                itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)} ${"59".tr}",
                                 style: const TextStyle(
                                     color: AppColor.primaryColor,
                                     fontSize: 16,
