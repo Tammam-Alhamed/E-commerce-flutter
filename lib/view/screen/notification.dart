@@ -39,14 +39,17 @@ class NotificationView extends StatelessWidget {
                                     subtitle: Text(controller.data[index]
                                         ['notification_body']),
                                   ),
-                                  Positioned(
-                                      right: 5,
-                                      child: Text(
-                                        "${Jiffy.parse(controller.data[index]['notification_datetime'], pattern: "yyyy-MM-dd").fromNow()}",
-                                        style:const TextStyle(
-                                            color: AppColor.primaryColor,
-                                            fontWeight: FontWeight.bold),
-                                      ))
+                                  Container(
+                                      alignment:Alignment.center,
+                                    child: Positioned(
+                                        right: 5,
+                                        child: Text(
+                                          "${Jiffy.parse(controller.data[index]['notification_datetime'], pattern: "yyyy-MM-dd").fromNow()}",
+                                          style:const TextStyle(
+                                              color: AppColor.primaryColor,
+                                              fontWeight: FontWeight.bold),
+                                        )),
+                                  )
                                 ],
                               ),
                             ))

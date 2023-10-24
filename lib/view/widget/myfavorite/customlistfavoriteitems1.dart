@@ -53,7 +53,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text("Rating", textAlign: TextAlign.center),
+                        Text("Rating", textAlign: TextAlign.center),
                         Container(
                           alignment: Alignment.bottomCenter,
                           height: 22,

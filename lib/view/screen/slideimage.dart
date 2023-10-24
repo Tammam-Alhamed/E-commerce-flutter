@@ -34,28 +34,43 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
         margin: const EdgeInsets.only(top: 25),
         decoration: BoxDecoration(
 
-            borderRadius: BorderRadius.circular(20)),
+            borderRadius: BorderRadius.circular(40)),
         child: Column(
 
           children: [
             CarouselSlider.builder(itemCount:controller.slides.length, itemBuilder: (BuildContext context, int index, int realIndex) {
               return Container(
-                //  decoration: BoxDecoration(
-                // color: AppColor.black.withOpacity(0.3),
-                //  borderRadius: BorderRadius.circular(20)),
-                  height: 100,
-                  width: 280,
-                  child: Home(
-                      slidesModel: slidesmodel.fromJson(controller.slides[index])));
+
+
+                    child: Home(
+                        slidesModel: slidesmodel.fromJson(controller.slides[index])),
+                  );
             } ,
 
                 options: CarouselOptions(
-                    autoPlay: true,
+                  /*  autoPlay: true,
                     height: 200,
 
-                    autoPlayAnimationDuration: const Duration(milliseconds: 300)))
+                    autoPlayAnimationDuration: const Duration(milliseconds: 300)))*/
 
-            ,// items: myitems.map((my) => (myitems:myitems)),)
+    height:200,
+       disableCenter: true,
+    clipBehavior: Clip.hardEdge,
+    aspectRatio: 16/9,
+    viewportFraction: 0.8,
+    initialPage: 0,
+    enableInfiniteScroll: true,
+    reverse: false,
+    autoPlay: true,
+    autoPlayInterval: Duration(seconds: 3),
+    autoPlayAnimationDuration: Duration(milliseconds: 800),
+    autoPlayCurve: Curves.fastOutSlowIn,
+    enlargeCenterPage: true,
+    enlargeFactor: 0.3,
+   // onPageChanged: callbackFunction,
+    scrollDirection: Axis.horizontal,)
+
+            ) // items: myitems.map((my) => (myitems:myitems)),)
           ],
         )
 
