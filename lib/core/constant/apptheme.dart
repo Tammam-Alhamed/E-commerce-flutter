@@ -2,7 +2,7 @@ import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 ThemeData themeEnglish = ThemeData(
-  fontFamily: "PlayfairDisplay",
+  // fontFamily: "PlayfairDisplay",
   floatingActionButtonTheme:
       FloatingActionButtonThemeData(backgroundColor: AppColor.primaryColor),
   appBarTheme: AppBarTheme( 
@@ -32,7 +32,7 @@ ThemeData themeEnglish = ThemeData(
 
 
 ThemeData themeArabic = ThemeData(
-  fontFamily: "Cairo",
+  // fontFamily: "Cairo",
   floatingActionButtonTheme:
   FloatingActionButtonThemeData(backgroundColor: AppColor.primaryColor),
   appBarTheme: AppBarTheme(
@@ -62,7 +62,7 @@ ThemeData themeArabic = ThemeData(
 );
 
   ThemeData themeRussia = ThemeData(
-fontFamily: "PlayfairDisplay",
+// fontFamily: "PlayfairDisplay",
 floatingActionButtonTheme:
 FloatingActionButtonThemeData(backgroundColor: AppColor.primaryColor),
 appBarTheme: AppBarTheme(
