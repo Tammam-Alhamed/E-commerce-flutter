@@ -1,6 +1,7 @@
 
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/view/widget/productdetails/toppageproductdetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,10 +10,9 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../../../controller/items_controller.dart';
 
 
-class Sliderdetails extends GetView<ItemsControllerImp> {
+class Sliderdetails extends GetView<HomeShopeControllerImp> {
   @override
   Widget build(BuildContext context) {
-
     return Container(
         height: 250,
         margin: const EdgeInsets.only(top: 25),
@@ -22,7 +22,8 @@ class Sliderdetails extends GetView<ItemsControllerImp> {
         child: Column(
 
           children: [
-            CarouselSlider.builder(itemCount:controller.data.length, itemBuilder: (BuildContext context, int index, int realIndex) {
+            CarouselSlider.builder(
+                itemCount:controller.items.length, itemBuilder: (BuildContext context, int index, int realIndex) {
               return Container(
 
                 child:TopProductPageDetails(),

@@ -1,8 +1,8 @@
 class AppLink {
 
 
-  static const String server = "https://php-com.preview-domain.com/Bazar";
-  static const String imageststatic = "https://tammam-net.preview-domain.com/Bazar_laravel/Bazar";
+  static const String server = "https://xn--php--83daf3c0e-com.preview-domain.com/Bazar";
+  static const String imageststatic = "https://xn----7sbababd9be0gf.com/Bazar_laravel/Bazar";
 //========================== Image ============================
   static const String imagestCategories = "$imageststatic/categories";
   static const String imagestShopes = "$imageststatic/shopes";

@@ -1,12 +1,11 @@
+import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/view/widget/productdetails/priceandcount.dart';
-import 'package:ecommercecourse/view/widget/productdetails/toppageproductdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../core/functions/translatefatabase.dart';
 import '../widget/productdetails/slidedetails.dart';
 
@@ -18,7 +17,8 @@ class ProductDetails extends StatelessWidget {
 
     ProductDetailsControllerImp controller =
         Get.put(ProductDetailsControllerImp());
-        
+
+
     return Scaffold(
         bottomNavigationBar: Container(
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
