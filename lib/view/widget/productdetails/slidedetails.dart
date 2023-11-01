@@ -1,7 +1,6 @@
-
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
+import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/view/widget/productdetails/toppageproductdetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -26,8 +25,8 @@ class Sliderdetails extends GetView<HomeShopeControllerImp> {
                 itemCount:controller.items.length, itemBuilder: (BuildContext context, int index, int realIndex) {
               return Container(
 
-                child:TopProductPageDetails(),
-              );
+                child:TopProductPageDetails(itemsModel: ItemsModel.fromJson(controller.data[index])
+              ));
             } ,
 
                 options: CarouselOptions(

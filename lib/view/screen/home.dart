@@ -14,6 +14,7 @@ import 'package:ecommercecourse/view/widget/home/customtitlehome.dart';
 import 'package:ecommercecourse/view/widget/home/listcategorieshome.dart';
 import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -52,33 +53,8 @@ class HomePage extends StatelessWidget {
                               Row(
                                 children: [
                                   CustomTitleHome(title: "40".tr),
+                                  OthersView(),
 
-
-                                    Container(
-                                      width: 125,
-
-                                      //padding: const EdgeInsets.symmetric(horizontal: 100),
-                                        margin: EdgeInsets.symmetric( horizontal: 30 ),
-                                      child: MaterialButton(
-                                        elevation: 0,
-                                        color: AppColor.backgroundcolor,
-                                        textColor: AppColor.primaryColor,
-                                         onPressed: () {
-                                           Get.bottomSheet(Container(child: OthersView(),));
-                                    },
-                                        child:Row(mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                                "Others"
-                                                    ,style: TextStyle(
-                                              fontSize: 20
-                                            ),
-                                            ),
-                                           Container(width: 4,),
-                                            Icon(FontAwesome.amazon),
-                                          ],
-                                        ),
-                                  ))
                                 ],
                               ),
                               ListCategoriesHome(),
