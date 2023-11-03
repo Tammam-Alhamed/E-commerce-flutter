@@ -34,6 +34,7 @@ class AppLink {
   static const String homepage = "$server/home.php";
 // items
   static const String items = "$server/items/items.php";
+  static const String itemsImages = "$server/items/images.php";
   static const String searchitems = "$server/items/search.php";
 
  //Checkout
