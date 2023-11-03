@@ -41,13 +41,15 @@ class _CircleColorRowState extends State<CircleColorRow> {
       children: List.generate(
         controller.colors.length,
             (index) {
+              var i=controller.colors[index]['colors_id'];
           return InkWell(
             onTap: () {
               setState(() {
                 currentTab = index;
-             var i=controller.colors[index]['colors_id'];
-             print(i);
+
+
               });
+              controller.color(i);
             },
             child: Container(
                 alignment:Alignment.center,

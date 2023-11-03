@@ -4,9 +4,15 @@ import 'package:ecommercecourse/linkapi.dart';
 class CartData {
   Crud crud;
   CartData(this.crud);
-  addCart(String usersid, String itemsid) async {
+  addCart(String usersid, String itemsid ) async {
     var response = await crud
         .postData(AppLink.cartadd, {"usersid": usersid, "itemsid": itemsid});
+    return response.fold((l) => l, (r) => r);
+  }
+
+  addColor(String usersid, String itemsid ,String color) async {
+    var response = await crud
+        .postData(AppLink.cartadd, {"usersid": usersid, "itemsid": itemsid ,"color": color});
     return response.fold((l) => l, (r) => r);
   }
 

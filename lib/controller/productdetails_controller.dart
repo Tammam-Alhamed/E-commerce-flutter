@@ -101,13 +101,33 @@ List colors =[];
     update();
   }
 
-  List subitems = [
-    {"name": "red", "id": 1, "active": '0'},
-    {"name": "yallow", "id": 2, "active": '0'},
-    {"name": "black", "id": 3, "active": '1'}
-  ];
+   addcolor(String itemsid , String color) async {
+     statusRequest = StatusRequest.loading;
+     update();
+     var response = await cartData.addColor(
+         myServices.sharedPreferences.getString("id")!, itemsid , color);
+     print("=============================== Controller $response ");
+     statusRequest = handlingData(response);
+     if (StatusRequest.success == statusRequest) {
+       // Start backend
+       if (response['status'] == "success") {
+         // data.addAll(response['data']);
+       } else {
+         statusRequest = StatusRequest.failure;
+       }
+       // End
+     }
+     update();
+   }
 
-  add() {
+   color(color) {
+     addcolor(itemsModel.itemsId! , color);
+     countitems++;
+     update();
+   }
+
+
+   add() {
     addItems(itemsModel.itemsId!);
     countitems++;
     update();
