@@ -2,6 +2,8 @@ import 'package:ecommercecourse/core/class/statusrequest.dart';
 import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/cart_data.dart';
+import 'package:ecommercecourse/data/datasource/remote/items_images.dart';
+import 'package:ecommercecourse/data/model/item_imagsmodel.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +16,6 @@ class ProductDetailsControllerImp extends ProductDetailsController {
    late ItemsModel itemsModel;
 
   CartData cartData = CartData(Get.find());
-
   late StatusRequest statusRequest;
 
   MyServices myServices = Get.find();
@@ -121,4 +122,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     intialData();
     super.onInit();
   }
+
+
+
 }

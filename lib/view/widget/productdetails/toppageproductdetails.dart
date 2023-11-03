@@ -1,14 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_image_viewer/easy_image_viewer.dart';
+import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/data/model/item_imagsmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
-class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
-  final ItemsModel itemsModel;
-  const TopProductPageDetails({Key? key, required this.itemsModel}) : super(key: key);
+class TopProductPageDetails extends GetView<ItemsControllerImp> {
+  final ImagesModel imagesModel;
+  const TopProductPageDetails({Key? key, required this.imagesModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +42,17 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
     child: Stack(children: <Widget>[InkResponse(
               onTap: () async {
                 final imageProvider =
-                    Image.network("${AppLink.imagestItems}/${controller.itemsModel.itemsImage!}").image;
+                    Image.network("${AppLink.imagestItems}/${imagesModel.imagesName}").image;
                 showImageViewer(context, imageProvider,
                     onViewerDismissed: () {
                       print("dismissed");
                     });
               },
               child: Hero(
-                tag: "${controller.itemsModel.itemsId}",
+                tag: "${imagesModel.imagesItems}",
                 child: CachedNetworkImage(
                   imageUrl:
-                      "${AppLink.imagestItems}/${controller.itemsModel.itemsImage!}",
+                      "${AppLink.imagestItems}/${imagesModel.imagesName!}",
                   height: 200,
 
                   fit: BoxFit.fill,
