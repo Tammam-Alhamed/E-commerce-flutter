@@ -50,7 +50,6 @@ class ProductDetails extends StatelessWidget {
                       widget: Container(
                         padding: const EdgeInsets.all(20),
 
-                        child: Flexible(
                           child: Column(
                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -138,7 +137,7 @@ class ProductDetails extends StatelessWidget {
                                 // const SizedBox(height: 10),
                                 // const SubitemsList()
                               ]),
-                        ),
+
 
                       ))
                 ])));
