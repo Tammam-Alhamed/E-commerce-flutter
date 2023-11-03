@@ -1,8 +1,7 @@
-
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommercecourse/controller/productdetails_controller.dart';
-import 'package:ecommercecourse/data/model/item_imagsmodel.dart';
+import 'package:ecommercecourse/data/model/itemsimagesmodel.dart';
+
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/view/widget/productdetails/toppageproductdetails.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,24 +11,26 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../../../controller/items_controller.dart';
 
 
-class Sliderdetails extends GetView<ItemsControllerImp> {
+class Sliderdetails extends GetView<ProductDetailsControllerImp> {
   @override
   Widget build(BuildContext context) {
-    print(controller.data.length);
+
     return Container(
         height: 250,
-        margin: const EdgeInsets.only(top: 25),
+        margin: const EdgeInsets.only(top: 15),
         decoration: BoxDecoration(
 
             borderRadius: BorderRadius.circular(40)),
         child: Column(
 
           children: [
-            CarouselSlider.builder(itemCount:controller.image.length, itemBuilder: (BuildContext context, int index, int realIndex) {
+
+            CarouselSlider.builder(
+                itemCount:controller.images.length, itemBuilder: (BuildContext context, int index, int realIndex) {
               return Container(
 
-                child:TopProductPageDetails(imagesModel: ImagesModel.fromJson(controller.image[index])
-              ));
+                child:TopProductPageDetails(imagesModel: ImagesModel.fromJson(controller.images[index])));
+
             } ,
 
                 options: CarouselOptions(
@@ -41,14 +42,14 @@ class Sliderdetails extends GetView<ItemsControllerImp> {
                   height:250,
                   disableCenter: true,
                   clipBehavior: Clip.hardEdge,
-                  aspectRatio: 16/9,
-                  viewportFraction: 0.8,
+                  aspectRatio: 16/7,
+                  viewportFraction: 0.9,
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   reverse: false,
                   autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3),
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  autoPlayInterval: Duration(seconds: 4),
+                  autoPlayAnimationDuration: Duration(milliseconds:2000),
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enlargeCenterPage: true,
                   enlargeFactor: 0.3,

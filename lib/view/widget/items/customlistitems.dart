@@ -18,6 +18,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
+          print("==============================");
           controller.goToPageProductDetails(itemsModel);
         },
         child: Card(
@@ -30,17 +31,14 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Flexible(
-                        child: Hero(
-                          tag: "${itemsModel.itemsId}",
-                          child: CachedNetworkImage(
+
+                           CachedNetworkImage(
                             imageUrl:
                                 AppLink.imagestItems + "/" + itemsModel.itemsImage!,
                             height: 100,
                             fit: BoxFit.fill,
                           ),
-                        ),
-                      ),
+
                       const SizedBox(height: 5),
                       Text(
                           translateDatabase(
@@ -49,14 +47,14 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                               color: AppColor.black,
                               fontSize: 16,
                               fontWeight: FontWeight.bold)),
-                      Flexible(child:Row(
+                      Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                              Text("Rating", textAlign: TextAlign.start),
                             Container(
                               alignment: Alignment.bottomCenter,
                               height: 22,
-                              child: Flexible(
+
 
                                 child: Row(
                                   children: [
@@ -68,11 +66,11 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                             ))
                                   ],
                                 ),
-                              ),
+
                             )
                           ],
                         ),
-                      ),
+
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,

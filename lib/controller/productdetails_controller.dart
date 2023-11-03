@@ -2,8 +2,7 @@ import 'package:ecommercecourse/core/class/statusrequest.dart';
 import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/cart_data.dart';
-import 'package:ecommercecourse/data/datasource/remote/items_images.dart';
-import 'package:ecommercecourse/data/model/item_imagsmodel.dart';
+
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,15 +14,18 @@ class ProductDetailsControllerImp extends ProductDetailsController {
 
    late ItemsModel itemsModel;
 
+
   CartData cartData = CartData(Get.find());
   late StatusRequest statusRequest;
 
   MyServices myServices = Get.find();
 
   int countitems = 0;
+  List images = [];
+List colors =[];
 
   intialData() async {
-    statusRequest = StatusRequest.loading;
+    statusRequest =  StatusRequest.loading;
     itemsModel = Get.arguments['itemsmodel'];
     countitems = await getCountItems(itemsModel.itemsId!);
     statusRequest = StatusRequest.success;
@@ -43,6 +45,8 @@ class ProductDetailsControllerImp extends ProductDetailsController {
         countitems = int.parse(response['data']);
         print("==================================");
         print("$countitems");
+        images.addAll(response['images']['data']);
+        colors.addAll(response['colors']['data']);
         return countitems;
         // data.addAll(response['data']);
       } else {

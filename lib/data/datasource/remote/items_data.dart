@@ -8,4 +8,14 @@ class ItemsData {
     var response = await crud.postData(AppLink.items, {"id" : id.toString() , "usersid" : userid});
     return response.fold((l) => l, (r) => r);
   }
+
+  getDataImages( String itemsid) async {
+    var response = await crud.postData(AppLink.itemsImages, { "itemsid" : itemsid});
+    return response.fold((l) => l, (r) => r);
+  }
+
+
+
+
+
 }

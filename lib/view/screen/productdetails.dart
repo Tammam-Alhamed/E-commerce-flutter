@@ -9,7 +9,6 @@ import 'package:ecommercecourse/view/widget/productdetails/size_size.dart';
 import 'package:ecommercecourse/view/widget/productdetails/toppageproductdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../core/functions/translatefatabase.dart';
 import '../widget/productdetails/slidedetails.dart';
 
@@ -21,6 +20,7 @@ class ProductDetails extends StatelessWidget {
 
     ProductDetailsControllerImp controllerImp =
         Get.put(ProductDetailsControllerImp());
+
 
     bool i=true;
     return Scaffold(
@@ -41,19 +41,16 @@ class ProductDetails extends StatelessWidget {
                 ))),
         body: GetBuilder<ProductDetailsControllerImp>(
             builder: (controller) => ListView(children: [
-              Sliderdetails(),
-                  const SizedBox(
-                    height: 20,
-                  ),
+
                   HandlingDataView(
                       statusRequest: controller.statusRequest,
                       widget: Container(
                         padding: const EdgeInsets.all(20),
-
-                        child: Flexible(
                           child: Column(
                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Sliderdetails(),
+
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -138,7 +135,7 @@ class ProductDetails extends StatelessWidget {
                                 // const SizedBox(height: 10),
                                 // const SubitemsList()
                               ]),
-                        ),
+
 
                       ))
                 ])));

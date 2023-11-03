@@ -3,12 +3,16 @@ import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/data/model/item_imagsmodel.dart';
+
+import 'package:ecommercecourse/data/model/itemsimagesmodel.dart';
+
 import 'package:ecommercecourse/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
-class TopProductPageDetails extends GetView<ItemsControllerImp> {
+
+class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
+
   final ImagesModel imagesModel;
   const TopProductPageDetails({Key? key, required this.imagesModel}) : super(key: key);
 
@@ -18,15 +22,16 @@ class TopProductPageDetails extends GetView<ItemsControllerImp> {
       clipBehavior: Clip.none,
       children: [
       Container(
-          height: 150,
+          height: 200,
+          width: 300,
           decoration:  BoxDecoration(//color: AppColor.grey,
               borderRadius: BorderRadius.circular(40),
              boxShadow: [
               BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-        spreadRadius: 5,
-        blurRadius: 7,
-        offset: Offset(0, 3), // changes position of shadow
+              color: AppColor.primaryColor.withOpacity(0.3),
+        spreadRadius: 3,
+        blurRadius: 5,
+        offset: Offset(0, 8), // changes position of shadow
       ),
       ],
           ),
@@ -42,14 +47,16 @@ class TopProductPageDetails extends GetView<ItemsControllerImp> {
     child: Stack(children: <Widget>[InkResponse(
               onTap: () async {
                 final imageProvider =
-                    Image.network("${AppLink.imagestItems}/${imagesModel.imagesName}").image;
+
+                    Image.network("${AppLink.imagestItems}/${imagesModel.imagesName!}").image;
+
                 showImageViewer(context, imageProvider,
                     onViewerDismissed: () {
                       print("dismissed");
                     });
               },
-              child: Hero(
-                tag: "${imagesModel.imagesItems}",
+
+
                 child: CachedNetworkImage(
                   imageUrl:
                       "${AppLink.imagestItems}/${imagesModel.imagesName!}",
@@ -57,7 +64,7 @@ class TopProductPageDetails extends GetView<ItemsControllerImp> {
 
                   fit: BoxFit.fill,
                 ),
-              ),
+
             )])))
         )  ],
     );

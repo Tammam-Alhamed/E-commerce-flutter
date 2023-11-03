@@ -1,21 +1,22 @@
 
 import 'package:ecommercecourse/controller/items_controller.dart';
+import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/data/model/itemscolorsmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
-class CustomColor extends  GetView<ItemsControllerImp>{
+import 'listcolor.dart';
+
+class CustomColor extends  GetView<ProductDetailsControllerImp>{
   const CustomColor({super.key});
 
   @override
   Widget build(BuildContext context) {
+print(controller.colors.length);
     return CircleColorRow(
-      colors: [
-        AppColor.grey,
-        AppColor.secondColor,
-        AppColor.primaryColor,
-        AppColor.black
-      ],
+     colors: [],
     );
   }
 }
@@ -31,17 +32,21 @@ class CircleColorRow extends StatefulWidget {
 }
 
 class _CircleColorRowState extends State<CircleColorRow> {
+
+  ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
   int currentTab = 0;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: List.generate(
-        widget.colors.length,
+        controller.colors.length,
             (index) {
           return InkWell(
             onTap: () {
               setState(() {
                 currentTab = index;
+             var i=controller.colors[index]['colors_id'];
+             print(i);
               });
             },
             child: Container(
@@ -56,15 +61,7 @@ class _CircleColorRowState extends State<CircleColorRow> {
                     ? Border.all(color: AppColor.thirdColor, width: 1.5)
                     : null,
               ),
-              child: Container(
-                alignment:Alignment.center,
-                width: 18,
-                height: 18,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: widget.colors[index],
-                ),
-              ),
+child: Listcolors(colorsModel: ColorsModel.fromJson(controller.colors[index]),),
             ),
           );
         },
