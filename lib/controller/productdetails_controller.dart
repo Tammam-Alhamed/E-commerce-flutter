@@ -23,6 +23,8 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   int countitems = 0;
   List images = [];
 List colors =[];
+List sizes =[];
+
 
   intialData() async {
     statusRequest =  StatusRequest.loading;
@@ -47,6 +49,8 @@ List colors =[];
         print("$countitems");
         images.addAll(response['images']['data']);
         colors.addAll(response['colors']['data']);
+        sizes.addAll(response['sizes']['data']);
+
         return countitems;
         // data.addAll(response['data']);
       } else {

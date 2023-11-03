@@ -1,6 +1,10 @@
 import 'package:ecommercecourse/controller/items_controller.dart';
+import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/data/model/itemssizesmodel.dart';
+import 'package:ecommercecourse/view/widget/productdetails/listsizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 class Customsize extends  GetView<ItemsControllerImp>{
@@ -10,7 +14,7 @@ class Customsize extends  GetView<ItemsControllerImp>{
   Widget build(BuildContext context) {
     return SizeSelector(
       sizes: [
-        "mm","l","xl","xxxl"
+
       ],
     );
   }
@@ -31,12 +35,14 @@ class SizeSelector extends StatefulWidget {
 }
 
 class sizeRowState extends State<SizeSelector> {
+  ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
   int currentTab = 0;
   @override
   Widget build(BuildContext context) {
+
     return Row(
       children: List.generate(
-        widget.sizes.length,
+        controller.sizes.length,
             (index) {
           return InkWell(
             onTap: () {
@@ -58,19 +64,7 @@ class sizeRowState extends State<SizeSelector> {
                     ? Border.all(color: AppColor.thirdColor, width: 1.5)
                     : null,
               ),
-              child: Container(
-             
-                  child: Text( widget.sizes[index],style:TextStyle(fontSize: 12,fontWeight: FontWeight.bold,) ,),
-                alignment:Alignment.topCenter,
-                width: 24,
-                height: 22,
-                decoration: BoxDecoration(
-
-                  borderRadius: BorderRadius.circular(5),
-                  shape: BoxShape.rectangle,
-                  //color: widget.sizes[index],
-                ),
-              ),
+              child: Listsizes(sizesModel: SizesModel.fromJson(controller.sizes[index]),)
             ),
           );
         },
