@@ -8,21 +8,19 @@ import 'package:get/get.dart';
 class Others extends  GetView<SettingsController> {
   final  button;
   final void Function()? onPressed;
-  const Others({Key? key, required this.button, this.onPressed})
+  final color;
+  const Others({Key? key, required this.button, this.onPressed,this.color})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 100),
-      width: double.infinity,
-      child: MaterialButton(
-        color: AppColor.primaryColor,
-        textColor: Colors.white,
+    return IconButton(
+        iconSize:150,
+        color: color,
         onPressed: onPressed,
-        child: Icon(button as IconData?),
+       icon:  Icon(button as IconData?),
 
-      ),
+
     );
   }
 

@@ -56,6 +56,7 @@ class NotificationView extends StatelessWidget {
                                       ),
                                     ),
                                   ),
+
                                   if( sharedPrefLang == "ar")
                                   Positioned(
 
@@ -77,6 +78,7 @@ class NotificationView extends StatelessWidget {
                                         )),
                                   if( sharedPrefLang == "ru")
                                     Positioned(
+
                                         right: 5,
                                         child: Text(
                                           "${Jiffy.parse(controller.data[index]['notification_datetime'], pattern: "yyyy-MM-dd").fromNow()}",
@@ -84,6 +86,8 @@ class NotificationView extends StatelessWidget {
                                               color: AppColor.primaryColor,
                                               fontWeight: FontWeight.bold),
                                         )),
+
+
                                 ],
                               ),
                             ))
