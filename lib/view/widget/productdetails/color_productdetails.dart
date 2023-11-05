@@ -35,25 +35,29 @@ class _CircleColorRowState extends State<CircleColorRow> {
 
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
   int currentTab = 0;
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: List.generate(
+
         controller.colors.length,
             (index) {
+
           return InkWell(
             onTap: () {
+
               setState(() {
                 currentTab = index;
-             var i=controller.colors[index]['colors_id'];
-             print(i);
+                // var i=controller.colors[index]['colors_id'];
+                // controller.color(i);
               });
             },
             child: Container(
                 alignment:Alignment.center,
               padding: const EdgeInsets.all(2.0),
-              width: 20,
-              height: 20,
+              width: 30,
+              height: 30,
               margin: const EdgeInsets.all(4.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,

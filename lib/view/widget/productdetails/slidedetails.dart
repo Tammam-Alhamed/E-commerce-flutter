@@ -17,7 +17,7 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
 
     return Container(
         height: 250,
-        margin: const EdgeInsets.only(top: 15),
+        margin: const EdgeInsets.only(top: 2),
         decoration: BoxDecoration(
 
             borderRadius: BorderRadius.circular(40)),
@@ -47,7 +47,7 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   reverse: false,
-                  autoPlay: true,
+                  autoPlay: false,
                   autoPlayInterval: Duration(seconds: 4),
                   autoPlayAnimationDuration: Duration(milliseconds:2000),
                   autoPlayCurve: Curves.fastOutSlowIn,
