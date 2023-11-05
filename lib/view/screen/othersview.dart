@@ -42,8 +42,10 @@ class OthersView extends GetView<LocaleController> {
 
 
     return  MaterialButton(
-            elevation: 0,
-            color: AppColor.backgroundcolor,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12)),
+            elevation: 15,
+            color: AppColor.grey2,
             textColor: AppColor.primaryColor,
             onPressed: () {
               Get.bottomSheet(
@@ -100,16 +102,16 @@ class OthersView extends GetView<LocaleController> {
                             ],
                           ),);} ));
             },
-            child:Row(mainAxisAlignment: MainAxisAlignment.start,
+            child:Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Others"
+                  "Aladdin's magic lantern"
                   ,style: TextStyle(
                     fontSize: 20
                 ),
                 ),
                 Container(width: 4,),
-                Icon(FontAwesome.amazon),
+                Icon(FontAwesome.wand_magic_sparkles),
               ],
             ),
 
