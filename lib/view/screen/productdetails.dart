@@ -52,8 +52,27 @@ class ProductDetails extends StatelessWidget {
                                 Sliderdetails(),
 
                                 Container(
+
+
+                                    decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: AppColor.fourthColor.withOpacity(0.3),
+                                          spreadRadius:1,
+                                          blurRadius: 20,
+                                          offset: Offset(0, 2),
+                                          blurStyle: BlurStyle.solid// changes position of shadow
+                                        ),
+                                      ],
+                                      border: Border.all(color: AppColor.thirdColor , width: 1.5),
+                                      color: AppColor.backgroundcolor,
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(55.0),
+                                        bottomLeft: Radius.circular(55.0),
+                                      ),
+                                    ),
                                     padding:EdgeInsets.all(7),
-                                  decoration: BoxDecoration(border:  Border.all(color: Colors.black), borderRadius: BorderRadius.circular(30) ),
+                                  // decoration: BoxDecoration(border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(30)  ),
                                   child: Column(
                                     children: [
                                       Row(
@@ -120,23 +139,43 @@ class ProductDetails extends StatelessWidget {
                                   SizedBox(height:0),
                                   Customsize(),]),
                                   SizedBox(height:5),
-                                  PhysicalModel(
-                                    color: Colors.white,
-                                    elevation: 10,
-                                    shadowColor: AppColor.primaryColor,
-                                    borderRadius: BorderRadius.circular(20),
+                                  Container(
+
+                                    decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: AppColor.fourthColor.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(0, 2),
+                                            blurStyle: BlurStyle.inner// changes position of shadow
+                                        ),
+                                      ],
+                                      border: Border.all(color: AppColor.primaryColor , ),
+                                      color: AppColor.backgroundcolor,
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(55.0),
+                                        bottomLeft: Radius.circular(55.0),
+                                      ),
+                                    ),
+
                                     child: SizedBox(
+
                                       height: 100,
                                       width: double.infinity,
-                                      child: Text( translateDatabase(
-                                          controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyText1!
-                                              .copyWith(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w300,
-                                              color: AppColor.grey2)),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Text( translateDatabase(
+
+                                            controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1!
+                                                .copyWith(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w300,
+                                                color: AppColor.black)),
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(height: 10),

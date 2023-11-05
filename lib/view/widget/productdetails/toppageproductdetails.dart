@@ -28,9 +28,9 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
              boxShadow: [
               BoxShadow(
               color: AppColor.primaryColor.withOpacity(0.3),
-        spreadRadius: 3,
+        spreadRadius: 10,
         blurRadius: 5,
-        offset: Offset(0, 8), // changes position of shadow
+        offset: Offset(8, 8), // changes position of shadow
       ),
       ],
           ),

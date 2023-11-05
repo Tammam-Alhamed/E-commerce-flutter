@@ -14,7 +14,7 @@ class Listsizes extends GetView<ProductDetailsControllerImp> {
   Widget build(BuildContext context) {
    return Container(
 
-     child: Text( '${sizesModel.sizesName}',style:TextStyle(fontSize: 12,fontWeight: FontWeight.bold,) ,),
+     child: Text( '${sizesModel.sizesName}',style:TextStyle(fontSize: 12,fontWeight: FontWeight.bold, color: Colors.black) ,),
      alignment:Alignment.topCenter,
      width: 24,
      height: 22,

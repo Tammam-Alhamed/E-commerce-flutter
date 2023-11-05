@@ -58,12 +58,19 @@ class sizeRowState extends State<SizeSelector> {
               height: 40,
               margin: const EdgeInsets.all(4.0),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                shape: BoxShape.rectangle,
-                border: currentTab == index
-                    ? Border.all(color: AppColor.thirdColor, width: 1.5)
-                    : null,
-              ),
+
+                    color: currentTab == index
+                        ? AppColor.primaryColor
+                        : Colors.white,
+                    border: Border.all(color: AppColor.fourthColor),
+                    borderRadius: BorderRadius.circular(10)),
+
+                // borderRadius: BorderRadius.circular(5),
+                // shape: BoxShape.rectangle,
+                // border: currentTab == index
+                //     ? Border.all(color: AppColor.thirdColor, width: 1.5)
+                //     : Border(),
+
               child: Listsizes(sizesModel: SizesModel.fromJson(controller.sizes[index]),)
             ),
           );
