@@ -19,7 +19,6 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      clipBehavior: Clip.none,
       children: [
       Container(
           height: 200,
@@ -37,7 +36,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
           ),
         ),
         Positioned(
-            top: 30.0,
+            top: 28.0,
             right: Get.width / 8,
             left: Get.width /8,
             child: Container(
@@ -50,10 +49,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
 
                     Image.network("${AppLink.imagestItems}/${imagesModel.imagesName!}").image;
 
-                showImageViewer(context, imageProvider,
-                    onViewerDismissed: () {
-                      print("dismissed");
-                    });
+                showImageViewer(context, imageProvider,);
               },
 
 

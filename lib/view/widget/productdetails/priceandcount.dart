@@ -25,7 +25,7 @@ class PriceAndCountItems extends StatelessWidget {
             Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.only(bottom: 2),
-                width: 50,
+                width: 40,
                 // height: 30,
                 decoration:
                     BoxDecoration(border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(10),color: Colors.blue.shade200),
@@ -40,7 +40,9 @@ class PriceAndCountItems extends StatelessWidget {
         Text(
           "$price ${"59".tr}",
           style: const TextStyle(
+
               color: AppColor.primaryColor, fontSize: 20, height: 1.1),
+
         )
       ],
     );

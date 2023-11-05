@@ -46,16 +46,16 @@ class OthersView extends GetView<LocaleController> {
           borderRadius: BorderRadius.circular(12)),
             elevation: 15,
             color: AppColor.grey2,
-            textColor: AppColor.primaryColor,
+            textColor: AppColor.backgroundcolor,
             onPressed: () {
               Get.bottomSheet(
                   StatefulBuilder(
                       builder: (context, setState) {
                         return Container(
-                          height: 300,
+                          height: 350,
                           width: double.maxFinite,
                           decoration: BoxDecoration(
-                            color: Colors.blue.shade50,
+                            color: AppColor.backgroundcolor,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(50),
                                 topRight: Radius.circular(50)),
@@ -64,18 +64,19 @@ class OthersView extends GetView<LocaleController> {
 
                             children: [
                               Container(
+                                height: 100,
                                   decoration:
-                                  BoxDecoration(border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(50),color: Colors.blue.shade200,boxShadow: [
+                                  BoxDecoration(border: Border.all(color: AppColor.grey2), borderRadius: BorderRadius.circular(50),color: AppColor.grey2 ,boxShadow: [
                                     BoxShadow(
-                                      color: Colors.grey,
-                                      blurRadius: 10,
-                                      offset: Offset(0, 15), // Shadow position
+                                      color: AppColor.grey2,
+                                      blurRadius: 5,
+                                      offset: Offset(0, 6), // Shadow position
                                     ),
                                   ], ),
                                   alignment: Alignment.center,
                                   margin:EdgeInsets.all(10) ,
                                   padding:EdgeInsets.all(10) ,
-                                  child: Text("46".tr, style: TextStyle(fontSize: 17,height: 1,fontWeight: FontWeight.bold,color: Colors.blueGrey.shade900))),
+                                  child: Text("46".tr, style: TextStyle(fontSize: 20,height: 1.5,fontWeight: FontWeight.bold,color: AppColor.backgroundcolor))),
                               const SizedBox(height: 20),
                               Flexible(
                                 child: Row(
