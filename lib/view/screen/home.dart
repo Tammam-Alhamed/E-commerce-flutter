@@ -53,11 +53,12 @@ class HomePage extends StatelessWidget {
                               Row(
                                 children: [
                                   CustomTitleHome(title: "40".tr),
-                                  OthersView(),
+
 
                                 ],
                               ),
                               ListCategoriesHome(),
+                              OthersView(),
                               CustomTitleHome(title: "41".tr),
                               ListItemsHome(),
                             ],
