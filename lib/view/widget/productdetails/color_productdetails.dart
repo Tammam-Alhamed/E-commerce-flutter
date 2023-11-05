@@ -56,8 +56,8 @@ class _CircleColorRowState extends State<CircleColorRow> {
             child: Container(
                 alignment:Alignment.center,
               padding: const EdgeInsets.all(2.0),
-              width: 20,
-              height: 20,
+              width: 30,
+              height: 30,
               margin: const EdgeInsets.all(4.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,

@@ -54,8 +54,8 @@ class sizeRowState extends State<SizeSelector> {
 
               alignment:Alignment.center,
               padding: const EdgeInsets.all(2.0),
-              width:30,
-              height: 26,
+              width:40,
+              height: 40,
               margin: const EdgeInsets.all(4.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),

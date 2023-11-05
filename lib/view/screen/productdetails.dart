@@ -103,13 +103,13 @@ class ProductDetails extends StatelessWidget {
                                 if(i=true)
                                 Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
+                                  children: [Text("Color", style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                   )),
 
                                 SizedBox(height:0),
                   CustomColor()   ,
                                 SizedBox(height: 0),
-                                Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
+                                Text("Size",  style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                 )),
                                 SizedBox(height:0),
                                 Customsize(),]),
