@@ -14,7 +14,7 @@ ThemeData themeEnglish = ThemeData(
         fontWeight: FontWeight.bold,
         fontFamily: "PlayfairDisplay",
         fontSize: 25),
-    backgroundColor: Colors.grey[50],
+    backgroundColor: AppColor.backgroundcolor,
   ),
   textTheme: const TextTheme(
       headline1: TextStyle(
@@ -44,7 +44,7 @@ ThemeData themeArabic = ThemeData(
         fontWeight: FontWeight.bold,
         fontFamily: "Cairo",
         fontSize: 25),
-    backgroundColor: Colors.grey[50],
+    backgroundColor: AppColor.backgroundcolor,
   ),
   textTheme: const TextTheme(
       headline1: TextStyle(
@@ -74,7 +74,7 @@ color: AppColor.primaryColor,
 fontWeight: FontWeight.bold,
 fontFamily: "PlayfairDisplay",
 fontSize: 25),
-backgroundColor: Colors.grey[50],
+  backgroundColor: AppColor.backgroundcolor,
 ),
 textTheme: const TextTheme(
 headline1: TextStyle(
