@@ -126,7 +126,7 @@ List sizes =[];
 
    color(color) {
      addcolor(itemsModel.itemsId! , color);
-     countitems++;
+
      update();
    }
 
