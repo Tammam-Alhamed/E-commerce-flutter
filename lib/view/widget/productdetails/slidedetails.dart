@@ -16,8 +16,8 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
   Widget build(BuildContext context) {
 
     return Container(
-        height: 250,
-        margin: const EdgeInsets.only(top: 2),
+        height: 280,
+
         decoration: BoxDecoration(
 
             borderRadius: BorderRadius.circular(40)),
@@ -39,7 +39,8 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
 
                     autoPlayAnimationDuration: const Duration(milliseconds: 300)))*/
 
-                  height:250,
+                  height:280,
+
                   disableCenter: true,
                   clipBehavior: Clip.hardEdge,
                   aspectRatio: 16/7,
@@ -47,12 +48,12 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   reverse: false,
-                  autoPlay: false,
+                  autoPlay: true,
                   autoPlayInterval: Duration(seconds: 4),
                   autoPlayAnimationDuration: Duration(milliseconds:2000),
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enlargeCenterPage: true,
-                  enlargeFactor: 0.3,
+                  enlargeFactor: 0.5,
                   // onPageChanged: callbackFunction,
                   scrollDirection: Axis.horizontal,)
 

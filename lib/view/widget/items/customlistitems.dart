@@ -8,6 +8,7 @@ import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:path/path.dart';
 
 class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
@@ -21,25 +22,50 @@ class CustomListItems extends GetView<ItemsControllerImp> {
           print("==============================");
           controller.goToPageProductDetails(itemsModel);
         },
-        child: Card(
+        child: Container(
+          margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  color: AppColor.fourthColor.withOpacity(0.3),
+                  spreadRadius:2,
+                  blurRadius: 5,
+                  offset: Offset(0, 1),
+                  blurStyle: BlurStyle.inner// changes position of shadow
+              ),
+            ],
+            border: Border.all(color: AppColor.thirdColor , width: 1.5),
+            color: AppColor.backgroundcolor,
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(25.0),
+              bottomLeft: Radius.circular(25.0),
+            ),
+          ),
+
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.all(10),
+               padding: const EdgeInsets.all(0),
                 child: Column(
-                  
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
 
-                           CachedNetworkImage(
-                            imageUrl:
-                                AppLink.imagestItems + "/" + itemsModel.itemsImage!,
-                            height: 100,
-                            fit: BoxFit.fill,
-                          ),
+                           Container(
+                             margin:EdgeInsets.only(top: 7),
+                             child: CachedNetworkImage(
+                              imageUrl:
+                                  AppLink.imagestItems + "/" + itemsModel.itemsImage!,
+                              height: 100,
+                           imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.only(topRight: Radius.circular(30.0),
+                             bottomLeft: Radius.circular(30.0),),image: DecorationImage(image:imageProvider, )),),
+                              fit: BoxFit.cover,
 
-                      const SizedBox(height: 5),
+                          ),
+                           ),
+
+
                       Text(
                           translateDatabase(
                               itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
@@ -47,65 +73,47 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                               color: AppColor.black,
                               fontSize: 16,
                               fontWeight: FontWeight.bold)),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+
+
+                      Flexible(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                             Text("Rating", textAlign: TextAlign.start),
-                            Container(
-                              alignment: Alignment.bottomCenter,
-                              height: 22,
-
-
-                                child: Row(
-                                  children: [
-                                    ...List.generate(
-                                        5,
-                                        (index) => const Icon(
-                                              Icons.star,
-                                              size: 15,
-                                            ))
-                                  ],
-                                ),
-
-                            )
+                            Padding(
+                           
+                              padding: EdgeInsets.only(left: 7),
+                              child: Text("${translateDatabase(
+                                  itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)} ${"59".tr}",
+                                  style: const TextStyle(
+                                      color: AppColor.primaryColor,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "sans")),
+                            ),
+                            GetBuilder<FavoriteController>(
+                                builder: (controller) => IconButton(
+                                    onPressed: () {
+                                      if (controller.isFavorite[itemsModel.itemsId] ==
+                                          "1") {
+                                        controller.setFavorite(
+                                            itemsModel.itemsId, "0");
+                                        controller
+                                            .removeFavorite(itemsModel.itemsId!);
+                                      } else {
+                                        controller.setFavorite(
+                                            itemsModel.itemsId, "1");
+                                        controller.addFavorite(itemsModel.itemsId!);
+                                      }
+                                    },
+                                    icon: Icon(
+                                      controller.isFavorite[itemsModel.itemsId] == "1"
+                                          ? Icons.favorite
+                                          : Icons.favorite_border_outlined,
+                                      color: AppColor.primaryColor,
+                                    )))
                           ],
                         ),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Text("${translateDatabase(
-                                itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)} ${"59".tr}",
-                                style: const TextStyle(
-                                    color: AppColor.primaryColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "sans")),
-                          ),
-                          GetBuilder<FavoriteController>(
-                              builder: (controller) => IconButton(
-                                  onPressed: () {
-                                    if (controller.isFavorite[itemsModel.itemsId] ==
-                                        "1") {
-                                      controller.setFavorite(
-                                          itemsModel.itemsId, "0");
-                                      controller
-                                          .removeFavorite(itemsModel.itemsId!);
-                                    } else {
-                                      controller.setFavorite(
-                                          itemsModel.itemsId, "1");
-                                      controller.addFavorite(itemsModel.itemsId!);
-                                    }
-                                  },
-                                  icon: Icon(
-                                    controller.isFavorite[itemsModel.itemsId] == "1"
-                                        ? Icons.favorite
-                                        : Icons.favorite_border_outlined,
-                                    color: AppColor.primaryColor,
-                                  )))
-                        ],
                       )
                     ]),
               ),

@@ -40,7 +40,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
             right: Get.width / 8,
             left: Get.width /8,
             child: Container(
-    margin: EdgeInsets.all(5.0),
+
     child: ClipRRect(
     borderRadius: BorderRadius.all(Radius.circular(40.0)),
     child: Stack(children: <Widget>[GestureDetector(
@@ -57,6 +57,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
                   imageUrl:
                       "${AppLink.imagestItems}/${imagesModel.imagesName!}",
                   height: 200,
+                  width: 300,
 
                   fit: BoxFit.fill,
                 ),

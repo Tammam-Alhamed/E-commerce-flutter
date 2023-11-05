@@ -22,6 +22,25 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
           controller.goToItems(controller.categories, i , categoriesModel.categoriesId!);
         },
         child: Container(
+          margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  color: AppColor.fourthColor.withOpacity(0.3),
+                  spreadRadius:1,
+                  blurRadius: 20,
+                  offset: Offset(0, 2),
+                  blurStyle: BlurStyle.solid// changes position of shadow
+              ),
+            ],
+            border: Border.all(color: AppColor.thirdColor , width: 1.5),
+            color: AppColor.backgroundcolor,
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(45.0),
+              bottomLeft: Radius.circular(45.0),
+            ),
+          ),
+          padding:EdgeInsets.all(7),
           child: Stack(
             children: [
               Padding(
@@ -31,7 +50,6 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-
                         child: CachedNetworkImage(
                           imageUrl:
                               AppLink.imagestCategories + "/" + categoriesModel.categoriesImage!,
@@ -40,13 +58,39 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Text(
-                          translateDatabase(
-                              categoriesModel.categoriesNamaAr, categoriesModel.categoriesName , categoriesModel.categoriesNamaRu),
-                          style: const TextStyle(
-                              color: AppColor.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold)),
+
+                     Container(
+                          margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+                          alignment: Alignment.center,
+                          padding:EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: AppColor.fourthColor.withOpacity(0.3),
+                                  spreadRadius:2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 1),
+                                  blurStyle: BlurStyle.inner// changes position of shadow
+                              ),
+                            ],
+                            border: Border.all(color: AppColor.thirdColor , width: 1.5),
+                            color: AppColor.backgroundcolor,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(25.0),
+                              bottomLeft: Radius.circular(25.0),
+                            ),
+                          ),
+
+                          child: Text(
+                              translateDatabase(
+                                  categoriesModel.categoriesNamaAr, categoriesModel.categoriesName , categoriesModel.categoriesNamaRu),
+                              style:  TextStyle(
+
+                                  color: AppColor.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+
 
 
                     ]),
