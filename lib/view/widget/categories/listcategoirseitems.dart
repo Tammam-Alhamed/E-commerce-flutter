@@ -52,10 +52,9 @@ class Categories extends GetView<CategoriesControllerImp> {
               builder: (controller) => Container(
                     padding:const  EdgeInsets.only(right: 10, left: 10, bottom: 5),
                     decoration: controller.selectedShope == i
-                        ?const BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(
-                                    width: 3, color: AppColor.primaryColor)))
+                        ? BoxDecoration(borderRadius: BorderRadius.circular(50),
+                            border: Border.all(width: 50
+                            ))
                         : null,
                     child: Text(
                       "${translateDatabase(

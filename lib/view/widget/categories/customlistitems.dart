@@ -21,7 +21,7 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
           print(i);
           controller.goToItems(controller.categories, i , categoriesModel.categoriesId!);
         },
-        child: Card(
+        child: Container(
           child: Stack(
             children: [
               Padding(
@@ -30,8 +30,8 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Hero(
-                        tag: "${categoriesModel.categoriesId}",
+                      Container(
+
                         child: CachedNetworkImage(
                           imageUrl:
                               AppLink.imagestCategories + "/" + categoriesModel.categoriesImage!,

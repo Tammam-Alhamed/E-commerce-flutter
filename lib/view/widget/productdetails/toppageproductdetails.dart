@@ -43,13 +43,13 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
     margin: EdgeInsets.all(5.0),
     child: ClipRRect(
     borderRadius: BorderRadius.all(Radius.circular(40.0)),
-    child: Stack(children: <Widget>[InkResponse(
+    child: Stack(children: <Widget>[GestureDetector(
               onTap: () async {
                 final imageProvider =
 
                     Image.network("${AppLink.imagestItems}/${imagesModel.imagesName!}").image;
 
-                showImageViewer(context, imageProvider,);
+                showImageViewer(context, imageProvider);
               },
 
 
