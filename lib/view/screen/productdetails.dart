@@ -51,79 +51,98 @@ class ProductDetails extends StatelessWidget {
                               children: [
                                 Sliderdetails(),
 
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.center,
-                                      child: Text(translateDatabase(
-                                          controller.itemsModel.itemsNameAr, controller.itemsModel.itemsName ,controller.itemsModel.itemsNameRu),
+                                Container(
+                                    padding:EdgeInsets.all(7),
+                                  decoration: BoxDecoration(border:  Border.all(color: Colors.black), borderRadius: BorderRadius.circular(30) ),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            alignment: Alignment.center,
+                                            child: Text(translateDatabase(
+                                                controller.itemsModel.itemsNameAr, controller.itemsModel.itemsName ,controller.itemsModel.itemsNameRu),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .headline1!
+                                                    .copyWith(
+                                                      color: AppColor.fourthColor,
+                                                    )),
+                                          ),
+                                          GetBuilder<FavoriteController>(
+                                              builder: (controller) => IconButton(
+                                                  onPressed: () {
+                                                    if (controller.isFavorite[controllerImp.itemsModel.itemsId] ==
+                                                        "1") {
+                                                      controller.setFavorite(
+                                                          controllerImp.itemsModel.itemsId, "0");
+                                                      controller
+                                                          .removeFavorite(controllerImp.itemsModel.itemsId!);
+                                                    } else {
+                                                      controller.setFavorite(
+                                                          controllerImp.itemsModel.itemsId, "1");
+                                                      controller.addFavorite(controllerImp.itemsModel.itemsId!);
+                                                    }
+                                                  },
+                                                  icon: Icon(
+                                                    controller.isFavorite[controllerImp.itemsModel.itemsId] == "1"
+                                                        ? Icons.favorite
+                                                        : Icons.favorite_border_outlined,
+                                                    color: AppColor.primaryColor,
+                                                  )))
+                                        ],
+                                      ),
+
+                                  SizedBox(height: 10),
+                                  PriceAndCountItems(
+                                      onAdd: () {
+                                        controller.add();
+                                      },
+                                      onRemove: () {
+                                        controller.remove();
+                                      },
+                                      price:
+                                      "${controller.itemsModel.itemsPriceDiscount}",
+                                      count: "${controller.countitems}"),
+                                  const SizedBox(height: 10),
+                                  if(i=true)
+                                  Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
+                                    )),
+
+                                  SizedBox(height:0),
+                  CustomColor()   ,
+                                  SizedBox(height: 0),
+                                  Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
+                                  )),
+                                  SizedBox(height:0),
+                                  Customsize(),]),
+                                  SizedBox(height:5),
+                                  PhysicalModel(
+                                    color: Colors.white,
+                                    elevation: 10,
+                                    shadowColor: AppColor.primaryColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: SizedBox(
+                                      height: 100,
+                                      width: double.infinity,
+                                      child: Text( translateDatabase(
+                                          controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
                                           style: Theme.of(context)
                                               .textTheme
-                                              .headline1!
+                                              .bodyText1!
                                               .copyWith(
-                                                color: AppColor.fourthColor,
-                                              )),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w300,
+                                              color: AppColor.grey2)),
                                     ),
-                                    GetBuilder<FavoriteController>(
-                                        builder: (controller) => IconButton(
-                                            onPressed: () {
-                                              if (controller.isFavorite[controllerImp.itemsModel.itemsId] ==
-                                                  "1") {
-                                                controller.setFavorite(
-                                                    controllerImp.itemsModel.itemsId, "0");
-                                                controller
-                                                    .removeFavorite(controllerImp.itemsModel.itemsId!);
-                                              } else {
-                                                controller.setFavorite(
-                                                    controllerImp.itemsModel.itemsId, "1");
-                                                controller.addFavorite(controllerImp.itemsModel.itemsId!);
-                                              }
-                                            },
-                                            icon: Icon(
-                                              controller.isFavorite[controllerImp.itemsModel.itemsId] == "1"
-                                                  ? Icons.favorite
-                                                  : Icons.favorite_border_outlined,
-                                              color: AppColor.primaryColor,
-                                            )))
-                                  ],
-                                ),
-                                SizedBox(height: 10),
-                                PriceAndCountItems(
-                                    onAdd: () {
-                                      controller.add();
-                                    },
-                                    onRemove: () {
-                                      controller.remove();
-                                    },
-                                    price:
-                                    "${controller.itemsModel.itemsPriceDiscount}",
-                                    count: "${controller.countitems}"),
-                                const SizedBox(height: 10),
-                                if(i=true)
-                                Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
-                                  )),
-
-                                SizedBox(height:0),
-                  CustomColor()   ,
-                                SizedBox(height: 0),
-                                Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
-                                )),
-                                SizedBox(height:0),
-                                Customsize(),]),
-                                SizedBox(height:5),
-                                Text( translateDatabase(
-                                    controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .copyWith(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w300,
-                                        color: AppColor.grey2)),
-                                const SizedBox(height: 10),
+                                  ),
+                                  const SizedBox(height: 10),
+                                    ],
+                                  ),
+                                )
 
 
 

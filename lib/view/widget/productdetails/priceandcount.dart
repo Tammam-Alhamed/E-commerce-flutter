@@ -31,16 +31,16 @@ class PriceAndCountItems extends StatelessWidget {
                     BoxDecoration(border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(10),color: Colors.blue.shade200),
                 child: Text(
                   count,
-                  style: const TextStyle(fontSize: 20, height: 1.1),
+                  style: const TextStyle(fontSize: 15, height: 1.1),
                 )),
             IconButton(onPressed: onRemove, icon: const Icon(Icons.remove)),
           ],
         ),
-        const Spacer(),
+        Spacer(flex:2 ,),
         Text(
           "$price ${"59".tr}",
           style: const TextStyle(
-              color: AppColor.primaryColor, fontSize: 30, height: 1.1),
+              color: AppColor.primaryColor, fontSize: 20, height: 1.1),
         )
       ],
     );
