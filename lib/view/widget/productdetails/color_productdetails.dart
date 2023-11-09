@@ -13,13 +13,36 @@ class CustomColor extends  GetView<ProductDetailsControllerImp>{
   const CustomColor({super.key});
 
   @override
+
   Widget build(BuildContext context) {
 print(controller.colors.length);
-    return CircleColorRow(
-     colors: [],
+    return CircleColorRow(colors: [],
+
     );
   }
 }
+/*class Itemlist extends State<CustomColor>{
+  @override
+  List<String> _locations = ['A', 'B', 'C', 'D'];
+ String? _selectedLocation ='A';
+
+  Widget build(BuildContext context) {
+
+    return DropdownButton<String>(
+        value: _selectedLocation,
+
+    items: _locations.map((item) =>
+    DropdownMenuItem<String>(
+      value: item,
+    child: new Text(item),
+    )).toList(), onChanged: (item)=> setState(()=>_selectedLocation=item),
+    );
+  }
+
+
+
+  }*/
+
 
 class CircleColorRow extends StatefulWidget {
   const CircleColorRow({
@@ -35,10 +58,22 @@ class _CircleColorRowState extends State<CircleColorRow> {
 
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
   int currentTab = 0;
-
+  List<String> _locations = ['red', 'blue', 'C', 'D'];
+  String? _selectedLocation ='red';
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return DropdownButton<String>(
+      value: _selectedLocation,
+
+      items: _locations.map((item) =>
+          DropdownMenuItem<String>(
+            value: item,
+            child: new Text(item),
+          )).toList(), onChanged: (item)=> setState(()=>_selectedLocation=item),
+    );
+
+
+   /* Row(
       children: List.generate(
 
         controller.colors.length,
@@ -70,6 +105,6 @@ child: Listcolors(colorsModel: ColorsModel.fromJson(controller.colors[index]),),
           );
         },
       ),
-    );
-  }
+    );*/
+ }
 }
