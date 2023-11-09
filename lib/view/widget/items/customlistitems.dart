@@ -22,26 +22,9 @@ class CustomListItems extends GetView<ItemsControllerImp> {
           print("==============================");
           controller.goToPageProductDetails(itemsModel);
         },
-        child: Container(
-          margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+        child: Card(
+          // margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
 
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                  color: AppColor.fourthColor.withOpacity(0.4),
-                  spreadRadius:2,
-                  blurRadius: 20,
-                  offset: Offset(0, 2),
-                  blurStyle: BlurStyle.inner// changes position of shadow
-              ),
-            ],
-            border: Border.all(color: Colors.grey , width: 1.5),
-            color: AppColor.backgroundcolor,
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(25.0),
-              bottomLeft: Radius.circular(25.0),
-            ),
-          ),
 
           child: Stack(
             children: [
@@ -51,37 +34,36 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-
-                           Flexible(
-                             flex: 3,
-                             child: Container(
-                               margin:EdgeInsets.only(bottom: 15 , top: 3),
+                              Container(
+                               margin:EdgeInsets.only(bottom: 10 , top: 3),
 
                                child: CachedNetworkImage(
                                 imageUrl:
                                     AppLink.imagestItems + "/" + itemsModel.itemsImage!,
-                                height: 125,
+                                height: 150,
                              width: 150,
-                             imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.only(topRight: Radius.circular(30.0),
-                               bottomLeft: Radius.circular(30.0),),image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
-                                fit: BoxFit.cover,
+
+                                fit: BoxFit.fill,
 
                           ),
                              ),
-                           ),
 
+                      Container(
+                        padding: EdgeInsets.only(left: 15 , right: 10),
+                        margin: EdgeInsets.only(left: 15 , right: 10),
+                        alignment: Alignment.center,
+                        child: Text(
+                            translateDatabase(
+                                itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
+                            style: const TextStyle(
+                              height: 1,
+                              overflow: TextOverflow.clip,
+                                color: AppColor.black,
+                                fontSize: 16,
+                            )),
+                      ),
 
-                      Text(
-                          translateDatabase(
-                              itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
-                          style: const TextStyle(
-                              color: AppColor.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold)),
-
-
-                      Flexible(
-                        child: Row(
+                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -119,7 +101,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                     )))
                           ],
                         ),
-                      )
+
                     ]),
               ),
            if (itemsModel.itemsDiscount != "0")   Positioned(
