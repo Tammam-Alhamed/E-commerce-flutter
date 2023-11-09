@@ -58,7 +58,7 @@ class Categories extends GetView<HomeShopeControllerImp> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             height: 70,
             width: 70,
-            child: SvgPicture.network(
+            child: Image.network(
                 "${AppLink.imagestShopes}/${shopemodel.shopesImage}",
                 color: AppColor.secondColor),
           ),

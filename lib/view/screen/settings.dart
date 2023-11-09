@@ -19,7 +19,9 @@ class Settings extends StatelessWidget {
               clipBehavior: Clip.none,
               alignment: Alignment.center,
               children: [
-                Container(height: Get.width / 3, color: AppColor.primaryColor),
+                Container(
+                    height: Get.width / 3, color: AppColor.primaryColor
+                ),
                 Positioned(
                     top: Get.width / 3.9,
                     child: Container(
@@ -36,8 +38,26 @@ class Settings extends StatelessWidget {
               ]),
           SizedBox(height: 100),
           Container(
+
             padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Card(
+            child: Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      color: AppColor.primaryColor.withOpacity(0.3),
+                      spreadRadius:2,
+                      blurRadius: 5,
+                      offset: Offset(0, 2),
+                      blurStyle: BlurStyle.solid// changes position of shadow
+                  ),
+                ],
+                border: Border.all(color: AppColor.thirdColor , width: 1.5),
+                color: AppColor.backgroundcolor,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(40.0),
+                  bottomLeft: Radius.circular(40.0),
+                ),
+              ),
               child: Column(mainAxisSize: MainAxisSize.min, children: [
                 // ListTile(
                 //   onTap: () {},
