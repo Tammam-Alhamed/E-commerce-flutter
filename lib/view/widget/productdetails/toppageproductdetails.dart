@@ -20,23 +20,9 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-      Container(
-          height: 200,
-          width: 300,
-          decoration:  BoxDecoration(//color: AppColor.grey,
-              borderRadius: BorderRadius.circular(40),
-             boxShadow: [
-              BoxShadow(
-              color: AppColor.primaryColor.withOpacity(0.3),
-        spreadRadius: 10,
-        blurRadius: 5,
-        offset: Offset(8, 8), // changes position of shadow
-      ),
-      ],
-          ),
-        ),
+
         Positioned(
-            top: 28.0,
+            //top: 28.0,
             right: Get.width / 8,
             left: Get.width /8,
             child: Container(
@@ -56,8 +42,8 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
                 child: CachedNetworkImage(
                   imageUrl:
                       "${AppLink.imagestItems}/${imagesModel.imagesName!}",
-                  height: 200,
-                  width: 300,
+                  height: 400,
+
 
                   fit: BoxFit.fill,
                 ),

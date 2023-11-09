@@ -35,7 +35,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                               Container(
-                               margin:EdgeInsets.only(bottom: 10 , top: 3),
+                               margin:EdgeInsets.only(bottom: 10 , top: 6),
 
                                child: CachedNetworkImage(
                                 imageUrl:
@@ -44,6 +44,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                              width: 150,
 
                                 fit: BoxFit.fill,
+
 
                           ),
                              ),
@@ -63,44 +64,46 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                             )),
                       ),
 
-                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
+                         Flexible(
+                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
 
-                              padding: EdgeInsets.only(left: 7),
-                              child: Text("${translateDatabase(
-                                  itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)} ${"59".tr}",
-                                  style: const TextStyle(
-                                      color: AppColor.primaryColor,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "sans")),
-                            ),
-                            GetBuilder<FavoriteController>(
-                                builder: (controller) => IconButton(
-                                    onPressed: () {
-                                      if (controller.isFavorite[itemsModel.itemsId] ==
-                                          "1") {
-                                        controller.setFavorite(
-                                            itemsModel.itemsId, "0");
-                                        controller
-                                            .removeFavorite(itemsModel.itemsId!);
-                                      } else {
-                                        controller.setFavorite(
-                                            itemsModel.itemsId, "1");
-                                        controller.addFavorite(itemsModel.itemsId!);
-                                      }
-                                    },
-                                    icon: Icon(
-                                      controller.isFavorite[itemsModel.itemsId] == "1"
-                                          ? Icons.favorite
-                                          : Icons.favorite_border_outlined,
-                                      color: AppColor.primaryColor,
-                                    )))
-                          ],
+                                padding: EdgeInsets.only(left: 7),
+                                child: Text("${translateDatabase(
+                                    itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)} ${"59".tr}",
+                                    style: const TextStyle(
+                                        color: AppColor.primaryColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "sans")),
+                              ),
+                              GetBuilder<FavoriteController>(
+                                  builder: (controller) => IconButton(
+                                      onPressed: () {
+                                        if (controller.isFavorite[itemsModel.itemsId] ==
+                                            "1") {
+                                          controller.setFavorite(
+                                              itemsModel.itemsId, "0");
+                                          controller
+                                              .removeFavorite(itemsModel.itemsId!);
+                                        } else {
+                                          controller.setFavorite(
+                                              itemsModel.itemsId, "1");
+                                          controller.addFavorite(itemsModel.itemsId!);
+                                        }
+                                      },
+                                      icon: Icon(
+                                        controller.isFavorite[itemsModel.itemsId] == "1"
+                                            ? Icons.favorite
+                                            : Icons.favorite_border_outlined,
+                                        color: AppColor.primaryColor,
+                                      )))
+                            ],
                         ),
+                         ),
 
                     ]),
               ),

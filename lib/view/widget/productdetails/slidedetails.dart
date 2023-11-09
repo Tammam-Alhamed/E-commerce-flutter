@@ -15,15 +15,7 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
   @override
   Widget build(BuildContext context) {
 
-    return Container(
-        height: 280,
-
-        decoration: BoxDecoration(
-
-            borderRadius: BorderRadius.circular(40)),
-        child: Column(
-
-          children: [
+    return
 
             CarouselSlider.builder(
                 itemCount:controller.images.length, itemBuilder: (BuildContext context, int index, int realIndex) {
@@ -39,12 +31,12 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
 
                     autoPlayAnimationDuration: const Duration(milliseconds: 300)))*/
 
-                  height:280,
+                  height:430,
 
                   disableCenter: true,
-                  clipBehavior: Clip.hardEdge,
+                  clipBehavior: Clip.none,
                   aspectRatio: 16/7,
-                  viewportFraction: 0.9,
+                  viewportFraction: 1.2,
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   reverse: false,
@@ -55,13 +47,7 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
                   enlargeCenterPage: true,
                   enlargeFactor: 0.5,
                   // onPageChanged: callbackFunction,
-                  scrollDirection: Axis.horizontal,)
-
-            ) // items: myitems.map((my) => (myitems:myitems)),)
-          ],
-        )
-
-    );
+                  scrollDirection: Axis.horizontal,));
 
 
 

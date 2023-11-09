@@ -37,7 +37,7 @@ class Items extends StatelessWidget {
             },
           ),
           const SizedBox(height: 20),
-          const ListCategoriesItems(),
+         // const ListCategoriesItems(),
           GetBuilder<ItemsControllerImp>(
               builder: (controller) => HandlingDataView(
                   statusRequest: controller.statusRequest,

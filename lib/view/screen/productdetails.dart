@@ -51,38 +51,14 @@ class ProductDetails extends StatelessWidget {
                   HandlingDataView(
                       statusRequest: controller.statusRequest,
                       widget: Container(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(10),
                           child: Column(
                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Sliderdetails(),
-
-                                Container(
-
-
-                                    decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: AppColor.fourthColor.withOpacity(0.3),
-                                          spreadRadius:1,
-                                          blurRadius: 20,
-                                          offset: Offset(0, 2),
-                                          blurStyle: BlurStyle.solid// changes position of shadow
-                                        ),
-                                      ],
-                                      border: Border.all(color: AppColor.thirdColor , width: 1.5),
-                                      color: AppColor.backgroundcolor,
-                                      borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(55.0),
-                                        bottomLeft: Radius.circular(55.0),
-                                      ),
-                                    ),
-                                    padding:EdgeInsets.all(7),
-                                  // decoration: BoxDecoration(border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(30)  ),
-                                  child: Column(
+ Column(
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             alignment: Alignment.center,
@@ -119,6 +95,43 @@ class ProductDetails extends StatelessWidget {
                                         ],
                                       ),
 
+                                      Container(
+
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: AppColor.grey2.withOpacity(0.3),
+                                                spreadRadius: 2,
+                                                blurRadius: 5,
+                                                offset: Offset(0, 2),
+                                                blurStyle: BlurStyle.inner// changes position of shadow
+                                            ),
+                                          ],
+
+                                          color: AppColor.backgroundcolor,
+
+                                        ),
+
+                                        child: SizedBox(
+
+                                          height: 100,
+                                          width: double.infinity,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(5.0),
+                                            child: Text( translateDatabase(
+
+                                                controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText1!
+                                                    .copyWith(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w300,
+                                                    color: AppColor.black)),
+                                          ),
+                                        ),
+                                      ),
+
                                   SizedBox(height: 10),
                                   PriceAndCountItems(
                                       onAdd: () {
@@ -131,63 +144,27 @@ class ProductDetails extends StatelessWidget {
                                       "${controller.itemsModel.itemsPriceDiscount}",
                                       count: "${controller.countitems}"),
                                   const SizedBox(height: 10),
-                                  if(i=true)
-                                  Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                                  Row(
+                                      mainAxisAlignment:MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                     )),
+Padding(padding: EdgeInsets.only(left: 10,right: 10)),
+                                  SizedBox(height:50,child: CustomColor() ,width: 80,),
 
-                                  SizedBox(height:0),
-                  CustomColor()   ,
                                   SizedBox(height: 0),
+                                      Padding(padding: EdgeInsets.only(left: 10,right: 10)),
                                   Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                   )),
                                   SizedBox(height:0),
-                                  Customsize(),]),
+                                 // Customsize(),
+                                    ]),
                                   SizedBox(height:5),
-                                  Container(
 
-                                    decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: AppColor.fourthColor.withOpacity(0.3),
-                                            spreadRadius: 2,
-                                            blurRadius: 5,
-                                            offset: Offset(0, 2),
-                                            blurStyle: BlurStyle.inner// changes position of shadow
-                                        ),
-                                      ],
-                                      border: Border.all(color: AppColor.primaryColor , ),
-                                      color: AppColor.backgroundcolor,
-                                      borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(55.0),
-                                        bottomLeft: Radius.circular(55.0),
-                                      ),
-                                    ),
-
-                                    child: SizedBox(
-
-                                      height: 100,
-                                      width: double.infinity,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Text( translateDatabase(
-
-                                            controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1!
-                                                .copyWith(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w300,
-                                                color: AppColor.black)),
-                                      ),
-                                    ),
-                                  ),
                                   const SizedBox(height: 10),
                                     ],
                                   ),
-                                )
 
 
 
