@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
+import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/data/model/categoriesmodel.dart';
@@ -42,13 +44,15 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
       child: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 10),
             margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: Image.network(
-              "${AppLink.imagestItems}/${itemsModel.itemsImage}",
+            child: CachedNetworkImage(
+              imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(20.0),),
+                  image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
+
               height: 100,
-              width: 150,
-              fit: BoxFit.fill,
+              width: 175,
+              fit: BoxFit.fill, imageUrl: '${AppLink.imagestItems}/${itemsModel.itemsImage}',
             ),
           ),
           Container(

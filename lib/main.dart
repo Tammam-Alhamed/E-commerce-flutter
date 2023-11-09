@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       translations: MyTranslation(),
       debugShowCheckedModeBanner: false,
-      title: 'Ecommerce Course',
+      title: 'Базар',
       locale: controller.language,
       theme: controller.appTheme,
       initialBinding: InitialBindings(),
