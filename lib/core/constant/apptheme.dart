@@ -74,7 +74,7 @@ color: AppColor.primaryColor,
 fontWeight: FontWeight.bold,
 fontFamily: "PlayfairDisplay",
 fontSize: 25),
-  backgroundColor: AppColor.backgroundcolor,
+  backgroundColor: AppColor.primaryColor,
 ),
 textTheme: const TextTheme(
 headline1: TextStyle(
