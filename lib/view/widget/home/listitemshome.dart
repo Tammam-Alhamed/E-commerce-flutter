@@ -47,20 +47,20 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
             padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 10),
             margin: const EdgeInsets.symmetric(horizontal: 10),
             child: CachedNetworkImage(
-              imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(20.0),),
+              imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(12.0),),
                   image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
 
-              height: 100,
-              width: 175,
+              height: 120,
+              width: 185,
               fit: BoxFit.fill, imageUrl: '${AppLink.imagestItems}/${itemsModel.itemsImage}',
             ),
           ),
           Container(
             decoration: BoxDecoration(
-                color: AppColor.black.withOpacity(0.3),
+                color: Colors.blueGrey.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(20)),
-            height: 120,
-            width: 200,
+            height: 140,
+            width: 210,
           ),
           Positioned(
               left: 10,

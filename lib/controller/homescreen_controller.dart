@@ -37,7 +37,7 @@ class HomeScreenControllerImp extends HomeScreenController {
     {"title": "home", "icon": FontAwesome.house_user},
     {"title": "n", "icon": FontAwesome.bell},
     {"title": "profile", "icon": FontAwesome.arrow_trend_up},
-    {"title": "settings", "icon": Icons.settings}
+    {"title": "settings", "icon":  EvaIcons.person}
   ];
 
   @override

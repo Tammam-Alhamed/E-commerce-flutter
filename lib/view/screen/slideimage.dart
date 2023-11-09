@@ -34,7 +34,7 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
 
 
     return Container(
-        height: 200,
+        height: 150,
         margin: const EdgeInsets.only(top: 25),
         decoration: BoxDecoration(
 
@@ -62,17 +62,17 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
 
 
 
-    height:200,
+    height:150,
        disableCenter: true,
-    clipBehavior: Clip.hardEdge,
+    clipBehavior: Clip.antiAlias,
     aspectRatio: 16/9,
     viewportFraction: 0.8,
     initialPage: 0,
     enableInfiniteScroll: true,
     reverse: false,
     autoPlay: true,
-    autoPlayInterval: Duration(seconds: 3),
-    autoPlayAnimationDuration: Duration(milliseconds: 800),
+    autoPlayInterval: Duration(seconds: 5),
+    autoPlayAnimationDuration: Duration(milliseconds: 1500),
     autoPlayCurve: Curves.fastOutSlowIn,
     enlargeCenterPage: true,
     enlargeFactor: 0.3,

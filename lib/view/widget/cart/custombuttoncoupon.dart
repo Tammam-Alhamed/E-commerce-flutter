@@ -10,10 +10,14 @@ class CustomButtonCoupon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 40,
+      decoration: BoxDecoration(
+          color: AppColor.primaryColor ,
+          borderRadius: BorderRadius.circular(20)),
       // padding: const EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
       child: MaterialButton(
-        color: AppColor.primaryColor,
+        elevation: 5,
         textColor: Colors.white,
         onPressed: onPressed,
         child: Text(textbutton,

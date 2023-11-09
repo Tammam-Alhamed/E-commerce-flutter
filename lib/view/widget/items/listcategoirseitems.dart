@@ -14,7 +14,7 @@ class ListCategoriesItems extends GetView<ItemsControllerImp> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 85,
+      height: 50,
       child: ListView.separated(
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemCount: controller.categories.length,
@@ -48,7 +48,7 @@ class Categories extends GetView<ItemsControllerImp> {
         children: [
           GetBuilder<ItemsControllerImp>(
               builder: (controller) => Container(
-                    padding:const  EdgeInsets.only(right: 10, left: 10, bottom: 5),
+                    padding:const  EdgeInsets.only(right: 10, left: 10, bottom: 1),
                     decoration: controller.selectedCat == i
                         ?const BoxDecoration(
                             border: Border(

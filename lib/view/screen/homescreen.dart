@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(AppRoute.cart) ; 
                   },
-                  child: const Icon(Icons.shopping_basket_outlined)),
+                  child: const Icon(Icons.shopping_cart_outlined)),
 
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,
