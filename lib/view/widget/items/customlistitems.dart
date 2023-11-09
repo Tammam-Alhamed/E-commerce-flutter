@@ -28,14 +28,14 @@ class CustomListItems extends GetView<ItemsControllerImp> {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                  color: AppColor.fourthColor.withOpacity(0.3),
+                  color: AppColor.fourthColor.withOpacity(0.4),
                   spreadRadius:2,
-                  blurRadius: 5,
-                  offset: Offset(0, 1),
+                  blurRadius: 20,
+                  offset: Offset(0, 2),
                   blurStyle: BlurStyle.inner// changes position of shadow
               ),
             ],
-            border: Border.all(color: AppColor.thirdColor , width: 1.5),
+            border: Border.all(color: Colors.grey , width: 1.5),
             color: AppColor.backgroundcolor,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(25.0),
@@ -52,17 +52,22 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
 
-                           Container(
-                             margin:EdgeInsets.only(top: 7),
-                             child: CachedNetworkImage(
-                              imageUrl:
-                                  AppLink.imagestItems + "/" + itemsModel.itemsImage!,
-                              height: 100,
-                           imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.only(topRight: Radius.circular(30.0),
-                             bottomLeft: Radius.circular(30.0),),image: DecorationImage(image:imageProvider, )),),
-                              fit: BoxFit.cover,
+                           Flexible(
+                             flex: 3,
+                             child: Container(
+                               margin:EdgeInsets.only(bottom: 15 , top: 3),
+
+                               child: CachedNetworkImage(
+                                imageUrl:
+                                    AppLink.imagestItems + "/" + itemsModel.itemsImage!,
+                                height: 125,
+                             width: 150,
+                             imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.only(topRight: Radius.circular(30.0),
+                               bottomLeft: Radius.circular(30.0),),image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
+                                fit: BoxFit.cover,
 
                           ),
+                             ),
                            ),
 
 
@@ -81,7 +86,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                           
+
                               padding: EdgeInsets.only(left: 7),
                               child: Text("${translateDatabase(
                                   itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)} ${"59".tr}",

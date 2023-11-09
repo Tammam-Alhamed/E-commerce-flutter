@@ -28,8 +28,8 @@ class ProductDetails extends StatelessWidget {
         bottomNavigationBar: Container(
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             height: 40,
-            child: Flexible(
-                flex : 2,
+
+
               child: MaterialButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
@@ -42,7 +42,7 @@ class ProductDetails extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   )),
-            )),
+            ),
         body: GetBuilder<ProductDetailsControllerImp>(
             builder: (controller) => ListView(children: [
 

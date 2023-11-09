@@ -20,6 +20,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   String? username;
   String? id;
   String? lang;
+  int? i;
 
 
   HomeData homedata = HomeData(Get.find());

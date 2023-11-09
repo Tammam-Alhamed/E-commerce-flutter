@@ -53,7 +53,9 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                         child: CachedNetworkImage(
                           imageUrl:
                               AppLink.imagestCategories + "/" + categoriesModel.categoriesImage!,
-                          height: 100,
+                          height: 120,
+                          imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.only(topRight: Radius.circular(30.0),
+                            bottomLeft: Radius.circular(30.0),),image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
                           fit: BoxFit.fill,
                         ),
                       ),
