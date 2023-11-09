@@ -15,14 +15,13 @@ class Home extends StatelessWidget {
     return   Stack(
         children: [
     Container(
-    margin: EdgeInsets.all(5.0),
     child: ClipRRect(
-    borderRadius: BorderRadius.all(Radius.circular(40.0)),
+    borderRadius: BorderRadius.all(Radius.circular(20.0)),
     child: Stack(children: <Widget>[
     InkResponse(
     child: Image.network(
               "${AppLink.imagestSlides}/${slidesModel.slidesImage}",
-               height: 200,
+               height: 150,
                width:MediaQuery.of(context).size.width,
                 fit: BoxFit.fill,
             ),

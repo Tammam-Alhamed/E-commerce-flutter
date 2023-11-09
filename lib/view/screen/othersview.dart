@@ -42,8 +42,9 @@ class OthersView extends GetView<LocaleController> {
 
 
     return  MaterialButton(
+      height: 80,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12)),
+          borderRadius: BorderRadius.circular(15)),
             elevation: 15,
             color: AppColor.grey2,
             textColor: AppColor.backgroundcolor,
@@ -57,8 +58,8 @@ class OthersView extends GetView<LocaleController> {
                           decoration: BoxDecoration(
                             color: AppColor.backgroundcolor,
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50)),
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30)),
                           ),
                           child:Column(
 
@@ -66,7 +67,7 @@ class OthersView extends GetView<LocaleController> {
                               Container(
                                 height: 100,
                                   decoration:
-                                  BoxDecoration(border: Border.all(color: AppColor.grey2), borderRadius: BorderRadius.circular(50),color: AppColor.grey2 ,boxShadow: [
+                                  BoxDecoration(border: Border.all(color: AppColor.grey2), borderRadius: BorderRadius.circular(30),color: AppColor.grey2 ,boxShadow: [
                                     BoxShadow(
                                       color: AppColor.grey2,
                                       blurRadius: 5,

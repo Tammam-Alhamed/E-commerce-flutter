@@ -24,15 +24,17 @@ class ProductDetails extends StatelessWidget {
 
     bool i=true;
     return Scaffold(
+        extendBodyBehindAppBar: true,
         persistentFooterAlignment : AlignmentDirectional.bottomCenter,
         bottomNavigationBar: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: EdgeInsets.only(bottom: 5),
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
             height: 40,
 
 
               child: MaterialButton(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(15)),
                   color: AppColor.primaryColor,
                   onPressed: () {
                     Get.toNamed(AppRoute.cart);

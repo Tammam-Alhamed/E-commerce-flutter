@@ -24,8 +24,11 @@ class CustomItemsCartList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
+    return  Container(
+        height: 100,
+        decoration: BoxDecoration(
+            color: AppColor.grey2.withOpacity(0.2) ,
+            borderRadius: BorderRadius.circular(20)),
         child: Row(children: [
           Expanded(
               flex: 2,
@@ -59,7 +62,7 @@ class CustomItemsCartList extends StatelessWidget {
             ],
           ))
         ]),
-      ),
-    );
+      )
+    ;
   }
 }
