@@ -53,13 +53,14 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                     children: [
 
                            Container(
-                             margin:EdgeInsets.only(top: 7),
+                             margin:EdgeInsets.only(bottom: 20,top: 3),
                              child: CachedNetworkImage(
                               imageUrl:
                                   AppLink.imagestItems + "/" + itemsModel.itemsImage!,
-                              height: 100,
+                              height: 125,
+                           width: 150,
                            imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.only(topRight: Radius.circular(30.0),
-                             bottomLeft: Radius.circular(30.0),),image: DecorationImage(image:imageProvider, )),),
+                             bottomLeft: Radius.circular(30.0),),image: DecorationImage(image:imageProvider,centerSlice:Rect.largest )),),
                               fit: BoxFit.cover,
 
                           ),
