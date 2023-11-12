@@ -15,8 +15,8 @@ class Listcolors extends GetView<ProductDetailsControllerImp> {
   Widget build(BuildContext context) {
 var x=colorsModel.colorsName;
 var y;
-if(x=='red'){y=Colors.red;}else if(x=='green'){y=Colors.green;}else if(x=='white'){y=Colors.white;}
-else if(x=='beeg'){y=Colors.amber.shade100;}else if(x=='black'){y=Colors.black;}
+if(x=='red'){y=Colors.red;}else if(x=='green'){y=Colors.green;}else if(x=='green'){y=Colors.green;}else if(x=='white'){y=Colors.white;}
+else if(x=='white1'){y=Colors.amber.shade100;}else if(x=='black'){y=Colors.black;}
 else if(x=='khle'){y=Colors.indigo[900];}else if(x=='grey'){y=Colors.grey[400];}
     if (x=='white'){
       return Container(

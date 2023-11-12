@@ -22,28 +22,6 @@ print(controller.colors.length);
     );
   }
 }
-/*class Itemlist extends State<CustomColor>{
-  @override
-  List<String> _locations = ['A', 'B', 'C', 'D'];
- String? _selectedLocation ='A';
-
-  Widget build(BuildContext context) {
-
-    return DropdownButton<String>(
-        value: _selectedLocation,
-
-    items: _locations.map((item) =>
-    DropdownMenuItem<String>(
-      value: item,
-    child: new Text(item),
-    )).toList(), onChanged: (item)=> setState(()=>_selectedLocation=item),
-    );
-  }
-
-
-
-  }*/
-
 
 class CircleColorRow extends StatefulWidget {
   const CircleColorRow({
@@ -59,18 +37,18 @@ class _CircleColorRowState extends State<CircleColorRow> {
 
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
   int currentTab = 0;
-    late var sid;
+  String? sid;
   Widget build(BuildContext context) {
 
     return
-    DropdownButtonHideUnderline(
+  /*  DropdownButtonHideUnderline(
     child: DropdownButton<String>(
       isExpanded: true,
         borderRadius:BorderRadius.circular(20),
       padding:EdgeInsets.only(right:0),
     hint: Text("Select Stockiest",
-    style: TextStyle(color: Colors.black)),
-      value:controller.colors[sid]['colors_name'],
+    style: TextStyle(fontSize : 10,color: Colors.black)),
+      value:sid,
     items: controller.colors
         .map((list) {
     return DropdownMenuItem(
@@ -86,41 +64,53 @@ class _CircleColorRowState extends State<CircleColorRow> {
     });
     },
     ),
-    );
-
-
-   /* Row(
-      children: List.generate(
-
-        controller.colors.length,
-            (index) {
-
-          return InkWell(
-            onTap: () {
-
-              setState(() {
-                currentTab = index;
-                // var i=controller.colors[index]['colors_id'];
-                // controller.color(i);
-              });
-            },
-            child: Container(
-                alignment:Alignment.center,
-              padding: const EdgeInsets.all(2.0),
-              width: 30,
-              height: 30,
-              margin: const EdgeInsets.all(4.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: currentTab == index
-                    ? Border.all(color: AppColor.thirdColor, width: 1.5)
-                    : null,
-              ),
-child: Listcolors(colorsModel: ColorsModel.fromJson(controller.colors[index]),),
-            ),
-          );
-        },
-      ),
     );*/
+
+
+      Scrollbar(
+        thumbVisibility:true,
+          interactive:true,
+        radius:Radius.circular(50),
+        trackVisibility:true,
+        child: SingleChildScrollView(
+    
+          keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag,
+          controller:ScrollController(keepScrollOffset: true),
+          scrollDirection: Axis.horizontal,
+     child: Row(
+          children: List.generate(
+
+            controller.colors.length,
+                (index) {
+
+              return InkWell(
+                onTap: () {
+
+                  setState(() {
+                    currentTab = index;
+                    // var i=controller.colors[index]['colors_id'];
+                    // controller.color(i);
+                  });
+                },
+                child: Container(
+                    alignment:Alignment.center,
+                  padding: const EdgeInsets.all(2.0),
+                  width: 30,
+                  height: 30,
+                  margin: const EdgeInsets.all(4.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: currentTab == index
+                        ? Border.all(color: AppColor.thirdColor, width: 1.5)
+                        : null,
+                  ),
+child: Listcolors(colorsModel: ColorsModel.fromJson(controller.colors[index]),),
+                ),
+              );
+            },
+          ),
+        ),
+   ),
+      );
  }
 }
