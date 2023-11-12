@@ -73,9 +73,9 @@ class _CircleColorRowState extends State<CircleColorRow> {
         radius:Radius.circular(50),
         trackVisibility:true,
         child: SingleChildScrollView(
-    
-          keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag,
           controller:ScrollController(keepScrollOffset: true),
+          keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag,
+
           scrollDirection: Axis.horizontal,
      child: Row(
           children: List.generate(
