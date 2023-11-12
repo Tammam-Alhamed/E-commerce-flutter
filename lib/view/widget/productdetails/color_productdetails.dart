@@ -76,7 +76,7 @@ class _CircleColorRowState extends State<CircleColorRow> {
     return DropdownMenuItem(
 
     child: Container(width:50, height:20,child: Text(list['colors_name'])),
-    value: list['colors_id'].toString(),
+    value: list['colors_name'].toString(),
     );
     }).toList(),
     onChanged: (value) {
