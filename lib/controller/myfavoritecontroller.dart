@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/core/class/statusrequest.dart';
 import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
 import 'package:ecommercecourse/core/services/services.dart';
@@ -37,8 +38,8 @@ class MyFavoriteControllerImp extends SearchMixController {
       if (response['status'] == "success") {
         List responsedata = response['data'];
         data.addAll(responsedata.map((e) => MyFavoriteModel.fromJson(e)));
-        print("data");
-        print(data);
+        // print("data");
+        // print(data);
       } else {
         statusRequest = StatusRequest.failure;
       }
