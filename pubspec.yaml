@@ -87,6 +87,7 @@ dependencies:
   icons_plus: ^4.0.0
   auto_size_text: ^3.0.0
   easy_image_viewer: ^1.2.1
+  photo_view: ^0.14.0
 
 
 
