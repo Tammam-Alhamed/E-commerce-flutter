@@ -59,18 +59,17 @@ class _CircleColorRowState extends State<CircleColorRow> {
 
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
   int currentTab = 0;
-    late var sid;
+
   Widget build(BuildContext context) {
 
     return
     DropdownButtonHideUnderline(
     child: DropdownButton<String>(
       isExpanded: true,
-        borderRadius:BorderRadius.circular(20),
       padding:EdgeInsets.only(right:0),
-    hint: Text("Select Stockiest",
+    hint: Text("select color",
     style: TextStyle(color: Colors.black)),
-      value:controller.colors[sid]['colors_name'],
+      value: controller.sid,
     items: controller.colors
         .map((list) {
     return DropdownMenuItem(
@@ -82,7 +81,7 @@ class _CircleColorRowState extends State<CircleColorRow> {
     onChanged: (value) {
     setState(() {
       print("lgkbkrhturng");
-    sid = value!;
+    controller.sid = value!;
     });
     },
     ),

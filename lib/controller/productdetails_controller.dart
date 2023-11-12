@@ -17,7 +17,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
 
   CartData cartData = CartData(Get.find());
   late StatusRequest statusRequest;
-
+   String? sid ;
   MyServices myServices = Get.find();
 
   int countitems = 0;
@@ -132,6 +132,11 @@ class ProductDetailsControllerImp extends ProductDetailsController {
      update();
    }
 
+   // addtocart(color){
+   //   addItems(itemsModel.itemsId!);
+   //   addcolor(itemsModel.itemsId! , color);
+   //   update();
+   // }
 
    add() {
     addItems(itemsModel.itemsId!);
@@ -141,7 +146,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
 
   remove() {
     if (countitems > 0) {
-      deleteitems(itemsModel.itemsId!);
+      // deleteitems(itemsModel.itemsId!);
       countitems--;
       update();
     }

@@ -56,7 +56,7 @@ class ProductDetails extends StatelessWidget {
                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Sliderdetails(),
- Column(
+                                Column(
                                     children: [
                                       Row(
                                         children: [
@@ -96,7 +96,6 @@ class ProductDetails extends StatelessWidget {
                                       ),
 
                                       Container(
-
                                         decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
@@ -107,19 +106,15 @@ class ProductDetails extends StatelessWidget {
                                                 blurStyle: BlurStyle.inner// changes position of shadow
                                             ),
                                           ],
-
                                           color: AppColor.backgroundcolor,
-
                                         ),
 
                                         child: SizedBox(
-
                                           height: 120,
                                           width: double.infinity,
                                           child: Padding(
                                             padding: const EdgeInsets.all(5.0),
                                             child: Text( translateDatabase(
-
                                                 controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
                                                 style: Theme.of(context)
                                                     .textTheme
@@ -150,7 +145,7 @@ class ProductDetails extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                     )),
-Padding(padding: EdgeInsets.only(left: 10,right: 10)),
+                                      Padding(padding: EdgeInsets.only(left: 10,right: 10)),
                                   SizedBox(height:50,child: CustomColor() ,width: 80,),
 
                                   SizedBox(height: 0),
