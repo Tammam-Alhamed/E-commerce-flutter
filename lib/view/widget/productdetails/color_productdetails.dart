@@ -3,6 +3,7 @@ import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/data/model/itemscolorsmodel.dart';
+import 'package:ecommercecourse/view/screen/categories_shope.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
@@ -58,18 +59,33 @@ class _CircleColorRowState extends State<CircleColorRow> {
 
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
   int currentTab = 0;
-  List<String> _locations = ['red', 'blue', 'C', 'D'];
-  String? _selectedLocation ='red';
-  @override
+    late var sid;
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: _selectedLocation,
 
-      items: _locations.map((item) =>
-          DropdownMenuItem<String>(
-            value: item,
-            child: new Text(item),
-          )).toList(), onChanged: (item)=> setState(()=>_selectedLocation=item),
+    return
+    DropdownButtonHideUnderline(
+    child: DropdownButton<String>(
+      isExpanded: true,
+        borderRadius:BorderRadius.circular(20),
+      padding:EdgeInsets.only(right:0),
+    hint: Text("Select Stockiest",
+    style: TextStyle(color: Colors.black)),
+      value:controller.colors[sid]['colors_name'],
+    items: controller.colors
+        .map((list) {
+    return DropdownMenuItem(
+
+    child: Container(width:50, height:20,child: Text(list['colors_name'])),
+    value: list['colors_id'].toString(),
+    );
+    }).toList(),
+    onChanged: (value) {
+    setState(() {
+      print("lgkbkrhturng");
+    sid = value!;
+    });
+    },
+    ),
     );
 
 

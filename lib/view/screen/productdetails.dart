@@ -157,8 +157,8 @@ Padding(padding: EdgeInsets.only(left: 10,right: 10)),
                                       Padding(padding: EdgeInsets.only(left: 10,right: 10)),
                                   Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                   )),
-                                  SizedBox(height:0),
-                                 // Customsize(),
+                                  SizedBox(height:50,child:Customsize(),width: 80,),
+
                                     ]),
                                   SizedBox(height:5),
 
