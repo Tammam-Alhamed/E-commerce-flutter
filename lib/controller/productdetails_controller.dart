@@ -22,8 +22,8 @@ class ProductDetailsControllerImp extends ProductDetailsController {
 
   int countitems = 0;
   List images = [];
-List colors =[];
-List sizes =[];
+  List colors =[];
+  List sizes =[];
 
 
   intialData() async {
@@ -35,10 +35,13 @@ List sizes =[];
   }
 
   getCountItems(String itemsid) async {
+    colors.clear();
+    sizes.clear();
+    images.clear();
     statusRequest = StatusRequest.loading;
     var response = await cartData.getCountCart(
         myServices.sharedPreferences.getString("id")!, itemsid);
-    print("=============================== Controller $response ");
+    // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       // Start backend
@@ -50,7 +53,6 @@ List sizes =[];
         images.addAll(response['images']['data']);
         colors.addAll(response['colors']['data']);
         sizes.addAll(response['sizes']['data']);
-
         return countitems;
         // data.addAll(response['data']);
       } else {
@@ -65,7 +67,7 @@ List sizes =[];
     update();
     var response = await cartData.addCart(
         myServices.sharedPreferences.getString("id")!, itemsid);
-    print("=============================== Controller $response ");
+    // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       // Start backend

@@ -35,7 +35,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
 
                     Image.network("${AppLink.imagestItems}/${imagesModel.imagesName!}").image;
 
-                showImageViewer(context, imageProvider);
+                showImageViewer(context, imageProvider , immersive : false);
               },
 
 

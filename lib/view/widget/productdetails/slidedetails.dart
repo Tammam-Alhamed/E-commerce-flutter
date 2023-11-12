@@ -36,7 +36,7 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
                   disableCenter: true,
                   clipBehavior: Clip.none,
                   aspectRatio: 16/7,
-                  viewportFraction: 1.2,
+                  viewportFraction: 1.1,
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   reverse: false,

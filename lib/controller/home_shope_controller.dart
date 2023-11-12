@@ -26,9 +26,8 @@ class HomeShopeControllerImp extends HomeShopeController {
   HomeData homedata = HomeData(Get.find());
 
   // List data = [];
-  List data = [];
+  // List data = [];
   List shope = [];
-  List categories = [];
   List items = [];
   List slides = [];
 
@@ -52,7 +51,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   getdata() async {
     statusRequest = StatusRequest.loading;
     var response = await homedata.getData();
-    print("=============================== Controller $response ");
+    // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {

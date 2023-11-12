@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/core/class/statusrequest.dart';
 import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
 import 'package:ecommercecourse/core/services/services.dart';
@@ -10,7 +11,7 @@ import 'package:get/get.dart';
 
 abstract class ItemsController extends GetxController {
   intialData();
-  changeCat(int val, String catval);
+  // changeCat(int val, String catval);
   getimages(String imageid);
   getItems(String categoryid);
   goToPageProductDetails(ItemsModel itemsModel);
@@ -49,19 +50,19 @@ class ItemsControllerImp extends SearchMixController {
 
   }
 
-  changeCat(val, catval) {
-    selectedCat = val;
-    catid = catval;
-    getItems(catid!);
-    update();
-  }
+  // changeCat(val, catval) {
+  //   selectedCat = val;
+  //   catid = catval;
+  //   getItems(catid!);
+  //   update();
+  // }
 
   getItems(categoryid) async {
     data.clear();
     statusRequest = StatusRequest.loading;
     var response = await testData.getData(
         categoryid, myServices.sharedPreferences.getString("id")!);
-    print("=============================== Controller $response ");
+    // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       // Start backend
@@ -81,7 +82,7 @@ class ItemsControllerImp extends SearchMixController {
     statusRequest = StatusRequest.loading;
     var response = await dataimage.getData(
         imageid);
-    print("=============================== Controller $response ");
+    // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       // Start backend

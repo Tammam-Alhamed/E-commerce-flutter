@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/core/class/statusrequest.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
@@ -25,7 +26,7 @@ class CategoriesControllerImp extends SearchMixController {
   CategoriesData testData = CategoriesData(Get.find());
   HomeData homedata = HomeData(Get.find());
   List categories = [];
-  List items = [];
+  // List items = [];
 
   List data = [];
 
@@ -38,13 +39,12 @@ class CategoriesControllerImp extends SearchMixController {
   void onInit() {
     search = TextEditingController();
     intialData();
-    getdata();
+    // getdata();
     super.onInit();
   }
 
   intialData() {
-    shopes = Get.arguments['shopes'];
-    selectedShope = Get.arguments['selectedShope'];
+
     shopeid = Get.arguments['shopeid'];
     getItems(shopeid!);
   }
@@ -63,29 +63,28 @@ class CategoriesControllerImp extends SearchMixController {
       "catid": categoryid
     });
   }
-
-  getdata() async {
-    statusRequest = StatusRequest.loading;
-    var response = await homedata.getData();
-    print("=============================== Controller $response ");
-    statusRequest = handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      if (response['status'] == "success") {
-        categories.addAll(response['categories']['data']);
-        items.addAll(response['items']['data']);
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-    }
-    update();
-  }
+  // getdata() async {
+  //   statusRequest = StatusRequest.loading;
+  //   var response = await homedata.getData();
+  //   print("=============================== Controller $response ");
+  //   statusRequest = handlingData(response);
+  //   if (StatusRequest.success == statusRequest) {
+  //     if (response['status'] == "success") {
+  //       categories.addAll(response['categories']['data']);
+  //       // items.addAll(response['items']['data']);
+  //     } else {
+  //       statusRequest = StatusRequest.failure;
+  //     }
+  //   }
+  //   update();
+  // }
 
   getItems(shopeid) async {
     data.clear();
     statusRequest = StatusRequest.loading;
     var response = await testData.getData(
         shopeid, myServices.sharedPreferences.getString("id")!);
-    print("=============================== Controller $response ");
+    // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       // Start backend

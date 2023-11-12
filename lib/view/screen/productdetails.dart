@@ -114,7 +114,7 @@ class ProductDetails extends StatelessWidget {
 
                                         child: SizedBox(
 
-                                          height: 100,
+                                          height: 120,
                                           width: double.infinity,
                                           child: Padding(
                                             padding: const EdgeInsets.all(5.0),
