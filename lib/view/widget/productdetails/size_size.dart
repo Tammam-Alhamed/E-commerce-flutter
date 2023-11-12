@@ -37,7 +37,7 @@ class SizeSelector extends StatefulWidget {
 class sizeRowState extends State<SizeSelector> {
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
   int currentTab = 0;
-  late String sid;
+  String? sid;
   @override
   Widget build(BuildContext context) {
 
@@ -47,9 +47,9 @@ class sizeRowState extends State<SizeSelector> {
           isExpanded: true,
           borderRadius:BorderRadius.circular(20),
           padding:EdgeInsets.only(right:0),
-          hint: Text("Sizes",
-              style: TextStyle(color: Colors.black)),
-
+          hint: Text("select size",
+              style: TextStyle(fontSize : 17,color: Colors.black)),
+value: sid,
           items: controller.sizes
               .map((list) {
             return DropdownMenuItem(
@@ -60,7 +60,7 @@ class sizeRowState extends State<SizeSelector> {
           onChanged: (value) {
             setState(() {
               print("lgkbkrhturng");
-              sid = value!;
+              sid = value;
             });
           },
         ),

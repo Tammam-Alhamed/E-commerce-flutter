@@ -19,31 +19,10 @@ class CustomColor extends  GetView<ProductDetailsControllerImp>{
 print(controller.colors.length);
     return CircleColorRow(colors: [],
 
+
     );
   }
 }
-/*class Itemlist extends State<CustomColor>{
-  @override
-  List<String> _locations = ['A', 'B', 'C', 'D'];
- String? _selectedLocation ='A';
-
-  Widget build(BuildContext context) {
-
-    return DropdownButton<String>(
-        value: _selectedLocation,
-
-    items: _locations.map((item) =>
-    DropdownMenuItem<String>(
-      value: item,
-    child: new Text(item),
-    )).toList(), onChanged: (item)=> setState(()=>_selectedLocation=item),
-    );
-  }
-
-
-
-  }*/
-
 
 class CircleColorRow extends StatefulWidget {
   const CircleColorRow({
@@ -53,29 +32,35 @@ class CircleColorRow extends StatefulWidget {
   final List<Color> colors;
   @override
   State<CircleColorRow> createState() => _CircleColorRowState();
+
 }
 
 class _CircleColorRowState extends State<CircleColorRow> {
 
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
-  int currentTab = 0;
 
   Widget build(BuildContext context) {
 
     return
-    DropdownButtonHideUnderline(
+  /*  DropdownButtonHideUnderline(
     child: DropdownButton<String>(
       isExpanded: true,
       padding:EdgeInsets.only(right:0),
+<<<<<<< HEAD
     hint: Text("select color",
     style: TextStyle(color: Colors.black)),
       value: controller.sid,
+=======
+    hint: Text("Select Stockiest",
+    style: TextStyle(fontSize : 10,color: Colors.black)),
+      value:sid,
+>>>>>>> f6b259792258ae60d4365a43e5f075e2f78868c7
     items: controller.colors
         .map((list) {
     return DropdownMenuItem(
 
     child: Container(width:50, height:20,child: Text(list['colors_name'])),
-    value: list['colors_id'].toString(),
+    value: list['colors_name'].toString(),
     );
     }).toList(),
     onChanged: (value) {
@@ -85,41 +70,52 @@ class _CircleColorRowState extends State<CircleColorRow> {
     });
     },
     ),
-    );
-
-
-   /* Row(
-      children: List.generate(
-
-        controller.colors.length,
-            (index) {
-
-          return InkWell(
-            onTap: () {
-
-              setState(() {
-                currentTab = index;
-                // var i=controller.colors[index]['colors_id'];
-                // controller.color(i);
-              });
-            },
-            child: Container(
-                alignment:Alignment.center,
-              padding: const EdgeInsets.all(2.0),
-              width: 30,
-              height: 30,
-              margin: const EdgeInsets.all(4.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: currentTab == index
-                    ? Border.all(color: AppColor.thirdColor, width: 1.5)
-                    : null,
-              ),
-child: Listcolors(colorsModel: ColorsModel.fromJson(controller.colors[index]),),
-            ),
-          );
-        },
-      ),
     );*/
+
+
+      Scrollbar(
+        thumbVisibility:true,
+          interactive:true,
+        radius:Radius.circular(50),
+        trackVisibility:true,
+        child: SingleChildScrollView(
+          controller: ScrollController( ),
+          keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag,
+          scrollDirection: Axis.horizontal,
+          child: Row(
+          children: List.generate(
+
+            controller.colors.length,
+                (index) {
+
+              return InkWell(
+                onTap: () {
+
+                  setState(() {
+                    controller.currentTab = index;
+                    var i=controller.colors[index]['colors_name'];
+                    controller.color(i);
+                  });
+                },
+                child: Container(
+                    alignment:Alignment.center,
+                  padding: const EdgeInsets.all(2.0),
+                  width: 30,
+                  height: 30,
+                  margin: const EdgeInsets.all(4.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: controller.currentTab == index
+                        ? Border.all(color: AppColor.thirdColor, width: 1.5)
+                        : null,
+                  ),
+child: Listcolors(colorsModel: ColorsModel.fromJson(controller.colors[index]),),
+                ),
+              );
+            },
+          ),
+        ),
+   ),
+      );
  }
 }

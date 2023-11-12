@@ -21,6 +21,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   MyServices myServices = Get.find();
 
   int countitems = 0;
+   int currentTab = 0;
   List images = [];
   List colors =[];
   List sizes =[];
@@ -128,7 +129,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
 
    color(color) {
      addcolor(itemsModel.itemsId! , color);
-
+     currentTab;
      update();
    }
 

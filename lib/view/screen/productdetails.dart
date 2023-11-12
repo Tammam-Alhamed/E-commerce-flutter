@@ -138,21 +138,25 @@ class ProductDetails extends StatelessWidget {
                                       price:
                                       "${controller.itemsModel.itemsPriceDiscount}",
                                       count: "${controller.countitems}"),
-                                  const SizedBox(height: 10),
+                                  const SizedBox(height: 15),
 
                                   Row(
-                                      mainAxisAlignment:MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
-                                    )),
-                                      Padding(padding: EdgeInsets.only(left: 10,right: 10)),
-                                  SizedBox(height:50,child: CustomColor() ,width: 80,),
 
-                                  SizedBox(height: 0),
-                                      Padding(padding: EdgeInsets.only(left: 10,right: 10)),
-                                  Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
-                                  )),
-                                  SizedBox(height:50,child:Customsize(),width: 80,),
+                                     // mainAxisAlignment:MainAxisAlignment.end,
+                                   //   crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [/*Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
+                                    ))*/
+//Padding(padding: EdgeInsets.only(left: 10,right: 10)),
+                                  Container(decoration:BoxDecoration(borderRadius: BorderRadius.circular(5),),
+                                    height:40,child:
+                                  CustomColor(),
+                                   width: 170,),
+
+
+                                     Padding(padding: EdgeInsets.only(left: 30,right: 5)),
+                                 /* Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
+                                  )),*/
+                                      Container(height:50,child:Customsize(),width: 130,),
 
                                     ]),
                                   SizedBox(height:5),
