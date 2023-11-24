@@ -22,6 +22,7 @@ class ItemsModel {
   String? categoriesDatetime;
   String? favorite;
   String? itemsPriceDiscount ;
+  String? itemspricedisount_d ;
   String? itemsStatus ;
 
   ItemsModel(
@@ -42,6 +43,7 @@ class ItemsModel {
       this.itemsCat,
         this.itemsStatus,
       this.itemsPriceDiscount , 
+      this.itemspricedisount_d ,
       this.categoriesId,
       this.categoriesName,
       this.categoriesNamaAr,
@@ -68,6 +70,7 @@ class ItemsModel {
     itemsCat = json['items_cat'];
     itemsStatus = json['items_status'];
     itemsPriceDiscount = json['itemspricedisount'];
+    itemspricedisount_d = json['itemspricedisount_d'];
     categoriesId = json['categories_id'];
     categoriesName = json['categories_name'];
     categoriesNamaAr = json['categories_name_ar'];

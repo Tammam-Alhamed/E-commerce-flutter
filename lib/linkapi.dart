@@ -35,6 +35,8 @@ class AppLink {
   static const String items = "$server/items/items.php";
   static const String itemsImages = "$server/items/images.php";
   static const String searchitems = "$server/items/search.php";
+  static const String itemsdiscount = "$server/items/itemsDiscount.php";
+  static const String itemsnew = "$server/items/itemsNew.php";
 
 
 
@@ -55,6 +57,8 @@ class AppLink {
   static const String cartadd = "$server/cart/add.php";
   static const String cartdelete = "$server/cart/delete.php";
   static const String cartgetcountitems = "$server/cart/getcountitems.php";
+  static const String fromcartadd = "$server/cart/fromcartadd.php";
+  static const String fromcartdelete = "$server/cart/fromcartdelete.php";
 
   // Address
 

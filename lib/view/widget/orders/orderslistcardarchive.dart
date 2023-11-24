@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/orders/archive_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
+import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/data/model/ordersmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,7 +39,7 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
               const Divider(),
               Text(
                   "${"82".tr} : ${controller.printOrderType(listdata.ordersType!)}"),
-              Text("${"83".tr} : ${listdata.ordersPrice}  ${"59".tr}"),
+              Text("${"83".tr} : ${translateDatabase(listdata.ordersPrice , listdata.ordersPrice_d , listdata.ordersPrice_d)}  ${"59".tr}"),
               Text("Delivery Price : ${listdata.ordersPricedelivery}  ${"59".tr} "),
               Text(
                   "${"84".tr} : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),

@@ -16,8 +16,8 @@ class CustomColor extends  GetView<ProductDetailsControllerImp>{
   @override
 
   Widget build(BuildContext context) {
-print(controller.colors.length);
     return CircleColorRow(colors: [],
+
 
     );
   }
@@ -31,24 +31,30 @@ class CircleColorRow extends StatefulWidget {
   final List<Color> colors;
   @override
   State<CircleColorRow> createState() => _CircleColorRowState();
+
 }
 
 class _CircleColorRowState extends State<CircleColorRow> {
 
+  final ScrollController _firstController = ScrollController();
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
-  int currentTab = 0;
-  String? sid;
+
   Widget build(BuildContext context) {
 
     return
   /*  DropdownButtonHideUnderline(
     child: DropdownButton<String>(
       isExpanded: true,
-        borderRadius:BorderRadius.circular(20),
       padding:EdgeInsets.only(right:0),
+<<<<<<< HEAD
+    hint: Text("select color",
+    style: TextStyle(color: Colors.black)),
+      value: controller.sid,
+=======
     hint: Text("Select Stockiest",
     style: TextStyle(fontSize : 10,color: Colors.black)),
       value:sid,
+>>>>>>> f6b259792258ae60d4365a43e5f075e2f78868c7
     items: controller.colors
         .map((list) {
     return DropdownMenuItem(
@@ -60,7 +66,7 @@ class _CircleColorRowState extends State<CircleColorRow> {
     onChanged: (value) {
     setState(() {
       print("lgkbkrhturng");
-    sid = value!;
+    controller.sid = value!;
     });
     },
     ),
@@ -72,14 +78,13 @@ class _CircleColorRowState extends State<CircleColorRow> {
           interactive:true,
         radius:Radius.circular(50),
         trackVisibility:true,
+        controller: _firstController,
         child: SingleChildScrollView(
-          controller:ScrollController(keepScrollOffset: true),
           keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag,
-
+          controller: _firstController,
           scrollDirection: Axis.horizontal,
-     child: Row(
+          child: Row(
           children: List.generate(
-
             controller.colors.length,
                 (index) {
 
@@ -87,9 +92,10 @@ class _CircleColorRowState extends State<CircleColorRow> {
                 onTap: () {
 
                   setState(() {
-                    currentTab = index;
-                    // var i=controller.colors[index]['colors_id'];
-                    // controller.color(i);
+                    controller.currentTabColor = index;
+                    var i=controller.colors[index]['colors_name'];
+                    controller.color(i);
+                    print(i);
                   });
                 },
                 child: Container(
@@ -100,7 +106,7 @@ class _CircleColorRowState extends State<CircleColorRow> {
                   margin: const EdgeInsets.all(4.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: currentTab == index
+                    border: controller.currentTabColor == index
                         ? Border.all(color: AppColor.thirdColor, width: 1.5)
                         : null,
                   ),

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:ecommercecourse/controller/cart_controller.dart';
+import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/functions/translatefatabase.dart';
@@ -15,6 +16,7 @@ class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CartController cartController = Get.put(CartController());
+    ProductDetailsControllerImp proudactController = Get.put(ProductDetailsControllerImp());
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -27,9 +29,9 @@ class Cart extends StatelessWidget {
                 onApplyCoupon: () {
                   controller.checkcoupon();
                 },
-                price: "${cartController.priceorders}",
+                price: "${cartController.priceorders_d}",
                 discount: "${controller.discountcoupon}%",
-                totalprice: "${controller.getTotalPrice()}")),
+                totalprice: "${translateDatabase(controller.getTotalPrice(), controller.getTotalPrice_d() ,controller.getTotalPrice_d())}")),
         body: GetBuilder<CartController>(
             builder: ((controller) => HandlingDataView(
                 statusRequest: controller.statusRequest,
@@ -46,14 +48,19 @@ class Cart extends StatelessWidget {
                           ...List.generate(
                             cartController.data.length,
                             (index) => CustomItemsCartList(
+                              delete:() async {
+                                await cartController
+                                    .delete(cartController.data[index].itemsId! );
+                                cartController.refreshPage();
+                              },
                                 onAdd: () async {
                                   await cartController
-                                      .add(cartController.data[index].itemsId!);
+                                      .addfromcart(cartController.data[index].cartId! , cartController.data[index].itemsId! );
                                   cartController.refreshPage();
                                 },
                                 onRemove: () async {
-                                  await cartController.delete(
-                                      cartController.data[index].itemsId!);
+                                  await cartController.deletefromcart(
+                                      cartController.data[index].cartId! ,cartController.data[index].itemsId!  );
                                   cartController.refreshPage();
                                 },
                                 imagename:
@@ -61,7 +68,7 @@ class Cart extends StatelessWidget {
                                 name:translateDatabase(
                                     cartController.data[index].itemsNameAr, cartController.data[index].itemsName ,cartController.data[index].itemsNameRu),
                                 price:
-                                    "${cartController.data[index].itemsprice}  ${"59".tr}",
+                                    "${translateDatabase(cartController.data[index].itemsprice, cartController.data[index].itemsprice_d , cartController.data[index].itemsprice_d)}  ${"59".tr}",
                                 count:
                                     "${cartController.data[index].countitems}"),
                           )

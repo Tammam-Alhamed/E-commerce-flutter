@@ -8,10 +8,13 @@ import 'package:ecommercecourse/data/model/couponmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'productdetails_controller.dart';
+
 class CartController extends GetxController {
   TextEditingController? controllercoupon;
 
   CartData cartData = CartData(Get.find());
+  ProductDetailsControllerImp controller = ProductDetailsControllerImp();
 
   int? discountcoupon = 0;
 
@@ -28,14 +31,15 @@ class CartController extends GetxController {
   List<CartModel> data = [];
 
   double priceorders = 0.0;
+  double priceorders_d = 0.0;
 
   int totalcountitems = 0;
 
-  add(String itemsid) async {
+  add(String itemsid ) async {
     statusRequest = StatusRequest.loading;
     update();
     var response = await cartData.addCart(
-        myServices.sharedPreferences.getString("id")!, itemsid);
+        myServices.sharedPreferences.getString("id")!, itemsid , controller.countitems as String , controller.currentTabColor as String , controller.currentTabSize!);
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -53,11 +57,35 @@ class CartController extends GetxController {
     update();
   }
 
+
+  addfromcart(String cartid , String itemsid ) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await cartData.addFromCart(
+        myServices.sharedPreferences.getString("id")!, cartid   , itemsid);
+    print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        Get.rawSnackbar(
+            title: "اشعار",
+            messageText: const Text("تم اضافة المنتج الى السلة "));
+        // data.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+
   goToPageCheckout() {
     if (data.isEmpty) return Get.snackbar("101".tr, "102".tr);
     Get.toNamed(AppRoute.checkout, arguments: {
       "couponid": couponid ?? "0",
       "priceorder": priceorders.toString() , 
+      "priceorder_d": priceorders_d.toString() ,
       "discountcoupon" : discountcoupon.toString()
     });
   }
@@ -66,12 +94,39 @@ class CartController extends GetxController {
     return (priceorders - priceorders * discountcoupon! / 100);
   }
 
+  getTotalPrice_d() {
+    return (priceorders_d - priceorders_d * discountcoupon! / 100);
+  }
+
   delete(String itemsid) async {
     statusRequest = StatusRequest.loading;
     update();
 
     var response = await cartData.deleteCart(
         myServices.sharedPreferences.getString("id")!, itemsid);
+    print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        Get.rawSnackbar(
+            title: "101".tr,
+            messageText: Text("103".tr));
+        // data.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+
+  deletefromcart(String cartid , String itemsid) async {
+    statusRequest = StatusRequest.loading;
+    update();
+
+    var response = await cartData.deleteFromCart(
+        myServices.sharedPreferences.getString("id")!, cartid , itemsid);
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -119,6 +174,7 @@ class CartController extends GetxController {
   resetVarCart() {
     totalcountitems = 0;
     priceorders = 0.0;
+    priceorders_d = 0.0;
     data.clear();
   }
 
@@ -144,7 +200,9 @@ class CartController extends GetxController {
           data.addAll(dataresponse.map((e) => CartModel.fromJson(e)));
           totalcountitems = int.parse(dataresponsecountprice['totalcount']);
           priceorders = double.parse(dataresponsecountprice['totalprice']);
+          priceorders_d = double.parse(dataresponsecountprice['totalprice_d']);
           print(priceorders);
+          print(priceorders_d);
         }
       } else {
         statusRequest = StatusRequest.failure;
