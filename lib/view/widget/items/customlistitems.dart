@@ -50,6 +50,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                              ),
 
                       Container(
+
                         padding: EdgeInsets.only(left: 15 , right: 10),
                         margin: EdgeInsets.only(left: 15 , right: 10),
                         alignment: Alignment.center,
@@ -64,22 +65,39 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                             )),
                       ),
 
-                         Flexible(
-                           child: Row(
+
+                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
+if(itemsModel.itemsDiscount!="0")
+                                  Column(
+                                      children: [
 
-                                padding: EdgeInsets.only(left: 7),
-                                child: Text("${translateDatabase(
-                                    itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
-                                    style: const TextStyle(
-                                        color: AppColor.primaryColor,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: "sans")),
-                              ),
+                                    Text("${translateDatabase(
+                                        itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
+                                        style: const TextStyle(
+                                            color: AppColor.primaryColor,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: "sans")),
+                                        Text("${translateDatabase(
+                                            itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+                                            style: const TextStyle(decoration: TextDecoration.lineThrough,
+                                                color: AppColor.primaryColor,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.normal,
+                                                fontFamily: "sans"))],)
+
+else
+    Text("${translateDatabase(
+    itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+    style: const TextStyle(
+    color: AppColor.primaryColor,
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    fontFamily: "sans")),
+
                               GetBuilder<FavoriteController>(
                                   builder: (controller) => IconButton(
                                       onPressed: () {
@@ -103,7 +121,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                       )))
                             ],
                         ),
-                         ),
+
 
                     ]),
               ),
