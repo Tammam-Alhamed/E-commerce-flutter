@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/controller/favorite_controller.dart';
+import 'package:ecommercecourse/controller/myfavoritecontroller.dart';
 import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
@@ -18,13 +19,10 @@ class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    ProductDetailsControllerImp controllerImp =
-        Get.put(ProductDetailsControllerImp());
-
-
+    ProductDetailsControllerImp controllerImp = Get.put(ProductDetailsControllerImp());
+    FavoriteController controllerfav = Get.put(FavoriteController());
     bool i=true;
     return Scaffold(
-        extendBodyBehindAppBar: true,
         persistentFooterAlignment : AlignmentDirectional.bottomCenter,
         bottomNavigationBar: Container(
           padding: EdgeInsets.only(bottom: 5),
@@ -37,7 +35,9 @@ class ProductDetails extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15)),
                   color: AppColor.primaryColor,
                   onPressed: () {
-                    Get.toNamed(AppRoute.cart);
+                    controllerImp.addtocart( controllerImp.countitems.toString() );
+                    print(controllerImp.countitems.toString());
+                    // Get.toNamed(AppRoute.cart);
                   },
                   child:  Text(
                     "47".tr,
@@ -47,7 +47,6 @@ class ProductDetails extends StatelessWidget {
             ),
         body: GetBuilder<ProductDetailsControllerImp>(
             builder: (controller) => ListView(children: [
-
                   HandlingDataView(
                       statusRequest: controller.statusRequest,
                       widget: Container(
@@ -56,7 +55,7 @@ class ProductDetails extends StatelessWidget {
                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Sliderdetails(),
- Column(
+                                Column(
                                     children: [
                                       Row(
                                         children: [
@@ -71,6 +70,8 @@ class ProductDetails extends StatelessWidget {
                                                       color: AppColor.fourthColor,
                                                     )),
                                           ),
+
+                                          if(controllerfav.isFavorite != null)
                                           GetBuilder<FavoriteController>(
                                               builder: (controller) => IconButton(
                                                   onPressed: () {
@@ -96,7 +97,6 @@ class ProductDetails extends StatelessWidget {
                                       ),
 
                                       Container(
-
                                         decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
@@ -107,19 +107,15 @@ class ProductDetails extends StatelessWidget {
                                                 blurStyle: BlurStyle.inner// changes position of shadow
                                             ),
                                           ],
-
                                           color: AppColor.backgroundcolor,
-
                                         ),
 
                                         child: SizedBox(
-
                                           height: 120,
                                           width: double.infinity,
                                           child: Padding(
                                             padding: const EdgeInsets.all(5.0),
                                             child: Text( translateDatabase(
-
                                                 controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
                                                 style: Theme.of(context)
                                                     .textTheme
@@ -141,11 +137,13 @@ class ProductDetails extends StatelessWidget {
                                         controller.remove();
                                       },
                                       price:
-                                      "${controller.itemsModel.itemsPriceDiscount}",
+                                      "${translateDatabase(
+                                          controller.itemsModel.itemsPriceDiscount, controller.itemsModel.itemspricedisount_d ,controller.itemsModel.itemspricedisount_d)}",
                                       count: "${controller.countitems}"),
                                   const SizedBox(height: 15),
 
                                   Row(
+
                                      // mainAxisAlignment:MainAxisAlignment.end,
                                    //   crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [/*Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
@@ -155,6 +153,7 @@ class ProductDetails extends StatelessWidget {
                                     height:40,child:
                                   CustomColor(),
                                    width: 170,),
+
 
                                      Padding(padding: EdgeInsets.only(left: 30,right: 5)),
                                  /* Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor

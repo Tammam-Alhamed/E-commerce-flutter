@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/orders/pending_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
+import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/data/model/ordersmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,7 +41,7 @@ class CardOrdersList extends GetView<OrdersPendingController> {
               // Text("Delivery Price : ${listdata.ordersPricedelivery} \$ "),
 
 
-              Text("${"83".tr} : ${listdata.ordersPrice} ${"59".tr}"),
+              Text("${"83".tr} : ${translateDatabase(listdata.ordersPrice , listdata.ordersPrice_d , listdata.ordersPrice_d)} ${"59".tr}"),
               // Text("Delivery Price : ${listdata.ordersPricedelivery}  ${"59".tr} "),
               Text(
                   "${"84".tr}: ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
@@ -50,7 +51,7 @@ class CardOrdersList extends GetView<OrdersPendingController> {
               Row(
                 children: [
                   Flexible(
-                    child: Text("${"52".tr} : ${listdata.ordersTotalprice}  ${"59".tr}",
+                    child: Text("${"52".tr} : ${translateDatabase(listdata.ordersTotalprice , listdata.ordersTotalprice_d , listdata.ordersTotalprice_d)}  ${"59".tr}",
                         style: const TextStyle(
                             color: AppColor.primaryColor,
                             fontWeight: FontWeight.bold)),

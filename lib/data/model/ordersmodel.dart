@@ -5,7 +5,9 @@ class OrdersModel {
   String? ordersType;
   String? ordersPricedelivery;
   String? ordersPrice;
+  String? ordersPrice_d;
   String? ordersTotalprice;
+  String? ordersTotalprice_d;
   String? ordersCoupon;
   String? ordersPaymentmethod;
   String? ordersStatus;
@@ -25,7 +27,9 @@ class OrdersModel {
       this.ordersType,
       this.ordersPricedelivery,
       this.ordersPrice,
+      this.ordersPrice_d,
       this.ordersTotalprice,
+      this.ordersTotalprice_d,
       this.ordersCoupon,
       this.ordersPaymentmethod,
       this.ordersStatus,
@@ -45,7 +49,9 @@ class OrdersModel {
     ordersType = json['orders_type'];
     ordersPricedelivery = json['orders_pricedelivery'];
     ordersPrice = json['orders_price'];
+    ordersPrice_d = json['orders_price_d'];
     ordersTotalprice = json['orders_totalprice'];
+    ordersTotalprice_d = json['orders_totalprice_d'];
     ordersCoupon = json['orders_coupon'];
     ordersPaymentmethod = json['orders_paymentmethod'];
     ordersStatus = json['orders_status'];
@@ -67,7 +73,9 @@ class OrdersModel {
     data['orders_type'] = this.ordersType;
     data['orders_pricedelivery'] = this.ordersPricedelivery;
     data['orders_price'] = this.ordersPrice;
+    data['orders_price_d'] = this.ordersPrice_d;
     data['orders_totalprice'] = this.ordersTotalprice;
+    data['orders_totalprice_d'] = this.ordersTotalprice_d;
     data['orders_coupon'] = this.ordersCoupon;
     data['orders_paymentmethod'] = this.ordersPaymentmethod;
     data['orders_status'] = this.ordersStatus;

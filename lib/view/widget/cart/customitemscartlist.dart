@@ -12,6 +12,7 @@ class CustomItemsCartList extends StatelessWidget {
   final String imagename;
   final void Function()? onAdd;
   final void Function()? onRemove;
+  final void Function()? delete;
   const CustomItemsCartList({
     Key? key,
     required this.name,
@@ -20,11 +21,13 @@ class CustomItemsCartList extends StatelessWidget {
     required this.imagename,
     required this.onAdd,
     required this.onRemove,
+    required this.delete,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return  Container(
+      margin: EdgeInsets.only(bottom: 10),
         height: 100,
         decoration: BoxDecoration(
             color: AppColor.grey2.withOpacity(0.2) ,
@@ -44,6 +47,9 @@ class CustomItemsCartList extends StatelessWidget {
                     style:
                         TextStyle(color: AppColor.primaryColor, fontSize: 17)),
               )),
+          Container(
+              height: 30,
+              child: IconButton(onPressed: delete, icon: Icon(Icons.delete))),
           Expanded(
               child: Column(
             children: [
@@ -56,13 +62,13 @@ class CustomItemsCartList extends StatelessWidget {
                     count,
                     style: TextStyle(fontFamily: "sans"),
                   )),
-              Container(
-                  height: 25,
-                  child: IconButton(onPressed: onRemove, icon: Icon(Icons.remove)))
-            ],
+                  Container(
+                      height: 25,
+                      child: IconButton(onPressed: onRemove, icon: Icon(Icons.remove))),
+
+                ],
           ))
         ]),
-      )
-    ;
+      );
   }
 }

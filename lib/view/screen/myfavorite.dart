@@ -46,7 +46,8 @@ class MyFavorite extends StatelessWidget {
                                 crossAxisCount: 2, childAspectRatio: 0.7),
                         itemBuilder: (context, index) {
                           return CustomListFavoriteItems(
-                              itemsModel: controller.data[index]);
+                              itemsModel: controller.data[index],
+                            itemsModel1: controller.dataitem[index],);
                         },
                       ))
                 ]))),

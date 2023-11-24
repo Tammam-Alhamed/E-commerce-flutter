@@ -73,7 +73,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
                                 padding: EdgeInsets.only(left: 7),
                                 child: Text("${translateDatabase(
-                                    itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)} ${"59".tr}",
+                                    itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
                                     style: const TextStyle(
                                         color: AppColor.primaryColor,
                                         fontSize: 16,
