@@ -24,6 +24,7 @@ class ItemsModel {
   String? itemsPriceDiscount ;
   String? itemspricedisount_d ;
   String? itemsStatus ;
+  String? itemsNew ;
 
   ItemsModel(
       {this.itemsId,
@@ -42,7 +43,8 @@ class ItemsModel {
       this.itemsDate,
       this.itemsCat,
         this.itemsStatus,
-      this.itemsPriceDiscount , 
+        this.itemsNew,
+      this.itemsPriceDiscount ,
       this.itemspricedisount_d ,
       this.categoriesId,
       this.categoriesName,
@@ -69,6 +71,7 @@ class ItemsModel {
     itemsDate = json['items_date'];
     itemsCat = json['items_cat'];
     itemsStatus = json['items_status'];
+    itemsNew = json['items_new'];
     itemsPriceDiscount = json['itemspricedisount'];
     itemspricedisount_d = json['itemspricedisount_d'];
     categoriesId = json['categories_id'];
@@ -98,6 +101,7 @@ class ItemsModel {
     data['items_date'] = this.itemsDate;
     data['items_cat'] = this.itemsCat;
     data['items_status'] = this.itemsStatus;
+    data['items_new'] = this.itemsNew;
     data['categories_id'] = this.categoriesId;
     data['categories_name'] = this.categoriesName;
     data['categories_name_ar'] = this.categoriesNamaAr;

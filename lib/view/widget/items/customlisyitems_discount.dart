@@ -111,10 +111,10 @@ class CustomListItemsDiscount extends GetView<SlidesControllerImp> {
                   top: 4,
                   left: 4,
                   child: Image.asset(AppImageAsset.saleOne , width: 40,)),
-              if (controller.NEW == null)   Positioned(
-                  top: 4,
-                  right: 4,
-                  child: Image.asset(AppImageAsset.saleOne , width: 40,))
+              if (itemsModel.itemsNew == "1")   Positioned(
+                  top: -2,
+                  right: -2,
+                  child: Image.asset(AppImageAsset.NEW , width: 50,))
             ],
           ),
         ));

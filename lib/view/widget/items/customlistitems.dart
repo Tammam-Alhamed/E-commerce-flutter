@@ -110,7 +110,11 @@ class CustomListItems extends GetView<ItemsControllerImp> {
            if (itemsModel.itemsDiscount != "0")   Positioned(
                 top: 4,
                 left: 4,
-                child: Image.asset(AppImageAsset.saleOne , width: 40,))
+                child: Image.asset(AppImageAsset.saleOne , width: 40,)),
+              if (itemsModel.itemsNew == "1")   Positioned(
+                  top: -2,
+                  right: -2,
+                  child: Image.asset(AppImageAsset.NEW , width: 50,))
             ],
           ),
         ));

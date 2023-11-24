@@ -70,8 +70,7 @@ class ProductDetails extends StatelessWidget {
                                                       color: AppColor.fourthColor,
                                                     )),
                                           ),
-
-                                          if(controllerfav.isFavorite != null)
+                                          if(controllerfav.isFavorite[controllerImp.itemsModel.itemsId] != null)
                                           GetBuilder<FavoriteController>(
                                               builder: (controller) => IconButton(
                                                   onPressed: () {
