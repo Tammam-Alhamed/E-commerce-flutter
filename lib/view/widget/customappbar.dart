@@ -19,17 +19,21 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        height:50,
       margin: EdgeInsets.only(top: 10),
       child: Row(children: [
         Expanded(
             child: TextFormField(
+
+
           controller: mycontroller,
           onChanged: onChanged,
           decoration: InputDecoration(
               prefixIcon: IconButton(
+
                   icon: Icon(Icons.search), onPressed: onPressedSearch),
               hintText: titleappbar,
-              hintStyle: TextStyle(fontSize: 18),
+              hintStyle: TextStyle(fontSize: 15),
               border: OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.circular(10)),
@@ -46,7 +50,7 @@ class CustomAppBar extends StatelessWidget {
               onPressed: onPressedIconFavorite,
               icon: Icon(
               iconData,
-                size: 30,
+                size: 20,
                 color: Colors.grey[600],
               )),
         )
