@@ -36,7 +36,6 @@ class SizeSelector extends StatefulWidget {
 
 class sizeRowState extends State<SizeSelector> {
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
-  int currentTab = 0;
   String? sid;
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,7 @@ class sizeRowState extends State<SizeSelector> {
           padding:EdgeInsets.only(right:0),
           hint: Text("select size",
               style: TextStyle(fontSize : 17,color: Colors.black)),
-value: sid,
+          value: controller.currentTabSize,
           items: controller.sizes
               .map((list) {
             return DropdownMenuItem(
@@ -59,8 +58,8 @@ value: sid,
           }).toList(),
           onChanged: (value) {
             setState(() {
-              print("lgkbkrhturng");
-              sid = value;
+                controller.currentTabSize = value;
+                print(value);
             });
           },
         ),

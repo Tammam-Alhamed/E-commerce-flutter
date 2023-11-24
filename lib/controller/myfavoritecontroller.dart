@@ -18,6 +18,7 @@ class MyFavoriteControllerImp extends SearchMixController {
   MyFavoriteData favoriteData = MyFavoriteData(Get.find());
 
   List<MyFavoriteModel> data = [];
+  List<ItemsModel> dataitem = [];
 
   late StatusRequest statusRequest;
 
@@ -38,6 +39,7 @@ class MyFavoriteControllerImp extends SearchMixController {
       if (response['status'] == "success") {
         List responsedata = response['data'];
         data.addAll(responsedata.map((e) => MyFavoriteModel.fromJson(e)));
+        dataitem.addAll(responsedata.map((e) => ItemsModel.fromJson(e)));
         // print("data");
         // print(data);
       } else {
@@ -63,7 +65,7 @@ class MyFavoriteControllerImp extends SearchMixController {
     super.onInit();
   }
 
-  goToPageProductDetails(itemsModell) {
-    Get.toNamed("productdetails", arguments: {"itemsModel": itemsModell});
+  goToPageProductDetails(itemsModel) {
+    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
   }
 }

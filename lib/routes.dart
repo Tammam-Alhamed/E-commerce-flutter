@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/bindings/intialbindings.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/middleware/mymiddleware.dart';
 import 'package:ecommercecourse/test_view.dart';
@@ -17,6 +18,7 @@ import 'package:ecommercecourse/view/screen/categories.dart';
 import 'package:ecommercecourse/view/screen/checkout.dart'; 
 import 'package:ecommercecourse/view/screen/homescreen.dart';
 import 'package:ecommercecourse/view/screen/items.dart';
+import 'package:ecommercecourse/view/screen/itemsdiscount.dart';
 import 'package:ecommercecourse/view/screen/language.dart';
 import 'package:ecommercecourse/view/screen/myfavorite.dart';
 import 'package:ecommercecourse/view/screen/onboarding.dart';
@@ -47,7 +49,8 @@ List<GetPage<dynamic>>? routes = [
   //
   GetPage(name: AppRoute.homepage, page: () => const HomeScreen()),
   GetPage(name: AppRoute.categories, page: () => const Categories()),
-  GetPage(name: AppRoute.items, page: () => const Items()),
+  GetPage(name: AppRoute.items, page: () => const Items() ,transition: Transition.cupertino),
+  GetPage(name: AppRoute.itemsDiscount, page: () => const ItemsDiscount() ,transition: Transition.cupertino),
   GetPage(name: AppRoute.productdetails, page: () => const ProductDetails()),
   GetPage(name: AppRoute.myfavroite, page: () => const MyFavorite()),
   //

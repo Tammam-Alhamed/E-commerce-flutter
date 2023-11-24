@@ -21,10 +21,12 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   MyServices myServices = Get.find();
 
   int countitems = 0;
-   int currentTab = 0;
+  int currentTabColor = 0;
+  String? currentTabSize ;
   List images = [];
   List colors =[];
   List sizes =[];
+
 
 
   intialData() async {
@@ -63,11 +65,11 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     }
   }
 
-  addItems(String itemsid) async {
+  addItems(String itemsid , String itemsqua , String itemscolor , String itemssize) async {
     statusRequest = StatusRequest.loading;
     update();
     var response = await cartData.addCart(
-        myServices.sharedPreferences.getString("id")!, itemsid);
+        myServices.sharedPreferences.getString("id")!, itemsid , itemsqua , itemscolor , itemssize );
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -108,39 +110,46 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     update();
   }
 
-   addcolor(String itemsid , String color) async {
-     statusRequest = StatusRequest.loading;
-     update();
-     var response = await cartData.addColor(
-         myServices.sharedPreferences.getString("id")!, itemsid , color);
-     print("=============================== Controller $response ");
-     statusRequest = handlingData(response);
-     if (StatusRequest.success == statusRequest) {
-       // Start backend
-       if (response['status'] == "success") {
-         // data.addAll(response['data']);
-       } else {
-         statusRequest = StatusRequest.failure;
-       }
-       // End
-     }
-     update();
-   }
-
-   color(color) {
-     addcolor(itemsModel.itemsId! , color);
-     currentTab;
-     update();
-   }
-
-   // addtocart(color){
-   //   addItems(itemsModel.itemsId!);
-   //   addcolor(itemsModel.itemsId! , color);
+   // addcolor(String itemsid , String color) async {
+   //   statusRequest = StatusRequest.loading;
+   //   update();
+   //   var response = await cartData.addColor(
+   //       myServices.sharedPreferences.getString("id")!, itemsid , color);
+   //   print("=============================== Controller $response ");
+   //   statusRequest = handlingData(response);
+   //   if (StatusRequest.success == statusRequest) {
+   //     // Start backend
+   //     if (response['status'] == "success") {
+   //       // data.addAll(response['data']);
+   //     } else {
+   //       statusRequest = StatusRequest.failure;
+   //     }
+   //     // End
+   //   }
    //   update();
    // }
 
+   String? colr ;
+   color( col) {
+    colr = col;
+     currentTabColor;
+     update();
+   }
+
+
+   siezs() {
+
+     currentTabSize;
+     update();
+   }
+
+   addtocart( countitems){
+     addItems(itemsModel.itemsId! , countitems , colr! , currentTabSize! );
+     update();
+   }
+
    add() {
-    addItems(itemsModel.itemsId!);
+    // addItems(itemsModel.itemsId!);
     countitems++;
     update();
   }

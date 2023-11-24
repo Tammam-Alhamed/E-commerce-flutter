@@ -12,16 +12,17 @@ import 'package:get/get.dart';
 
 class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
   final MyFavoriteModel itemsModel;
+  final ItemsModel itemsModel1;
 
   // final bool active;
-  const CustomListFavoriteItems({Key? key, required this.itemsModel})
+   CustomListFavoriteItems( {Key? key,required this.itemsModel1, required this.itemsModel})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          // controller.goToPageProductDetails(itemsModel);
+          controller.goToPageProductDetails(itemsModel1);
         },
         child: Card(
           child: Padding(

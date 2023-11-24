@@ -51,7 +51,7 @@ class MyFavoriteModel {
     itemsDesc = json['items_desc'];
     itemsDescAr = json['items_desc_ar'];
     itemsDescRu = json['items_desc_ru'];
-    itemsImage = json['items_image'];
+    itemsImage = json['items_image_main'];
     itemsCount = json['items_count'];
     itemsActive = json['items_active'];
     itemsPrice = json['items_price'];
@@ -74,7 +74,7 @@ class MyFavoriteModel {
     data['items_desc'] = this.itemsDesc;
     data['items_desc_ar'] = this.itemsDescAr;
     data['items_desc_ru'] = this.itemsDescRu;
-    data['items_image'] = this.itemsImage;
+    data['items_image_main'] = this.itemsImage;
     data['items_count'] = this.itemsCount;
     data['items_active'] = this.itemsActive;
     data['items_price'] = this.itemsPrice;

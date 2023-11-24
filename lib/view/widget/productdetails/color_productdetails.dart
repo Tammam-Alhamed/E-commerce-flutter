@@ -16,7 +16,6 @@ class CustomColor extends  GetView<ProductDetailsControllerImp>{
   @override
 
   Widget build(BuildContext context) {
-print(controller.colors.length);
     return CircleColorRow(colors: [],
 
 
@@ -37,6 +36,7 @@ class CircleColorRow extends StatefulWidget {
 
 class _CircleColorRowState extends State<CircleColorRow> {
 
+  final ScrollController _firstController = ScrollController();
   ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
 
   Widget build(BuildContext context) {
@@ -78,13 +78,13 @@ class _CircleColorRowState extends State<CircleColorRow> {
           interactive:true,
         radius:Radius.circular(50),
         trackVisibility:true,
+        controller: _firstController,
         child: SingleChildScrollView(
-          controller: ScrollController( ),
           keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag,
+          controller: _firstController,
           scrollDirection: Axis.horizontal,
           child: Row(
           children: List.generate(
-
             controller.colors.length,
                 (index) {
 
@@ -92,9 +92,10 @@ class _CircleColorRowState extends State<CircleColorRow> {
                 onTap: () {
 
                   setState(() {
-                    controller.currentTab = index;
+                    controller.currentTabColor = index;
                     var i=controller.colors[index]['colors_name'];
                     controller.color(i);
+                    print(i);
                   });
                 },
                 child: Container(
@@ -105,7 +106,7 @@ class _CircleColorRowState extends State<CircleColorRow> {
                   margin: const EdgeInsets.all(4.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: controller.currentTab == index
+                    border: controller.currentTabColor == index
                         ? Border.all(color: AppColor.thirdColor, width: 1.5)
                         : null,
                   ),

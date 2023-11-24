@@ -12,8 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ListItemsHome extends GetView<HomeShopeControllerImp> {
-  const ListItemsHome({Key? key}) : super(key: key);
-
+   ListItemsHome({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -23,7 +22,6 @@ class ListItemsHome extends GetView<HomeShopeControllerImp> {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return ItemsHome(
-                i: index,
                 itemsModel: ItemsModel.fromJson(controller.items[index]));
           }),
     );
@@ -32,8 +30,8 @@ class ListItemsHome extends GetView<HomeShopeControllerImp> {
 
 class ItemsHome extends GetView<HomeShopeControllerImp>  {
   final ItemsModel itemsModel;
-  final int? i;
-  const ItemsHome(  {Key? key, required this.itemsModel, required this.i}) : super(key: key);
+
+  const ItemsHome(  {Key? key, required this.itemsModel, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

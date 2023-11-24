@@ -65,7 +65,7 @@ class OrdersDetails extends StatelessWidget {
                                             controller.data[index].itemsNameAr, controller.data[index].itemsName ,controller.data[index].itemsNameRu),
                                             textAlign: TextAlign.center),
                                         Text("${controller.data[index].countitems}", textAlign: TextAlign.center),
-                                        Text("${controller.data[index].itemsprice}",
+                                        Text("${controller.data[index].itemsprice_d}",
                                             textAlign: TextAlign.center),
                                     Text(controller.data[index].itemsDelay == "0"
                                         ? ""
@@ -85,7 +85,7 @@ class OrdersDetails extends StatelessWidget {
                           SizedBox(height: 10),
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 10),
-                            child:   Text("${"52".tr} : ${controller.ordersModel.ordersTotalprice} ${"59".tr}",
+                            child:   Text("${"52".tr} : ${translateDatabase(controller.ordersModel.ordersTotalprice , controller.ordersModel.ordersTotalprice_d ,controller.ordersModel.ordersTotalprice_d)} ${"59".tr}",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     color: AppColor.primaryColor,
