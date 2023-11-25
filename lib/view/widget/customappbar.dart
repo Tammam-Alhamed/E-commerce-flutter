@@ -53,6 +53,19 @@ class CustomAppBar extends StatelessWidget {
                 size: 20,
                 color: Colors.grey[600],
               )),
+        ),
+        Container(
+          decoration: BoxDecoration(
+              color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
+          width: 60,
+          padding: EdgeInsets.symmetric(vertical: 8),
+          child: IconButton(
+              onPressed: onPressedIconFavorite,
+              icon: Icon(
+                iconData,
+                size: 20,
+                color: Colors.grey[600],
+              )),
         )
       ]),
     );

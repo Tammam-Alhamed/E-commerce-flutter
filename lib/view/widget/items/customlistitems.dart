@@ -71,6 +71,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
 if(itemsModel.itemsDiscount!="0")
+
                                   Column(
                                       children: [
 
