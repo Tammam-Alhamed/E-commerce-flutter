@@ -50,7 +50,7 @@ class ItemsDiscount extends StatelessWidget {
                       itemCount: controller.data.length,
                       gridDelegate:
                       const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2, childAspectRatio: 0.7),
+                          crossAxisCount: 2, childAspectRatio: 0.6),
                       itemBuilder: (BuildContext context, index) {
                         controllerFav.isFavorite[controller.data[index]
                         ['items_id']] =

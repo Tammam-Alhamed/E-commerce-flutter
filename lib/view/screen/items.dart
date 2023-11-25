@@ -15,6 +15,7 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     ItemsControllerImp controller = Get.put(ItemsControllerImp());
     FavoriteController controllerFav = Get.put(FavoriteController());
 
@@ -47,9 +48,10 @@ class Items extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: controller.data.length,
                           gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2, childAspectRatio: 0.6),
+                               SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2, childAspectRatio:  0.6  ),
                           itemBuilder: (BuildContext context, index) {
+                            // controller.data[index]['items_discount'] = controller.discount;
                             controllerFav.isFavorite[controller.data[index]
                                     ['items_id']] =
                                 controller.data[index]['favorite'];

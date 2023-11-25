@@ -8,6 +8,7 @@ import 'package:ecommercecourse/data/model/categoriesmodel.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/data/model/shopesmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,8 +17,9 @@ class ListItemsHome extends GetView<HomeShopeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 140,
+      height: 150,
       child: ListView.builder(
+          physics: BouncingScrollPhysics(),
           itemCount: controller.items.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
@@ -42,14 +44,14 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
       child: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 10),
-            margin: const EdgeInsets.symmetric(horizontal: 18),
+            padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
+            margin: const EdgeInsets.only(right: 15),
             child: CachedNetworkImage(
               imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(12.0),),
                   image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
 
-              height: 120,
-              width: 165,
+              height: 130,
+              width: 140,
               fit: BoxFit.fill, imageUrl: '${AppLink.imagestItems}/${itemsModel.itemsImage}',
             ),
           ),
@@ -57,8 +59,8 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
             decoration: BoxDecoration(
                 color: Colors.blueGrey.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(20)),
-            height: 140,
-            width: 200,
+            height: 170,
+            width: 170,
           ),
           Positioned(
               left: 10,

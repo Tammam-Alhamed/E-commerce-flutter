@@ -21,10 +21,12 @@ class ItemsControllerImp extends SearchMixController {
   List categories = [];
   String? catid;
   String? imgid;
+  String? discount;
   int? selectedCat;
-
   ItemsData testData = ItemsData(Get.find());
   ItemsImages dataimage =ItemsImages(Get.find());
+
+
 
   List data = [];
   List image = [];
@@ -94,8 +96,12 @@ class ItemsControllerImp extends SearchMixController {
       // End
     }
     update();
+  }
 
 
+  Size_coustm_items(String? discount) {
+     discount;
+     update();
   }
 
 

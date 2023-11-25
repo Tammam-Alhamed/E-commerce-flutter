@@ -30,6 +30,7 @@ class HomePage extends StatelessWidget {
         builder: (controller) => Container(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: ListView(
+              physics: AlwaysScrollableScrollPhysics(),
               children: [
                 CustomAppBar(
                   mycontroller: controller.search!,
