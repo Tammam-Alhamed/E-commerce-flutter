@@ -22,12 +22,13 @@ class ListShope extends GetView<HomeShopeControllerImp> {
               .map((list) {
             return DropdownMenuItem(
               child: Container(width:50, height:20,child: Text(list['shopes_name'])),
-              value: list['shopes_name'].toString(),
+              value: list['shopes_id'].toString(),
             );
           }).toList(),
           onChanged: (value) {
-       ;
+
           },
+
         ),
       );
   }

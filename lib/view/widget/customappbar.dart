@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'categories/listshope.dart';
+
 class CustomAppBar extends StatelessWidget {
   final String titleappbar;
   final void Function()? onPressedIconFavorite;
@@ -59,13 +61,7 @@ class CustomAppBar extends StatelessWidget {
               color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
           width: 60,
           padding: EdgeInsets.symmetric(vertical: 8),
-          child: IconButton(
-              onPressed: onPressedIconFavorite,
-              icon: Icon(
-                iconData,
-                size: 20,
-                color: Colors.grey[600],
-              )),
+          child: ListShope(),
         )
       ]),
     );
