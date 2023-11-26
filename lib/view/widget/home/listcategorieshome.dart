@@ -19,7 +19,7 @@ class ListCategoriesHome extends GetView<HomeShopeControllerImp> {
     return SizedBox(
       height: 130,
       child: ListView.separated(
-        separatorBuilder: (context, index) => const SizedBox(width: 1),
+        separatorBuilder: (context, index) => const SizedBox(width:0),
         itemCount: controller.shope.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
@@ -56,6 +56,7 @@ class Categories extends GetView<HomeShopeControllerImp> {
       child: Column(
         children: [
           Container(
+           margin:EdgeInsets.only(right: 4) ,
             height: 70,
             width: 70,
             child: CachedNetworkImage(
@@ -70,11 +71,12 @@ class Categories extends GetView<HomeShopeControllerImp> {
           Container(
             width: 80,
             // height:50,
-            padding: EdgeInsets.only(left:10, right: 10),
+
+            padding: EdgeInsets.only(top: 3),
             alignment: Alignment.center,
-            child: Text(
+            child: Text(textAlign: TextAlign.center,
               "${translateDatabase(shopemodel.shopesNameAr, shopemodel.shopesName , shopemodel.shopesNameRu)}",
-              style: const TextStyle(fontSize: 11, color: AppColor.black ,
+              style: const TextStyle(height: 1.4,fontSize: 11, color: AppColor.black ,
                 overflow: TextOverflow.clip
               ),
             ),

@@ -20,6 +20,7 @@ class CustomListItemsDiscount extends GetView<SlidesControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
+          print("==============================");
           controller.goToPageProductDetails(itemsModel);
         },
         child: Card(
@@ -48,8 +49,9 @@ class CustomListItemsDiscount extends GetView<SlidesControllerImp> {
 
                         ),
                       ),
-
+                      SizedBox(height: 10,),
                       Container(
+
                         padding: EdgeInsets.only(left: 15 , right: 10),
                         margin: EdgeInsets.only(left: 15 , right: 10),
                         alignment: Alignment.center,
@@ -64,22 +66,45 @@ class CustomListItemsDiscount extends GetView<SlidesControllerImp> {
                             )),
                       ),
 
-                      Flexible(
+                      if( itemsModel.itemsDiscount == "0")
+                        SizedBox(height: 20,),
+
+                      Padding(
+                        padding: const EdgeInsets.only(left: 11),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
+                            if(itemsModel.itemsDiscount!="0")
+                              Column(
+                                children: [
+                                  Text("${translateDatabase(
+                                      itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
+                                      style: const TextStyle(
+                                          color: AppColor.primaryColor,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: "sans")),
+                                  Text("${translateDatabase(
+                                      itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+                                      style: const TextStyle(decoration: TextDecoration.lineThrough,
+                                          color: AppColor.primaryColor,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.normal,
+                                          fontFamily: "sans"))],)
 
-                              padding: EdgeInsets.only(left: 7),
-                              child: Text("${translateDatabase(
-                                  itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
-                                  style: const TextStyle(
-                                      color: AppColor.primaryColor,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "sans")),
-                            ),
+                            else
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8),
+                                child: Text("${translateDatabase(
+                                    itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+                                    style: const TextStyle(
+                                        color: AppColor.primaryColor,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w400,
+                                        fontFamily: "sans")),
+                              ),
+
                             GetBuilder<FavoriteController>(
                                 builder: (controller) => IconButton(
                                     onPressed: () {
@@ -105,16 +130,17 @@ class CustomListItemsDiscount extends GetView<SlidesControllerImp> {
                         ),
                       ),
 
+
                     ]),
               ),
               if (itemsModel.itemsDiscount != "0")   Positioned(
                   top: 4,
                   left: 4,
                   child: Image.asset(AppImageAsset.saleOne , width: 40,)),
-              if (controller.NEW == null)   Positioned(
-                  top: 4,
-                  right: 4,
-                  child: Image.asset(AppImageAsset.saleOne , width: 40,))
+              if (itemsModel.itemsNew == "1")   Positioned(
+                  top: -2,
+                  right: -2,
+                  child: Image.asset(AppImageAsset.NEW , width: 50,))
             ],
           ),
         ));

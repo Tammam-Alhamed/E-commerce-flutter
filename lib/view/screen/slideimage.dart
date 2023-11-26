@@ -16,6 +16,7 @@ class ImageSliderScreen extends GetView<SlidesControllerImp> {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(40)),
       child: Swiper.children(
+        outer : true,
         loop: true,
          indicatorLayout : PageIndicatorLayout.SCALE,
         scale: 1.3,

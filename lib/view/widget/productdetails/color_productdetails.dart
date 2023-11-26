@@ -41,39 +41,7 @@ class _CircleColorRowState extends State<CircleColorRow> {
 
   Widget build(BuildContext context) {
 
-    return
-  /*  DropdownButtonHideUnderline(
-    child: DropdownButton<String>(
-      isExpanded: true,
-      padding:EdgeInsets.only(right:0),
-<<<<<<< HEAD
-    hint: Text("select color",
-    style: TextStyle(color: Colors.black)),
-      value: controller.sid,
-=======
-    hint: Text("Select Stockiest",
-    style: TextStyle(fontSize : 10,color: Colors.black)),
-      value:sid,
->>>>>>> f6b259792258ae60d4365a43e5f075e2f78868c7
-    items: controller.colors
-        .map((list) {
-    return DropdownMenuItem(
-
-    child: Container(width:50, height:20,child: Text(list['colors_name'])),
-    value: list['colors_name'].toString(),
-    );
-    }).toList(),
-    onChanged: (value) {
-    setState(() {
-      print("lgkbkrhturng");
-    controller.sid = value!;
-    });
-    },
-    ),
-    );*/
-
-
-      Scrollbar(
+    return Scrollbar(
         thumbVisibility:true,
           interactive:true,
         radius:Radius.circular(50),
@@ -90,7 +58,6 @@ class _CircleColorRowState extends State<CircleColorRow> {
 
               return InkWell(
                 onTap: () {
-
                   setState(() {
                     controller.currentTabColor = index;
                     var i=controller.colors[index]['colors_name'];

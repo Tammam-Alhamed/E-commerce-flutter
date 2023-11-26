@@ -18,34 +18,37 @@ class PriceAndCountItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Row(
-          children: [
-            IconButton(onPressed: onAdd, icon:   Icon(LineAwesome.plus_circle_solid),),
-            Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.only(bottom: 2),
-                width: 50,
-                height: 30,
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(10),color: AppColor.secondColor),
-                child: Text(
-                  count,
-                  style: const TextStyle(fontSize: 15, height: 1.1),
-                )),
-            IconButton(onPressed: onRemove, icon: const Icon(LineAwesome.minus_circle_solid),),
-          ],
-        ),
-        Spacer(flex:2 ,),
-        Text(
-          "$price ${"59".tr}",
-          style: const TextStyle(
+    return Padding(
+      padding: const EdgeInsets.only(right: 20),
+      child: Row(
+        children: [
+          Row(
+            children: [
+              IconButton(onPressed: onAdd, icon:   Icon(LineAwesome.plus_circle_solid),),
+              Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.only(bottom: 2),
+                  width: 50,
+                  height: 30,
+                  decoration:
+                      BoxDecoration(border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(10),color: AppColor.secondColor),
+                  child: Text(
+                    count,
+                    style: const TextStyle(fontSize: 15, height: 1.1),
+                  )),
+              IconButton(onPressed: onRemove, icon: const Icon(LineAwesome.minus_circle_solid),),
+            ],
+          ),
+          Spacer(flex:2 ,),
+          Text(
+            "$price ${"59".tr}",
+            style: const TextStyle(
 
-              color: AppColor.primaryColor, fontSize: 20, height: 1.1),
+                color: AppColor.primaryColor, fontSize: 20, height: 1.1),
 
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
