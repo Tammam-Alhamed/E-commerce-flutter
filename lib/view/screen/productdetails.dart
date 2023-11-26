@@ -11,6 +11,7 @@ import 'package:ecommercecourse/view/widget/productdetails/toppageproductdetails
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/functions/translatefatabase.dart';
+import '../widget/home/custombottomappbarhome.dart';
 import '../widget/productdetails/slidedetails.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -26,25 +27,25 @@ class ProductDetails extends StatelessWidget {
         persistentFooterAlignment : AlignmentDirectional.bottomCenter,
         bottomNavigationBar: Container(
           padding: EdgeInsets.only(bottom: 5),
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             height: 40,
-
-
               child: MaterialButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
                   color: AppColor.primaryColor,
                   onPressed: () {
                     controllerImp.addtocart( controllerImp.countitems.toString() );
-                    print(controllerImp.countitems.toString());
                     // Get.toNamed(AppRoute.cart);
                   },
                   child:  Text(
                     "47".tr,
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
-                  )),
+                  ),
+              ),
+
             ),
+
         body: GetBuilder<ProductDetailsControllerImp>(
             builder: (controller) => ListView(children: [
                   HandlingDataView(
@@ -141,31 +142,34 @@ class ProductDetails extends StatelessWidget {
                                       count: "${controller.countitems}"),
                                   const SizedBox(height: 15),
 
-                                  Row(
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 5),
+                                    child: Row(
 
-                                     // mainAxisAlignment:MainAxisAlignment.end,
-                                   //   crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [/*Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
-                                    ))*/
+                                       // mainAxisAlignment:MainAxisAlignment.end,
+                                     //   crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [/*Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
+                                      ))*/
 //Padding(padding: EdgeInsets.only(left: 10,right: 10)),
-                                  Container(decoration:BoxDecoration(borderRadius: BorderRadius.circular(5),),
-                                    height: 60,child:
-                                  CustomColor(),
-                                   width: 170,),
+                                    Container(decoration:BoxDecoration(borderRadius: BorderRadius.circular(5),),
+                                      height: 60,child:
+                                    CustomColor(),
+                                     width: 170,),
 
 
-                                     Padding(padding: EdgeInsets.only(left: 30,right: 5)),
+                                       Padding(padding: EdgeInsets.only(left: 30,right: 35)),
                                  /* Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
-                                  )),*/
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: AppColor.grey2,
+                                    )),*/
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            border: Border(bottom: BorderSide(color: AppColor.primaryColor)),
 
+                                          ),
+                                          height:60,child:Customsize(),width: 110,
                                         ),
-                                        height:60,child:Customsize(),width: 130,
-                                      ),
 
-                                    ]),
+                                      ]),
+                                  ),
                                   SizedBox(height:5),
 
                                   const SizedBox(height: 10),

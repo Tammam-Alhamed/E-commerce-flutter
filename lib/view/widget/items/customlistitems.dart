@@ -77,6 +77,7 @@ SizedBox(height: 10,),
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
 if(itemsModel.itemsDiscount!="0")
+
                                     Column(
                                         children: [
                                       Text("${translateDatabase(
@@ -93,6 +94,7 @@ if(itemsModel.itemsDiscount!="0")
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.normal,
                                                   fontFamily: "sans"))],)
+
 
 else
     Padding(

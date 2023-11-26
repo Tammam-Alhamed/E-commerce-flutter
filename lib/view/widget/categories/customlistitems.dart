@@ -19,7 +19,7 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
     return InkWell(
         onTap: () {
           print(i);
-          controller.goToItems(controller.categories, i , categoriesModel.categoriesId!);
+          controller.goToItems(controller.categories, i , categoriesModel.categoriesId! );
         },
         child: Card(
           //margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),

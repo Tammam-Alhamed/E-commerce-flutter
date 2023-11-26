@@ -21,7 +21,9 @@ abstract class CategoriesController extends GetxController {
 class CategoriesControllerImp extends SearchMixController {
   List shopes = [];
   String? shopeid;
+
   int? selectedShope;
+  int i = 1;
 
   CategoriesData testData = CategoriesData(Get.find());
   HomeData homedata = HomeData(Get.find());
@@ -44,7 +46,6 @@ class CategoriesControllerImp extends SearchMixController {
   }
 
   intialData() {
-
     shopeid = Get.arguments['shopeid'];
     getItems(shopeid!);
   }
@@ -56,11 +57,19 @@ class CategoriesControllerImp extends SearchMixController {
     update();
   }
 
-  goToItems(categories, selectedCat, categoryid) {
+  changeShopee( shopeval) {
+    shopeid = shopeval;
+    getItems(shopeid!);
+    update();
+  }
+
+
+
+  goToItems(categories, selectedCat, categoryid ) {
     Get.toNamed(AppRoute.items, arguments: {
       "categories": categories,
       "selectedcat": selectedCat,
-      "catid": categoryid
+      "catid": categoryid,
     });
   }
   // getdata() async {

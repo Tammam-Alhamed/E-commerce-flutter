@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/controller/categories_controller.dart';
 import 'package:ecommercecourse/core/class/statusrequest.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
@@ -16,11 +17,12 @@ abstract class HomeShopeController extends SearchMixController {
 
 class HomeShopeControllerImp extends HomeShopeController {
   MyServices myServices = Get.find();
-
   String? username;
   String? id;
   String? lang;
-  int? i;
+  String? currentTabShope;
+
+  int i = 1;
 
 
   HomeData homedata = HomeData(Get.find());
@@ -75,6 +77,8 @@ class HomeShopeControllerImp extends HomeShopeController {
       "shopeid": shopeid,
     });
   }
+
+
 
   goToPageProductDetails(itemsModel) {
     Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});

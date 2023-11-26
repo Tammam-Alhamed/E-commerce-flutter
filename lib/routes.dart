@@ -48,7 +48,7 @@ List<GetPage<dynamic>>? routes = [
       name: AppRoute.verfiyCodeSignUp, page: () => const VerfiyCodeSignUp()),
   //
   GetPage(name: AppRoute.homepage, page: () => const HomeScreen()),
-  GetPage(name: AppRoute.categories, page: () => const Categories()),
+  GetPage(name: AppRoute.categories, page: () => const Categories(),transition: Transition.cupertino),
   GetPage(name: AppRoute.items, page: () => const Items() ,transition: Transition.cupertino),
   GetPage(name: AppRoute.itemsDiscount, page: () => const ItemsDiscount() ,transition: Transition.cupertino),
   GetPage(name: AppRoute.productdetails, page: () => const ProductDetails()),

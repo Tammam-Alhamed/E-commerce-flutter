@@ -5,6 +5,7 @@ import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/view/screen/home.dart';
+import 'package:ecommercecourse/view/widget/categories/listshope.dart';
 import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/items/customlistitems.dart';
 import 'package:ecommercecourse/view/widget/items/listcategoirseitems.dart';
@@ -37,6 +38,7 @@ class Items extends StatelessWidget {
               Get.toNamed(AppRoute.myfavroite);
             },
           ),
+
           const SizedBox(height: 20),
           const ListCategoriesItems(),
           GetBuilder<CategoriesControllerImp>(
