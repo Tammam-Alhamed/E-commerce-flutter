@@ -1,8 +1,10 @@
+import 'package:ecommercecourse/controller/categories_controller.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/core/class/statusrequest.dart';
 import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
 import 'package:ecommercecourse/core/services/services.dart';
+import 'package:ecommercecourse/data/datasource/remote/categories_data.dart';
 import 'package:ecommercecourse/data/datasource/remote/items_data.dart';
 import 'package:ecommercecourse/data/datasource/remote/items_images.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
@@ -18,13 +20,19 @@ abstract class ItemsController extends GetxController {
 }
 
 class ItemsControllerImp extends SearchMixController {
+
   List categories = [];
   String? catid;
   String? imgid;
-  int? selectedCat;
+  String? shopeid;
+  String? discount;
 
+  int? selectedCat;
   ItemsData testData = ItemsData(Get.find());
   ItemsImages dataimage =ItemsImages(Get.find());
+
+  String? currentTabCat;
+
 
   List data = [];
   List image = [];
@@ -50,12 +58,16 @@ class ItemsControllerImp extends SearchMixController {
 
   }
 
-  // changeCat(val, catval) {
-  //   selectedCat = val;
-  //   catid = catval;
-  //   getItems(catid!);
-  //   update();
+  // changeShopee( shopeval) {
+  //   Get.back(result: 'hello');
+  //   shopeid = shopeval;
+  //   getShope(shopeid!);
   // }
+  changeCat( catval) {
+    catid = catval;
+    getItems(catid!);
+    update();
+  }
 
   getItems(categoryid) async {
     data.clear();
@@ -94,8 +106,12 @@ class ItemsControllerImp extends SearchMixController {
       // End
     }
     update();
+  }
 
 
+  Size_coustm_items(String? discount) {
+     discount;
+     update();
   }
 
 

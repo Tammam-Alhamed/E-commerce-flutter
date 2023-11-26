@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommercecourse/controller/categories_controller.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
@@ -10,6 +11,7 @@ import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
 import 'package:ecommercecourse/view/screen/othersview.dart';
 import 'package:ecommercecourse/view/screen/slideimage.dart';
+import 'package:ecommercecourse/view/widget/categories/listshope.dart';
 import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/home/customtitlehome.dart';
 import 'package:ecommercecourse/view/widget/home/listcategorieshome.dart';
@@ -26,10 +28,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeShopeControllerImp());
     Get.put(SlidesControllerImp());
+
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: ListView(
+              physics: AlwaysScrollableScrollPhysics(),
               children: [
                 CustomAppBar(
                   mycontroller: controller.search!,
@@ -44,6 +48,7 @@ class HomePage extends StatelessWidget {
                   onPressedIconFavorite: () {
                     Get.toNamed(AppRoute.myfavroite);
                   },
+                  container: SizedBox(),
                 ),
                 HandlingDataView(
                     statusRequest: controller.statusRequest,

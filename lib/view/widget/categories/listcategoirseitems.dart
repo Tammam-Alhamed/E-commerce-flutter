@@ -19,13 +19,13 @@ class ListCategoriesShops extends GetView<CategoriesControllerImp> {
       height: 100,
       child: ListView.separated(
         separatorBuilder: (context, index) => const SizedBox(width: 10),
-        itemCount: controller.shopes.length,
+        itemCount: controller.data.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Categories(
             i: index,
             Shopesmodel:
-            shopesmodel.fromJson(controller.shopes[index]),
+            shopesmodel.fromJson(controller.data[index]),
           );
         },
       ),

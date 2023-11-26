@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/myfavoritecontroller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
+import 'package:ecommercecourse/view/widget/categories/listshope.dart';
 import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/myfavorite/customlistfavoriteitems1.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class MyFavorite extends StatelessWidget {
                     onPressedIconFavorite: () {
                       Get.offAllNamed(AppRoute.homepage);
                     },
+                    container: SizedBox(),
                   ),
                   const SizedBox(height: 20),
                   HandlingDataView(

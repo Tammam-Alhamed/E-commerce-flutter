@@ -17,6 +17,8 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    controller.discount =  itemsModel.itemsDiscount ;
+    print(controller.discount);
     return InkWell(
         onTap: () {
           print("==============================");
@@ -48,7 +50,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
                           ),
                              ),
-
+SizedBox(height: 10,),
                       Container(
 
                         padding: EdgeInsets.only(left: 15 , right: 10),
@@ -65,63 +67,71 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                             )),
                       ),
 
+                         if( itemsModel.itemsDiscount == "0")
+                         SizedBox(height: 20,),
 
-                         Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                         Padding(
+                           padding: const EdgeInsets.only(left: 11),
+                           child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
 if(itemsModel.itemsDiscount!="0")
 
-                                  Column(
-                                      children: [
+                                    Column(
+                                        children: [
+                                      Text("${translateDatabase(
+                                          itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
+                                          style: const TextStyle(
+                                              color: AppColor.primaryColor,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: "sans")),
+                                          Text("${translateDatabase(
+                                              itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+                                              style: const TextStyle(decoration: TextDecoration.lineThrough,
+                                                  color: AppColor.primaryColor,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.normal,
+                                                  fontFamily: "sans"))],)
 
-                                    Text("${translateDatabase(
-                                        itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
-                                        style: const TextStyle(
-                                            color: AppColor.primaryColor,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: "sans")),
-                                        Text("${translateDatabase(
-                                            itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
-                                            style: const TextStyle(decoration: TextDecoration.lineThrough,
-                                                color: AppColor.primaryColor,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.normal,
-                                                fontFamily: "sans"))],)
 
 else
-    Text("${translateDatabase(
-    itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
-    style: const TextStyle(
-    color: AppColor.primaryColor,
-    fontSize: 16,
-    fontWeight: FontWeight.normal,
-    fontFamily: "sans")),
+    Padding(
+      padding: const EdgeInsets.only(left: 8),
+      child: Text("${translateDatabase(
+      itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+      style: const TextStyle(
+      color: AppColor.primaryColor,
+      fontSize: 18,
+      fontWeight: FontWeight.w400,
+      fontFamily: "sans")),
+    ),
 
-                              GetBuilder<FavoriteController>(
-                                  builder: (controller) => IconButton(
-                                      onPressed: () {
-                                        if (controller.isFavorite[itemsModel.itemsId] ==
-                                            "1") {
-                                          controller.setFavorite(
-                                              itemsModel.itemsId, "0");
-                                          controller
-                                              .removeFavorite(itemsModel.itemsId!);
-                                        } else {
-                                          controller.setFavorite(
-                                              itemsModel.itemsId, "1");
-                                          controller.addFavorite(itemsModel.itemsId!);
-                                        }
-                                      },
-                                      icon: Icon(
-                                        controller.isFavorite[itemsModel.itemsId] == "1"
-                                            ? Icons.favorite
-                                            : Icons.favorite_border_outlined,
-                                        color: AppColor.primaryColor,
-                                      )))
-                            ],
+                                GetBuilder<FavoriteController>(
+                                    builder: (controller) => IconButton(
+                                        onPressed: () {
+                                          if (controller.isFavorite[itemsModel.itemsId] ==
+                                              "1") {
+                                            controller.setFavorite(
+                                                itemsModel.itemsId, "0");
+                                            controller
+                                                .removeFavorite(itemsModel.itemsId!);
+                                          } else {
+                                            controller.setFavorite(
+                                                itemsModel.itemsId, "1");
+                                            controller.addFavorite(itemsModel.itemsId!);
+                                          }
+                                        },
+                                        icon: Icon(
+                                          controller.isFavorite[itemsModel.itemsId] == "1"
+                                              ? Icons.favorite
+                                              : Icons.favorite_border_outlined,
+                                          color: AppColor.primaryColor,
+                                        )))
+                              ],
                         ),
+                         ),
 
 
                     ]),
@@ -129,7 +139,11 @@ else
            if (itemsModel.itemsDiscount != "0")   Positioned(
                 top: 4,
                 left: 4,
-                child: Image.asset(AppImageAsset.saleOne , width: 40,))
+                child: Image.asset(AppImageAsset.saleOne , width: 40,)),
+              if (itemsModel.itemsNew == "1")   Positioned(
+                  top: -2,
+                  right: -2,
+                  child: Image.asset(AppImageAsset.NEW , width: 50,))
             ],
           ),
         ));

@@ -6,6 +6,7 @@ import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/view/screen/home.dart';
 import 'package:ecommercecourse/view/widget/categories/customlistitems.dart';
 import 'package:ecommercecourse/view/widget/categories/listcategoirseitems.dart';
+import 'package:ecommercecourse/view/widget/categories/listshope.dart';
 import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/items/customlistitems.dart';
 import 'package:ecommercecourse/view/widget/items/listcategoirseitems.dart';
@@ -36,7 +37,14 @@ class Categories extends StatelessWidget {
             },
             onPressedIconFavorite: () {
               Get.toNamed(AppRoute.myfavroite);
-            },
+            }, container:Container(
+            decoration: BoxDecoration(
+                color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
+            width: 40,
+            padding: EdgeInsets.symmetric(vertical: 8),
+
+            child: ListShope(onChange:controller.changeShopee),
+          ),
           ),
           const SizedBox(height: 20),
         //  const ListCategoriesShops(),
