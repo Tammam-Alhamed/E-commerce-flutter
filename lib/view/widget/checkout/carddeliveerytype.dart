@@ -20,11 +20,11 @@ class CardDeliveryTypeCheckout extends StatelessWidget {
         Image.asset(
           imagename,
           width: 60,
-          color:active ? Colors.blueGrey : null ,
+          color:active ? AppColor.thirdColor : null ,
         ),
         Text(
           title,
-          style: TextStyle(color:active ? Colors.blueGrey : AppColor.primaryColor, fontWeight:FontWeight.bold ),
+          style: TextStyle(color:active ? AppColor.thirdColor : Colors.red, fontWeight:FontWeight.bold ),
         )
       ]),
     );

@@ -1,6 +1,7 @@
  class slidesmodel{
   String? slidesId;
   String? slidesImage;
+
   String? createdAt;
   String? updatedAt;
 

@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeShopeControllerImp());
-    Get.put(SlidesControllerImp());
+    SlidesControllerImp controllerSlide = Get.put(SlidesControllerImp());
 
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(
@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
                         ?  Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children:  [
-                              ImageSliderScreen(),
+                              ImageSliderScreen(slideModel: controllerSlide.image,),
                               Row(
                                 children: [
                                   CustomTitleHome(title: "40".tr),

@@ -151,6 +151,7 @@ class ProductDetails extends StatelessWidget {
                                       children: [/*Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                       ))*/
 //Padding(padding: EdgeInsets.only(left: 10,right: 10)),
+                                        if(controller.colors.length != 1)
                                     Container(decoration:BoxDecoration(borderRadius: BorderRadius.circular(5),),
                                       height: 60,child:
                                     CustomColor(),
@@ -160,6 +161,7 @@ class ProductDetails extends StatelessWidget {
                                        Padding(padding: EdgeInsets.only(left: 30,right: 35)),
                                  /* Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                     )),*/
+                                        if(controller.sizes.length != 1)
                                         Container(
                                           decoration: BoxDecoration(
                                             border: Border(bottom: BorderSide(color: AppColor.primaryColor)),
