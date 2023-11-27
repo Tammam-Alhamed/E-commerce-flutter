@@ -20,6 +20,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
     controller.discount =  itemsModel.itemsDiscount ;
     print(controller.discount);
     return InkWell(
+
         onTap: () {
           print("==============================");
           controller.goToPageProductDetails(itemsModel);

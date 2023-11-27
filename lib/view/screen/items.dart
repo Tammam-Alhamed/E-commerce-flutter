@@ -18,6 +18,7 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
       ItemsControllerImp controller = Get.put(ItemsControllerImp());
       FavoriteController controllerFav = Get.put(FavoriteController());
 
