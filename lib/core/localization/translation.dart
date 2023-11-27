@@ -124,6 +124,9 @@ class MyTranslation extends Translations {
       "116":"لا يمكن أن يكون أكثر من",
       "117":"تم حذف المنتج من المفضلة",
       "118":"طلبات أخرى",
+      "119":"يجب إضافة منتج واحد على الأقل الى السلة",
+      "120":"نسيت أن تختار لون",
+      "121":"نسيت أن تختار مقاس",
 
 
     },
@@ -250,6 +253,9 @@ class MyTranslation extends Translations {
       "116":"can't be larger than",
       "117":"The product has been removed from favorites",
       "118":"Other Requests",
+      "119":"At least one product must be added to the cart",
+      "120":"You forgot to choose a color",
+      "121":"You forgot to choose a size",
 
     },
     "ru":{
@@ -375,6 +381,9 @@ class MyTranslation extends Translations {
       "116":"не может быть больше, чем",
       "117":"The product has been removed from favorites",
       "118":" Другие запросы",
+      "119":"В корзину должен быть добавлен хотя бы один товар",
+      "120":"Вы забыли выбрать цвет",
+      "121":"Вы забыли выбрать размер",
     }
   };
 }
