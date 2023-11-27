@@ -44,14 +44,13 @@ List<GetPage<dynamic>>? routes = [
       page: () => const SuccessResetPassword()),
   GetPage(name: AppRoute.successSignUp, page: () => const SuccessSignUp()),
   GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
-  GetPage(
-      name: AppRoute.verfiyCodeSignUp, page: () => const VerfiyCodeSignUp()),
+  GetPage(name: AppRoute.verfiyCodeSignUp, page: () => const VerfiyCodeSignUp()),
   //
   GetPage(name: AppRoute.homepage, page: () => const HomeScreen()),
   GetPage(name: AppRoute.categories, page: () => const Categories(),transition: Transition.cupertino),
   GetPage(name: AppRoute.items, page: () => const Items() ,transition: Transition.cupertino),
   GetPage(name: AppRoute.itemsDiscount, page: () => const ItemsDiscount() ,transition: Transition.cupertino),
-  GetPage(name: AppRoute.productdetails, page: () => const ProductDetails()),
+  GetPage(name: AppRoute.productdetails, page: () => const ProductDetails(),transition: Transition.cupertino),
   GetPage(name: AppRoute.myfavroite, page: () => const MyFavorite()),
   //
   GetPage(name: AppRoute.addressview, page: () => const AddressView()),

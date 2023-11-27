@@ -18,4 +18,9 @@ class CategoriesData {
     var response = await crud.postData(AppLink.itemsnew, { "usersid" : userid});
     return response.fold((l) => l, (r) => r);
   }
+
+  getOffer( String userid) async {
+    var response = await crud.postData(AppLink.itemsoffer, { "usersid" : userid});
+    return response.fold((l) => l, (r) => r);
+  }
 }

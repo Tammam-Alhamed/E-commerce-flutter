@@ -48,11 +48,7 @@ class Checkout extends StatelessWidget {
                         onTap: () {
                           controller.choosePaymentMethod("0");
                         },
-                        child: CardPaymentMethodCheckout(
-                            title: "76".tr,
-                            isActive: controller.paymentMethod == "0" // cash
-                                ? true
-                                : true),
+                        child: CardPaymentMethodCheckout()
                       ),
                       const SizedBox(height: 10),
                       // InkWell(
@@ -118,19 +114,12 @@ class Checkout extends StatelessWidget {
                               1,
                                   (index) => InkWell(
                                 onTap: () {
-                                  controller.chooseShippingAddress(
-                                      controller.dataaddress[index].addressId!);
+                                  // controller.chooseShippingAddress(
+                                  //     controller.dataaddress[index].addressId!);
                                 },
                                 child: CardShppingAddressCheckout(
                                     title:
-                                    "jablah",
-                                    body:
-                                    "bihand the school",
-                                    isactive: controller.addressid ==
-                                        controller
-                                            .dataaddress[index].addressId
-                                        ? true
-                                        : true),
+                                    "jablah",),
                               ),
                             )
                           ],
