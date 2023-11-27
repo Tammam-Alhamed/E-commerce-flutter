@@ -8,6 +8,9 @@ import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../data/datasource/remote/categories_data.dart';
+import '../data/model/slidesmodel.dart';
+
 abstract class HomeShopeController extends SearchMixController {
   initialData();
   getdata();
@@ -27,7 +30,17 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   HomeData homedata = HomeData(Get.find());
 
-  // List data = [];
+  CategoriesData testData = CategoriesData(Get.find());
+ List dat =[];
+  List<slidesmodel> image = [];
+
+  List NEW = [] ;
+  List offer = [] ;
+
+  late StatusRequest statusRequest;
+
+
+  List data = [];
   // List data = [];
   List shope = [];
   List items = [];
@@ -51,6 +64,7 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   @override
   getdata() async {
+    data.clear();
     statusRequest = StatusRequest.loading;
     var response = await homedata.getData();
     // print("=============================== Controller $response ");
@@ -59,7 +73,8 @@ class HomeShopeControllerImp extends HomeShopeController {
       if (response['status'] == "success") {
         shope.addAll(response['shope']['data']);
         items.addAll(response['items']['data']);
-        slides.addAll(response['slides']['data']);
+        List responsedata = response['slides']['data'];
+        image.addAll(responsedata.map((e) => slidesmodel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -77,6 +92,88 @@ class HomeShopeControllerImp extends HomeShopeController {
       "shopeid": shopeid,
     });
   }
+
+
+  goToItemsNew(categories ) {
+    Get.toNamed(AppRoute.itemsDiscount);
+    getNew();
+  }
+
+
+  goToItemsDiscount(categories ) {
+    Get.toNamed(AppRoute.itemsDiscount);
+    getItems();
+  }
+
+  goToItemsOffer(categories ) {
+    Get.toNamed(AppRoute.itemsDiscount);
+    getOffer();
+  }
+
+
+
+
+  getOffer()  {
+
+    data.clear();
+    offer.clear();
+    statusRequest = StatusRequest.loading;
+    var response = testData.getOffer(
+        myServices.sharedPreferences.getString("id")!);
+    // print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        data.addAll(response['data']);
+        offer.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+
+  getNew() async {
+    data.clear();
+    NEW.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await testData.getNew(
+        myServices.sharedPreferences.getString("id")!);
+    // print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        data.addAll(response['data']);
+        NEW.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+  getItems() async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await testData.getDiscount(
+        myServices.sharedPreferences.getString("id")!);
+    // print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        data.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+
 
 
 
@@ -117,6 +214,7 @@ class SearchMixController extends GetxController {
     }
     update();
   }
+
 
   onSearchItems() {
     isSearch = true;

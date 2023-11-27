@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
                         ?  Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children:  [
-                              ImageSliderScreen(slideModel: controllerSlide.image,),
+                              ImageSliderScreen(slideModel: controller.image,),
                               Row(
                                 children: [
                                   CustomTitleHome(title: "40".tr),
