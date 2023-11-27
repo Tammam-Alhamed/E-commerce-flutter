@@ -148,13 +148,13 @@ class ProductDetailsControllerImp extends ProductDetailsController {
      if(sizes.length == 1){currentTabSize = "0";}
      if(colors.length == 1){colr = "0";}
      if (countitems == "0") {
-       return Get.snackbar("90".tr, "104".tr ,colorText: Colors.white ,backgroundColor: Colors.grey);
+       return Get.snackbar("90".tr, "119".tr ,colorText: Colors.white ,backgroundColor: Colors.grey);
      }
      if (colr == null) {
-       return Get.snackbar("90".tr, "104".tr,colorText: Colors.white ,backgroundColor: Colors.grey);
+       return Get.snackbar("90".tr, "120".tr,colorText: Colors.white ,backgroundColor: Colors.grey);
      }
      if (currentTabSize == null) {
-       return Get.snackbar("90".tr, "105".tr,colorText: Colors.white ,backgroundColor: Colors.grey);
+       return Get.snackbar("90".tr, "121".tr,colorText: Colors.white ,backgroundColor: Colors.grey);
      }
 
      addItems(itemsModel.itemsId! , countitems , colr! , currentTabSize! );

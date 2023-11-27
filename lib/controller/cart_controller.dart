@@ -69,8 +69,8 @@ class CartController extends GetxController {
       // Start backend
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            title: "اشعار",
-            messageText: const Text("تم اضافة المنتج الى السلة "));
+            title: "99".tr,
+            messageText:  Text("100".tr));
         // data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
