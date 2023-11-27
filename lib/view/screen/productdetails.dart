@@ -22,26 +22,34 @@ class ProductDetails extends StatelessWidget {
 
     ProductDetailsControllerImp controllerImp = Get.put(ProductDetailsControllerImp());
     FavoriteController controllerfav = Get.put(FavoriteController());
-    bool i=true;
+
     return Scaffold(
         persistentFooterAlignment : AlignmentDirectional.bottomCenter,
         bottomNavigationBar: Container(
           padding: EdgeInsets.only(bottom: 5),
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-            height: 40,
-              child: MaterialButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  color: AppColor.primaryColor,
-                  onPressed: () {
-                    controllerImp.addtocart( controllerImp.countitems.toString() );
-                    // Get.toNamed(AppRoute.cart);
-                  },
-                  child:  Text(
-                    "47".tr,
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+            height: 50,
+              child: Row(
+                children: [
+                  MaterialButton(
+                    minWidth: 200.0,
+                    height: 50.0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      color: AppColor.primaryColor,
+                      onPressed: () {
+                        controllerImp.addtocart( controllerImp.countitems.toString() );
+                        // Get.toNamed(AppRoute.cart);
+                      },
+                      child:  Text(
+                        "47".tr,
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                   ),
+                  SizedBox(width:50,),
+                  InkWell(onTap:() {Get.toNamed(AppRoute.cart);}  ,child: Container( height: 70,width: 75,decoration:BoxDecoration(color:AppColor.primaryColor,borderRadius: BorderRadius.circular(15)),child: Icon(Icons.shopping_cart,size: 30,color:Colors.white,),),)
+                ],
               ),
 
             ),
@@ -151,7 +159,8 @@ class ProductDetails extends StatelessWidget {
                                       children: [/*Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                       ))*/
 //Padding(padding: EdgeInsets.only(left: 10,right: 10)),
-                                        if(controller.colors.length != 1)
+
+                                      if(controller.colors.length!=1)
                                     Container(decoration:BoxDecoration(borderRadius: BorderRadius.circular(5),),
                                       height: 60,child:
                                     CustomColor(),
@@ -161,13 +170,17 @@ class ProductDetails extends StatelessWidget {
                                        Padding(padding: EdgeInsets.only(left: 30,right: 35)),
                                  /* Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                     )),*/
-                                        if(controller.sizes.length != 1)
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            border: Border(bottom: BorderSide(color: AppColor.primaryColor)),
 
+                                        if( controller.sizes.length!=1)
+                                        Flexible(
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border(bottom: BorderSide(color: AppColor.primaryColor)),
+
+
+                                            ),
+                                            height:60,child:Customsize(),width: 110,
                                           ),
-                                          height:60,child:Customsize(),width: 110,
                                         ),
 
                                       ]),

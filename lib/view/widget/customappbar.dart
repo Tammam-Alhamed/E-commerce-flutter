@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 
+import 'categories/listshope.dart';
+
 class CustomAppBar extends StatelessWidget {
   final String titleappbar;
   final void Function()? onPressedIconFavorite;

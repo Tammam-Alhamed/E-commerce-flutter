@@ -44,10 +44,11 @@ class sizeRowState extends State<SizeSelector> {
       return DropdownButtonHideUnderline(
         child: DropdownButton(
           isExpanded: true,
-          borderRadius: BorderRadius.circular(20),
-          padding: EdgeInsets.only(right: 0),
-          hint: Text("select size",
-              style: TextStyle(fontSize: 17, color: Colors.black)),
+          borderRadius:BorderRadius.circular(20),
+          padding:EdgeInsets.only(right:0),
+          hint: Text("Size",
+              style: TextStyle(fontSize : 18,color: Colors.black)),
+
           value: controller.currentTabSize,
           items: controller.sizes
               .map((list) {

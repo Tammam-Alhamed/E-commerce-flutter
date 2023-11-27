@@ -10,13 +10,15 @@ import '../../../controller/home_shope_controller.dart';
 class ListShope extends GetView<HomeShopeControllerImp> {
 
   final void Function(String?)? onChange;
-  const ListShope({Key? key,  this.onChange });
+
+  const ListShope({Key? key, this.onChange });
+
   @override
   Widget build(BuildContext context) {
     CategoriesControllerImp cont = Get.put(CategoriesControllerImp());
 
-     int? i;
-    if(controller.shope != "0") {
+    int? i;
+    if (controller.shope != "0") {
       return
         DropdownButtonHideUnderline(
           child: DropdownButton(
@@ -40,7 +42,7 @@ class ListShope extends GetView<HomeShopeControllerImp> {
             },
           ),
         );
-    }else{
+    } else {
       return
         DropdownButtonHideUnderline(
           child: Container(

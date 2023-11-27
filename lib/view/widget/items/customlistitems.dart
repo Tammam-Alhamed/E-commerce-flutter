@@ -50,7 +50,9 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
                           ),
                              ),
+
                       SizedBox(height: 5,),
+
                       Container(
                         padding: EdgeInsets.only(left: 5 , right: 10),
                         margin: EdgeInsets.only(left: 5 , right: 10),
