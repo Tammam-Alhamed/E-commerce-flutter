@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/favorite_controller.dart';
+import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/slides_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
@@ -11,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path/path.dart';
 
-class CustomListItemsDiscount extends GetView<SlidesControllerImp> {
+class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
   final ItemsModel itemsModel;
   // final bool active;
   const CustomListItemsDiscount({Key? key, required this.itemsModel}) : super(key: key);

@@ -28,8 +28,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeShopeControllerImp());
-    SlidesControllerImp controllerSlide = Get.put(SlidesControllerImp());
-
 
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(

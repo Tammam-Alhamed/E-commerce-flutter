@@ -1,4 +1,3 @@
-import 'package:ecommercecourse/controller/categories_controller.dart';
 import 'package:ecommercecourse/core/class/statusrequest.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
@@ -8,9 +7,7 @@ import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/data/model/slidesmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../data/datasource/remote/categories_data.dart';
-import '../data/model/slidesmodel.dart';
 
 abstract class HomeShopeController extends SearchMixController {
   initialData();
@@ -117,14 +114,10 @@ class HomeShopeControllerImp extends HomeShopeController {
   }
 
 
-
-
-  getOffer()  {
-
+  getOffer() async {
     data.clear();
-    offer.clear();
     statusRequest = StatusRequest.loading;
-    var response = testData.getOffer(
+    var response = await testData.getOffer(
         myServices.sharedPreferences.getString("id")!);
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
@@ -140,6 +133,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     }
     update();
   }
+
 
   getNew() async {
     data.clear();
@@ -161,6 +155,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     }
     update();
   }
+
   getItems() async {
     data.clear();
     statusRequest = StatusRequest.loading;
