@@ -50,11 +50,12 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
                           ),
                              ),
-SizedBox(height: 5,),
-                      Container(
 
-                        padding: EdgeInsets.only(left: 15 , right: 10),
-                        margin: EdgeInsets.only(left: 15 , right: 10),
+                      SizedBox(height: 5,),
+
+                      Container(
+                        padding: EdgeInsets.only(left: 5 , right: 10),
+                        margin: EdgeInsets.only(left: 5 , right: 10),
                         alignment: Alignment.center,
                         child: Text(
                             translateDatabase(
@@ -77,8 +78,7 @@ SizedBox(height: 5,),
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-if(itemsModel.itemsDiscount!="0")
-
+                                if(itemsModel.itemsDiscount!="0")
                                     Column(
                                         children: [
                                       Text("${translateDatabase(

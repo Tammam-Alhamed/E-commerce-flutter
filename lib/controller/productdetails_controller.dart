@@ -66,6 +66,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   }
 
   addItems(String itemsid , String itemsqua , String itemscolor , String itemssize) async {
+
     statusRequest = StatusRequest.loading;
     update();
     var response = await cartData.addCart(
@@ -144,6 +145,18 @@ class ProductDetailsControllerImp extends ProductDetailsController {
    }
 
    addtocart( countitems){
+     if(sizes.length == 1){currentTabSize = "0";}
+     if(colors.length == 1){colr = "0";}
+     if (countitems == "0") {
+       return Get.snackbar("90".tr, "104".tr ,colorText: Colors.white ,backgroundColor: Colors.grey);
+     }
+     if (colr == null) {
+       return Get.snackbar("90".tr, "104".tr,colorText: Colors.white ,backgroundColor: Colors.grey);
+     }
+     if (currentTabSize == null) {
+       return Get.snackbar("90".tr, "105".tr,colorText: Colors.white ,backgroundColor: Colors.grey);
+     }
+
      addItems(itemsModel.itemsId! , countitems , colr! , currentTabSize! );
      update();
    }

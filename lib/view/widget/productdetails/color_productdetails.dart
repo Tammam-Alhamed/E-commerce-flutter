@@ -37,13 +37,14 @@ class CircleColorRow extends StatefulWidget {
 class _CircleColorRowState extends State<CircleColorRow> {
 
   final ScrollController _firstController = ScrollController();
-  ProductDetailsControllerImp controller=Get.put(ProductDetailsControllerImp());
+  ProductDetailsControllerImp controller = Get.put(ProductDetailsControllerImp());
 
   Widget build(BuildContext context) {
-
+    var i;
+    controller.colors.length == 1 ? i = "0" : i;
     return Scrollbar(
         thumbVisibility:true,
-          interactive:true,
+        interactive:true,
         radius:Radius.circular(50),
         trackVisibility:true,
         controller: _firstController,
@@ -53,14 +54,14 @@ class _CircleColorRowState extends State<CircleColorRow> {
           scrollDirection: Axis.horizontal,
           child: Row(
           children: List.generate(
-            controller.colors.length,
+            controller.colors.length == 1 ? 0 : controller.colors.length,
                 (index) {
-
+              if(controller.colors[index]['colors_name'] !="0" ){
               return InkWell(
                 onTap: () {
                   setState(() {
                     controller.currentTabColor = index;
-                    var i=controller.colors[index]['colors_name'];
+                    i=controller.colors[index]['colors_name'] ;
                     controller.color(i);
                     print(i);
                   });
@@ -73,14 +74,18 @@ class _CircleColorRowState extends State<CircleColorRow> {
                   margin: const EdgeInsets.all(4.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: controller.currentTabColor == index
+                    border: controller.colors.length == 1 ?null :controller.currentTabColor == index
                         ? Border.all(color: AppColor.thirdColor, width: 1.5)
                         : null,
                   ),
-child: Listcolors(colorsModel: ColorsModel.fromJson(controller.colors[index]),),
+                  child: Listcolors(colorsModel: ColorsModel.fromJson(controller.colors[index]),),
                 ),
               );
+              }else{
+                return SizedBox();
+              }
             },
+
           ),
         ),
    ),

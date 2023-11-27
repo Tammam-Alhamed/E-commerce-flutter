@@ -40,30 +40,46 @@ class sizeRowState extends State<SizeSelector> {
   @override
   Widget build(BuildContext context) {
 
-    return
-      DropdownButtonHideUnderline(
+    if(controller.sizes.length != 1) {
+      return DropdownButtonHideUnderline(
         child: DropdownButton(
           isExpanded: true,
           borderRadius:BorderRadius.circular(20),
           padding:EdgeInsets.only(right:0),
           hint: Text("Size",
               style: TextStyle(fontSize : 18,color: Colors.black)),
+
           value: controller.currentTabSize,
           items: controller.sizes
               .map((list) {
-            return DropdownMenuItem(
-              child: Container(width:50, height:20,child: Text(list['sizes_name'])),
-              value: list['sizes_name'].toString(),
-            );
+                if(list['sizes_name'] != "0"){return DropdownMenuItem(
+                  child: Container(
+                      width: 50,
+                      height: 20,
+                      child: Text(
+                         list['sizes_name'])),
+                  value: list['sizes_name'].toString(),
+                );
+                }
+                else{
+                  return DropdownMenuItem(
+                  child: Container(child: Text("select size"),),
+                );}
+
           }).toList(),
           onChanged: (value) {
             setState(() {
-                controller.currentTabSize = value;
-                print(value);
+
+               controller.currentTabSize = value;
+              print(value);
+              print("size");
             });
           },
         ),
       );
+    }else{
+      return SizedBox();
+    }
 
     /*Row(
       children: List.generate(
