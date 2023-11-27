@@ -19,7 +19,8 @@ class CustomTextFormAuth extends StatelessWidget {
       required this.iconData,
       required this.mycontroller,
       required this.valid,
-      required this.isNumber})
+      required this.isNumber,
+      })
       : super(key: key);
 
   @override

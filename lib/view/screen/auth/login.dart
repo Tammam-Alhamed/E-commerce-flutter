@@ -51,7 +51,7 @@ class Login extends StatelessWidget {
                         isNumber: false,
 
                         valid: (val) {
-                          return validInput(val!, 5, 100, "email");
+                          return validInput(val!, 5, 100, "phone");
                         },
                         mycontroller: controller.email,
                         hinttext: "12".tr,

@@ -9,6 +9,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenControllerImp>(
         builder: (controller) => BottomAppBar(
+          height: 60,
             shape: const CircularNotchedRectangle(),
               child: Row(
                 children: [
@@ -18,7 +19,6 @@ class CustomBottomAppBarHome extends StatelessWidget {
                         ? const Spacer()
                         : Flexible(
                           child: CustomButtonAppBar(
-
                               textbutton: controller.bottomappbar[i]['title'],
                               icondata: controller.bottomappbar[i]['icon'],
                               onPressed: () {

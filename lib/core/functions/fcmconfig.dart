@@ -22,7 +22,7 @@ fcmconfig() {
     print("================== Notification =================");
     print(message.notification!.title);
     print(message.notification!.body);
-    FlutterRingtonePlayer.playNotification();
+    FlutterRingtonePlayer();
     Get.snackbar(message.notification!.title!, message.notification!.body!);
     refreshPageNotification(message.data);
   });

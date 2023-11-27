@@ -38,23 +38,23 @@ dependencies:
   # DateTime
 
   intl: ^0.18.1
-  http: ^0.13.4
+  http: ^1.1.0
   # Images
-  cached_network_image: ^3.2.0 
-  image_picker: ^0.8.9
+  cached_network_image: ^3.3.0
+  image_picker: ^1.0.4
   # Animate
   show_up_animation: ^2.0.0
   auto_animated: ^3.0.1
   # Google Map
-  flutter_polyline_points: ^1.0.0
+  flutter_polyline_points: ^2.0.0
   google_maps_flutter: ^2.1.5
-  geolocator: ^9.0.2
+  geolocator: ^10.1.0
   geocoding: ^2.0.4
   # Firebase And Notification 
   firebase_messaging: ^14.6.3
   firebase_core: ^2.14.0
-  firebase_core_platform_interface: ^4.8.0
-  flutter_local_notifications: ^14.1.1
+  firebase_core_platform_interface: ^5.0.0
+  flutter_local_notifications: ^16.2.0
   cloud_firestore: ^4.8.1
   # Local Data Cache
   sqflite: ^2.0.2
@@ -81,7 +81,7 @@ dependencies:
   flutter_otp_text_field: ^1.0.1
   lottie: ^2.4.0
   timelines: ^0.1.0
-  flutter_ringtone_player: ^3.2.0
+  flutter_ringtone_player: ^4.0.0+2
   jiffy: ^6.2.1
   carousel_slider: ^4.2.1
   icons_plus: ^4.0.0

@@ -32,7 +32,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: "/", page: () => const Language(), middlewares: [MyMiddleWare()]),
   // GetPage(name: "/", page: () =>   TestView()),
-  GetPage(name: AppRoute.cart, page: () => const Cart()),
+  GetPage(name: AppRoute.cart, page: () => const Cart(), transitionDuration: Duration(milliseconds: 1)),
 //  Auth
   GetPage(name: AppRoute.login, page: () => const Login()),
   GetPage(name: AppRoute.signUp, page: () => const SignUp()),
@@ -46,19 +46,19 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
   GetPage(name: AppRoute.verfiyCodeSignUp, page: () => const VerfiyCodeSignUp()),
   //
-  GetPage(name: AppRoute.homepage, page: () => const HomeScreen()),
-  GetPage(name: AppRoute.categories, page: () => const Categories(),transition: Transition.cupertino),
-  GetPage(name: AppRoute.items, page: () => const Items() ,transition: Transition.cupertino),
-  GetPage(name: AppRoute.itemsDiscount, page: () => const ItemsDiscount() ,transition: Transition.cupertino),
-  GetPage(name: AppRoute.productdetails, page: () => const ProductDetails(),transition: Transition.cupertino),
-  GetPage(name: AppRoute.myfavroite, page: () => const MyFavorite()),
+  GetPage(name: AppRoute.homepage, page: () => const HomeScreen(), transitionDuration: Duration(milliseconds: 1)),
+  GetPage(name: AppRoute.categories, page: () => const Categories(),transition: Transition.cupertino , transitionDuration: Duration(milliseconds: 1)),
+  GetPage(name: AppRoute.items, page: () => const Items() ,transition: Transition.cupertino, transitionDuration: Duration(milliseconds: 1)),
+  GetPage(name: AppRoute.itemsDiscount, page: () => const ItemsDiscount() ,transition: Transition.cupertino, transitionDuration: Duration(milliseconds: 1)),
+  GetPage(name: AppRoute.productdetails, page: () => const ProductDetails(),transition: Transition.cupertino, transitionDuration: Duration(milliseconds: 1)),
+  GetPage(name: AppRoute.myfavroite, page: () => const MyFavorite(), transitionDuration: Duration(milliseconds: 1)),
   //
   GetPage(name: AppRoute.addressview, page: () => const AddressView()),
   GetPage(name: AppRoute.addressadd, page: () => const AddressAdd()),
-  GetPage(name: AppRoute.checkout, page: () => const Checkout()),
-  GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
-  GetPage(name: AppRoute.ordersarchive, page: () => const OrdersArchiveView()),
-  GetPage(name: AppRoute.ordersdetails, page: () => const OrdersDetails()),
+  GetPage(name: AppRoute.checkout, page: () => const Checkout(), transitionDuration: Duration(milliseconds: 1)),
+  GetPage(name: AppRoute.orderspending, page: () => const OrdersPending(), transitionDuration: Duration(milliseconds: 1)),
+  GetPage(name: AppRoute.ordersarchive, page: () => const OrdersArchiveView(), transitionDuration: Duration(milliseconds: 1)),
+  GetPage(name: AppRoute.ordersdetails, page: () => const OrdersDetails(), transitionDuration: Duration(milliseconds: 1)),
   GetPage(
       name: AppRoute.addressadddetails, page: () => const AddressAddDetails()), 
 ];
