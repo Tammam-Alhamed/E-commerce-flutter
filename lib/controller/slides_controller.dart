@@ -32,8 +32,7 @@ class SlidesControllerImp extends SearchMixController {
 
   MyServices myServices = Get.find();
 
-  late Timer _timer;
-  FlutterLogoStyle _logoStyle = FlutterLogoStyle.markOnly;
+
 
 
   @override

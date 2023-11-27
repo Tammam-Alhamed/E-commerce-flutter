@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/controller/favorite_controller.dart';
+import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/slides_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
@@ -18,7 +19,7 @@ class ItemsDiscount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SlidesControllerImp controller = Get.put(SlidesControllerImp());
+    HomeShopeControllerImp controller = Get.put(HomeShopeControllerImp());
     FavoriteController controllerFav = Get.put(FavoriteController());
 
     return Scaffold(
@@ -42,7 +43,7 @@ class ItemsDiscount extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           // const ListCategoriesItems(),
-          GetBuilder<SlidesControllerImp>(
+          GetBuilder<HomeShopeControllerImp>(
               builder: (controller) => HandlingDataView(
                   statusRequest: controller.statusRequest,
                   widget: !controller.isSearch

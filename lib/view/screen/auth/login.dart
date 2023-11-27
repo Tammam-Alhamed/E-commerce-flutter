@@ -51,11 +51,11 @@ class Login extends StatelessWidget {
                         isNumber: false,
 
                         valid: (val) {
-                          return validInput(val!, 5, 100, "email");
+                          return validInput(val!, 5, 100, "phone");
                         },
                         mycontroller: controller.email,
                         hinttext: "12".tr,
-                        iconData: Icons.email_outlined,
+                        iconData: Icons.phone_android_outlined,
                         labeltext: "18".tr,
                         // mycontroller: ,
                       ),
