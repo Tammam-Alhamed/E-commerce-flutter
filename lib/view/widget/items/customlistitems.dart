@@ -59,6 +59,7 @@ SizedBox(height: 5,),
                         child: Text(
                             translateDatabase(
                                 itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
+                            textAlign:TextAlign.center,
                             style: const TextStyle(
                               height: 1,
                               overflow: TextOverflow.clip,

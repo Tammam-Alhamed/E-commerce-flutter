@@ -51,7 +51,7 @@ class MyTranslation extends Translations {
       "43":"أنت تملك",
       "44":"منتج في سلتك",
       "45": "الإشعارات",
-      "46": "إختر للتواصل معناوطلب كل ما تريده",
+      "46": "أهلا بكم في زر الفانوس السحري للطلبات^_^\nاختر التواصل معنا واطلب كل ما تريد :",
       "47":"الذهاب الى السلة",
       "48":"كود الخصم",
       "49":"تأكيد",
@@ -122,7 +122,8 @@ class MyTranslation extends Translations {
       "114":"لا يمكن أن يبقى فارغ",
       "115":"لا يمكن أن يكون أقل من",
       "116":"لا يمكن أن يكون أكثر من",
-      "117":"تم حذف المنتج من المفضلة"
+      "117":"تم حذف المنتج من المفضلة",
+      "118":"طلبات أخرى",
 
 
     },
@@ -176,7 +177,7 @@ class MyTranslation extends Translations {
       "43":"You Have",
       "44":"Items in Your List",
       "45":"Notification",
-      "46":"choose to contact with us and ask for everything you want",
+      "46":"Wellcom in magic lantern button for orders ^_^\nchoose to contact with us and ask for everything you want :",
       "47":"Go To Cart",
       "48":"Coupon Code",
       "49":"apply",
@@ -248,6 +249,7 @@ class MyTranslation extends Translations {
       "115":"can't be less than",
       "116":"can't be larger than",
       "117":"The product has been removed from favorites",
+      "118":"Other Requests",
 
     },
     "ru":{
@@ -300,7 +302,7 @@ class MyTranslation extends Translations {
       "43":"У вас есть",
       "44":"Товары в вашем списке",
       "45":"Уведомление",
-      "46":"решите связаться с нами и попросить все, что вы хотите",
+      "46":"Веллком в кнопке волшебного фонаря для заказов ^_^\nвыберите, свяжитесь с нами и спросите все, что вы хотите :",
       "47":"Перейти в корзину",
       "48":"код купона",
       "49":"применять",
@@ -371,7 +373,8 @@ class MyTranslation extends Translations {
       "114":"не может быть пустым",
       "115":"не может быть меньше",
       "116":"не может быть больше, чем",
-      "117":"The product has been removed from favorites"
+      "117":"The product has been removed from favorites",
+      "118":" Другие запросы",
     }
   };
 }
