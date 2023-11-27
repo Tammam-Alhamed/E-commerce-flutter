@@ -5,6 +5,7 @@ import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
+import 'package:ecommercecourse/data/model/slidesmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -46,6 +47,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   List items = [];
   List slides = [];
 
+
   @override
   initialData() {
     // myServices.sharedPreferences.clear() ;
@@ -81,6 +83,10 @@ class HomeShopeControllerImp extends HomeShopeController {
     }
     update();
   }
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
