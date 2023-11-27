@@ -5,6 +5,7 @@ import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
+import 'package:ecommercecourse/data/model/slidesmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -32,6 +33,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   List shope = [];
   List items = [];
   List slides = [];
+  List<slidesmodel> image = [];
 
   @override
   initialData() {
@@ -59,13 +61,18 @@ class HomeShopeControllerImp extends HomeShopeController {
       if (response['status'] == "success") {
         shope.addAll(response['shope']['data']);
         items.addAll(response['items']['data']);
-        slides.addAll(response['slides']['data']);
+        List responsedata = response['slides']['data'];
+        image.addAll(responsedata.map((e) => slidesmodel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
     update();
   }
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+
 
 
 

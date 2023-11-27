@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/core/class/statusrequest.dart';
@@ -29,6 +31,10 @@ class SlidesControllerImp extends SearchMixController {
   late StatusRequest statusRequest;
 
   MyServices myServices = Get.find();
+
+  late Timer _timer;
+  FlutterLogoStyle _logoStyle = FlutterLogoStyle.markOnly;
+
 
   @override
   void onInit() {

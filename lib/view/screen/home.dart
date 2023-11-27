@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/categories_controller.dart';
+import 'package:ecommercecourse/controller/favorite_controller.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
@@ -28,6 +29,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeShopeControllerImp());
     SlidesControllerImp controllerSlide = Get.put(SlidesControllerImp());
+
 
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(
