@@ -85,7 +85,7 @@ class SignUp extends StatelessWidget {
                               },
                               mycontroller: controller.password,
                               hinttext: "13".tr,
-                              iconData: Icons.lock_outline,
+                              iconData: Icons.remove_red_eye_outlined,
                               labeltext: "19".tr,
                               // mycontroller: ,
                             ),

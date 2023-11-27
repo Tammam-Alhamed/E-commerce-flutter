@@ -92,7 +92,7 @@ class Settings extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {
-                    Get.bottomSheet(Container(child: OthersView(),));
+                    Get.bottomSheet( OthersView());
 
                   },
                   trailing: Icon(Icons.phone_callback_outlined),

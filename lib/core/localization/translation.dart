@@ -6,11 +6,11 @@ class MyTranslation extends Translations {
     "ar": {
       "1": "اختر اللغة",
       "2": "اختر المنتجة",
-      "3": "نحن لدينا 100 الف منتج  , اختر \n  منتجك  من  متجرنا",
+      "3": "  مرحبا بكم في البازار سوق حميميم الافتراضي \n  مكان يمكنك من خلاله الضغط على الزر لجعل \nالتسوق تجربة ممتعة وآمنة",
       "4": "سهل وامن للشراء",
-      "5": "يمكنك الدفع كاش او \n من خلال بوابات الدفع الالكترونية",
+      "5": " سرعة في الأداء، بضائع وعلامات تجارية ذات نوعية جيدة والمزيد، \n أي شيء تطلبه سيكون هنا نحن نبذل قصارى جهدنا \n لجعل تجربة التسوق الخاصة بك آمنة وسهلة ",
       "6": "تتبع طلبك",
-      "7": "يمكنك تتبع طلبك في كل مرحلة \n وايضا التتبع من خلال الخريطة",
+      "7": "لدينا مصباح علاء الدين السحري <زر> للسؤال عما تحتاجه وتريده،  \n + فريق خدمة العملاء جاهز 7/24",
       "8": "متابعه",
       "9": "تسجيل الدخول",
       "10": "اهلا بك",
@@ -51,7 +51,7 @@ class MyTranslation extends Translations {
       "43":"أنت تملك",
       "44":"منتج في سلتك",
       "45": "الإشعارات",
-      "46": "إختر للتواصل معناوطلب كل ما تريده",
+      "46": "أهلا بكم في زر الفانوس السحري للطلبات^_^\nاختر التواصل معنا واطلب كل ما تريد :",
       "47":"الذهاب الى السلة",
       "48":"كود الخصم",
       "49":"تأكيد",
@@ -122,7 +122,8 @@ class MyTranslation extends Translations {
       "114":"لا يمكن أن يبقى فارغ",
       "115":"لا يمكن أن يكون أقل من",
       "116":"لا يمكن أن يكون أكثر من",
-      "117":"تم حذف المنتج من المفضلة"
+      "117":"تم حذف المنتج من المفضلة",
+      "118":"طلبات أخرى",
 
 
     },
@@ -130,12 +131,12 @@ class MyTranslation extends Translations {
       "1": "Choose Language",
       "2": "Choose Product",
       "3":
-      "We Have a 100k Product , Choose \n Your Product From  Our \n E-commerce Shop",
+      "Welcome to bazaar hmeimim virtual market \n A place where you can in on button make shopping fun \n and safe experience",
       "4": "Easy And Safe Paymnet",
-      "5": "You can pay in cash \n or through payment gateways",
+      "5": "Speed in performance good quality merchandise,\n brands and more,anything you ask will be here \n We try our best to make your shopping\n experience safe and easy.",
       "6": "Track Your Order",
       "7":
-      "The order can be tracked at every stage \n until it reaches you",
+      "We have Aladdin magic lamp <button> to ask what you need and want, \n+ customer service team ready 24/7",
       "8": "Continue",
       "9": "Sign In",
       "10": "Welcome Back",
@@ -176,7 +177,7 @@ class MyTranslation extends Translations {
       "43":"You Have",
       "44":"Items in Your List",
       "45":"Notification",
-      "46":"choose to contact with us and ask for everything you want",
+      "46":"Wellcom in magic lantern button for orders ^_^\nchoose to contact with us and ask for everything you want :",
       "47":"Go To Cart",
       "48":"Coupon Code",
       "49":"apply",
@@ -248,18 +249,19 @@ class MyTranslation extends Translations {
       "115":"can't be less than",
       "116":"can't be larger than",
       "117":"The product has been removed from favorites",
+      "118":"Other Requests",
 
     },
     "ru":{
       "1": "Выберите язык",
       "2": "Выберите продукт",
       "3":
-      "У нас есть 100 тысяч товаров, выберите \n свой товар в нашем \n интернет-магазине",
+      " Добро пожаловать на базар виртуальный рынок Хмеймим \n Место, где вы можете нажать кнопку, чтобы сделать шопинг  \n увлекательным и безопасным.",
       "4": "Простая и безопасная оплата",
-      "5": "Вы можете оплатить наличными \n или через платежные шлюзы.",
+      "5": "Скорость работы, товары хорошего качества, \n бренды и многое другое, все, что вы попросите, будет здесь\nМы делаем все возможное, чтобы сделать ваши покупки \nбезопасными и легкими.",
       "6": "Отследить ваш заказ",
       "7":
-      "Заказ можно отслеживать на каждом этапе\n, пока он не дойдет до вас",
+      "У нас есть «кнопка» волшебной лампы Аладдина, чтобы спросить, \n что вам нужно и чего вы хотите, + служба поддержки клиентов работает\n круглосуточно и без выходных. ",
       "8": "Продолжать",
       "9": "Войти",
       "10": "Добро пожаловать",
@@ -300,7 +302,7 @@ class MyTranslation extends Translations {
       "43":"У вас есть",
       "44":"Товары в вашем списке",
       "45":"Уведомление",
-      "46":"решите связаться с нами и попросить все, что вы хотите",
+      "46":"Веллком в кнопке волшебного фонаря для заказов ^_^\nвыберите, свяжитесь с нами и спросите все, что вы хотите :",
       "47":"Перейти в корзину",
       "48":"код купона",
       "49":"применять",
@@ -371,7 +373,8 @@ class MyTranslation extends Translations {
       "114":"не может быть пустым",
       "115":"не может быть меньше",
       "116":"не может быть больше, чем",
-      "117":"The product has been removed from favorites"
+      "117":"The product has been removed from favorites",
+      "118":" Другие запросы",
     }
   };
 }

@@ -77,7 +77,7 @@ class OthersView extends GetView<LocaleController> {
                                   alignment: Alignment.center,
                                   margin:EdgeInsets.all(10) ,
                                   padding:EdgeInsets.all(10) ,
-                                  child: Text("46".tr, style: TextStyle(fontSize: 20,height: 1.5,fontWeight: FontWeight.bold,color: AppColor.backgroundcolor))),
+                                  child: Text("46".tr, style: TextStyle(fontSize: 17,height: 1.2,fontWeight: FontWeight.bold,color: AppColor.backgroundcolor))),
                               const SizedBox(height: 20),
                               Flexible(
                                 child: Row(
@@ -107,7 +107,7 @@ class OthersView extends GetView<LocaleController> {
             child:Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Aladdin's magic lantern"
+                  "118".tr
                   ,style: TextStyle(
                     fontSize: 20
                 ),
