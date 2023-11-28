@@ -43,7 +43,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
                   imageUrl:
                       "${AppLink.imagestItems}/${imagesModel.imagesName!}",
                   height: 400,
-
+                  width: 500,
 
                   fit: BoxFit.fill,
                 ),
