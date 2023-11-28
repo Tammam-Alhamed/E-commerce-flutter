@@ -69,6 +69,10 @@ class ProductDetails extends StatelessWidget {
                                       Row(
                                         children: [
                                           Container(
+                                            constraints: BoxConstraints(
+                                              maxHeight: double.infinity,
+                                            ),
+                                            width:275,
                                             alignment: Alignment.center,
                                             child: Text(translateDatabase(
                                                 controller.itemsModel.itemsNameAr, controller.itemsModel.itemsName ,controller.itemsModel.itemsNameRu),
@@ -105,6 +109,9 @@ class ProductDetails extends StatelessWidget {
                                       ),
 
                                       Container(
+                                        constraints: BoxConstraints(
+                                          maxHeight: double.infinity,
+                                        ),
                                         decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
@@ -119,10 +126,10 @@ class ProductDetails extends StatelessWidget {
                                         ),
 
                                         child: SizedBox(
-                                          height: 120,
+
                                           width: double.infinity,
                                           child: Padding(
-                                            padding: const EdgeInsets.all(5.0),
+                                            padding: const EdgeInsets.all(10.0),
                                             child: Text( translateDatabase(
                                                 controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc ,controller.itemsModel.itemsDescRu),
                                                 style: Theme.of(context)
@@ -131,6 +138,7 @@ class ProductDetails extends StatelessWidget {
                                                     .copyWith(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.w300,
+                                                    height: 1,
                                                     color: AppColor.black)),
                                           ),
                                         ),
