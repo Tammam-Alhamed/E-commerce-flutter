@@ -15,13 +15,13 @@ class CustomTextSignUpOrSignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(textone),
         InkWell(
           onTap: onTap,
           child: Text(texttwo,
-              style: const TextStyle(
+              style:  TextStyle(fontSize:11,
                   color: AppColor.primaryColor, fontWeight: FontWeight.bold)),
         )
       ],
