@@ -38,7 +38,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                               Container(
-                               margin:EdgeInsets.only(bottom: 10 , top: 6),
+                               margin:EdgeInsets.only(bottom: 5 , top: 6),
 
                                child: CachedNetworkImage(
                                 imageUrl:
@@ -71,7 +71,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                       ),
 
                          if( itemsModel.itemsDiscount == "0")
-                         SizedBox(height: 20,),
+                         SizedBox(height: 10,),
 
                          Padding(
                            padding: const EdgeInsets.only(left: 11),

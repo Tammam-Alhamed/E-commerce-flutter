@@ -46,15 +46,16 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
 
 
                      Container(
-                          margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+                          margin: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
                           alignment: Alignment.center,
                           padding:EdgeInsets.all(3),
 
                           child: Text(
+
                               translateDatabase(
                                   categoriesModel.categoriesNamaAr, categoriesModel.categoriesName , categoriesModel.categoriesNamaRu),
                               style:  TextStyle(
-
+height: 1,
                                   color: AppColor.black,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold)),
