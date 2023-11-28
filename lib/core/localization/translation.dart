@@ -136,7 +136,7 @@ class MyTranslation extends Translations {
       "3":
       "Welcome to bazaar hmeimim virtual market \n A place where you can in on button make shopping fun \n and safe experience",
       "4": "Easy And Safe Paymnet",
-      "5": "Speed in performance good quality merchandise,\n brands and more,anything you ask will be here \n We try our best to make your shopping\n experience safe and easy.",
+      "5": "Speed in performance good quality merchandise,brands and more,anything you ask will be here  We try our best to make your shopping experience safe and easy.",
       "6": "Track Your Order",
       "7":
       "We have Aladdin magic lamp <button> to ask what you need and want, \n+ customer service team ready 24/7",
@@ -264,7 +264,7 @@ class MyTranslation extends Translations {
       "3":
       " Добро пожаловать на базар виртуальный рынок Хмеймим \n Место, где вы можете нажать кнопку, чтобы сделать шопинг  \n увлекательным и безопасным.",
       "4": "Простая и безопасная оплата",
-      "5": "Скорость работы, товары хорошего качества, \n бренды и многое другое, все, что вы попросите, будет здесь\nМы делаем все возможное, чтобы сделать ваши покупки \nбезопасными и легкими.",
+      "5": "Скорость работы, товары хорошего качества,бренды и многое другое, все, что вы попросите, будет здесь Мы делаем все возможное, чтобы сделать ваши покупки безопасными и легкими.",
       "6": "Отследить ваш заказ",
       "7":
       "У нас есть «кнопка» волшебной лампы Аладдина, чтобы спросить, \n что вам нужно и чего вы хотите, + служба поддержки клиентов работает\n круглосуточно и без выходных. ",
