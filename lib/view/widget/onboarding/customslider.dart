@@ -19,7 +19,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
               children: [
                 Image.asset(
                   onBoardingList[i].image!,
-                  // width: ,
+                  width: 400 ,
                   height: Get.width / 1.3,
                   fit: BoxFit.fill,
                 ),

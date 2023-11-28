@@ -69,7 +69,7 @@ class ProductDetails extends StatelessWidget {
                                       Row(
                                         children: [
                                           Container(
-                                            constraints: BoxConstraints(
+                                            constraints: const BoxConstraints(
                                               maxHeight: double.infinity,
                                             ),
                                             width:275,
@@ -109,21 +109,21 @@ class ProductDetails extends StatelessWidget {
                                       ),
 
                                       Container(
-                                        constraints: BoxConstraints(
+                                        constraints: const BoxConstraints(
                                           maxHeight: double.infinity,
                                         ),
-                                        decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                                color: AppColor.grey2.withOpacity(0.3),
-                                                spreadRadius: 2,
-                                                blurRadius: 5,
-                                                offset: Offset(0, 2),
-                                                blurStyle: BlurStyle.inner// changes position of shadow
-                                            ),
-                                          ],
-                                          color: AppColor.backgroundcolor,
-                                        ),
+                                        // decoration: BoxDecoration(
+                                        //   boxShadow: [
+                                        //     BoxShadow(
+                                        //         color: AppColor.grey2.withOpacity(0.3),
+                                        //         spreadRadius: 2,
+                                        //         blurRadius: 5,
+                                        //         offset: Offset(0, 2),
+                                        //         blurStyle: BlurStyle.inner// changes position of shadow
+                                        //     ),
+                                        //   ],
+                                        //   color: AppColor.backgroundcolor,
+                                        // ),
 
                                         child: SizedBox(
 
