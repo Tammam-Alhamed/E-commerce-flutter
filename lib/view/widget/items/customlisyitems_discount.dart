@@ -50,7 +50,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
 
                         ),
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(height: 5,),
                       Container(
 
                         padding: EdgeInsets.only(left: 15 , right: 10),

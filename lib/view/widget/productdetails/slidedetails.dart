@@ -26,22 +26,17 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
             } ,
 
                 options: CarouselOptions(
-                  /*  autoPlay: true,
-                    height: 200,
-
-                    autoPlayAnimationDuration: const Duration(milliseconds: 300)))*/
-
+                  enlargeStrategy : CenterPageEnlargeStrategy.zoom,
                   height:430,
-
                   disableCenter: true,
                   clipBehavior: Clip.none,
                   aspectRatio: 16/7,
-                  viewportFraction: 1.1,
+                  viewportFraction: 1.2,
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   reverse: false,
                   autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 4),
+                  autoPlayInterval: Duration(seconds: 5),
                   autoPlayAnimationDuration: Duration(milliseconds:2000),
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enlargeCenterPage: true,
