@@ -43,6 +43,7 @@ class Settings extends StatelessWidget {
 
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Container(
+              margin:EdgeInsets.only(top: 30) ,
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -91,14 +92,14 @@ class Settings extends StatelessWidget {
                   trailing: Icon(Icons.help_outline_rounded),
                   title: Text("56".tr),
                 ),
-                ListTile(
+              /*  ListTile(
                   onTap: () {
                     Get.bottomSheet( OthersView());
 
                   },
                   trailing: Icon(Icons.phone_callback_outlined),
                   title: Text("57".tr),
-                ),
+                ),*/
                 ListTile(
                   onTap: () {
                     controller.logout();

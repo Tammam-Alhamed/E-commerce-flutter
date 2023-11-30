@@ -25,46 +25,49 @@ class About_us extends GetView<LocaleController> {
      ),
 
      padding: EdgeInsets.only(top: 10,left: 10,right: 15),
-     child: Column(
-       children: [
-         SizedBox(height: 15,),
-         PhysicalModel(
-           color: AppColor.backgroundcolor,
-           elevation: 10,
-           shadowColor: AppColor.secondColor,
-           borderRadius: BorderRadius.circular(20),
-           child: Container(
+     child: SingleChildScrollView(
+       scrollDirection: Axis.vertical,
+       child: Column(
+         children: [
+           SizedBox(height: 15,),
+           PhysicalModel(
+             color: AppColor.backgroundcolor,
+             elevation: 10,
+             shadowColor: AppColor.secondColor,
+             borderRadius: BorderRadius.circular(20),
+             child: Container(
 
-               padding: EdgeInsets.all(10),
-               child: Text("3".tr , style: TextStyle(color: Colors.blueGrey),)
+                 padding: EdgeInsets.all(10),
+                 child: Text("3".tr , style: TextStyle(color: Colors.blueGrey),)
 
+             ),
            ),
-         ),
-         SizedBox(height: 19,),
-         PhysicalModel(
-           color: AppColor.backgroundcolor,
-           elevation: 10,
-           shadowColor: AppColor.secondColor,
-           borderRadius: BorderRadius.circular(20),
-           child: Container(
-               padding: EdgeInsets.all(10),
-               child: Text("5".tr, style: TextStyle(color: Colors.blueGrey),)
+           SizedBox(height: 19,),
+           PhysicalModel(
+             color: AppColor.backgroundcolor,
+             elevation: 10,
+             shadowColor: AppColor.secondColor,
+             borderRadius: BorderRadius.circular(20),
+             child: Container(
+                 padding: EdgeInsets.all(10),
+                 child: Text("5".tr, style: TextStyle(color: Colors.blueGrey),)
 
+             ),
            ),
-         ),
-         SizedBox(height: 19,),
-         PhysicalModel(
-           color: AppColor.backgroundcolor,
-           elevation: 10,
-           shadowColor: AppColor.secondColor,
-           borderRadius: BorderRadius.circular(20),
-           child: Container(
-               padding: EdgeInsets.all(10),
-               child: Text("7".tr, style: TextStyle(color: Colors.blueGrey))
+           SizedBox(height: 19,),
+           PhysicalModel(
+             color: AppColor.backgroundcolor,
+             elevation: 10,
+             shadowColor: AppColor.secondColor,
+             borderRadius: BorderRadius.circular(20),
+             child: Container(
+                 padding: EdgeInsets.all(10),
+                 child: Text("7".tr, style: TextStyle(color: Colors.blueGrey))
 
+             ),
            ),
-         ),
-       ],
+         ],
+       ),
      ),
    );
 
