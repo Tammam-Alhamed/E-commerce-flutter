@@ -14,7 +14,8 @@ class HandlingDataView extends StatelessWidget {
   Widget build(BuildContext context) {
     return statusRequest == StatusRequest.loading
         ? Center(
-            child: Lottie.asset(AppImageAsset.loading, width: 250, height: 250))
+      heightFactor: 2,
+            child: Lottie.asset(AppImageAsset.loading, width: 250, height: 250,fit: BoxFit.fill))
         : statusRequest == StatusRequest.offlinefailure
             ? Center(
                 child: Lottie.asset(AppImageAsset.offline,

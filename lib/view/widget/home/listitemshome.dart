@@ -45,7 +45,7 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
-            margin: const EdgeInsets.only(right: 15),
+            margin: const EdgeInsets.only(right: 20),
             child: CachedNetworkImage(
               imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(12.0),),
                   image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
@@ -56,6 +56,8 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
             ),
           ),
           Container(
+            padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
+            margin: const EdgeInsets.only(right: 20),
             decoration: BoxDecoration(
                 color: Colors.blueGrey.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(20)),

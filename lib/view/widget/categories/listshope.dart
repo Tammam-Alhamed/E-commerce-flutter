@@ -24,21 +24,19 @@ class ListShope extends GetView<HomeShopeControllerImp> {
           child: DropdownButton(
             isExpanded: true,
             borderRadius: BorderRadius.circular(20),
-            padding: EdgeInsets.only(right: 5),
+            padding: EdgeInsets.only(right:3),
             icon: Icon(Icons.import_export),
             value: controller.currentTabShope,
             items: controller.shope
                 .map((list) {
               return DropdownMenuItem(
                 child: Container(
-                    width: 50, height: 20, child: Text(list['shopes_name'])),
+                    width: 200, height: 20, child: Text(list['shopes_name'])),
                 value: list['shopes_id'].toString(),
               );
             }).toList(),
             onChanged: (value) {
               onChange!(value);
-              // controller.pickShope(value);
-              print(value);
             },
           ),
         );

@@ -46,7 +46,7 @@ class OthersView extends GetView<LocaleController> {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15)),
             elevation: 15,
-            color: AppColor.grey2,
+            color: AppColor.sky,
             textColor: AppColor.backgroundcolor,
             onPressed: () {
               Get.bottomSheet(

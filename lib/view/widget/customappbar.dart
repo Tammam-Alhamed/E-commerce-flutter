@@ -62,11 +62,11 @@ class CustomAppBar extends StatelessWidget {
               onPressed: onPressedIconFavorite,
               icon: Icon(
               iconData,
-                size: 20,
+                size: 21,
                 color: Colors.grey[600],
               )),
         ),
-        SizedBox(width: 10),
+        SizedBox(width: 8),
 
         container!
 

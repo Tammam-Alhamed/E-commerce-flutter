@@ -46,19 +46,16 @@ class Settings extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      color: AppColor.primaryColor.withOpacity(0.3),
+                      color: AppColor.black.withOpacity(0.3),
                       spreadRadius:2,
                       blurRadius: 5,
                       offset: Offset(0, 2),
                       blurStyle: BlurStyle.solid// changes position of shadow
                   ),
                 ],
-                border: Border.all(color: AppColor.thirdColor , width: 1.5),
+                border: Border.all(color: Colors.white10 , width: 1.5),
                 color: AppColor.backgroundcolor,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(40.0),
-                  bottomLeft: Radius.circular(40.0),
-                ),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Column(mainAxisSize: MainAxisSize.min, children: [
                 // ListTile(
