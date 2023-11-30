@@ -72,8 +72,9 @@ class ProductDetails extends StatelessWidget {
                                             constraints: const BoxConstraints(
                                               maxHeight: double.infinity,
                                             ),
+                                            padding: const EdgeInsets.all(10.0),
                                             width:275,
-                                            alignment: Alignment.center,
+                                            alignment: Alignment.topLeft,
                                             child: Text(translateDatabase(
                                                 controller.itemsModel.itemsNameAr, controller.itemsModel.itemsName ,controller.itemsModel.itemsNameRu),
                                                 style: Theme.of(context)

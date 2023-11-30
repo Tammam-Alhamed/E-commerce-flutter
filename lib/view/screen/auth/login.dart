@@ -55,9 +55,9 @@ class Login extends StatelessWidget {
                           return validInput(val!, 5, 100, "phone");
                         },
                         mycontroller: controller.email,
-                        hinttext: "12".tr,
+                        hinttext: "22".tr,
                         iconData: Icons.phone_android_outlined,
-                        labeltext: "18".tr,
+                        labeltext: "21".tr,
                         // mycontroller: ,
                       ),
                       GetBuilder<LoginControllerImp>(

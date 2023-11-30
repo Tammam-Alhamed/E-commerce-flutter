@@ -127,6 +127,7 @@ class MyTranslation extends Translations {
       "119":"يجب إضافة منتج واحد على الأقل الى السلة",
       "120":"نسيت أن تختار لون",
       "121":"نسيت أن تختار مقاس",
+      "122":"   \n مكان يمكنك من خلاله الضغط على الزر لجعل التسوق تجربة ممتعة وآمنة بضائع وعلامات تجارية ذات نوعية جيدة والمزيد، نحن نبذل قصارى جهدنا  لجعل تجربة التسوق الخاصة بك آمنة وسهلة لدينا مصباح علاء الدين السحري <زر> للسؤال عما تحتاجه وتريده،  + فريق خدمة العملاء جاهز 7/24\n مرحبا بكم في البازار سوق حميميم الافتراضي "
 
 
     },
@@ -256,6 +257,8 @@ class MyTranslation extends Translations {
       "119":"At least one product must be added to the cart",
       "120":"You forgot to choose a color",
       "121":"You forgot to choose a size",
+      "122":"* Welcome to bazaar hmeimim virtual market A place where you can in on button make shopping funand safe experience,\n* good quality merchandise,brands and more, We try our best to make your shopping experience safe and easy,\n"
+          "* We have Aladdin magic lamp <button> to ask what you need and want, + customer service team ready 24/7"
 
     },
     "ru":{
