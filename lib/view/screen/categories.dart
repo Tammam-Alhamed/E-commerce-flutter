@@ -41,7 +41,7 @@ class Categories extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
             width: 40,
-            padding: EdgeInsets.symmetric(vertical: 8),
+            padding: EdgeInsets.symmetric(horizontal: 6),
 
             child: ListShope(onChange:controller.changeShopee),
           ),
