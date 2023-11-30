@@ -6,6 +6,8 @@ import 'package:ecommercecourse/view/screen/othersview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widget/setting/about_us.dart';
+
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
 
@@ -83,7 +85,9 @@ class Settings extends StatelessWidget {
                 //   title: Text("Address"),
                 // ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Get.bottomSheet( About_us());
+                  },
                   trailing: Icon(Icons.help_outline_rounded),
                   title: Text("56".tr),
                 ),
