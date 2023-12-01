@@ -37,7 +37,7 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
                 onTap: (){
                   print("asdasdad");
                   print(slideModel[0].slidesImage );
-                  slideModel[index].slidesImage == slideModel[0].slidesImage ? controller.goToItemsNew(controller.data) : slideModel[index].slidesImage == slideModel[1].slidesImage ? controller.goToItemsDiscount(controller.data) :
+                  slideModel[index].slidesImage == slideModel[1].slidesImage ? controller.goToItemsNew(controller.data) : slideModel[index].slidesImage == slideModel[0].slidesImage ? controller.goToItemsDiscount(controller.data) :
                   controller.goToItemsOffer(controller.data);
                 },
                 child: CachedNetworkImage(

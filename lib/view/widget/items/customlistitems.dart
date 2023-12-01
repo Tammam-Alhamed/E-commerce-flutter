@@ -74,7 +74,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                          SizedBox(height: 10,),
 
                          Padding(
-                           padding: const EdgeInsets.only(left: 5),
+                           padding: const EdgeInsets.only(left: 3),
                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,7 +100,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
 else
     Padding(
-      padding: const EdgeInsets.only(left: 8),
+      padding: const EdgeInsets.only(left: 7),
       child: Text("${translateDatabase(
       itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
       style: const TextStyle(
