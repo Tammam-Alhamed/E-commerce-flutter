@@ -4,6 +4,7 @@ import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
+import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/view/widget/productdetails/color_productdetails.dart';
 import 'package:ecommercecourse/view/widget/productdetails/priceandcount.dart';
 import 'package:ecommercecourse/view/widget/productdetails/size_size.dart';
@@ -22,7 +23,7 @@ class ProductDetails extends StatelessWidget {
 
     ProductDetailsControllerImp controllerImp = Get.put(ProductDetailsControllerImp());
     FavoriteController controllerfav = Get.put(FavoriteController());
-
+    MyServices myServices = Get.find();
     return Scaffold(
         persistentFooterAlignment : AlignmentDirectional.bottomCenter,
         bottomNavigationBar: Container(
@@ -48,7 +49,8 @@ class ProductDetails extends StatelessWidget {
                       ),
                   ),
                   SizedBox(width:50,),
-                  InkWell(onTap:() {Get.toNamed(AppRoute.cart);}  ,child: Container( height: 70,width: 75,decoration:BoxDecoration(color:AppColor.primaryColor,borderRadius: BorderRadius.circular(15)),child: Icon(Icons.shopping_cart,size: 30,color:Colors.white,),),)
+                  InkWell(onTap:() {
+                    Get.toNamed(AppRoute.cart);}  ,child: Container( height: 70,width: 75,decoration:BoxDecoration(color:AppColor.primaryColor,borderRadius: BorderRadius.circular(15)),child: Icon(Icons.shopping_cart,size: 30,color:Colors.white,),),)
                 ],
               ),
 
@@ -60,9 +62,11 @@ class ProductDetails extends StatelessWidget {
                       statusRequest: controller.statusRequest,
                       widget: Container(
                         padding: const EdgeInsets.all(10),
+
                           child: Column(
-                             crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+
+                             crossAxisAlignment:  CrossAxisAlignment.start,
+                             children: [
                                 Sliderdetails(),
                                 Column(
                                     children: [
@@ -74,7 +78,7 @@ class ProductDetails extends StatelessWidget {
                                             ),
                                             padding: const EdgeInsets.all(10.0),
                                             width:275,
-                                            alignment: Alignment.topLeft,
+                                            alignment:myServices.sharedPreferences.getString("lang")=='ar'? Alignment.topRight:Alignment.topLeft,
                                             child: Text(translateDatabase(
                                                 controller.itemsModel.itemsNameAr, controller.itemsModel.itemsName ,controller.itemsModel.itemsNameRu),
                                                 style: Theme.of(context)
