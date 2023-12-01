@@ -33,6 +33,8 @@ List<GetPage<dynamic>>? routes = [
       name: "/", page: () => const Language(), middlewares: [MyMiddleWare()]),
   // GetPage(name: "/", page: () =>   TestView()),
   GetPage(name: AppRoute.cart, page: () => const Cart(), transitionDuration: Duration(milliseconds: 1)),
+  GetPage(
+      name: AppRoute.lang, page: () => const Language(), middlewares: [MyMiddleWare()]),
 //  Auth
   GetPage(name: AppRoute.login, page: () => const Login()),
   GetPage(name: AppRoute.signUp, page: () => const SignUp()),
