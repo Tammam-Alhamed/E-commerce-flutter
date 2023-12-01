@@ -59,7 +59,7 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
             padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
             margin: const EdgeInsets.only(right: 20),
             decoration: BoxDecoration(
-                color: Colors.blueGrey.withOpacity(0.2),
+                color: AppColor.home.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(20)),
             height: 170,
             width: 170,
