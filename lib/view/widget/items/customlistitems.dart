@@ -74,7 +74,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                          SizedBox(height: 10,),
 
                          Padding(
-                           padding: const EdgeInsets.only(left: 11),
+                           padding: const EdgeInsets.only(left: 5),
                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,14 +86,14 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                           itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
                                           style: const TextStyle(
                                               color: AppColor.primaryColor,
-                                              fontSize: 16,
+                                              fontSize: 13,
                                               fontWeight: FontWeight.bold,
                                               fontFamily: "sans")),
                                           Text("${translateDatabase(
                                               itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
                                               style: const TextStyle(decoration: TextDecoration.lineThrough,
                                                   color: AppColor.primaryColor,
-                                                  fontSize: 16,
+                                                  fontSize: 12,
                                                   fontWeight: FontWeight.normal,
                                                   fontFamily: "sans"))],)
 
@@ -105,8 +105,9 @@ else
       itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
       style: const TextStyle(
       color: AppColor.primaryColor,
-      fontSize: 18,
-      fontWeight: FontWeight.w400,
+      fontSize: 12,
+          fontWeight: FontWeight.bold,
+
       fontFamily: "sans")),
     ),
 
