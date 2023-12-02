@@ -174,10 +174,16 @@ class ProductDetails extends StatelessWidget {
 //Padding(padding: EdgeInsets.only(left: 10,right: 10)),
 
                                       if(controller.colors.length!=1)
-                                    Container(decoration:BoxDecoration(borderRadius: BorderRadius.circular(5),),
-                                      height: 60,child:
-                                    CustomColor(),
-                                     width: 170,),
+                                    Column(
+                                      children: [
+                                      Text(" Select Color", style: TextStyle(fontSize: 14,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
+                                      )),
+                                        Container(decoration:BoxDecoration(borderRadius: BorderRadius.circular(5),),
+                                          height: 60,child:
+                                        CustomColor(),
+                                         width: 170,),
+                                      ],
+                                    ),
 
 
                                        Padding(padding: EdgeInsets.only(left: 30,right: 35)),

@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/notification_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -49,10 +50,12 @@ class NotificationView extends StatelessWidget {
                                     child: SizedBox(
                                       height: 125,
                                       child: ListTile(
-                                        title: Text(controller.data[index]
-                                            ['notification_title']),
-                                        subtitle: Text(controller.data[index]
-                                            ['notification_body']),
+                                        title: Text(  controller.data[index]
+                                        ['notification_title'],),
+                                        subtitle: Text(translateDatabase(controller.data[index]
+                                            ['notification_body'],controller.data[index]
+                                        ['notification_body_en'],controller.data[index]
+                                        ['notification_body_ru'])),
                                       ),
                                     ),
                                   ),

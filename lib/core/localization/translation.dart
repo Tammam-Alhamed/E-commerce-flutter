@@ -258,7 +258,17 @@ class MyTranslation extends Translations {
       "120":"You forgot to choose a color",
       "121":"You forgot to choose a size",
       "122":"* Welcome to bazaar hmeimim virtual market A place where you can in on button make shopping funand safe experience,\n* good quality merchandise,brands and more, We try our best to make your shopping experience safe and easy,\n"
-          "* We have Aladdin magic lamp <button> to ask what you need and want, + customer service team ready 24/7"
+          "* We have Aladdin magic lamp <button> to ask what you need and want, + customer service team ready 24/7",
+      "123":"Nouns, verbs, adjectives, and adverbs forms are called open classes – word classes that readily accept new members, such as the noun celebutante (a celebrity who frequents the fashion circles), and other similar relatively new words"
+          "The others are considered to be closed classes. For example, it is rare for a new pronoun to enter the language. Determiners, traditionally classified along with adjectives, have not always been regarded as a separate part of speech. Interjections are another word class, but these are not described here as they do not form part of the clause and sentence structure of the language"
+          "Linguists generally accept nine English word classes: nouns, verbs, adjectives, adverbs, pronouns, prepositions, conjunctions, determiners, and exclamations. English words are not generally marked for word class. It is not usually possible to tell from the form of a word which class it belongs to except"
+          " to some extent, in the case of words with inflectional endings or derivational suffixes. On the other hand, most words belong to more than one-word class. For example, run can serve as either a verb or a noun (these are regarded as two different lexemes)."
+          "Lexemes may be inflected to express different grammatical categories. The lexeme run has the forms runs, ran, runny, runner, and running.[3] Words in one class can sometimes be derived from those in another. This has the potential to give rise to new words. The noun aerobics has recently given rise to the adjective aerobicized"
+          "Words combine to form phrases. A phrase typically serves the same function as a word from some particular word class."
+          "For example, my very good friend Peter is a phrase that can be used in a sentence as if it were a noun, and is therefore called a noun phrase. Similarly, adjectival phrases and adverbial phrases function as if they were adjectives or adverbs, but with other types of phrases, the terminology has different implications."
+          "For example, a verb phrase consists of a verb together with any objects and other dependents; a prepositional phrase consists of a preposition and its complement (and is therefore usually a type of adverbial phrase); and a determiner phrase is a type of noun phrase containing a determiner."
+          "Many common suffixes form nouns from other nouns or from other types of words, such as -age (shrinkage), -hood (sisterhood), and so on"
+          "though many nouns are base forms containing no such suffix (cat, grass, France). Nouns are also created by converting verbs and adjectives, as with the words talk and reading (a boring talk, the assigned reading)",
 
     },
     "ru":{

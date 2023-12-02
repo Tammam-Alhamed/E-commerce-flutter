@@ -6,6 +6,7 @@ import 'package:ecommercecourse/view/screen/othersview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widget/setting/Term_and_Conditions.dart';
 import '../widget/setting/about_us.dart';
 
 class Settings extends StatelessWidget {
@@ -78,7 +79,7 @@ class Settings extends StatelessWidget {
                   trailing: Icon(Icons.card_travel),
                   title: Text("55".tr),
                 ),
-                // ListTile(
+                 //ListTile(
                 //   onTap: () {
                 //     Get.toNamed(AppRoute.addressview);
                 //   },
@@ -92,14 +93,28 @@ class Settings extends StatelessWidget {
                   trailing: Icon(Icons.help_outline_rounded),
                   title: Text("56".tr),
                 ),
-              /*  ListTile(
+            ListTile(
                   onTap: () {
-                    Get.bottomSheet( OthersView());
+                    //Get.bottomSheet( Term_and_Conditions());
+                /*    showModalBottomSheet(
+                      isScrollControlled :true,
+                      context: context,
+                      builder: (context) {
+                        return Container(
+                          height:600,
+
+
+                          child: SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Text("123".tr))
+                        );
+                      },
+                    );*/
 
                   },
-                  trailing: Icon(Icons.phone_callback_outlined),
+                  trailing: Icon(Icons.gavel),
                   title: Text("57".tr),
-                ),*/
+                ),
                 ListTile(
                   onTap: () {
                     controller.logout();
