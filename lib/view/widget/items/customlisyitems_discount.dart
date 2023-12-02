@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/favorite_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
-import 'package:ecommercecourse/controller/slides_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/imgaeasset.dart';
 import 'package:ecommercecourse/core/functions/translatefatabase.dart';
@@ -83,14 +81,14 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                                       itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
                                       style: const TextStyle(
                                           color: AppColor.primaryColor,
-                                          fontSize: 16,
+                                          fontSize: 13,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: "sans")),
                                   Text("${translateDatabase(
                                       itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
                                       style: const TextStyle(decoration: TextDecoration.lineThrough,
                                           color: AppColor.primaryColor,
-                                          fontSize: 16,
+                                          fontSize: 13,
                                           fontWeight: FontWeight.normal,
                                           fontFamily: "sans"))],)
 
@@ -101,7 +99,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                                     itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
                                     style: const TextStyle(
                                         color: AppColor.primaryColor,
-                                        fontSize: 18,
+                                        fontSize: 13,
                                         fontWeight: FontWeight.w400,
                                         fontFamily: "sans")),
                               ),
