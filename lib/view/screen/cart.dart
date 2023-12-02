@@ -29,7 +29,7 @@ class Cart extends StatelessWidget {
                 onApplyCoupon: () {
                   controller.checkcoupon();
                 },
-                price: "${cartController.priceorders_d}",
+                price: "${translateDatabase(cartController.priceorders, cartController.priceorders_d, cartController.priceorders_d)}",
                 discount: "${controller.discountcoupon}%",
                 totalprice: "${translateDatabase(controller.getTotalPrice(), controller.getTotalPrice_d() ,controller.getTotalPrice_d())}")),
         body: GetBuilder<CartController>(
