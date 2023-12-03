@@ -193,6 +193,7 @@ class ProductDetails extends StatelessWidget {
                                         if( controller.sizes.length!=1)
                                         Flexible(
                                           child: Container(
+                                         margin:controller.colors.length==1  ? myServices.sharedPreferences.getString("lang")!='ar' ? EdgeInsets.only(left: 150):EdgeInsets.only(right: 150):EdgeInsets.only(left: 0),
                                             decoration: BoxDecoration(
                                               border: Border(bottom: BorderSide(color: AppColor.primaryColor)),
 

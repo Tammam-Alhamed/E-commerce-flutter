@@ -14,6 +14,7 @@ class NotificationController extends GetxController {
   MyServices myServices = Get.find();
 
   getData() async {
+    data.clear();
     statusRequest = StatusRequest.loading;
     var response = await notificationData
         .getData(myServices.sharedPreferences.getString("id")!);
@@ -29,6 +30,10 @@ class NotificationController extends GetxController {
     }
     update();
   }
+  ref(){
+    getData();
+    update();
+  }
 
   @override
   void onInit() {
@@ -36,3 +41,4 @@ class NotificationController extends GetxController {
     super.onInit();
   }
 }
+
