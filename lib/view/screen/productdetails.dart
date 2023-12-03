@@ -176,7 +176,7 @@ class ProductDetails extends StatelessWidget {
                                       if(controller.colors.length!=1)
                                     Column(
                                       children: [
-                                      Text(" Select Color", style: TextStyle(fontSize: 14,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
+                                      const Text(" Select Color", style: TextStyle(fontSize: 14,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
                                       )),
                                         Container(decoration:BoxDecoration(borderRadius: BorderRadius.circular(5),),
                                           height: 60,
@@ -192,7 +192,10 @@ class ProductDetails extends StatelessWidget {
                                         if( controller.sizes.length!=1)
                                         Flexible(
                                           child: Container(
+
+                                         margin:controller.colors.length==1  ? myServices.sharedPreferences.getString("lang")!='ar' ? EdgeInsets.only(left: 150):EdgeInsets.only(right: 150):EdgeInsets.only(left: 0),
                                             decoration: const BoxDecoration(
+
                                               border: Border(bottom: BorderSide(color: AppColor.primaryColor)),
                                             ),
                                             height:60,child:Customsize(),width: 110,
