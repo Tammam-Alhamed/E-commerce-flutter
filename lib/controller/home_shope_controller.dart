@@ -64,6 +64,9 @@ class HomeShopeControllerImp extends HomeShopeController {
   @override
   getdata() async {
     data.clear();
+shope.clear();
+items.clear();
+image.clear();
     statusRequest = StatusRequest.loading;
     var response = await homedata.getData();
     // print("=============================== Controller $response ");
@@ -116,6 +119,7 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   getOffer() async {
     data.clear();
+    offer.clear();
     statusRequest = StatusRequest.loading;
     var response = await testData.getOffer(
         myServices.sharedPreferences.getString("id")!);
@@ -176,7 +180,13 @@ class HomeShopeControllerImp extends HomeShopeController {
   }
 
 
-
+  reff(){
+    searchData();
+    getItems();
+    getOffer();
+    getdata();
+    update();
+  }
 
   goToPageProductDetails(itemsModel) {
     Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
@@ -190,6 +200,7 @@ class SearchMixController extends GetxController {
   HomeData homedata = HomeData(Get.find());
 
   searchData() async {
+    listdata.clear();
     statusRequest = StatusRequest.loading;
     var response = await homedata.searchData(search!.text);
     // print("=============================== Controller $response ");
@@ -222,4 +233,7 @@ class SearchMixController extends GetxController {
     searchData();
     update();
   }
+
+
+
 }

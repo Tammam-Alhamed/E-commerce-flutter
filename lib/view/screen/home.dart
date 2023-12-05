@@ -27,55 +27,61 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomeShopeControllerImp());
+    HomeShopeControllerImp controllerImp=    Get.put(HomeShopeControllerImp());
+    Future  ref()async{
 
+      controllerImp.reff()  ;
+    }
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: ListView(
-              physics: AlwaysScrollableScrollPhysics(),
-              children: [
-                CustomAppBar(
-                  mycontroller: controller.search!,
-                  titleappbar: "39".tr,
-                  // onPressedIcon: () {},
-                  onPressedSearch: () {
-                    controller.onSearchItems();
-                  },
-                  onChanged: (val) {
-                    controller.checkSearch(val);
-                  },
-                  onPressedIconFavorite: () {
-                    Get.toNamed(AppRoute.myfavroite);
-                  },
-                  container: SizedBox(),
-                ),
-                HandlingDataView(
-                    statusRequest: controller.statusRequest,
-                    widget: !controller.isSearch
-                        ?  Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children:  [
-                              ImageSliderScreen(slideModel: controller.image,),
-                              Row(
-                                children: [
-                                  CustomTitleHome(title: "40".tr),
+            child:  RefreshIndicator(
+              onRefresh:ref,
+              child: ListView(
+                physics: AlwaysScrollableScrollPhysics(),
+                children: [
+                  CustomAppBar(
+                    mycontroller: controller.search!,
+                    titleappbar: "39".tr,
+                    // onPressedIcon: () {},
+                    onPressedSearch: () {
+                      controller.onSearchItems();
+                    },
+                    onChanged: (val) {
+                      controller.checkSearch(val);
+                    },
+                    onPressedIconFavorite: () {
+                      Get.toNamed(AppRoute.myfavroite);
+                    },
+                    container: SizedBox(),
+                  ),
+                  HandlingDataView(
+                      statusRequest: controller.statusRequest,
+                      widget: !controller.isSearch
+                          ?  Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children:  [
+                                ImageSliderScreen(slideModel: controller.image,),
+                                Row(
+                                  children: [
+                                    CustomTitleHome(title: "40".tr),
 
 
-                                ],
-                              ),
-                              ListCategoriesHome(),
-                              OthersView(),
-                              CustomTitleHome(title: "41".tr),
-                              ListItemsHome(),
-                            ],
+                                  ],
+                                ),
+                                ListCategoriesHome(),
+                                OthersView(),
+                                CustomTitleHome(title: "41".tr),
+                                ListItemsHome(),
+                              ],
+                            )
+                          : ListItemsSearch(listdatamodel: controller.listdata)
                           )
-                        : ListItemsSearch(listdatamodel: controller.listdata)
-                        )
 
-                // const CustomTitleHome(title: "Offer"),
-                // const ListItemsHome()
-              ],
+                  // const CustomTitleHome(title: "Offer"),
+                  // const ListItemsHome()
+                ],
+              ),
             )));
   }
 }
