@@ -48,6 +48,7 @@ class HomePage extends StatelessWidget {
                   onPressedIconFavorite: () {
                     Get.toNamed(AppRoute.myfavroite);
                   },
+                  onPressed: (String ) { controller.onSearchItems(); },
                   container: SizedBox(),
                 ),
                 HandlingDataView(

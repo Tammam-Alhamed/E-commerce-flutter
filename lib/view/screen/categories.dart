@@ -37,7 +37,9 @@ class Categories extends StatelessWidget {
             },
             onPressedIconFavorite: () {
               Get.toNamed(AppRoute.myfavroite);
-            }, container:Container(
+            },
+            onPressed: (String ) { controller.onSearchItems(); },
+            container:Container(
             decoration: BoxDecoration(
                 color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
             width: 40,
