@@ -65,7 +65,7 @@ class OrdersDetails extends StatelessWidget {
                                             controller.data[index].itemsNameAr, controller.data[index].itemsName ,controller.data[index].itemsNameRu),
                                             textAlign: TextAlign.center),
                                         Text("${controller.data[index].countitems}", textAlign: TextAlign.center),
-                                        Text("${controller.data[index].itemsprice_d}",
+                                        Text("${translateDatabase(controller.data[index].itemsprice, controller.data[index].itemsprice_d, controller.data[index].itemsprice)}",
                                             textAlign: TextAlign.center),
                                     Text(controller.data[index].itemsDelay == "0"
                                         ? ""

@@ -37,11 +37,11 @@ class OrdersPendingController extends GetxController {
     } else if (val == "1") {
       return "71".tr;
     } else if (val == "2") {
-      return "89".tr;
+      return "73".tr;
     }  else if (val == "3") {
-      return "72".tr;
+      return "73".tr;
     } else {
-      return "55".tr;
+      return "73".tr;
     }
   }
   getOrders() async {

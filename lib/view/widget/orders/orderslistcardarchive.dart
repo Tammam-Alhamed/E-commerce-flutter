@@ -40,7 +40,7 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
               Text(
                   "${"82".tr} : ${controller.printOrderType(listdata.ordersType!)}"),
               Text("${"83".tr} : ${translateDatabase(listdata.ordersPrice , listdata.ordersPrice_d , listdata.ordersPrice_d)}  ${"59".tr}"),
-              Text("Delivery Price : ${listdata.ordersPricedelivery}  ${"59".tr} "),
+              // Text("Delivery Price : ${listdata.ordersPricedelivery}  ${"59".tr} "),
               Text(
                   "${"84".tr} : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
               Text(
@@ -48,7 +48,7 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
               const Divider(),
               Row(
                 children: [
-                  Text("${"52".tr} : ${listdata.ordersId}  ${"59".tr} ",
+                  Text("${"52".tr} : ${translateDatabase(listdata.ordersTotalprice , listdata.ordersTotalprice_d , listdata.ordersTotalprice_d)} ${"59".tr} ",
                       style: const TextStyle(
                           color: AppColor.primaryColor,
                           fontWeight: FontWeight.bold)),
