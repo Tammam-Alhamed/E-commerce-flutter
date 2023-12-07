@@ -35,9 +35,7 @@ class HomePage extends StatelessWidget {
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child:  RefreshIndicator(
-              onRefresh:ref,
-              child: ListView(
+            child:  ListView(
                 physics: AlwaysScrollableScrollPhysics(),
                 children: [
                   CustomAppBar(
@@ -82,7 +80,7 @@ class HomePage extends StatelessWidget {
                   // const ListItemsHome()
                 ],
               ),
-            )));
+           ));
   }
 }
 
