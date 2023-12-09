@@ -34,6 +34,7 @@ class MyFavorite extends StatelessWidget {
                     onPressedIconFavorite: () {
                       Get.offAllNamed(AppRoute.homepage);
                     },
+                    onPressed: (String ) { controller.onSearchItems(); },
                     container: SizedBox(),
                   ),
                   const SizedBox(height: 20),

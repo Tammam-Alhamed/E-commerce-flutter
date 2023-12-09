@@ -39,6 +39,7 @@ class ItemsDiscount extends StatelessWidget {
             onPressedIconFavorite: () {
               Get.toNamed(AppRoute.myfavroite);
             },
+            onPressed: (String ) { controller.onSearchItems(); },
             container: SizedBox(),
           ),
           const SizedBox(height: 20),
