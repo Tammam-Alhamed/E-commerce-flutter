@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child:  ListView(
+              child: ListView(
                 physics: AlwaysScrollableScrollPhysics(),
                 children: [
                   CustomAppBar(
@@ -51,6 +51,7 @@ class HomePage extends StatelessWidget {
                     onPressedIconFavorite: () {
                       Get.toNamed(AppRoute.myfavroite);
                     },
+                    onPressed: (String ) { controller.onSearchItems(); },
                     container: SizedBox(),
                   ),
                   HandlingDataView(
@@ -63,8 +64,6 @@ class HomePage extends StatelessWidget {
                                 Row(
                                   children: [
                                     CustomTitleHome(title: "40".tr),
-
-
                                   ],
                                 ),
                                 ListCategoriesHome(),
@@ -80,7 +79,7 @@ class HomePage extends StatelessWidget {
                   // const ListItemsHome()
                 ],
               ),
-           ));
+            ));
   }
 }
 

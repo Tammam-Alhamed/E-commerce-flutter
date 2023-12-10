@@ -39,6 +39,7 @@ class Items extends StatelessWidget {
               onPressedIconFavorite: () {
                 Get.toNamed(AppRoute.myfavroite);
               },
+              onPressed: (String ) { controller.onSearchItems(); },
               container: Container(
                 decoration: BoxDecoration(
                     color: Colors.grey[200],

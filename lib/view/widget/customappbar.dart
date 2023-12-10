@@ -10,6 +10,7 @@ class CustomAppBar extends StatelessWidget {
   final String titleappbar;
   final void Function()? onPressedIconFavorite;
   final void Function()? onPressedSearch;
+  final void Function(String)? onPressed;
   final void Function(String)? onChanged;
   final TextEditingController mycontroller;
   final IconData iconData ;
@@ -23,7 +24,8 @@ class CustomAppBar extends StatelessWidget {
       this.onChanged,
       required this.mycontroller,   this.iconData =   Icons.favorite_border_outlined,
 
-       this.container
+       this.container,
+       required this.onPressed
       })
       : super(key: key);
 
@@ -38,8 +40,10 @@ class CustomAppBar extends StatelessWidget {
       Row(children: [
         Expanded(
             child: TextFormField(
+              textInputAction: TextInputAction.search,
           controller: mycontroller,
           onChanged: onChanged,
+          onFieldSubmitted: onPressed,
           decoration: InputDecoration(
               prefixIcon: IconButton(
 
