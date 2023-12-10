@@ -35,7 +35,6 @@ class HomePage extends StatelessWidget {
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-
               child: ListView(
                 physics: AlwaysScrollableScrollPhysics(),
                 children: [
