@@ -8,6 +8,7 @@ import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:path/path.dart';
 
 class CustomListItems extends GetView<ItemsControllerImp> {
@@ -17,6 +18,9 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    var f = NumberFormat.decimalPattern();
+    print(f.format(12.345));
+
     controller.discount =  itemsModel.itemsDiscount ;
     print(controller.discount);
     return InkWell(
@@ -70,6 +74,11 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                             )),
                       ),
 
+
+
+
+
+
                          if( itemsModel.itemsDiscount == "0")
                          SizedBox(height: 10,),
 
@@ -79,6 +88,12 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                if(itemsModel.itemsSold != "0")
+                                  Positioned(
+                                      bottom: 2,
+                                      left:2,
+                                      child: Image.asset(AppImageAsset.Sold , width: 75,height: 80,))
+                                else
                                 if(itemsModel.itemsDiscount!="0")
                                     Column(
                                         children: [
@@ -98,18 +113,18 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                                   fontFamily: "sans"))],)
 
 
-else
-    Padding(
-      padding: const EdgeInsets.only(left: 7),
-      child: Text("${translateDatabase(
-      itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
-      style: const TextStyle(
-      color: AppColor.primaryColor,
-      fontSize: 12,
-          fontWeight: FontWeight.bold,
+                                  else Padding(
+    padding: const EdgeInsets.only(left: 7),
+    child: Text("${translateDatabase(
+        itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+        style: const TextStyle(
+            color: AppColor.primaryColor,
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
 
-      fontFamily: "sans")),
-    ),
+            fontFamily: "sans")),
+  ),
+
 
                                 GetBuilder<FavoriteController>(
                                     builder: (controller) => IconButton(
