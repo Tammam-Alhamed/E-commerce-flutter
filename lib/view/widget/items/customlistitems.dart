@@ -37,6 +37,26 @@ class CustomListItems extends GetView<ItemsControllerImp> {
       }
       return priceInText.trim();
     }
+    String formatAmount1(){
+      String price = "${translateDatabase(
+          itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)}";
+      String priceInText = "";
+      int counter = 0;
+      for(int i = (price.length - 1);  i >= 0; i--){
+        counter++;
+        String str = price[i];
+        if((counter % 3) != 0 && i !=0){
+          priceInText = "$str$priceInText";
+        }else if(i == 0 ){
+          priceInText = "$str$priceInText";
+
+        }else{
+          priceInText = ",$str$priceInText";
+        }
+      }
+      return priceInText.trim();
+    }
+
     var f = NumberFormat.decimalPattern();
     print( formatAmount());
 
@@ -113,15 +133,13 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                 if(itemsModel.itemsDiscount!="0")
                                     Column(
                                         children: [
-                                      Text("${translateDatabase(
-                                          itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
+                                      Text("${formatAmount1()} ${"59".tr}",
                                           style: const TextStyle(
                                               color: AppColor.primaryColor,
                                               fontSize: 13,
                                               fontWeight: FontWeight.bold,
                                               fontFamily: "sans")),
-                                          Text("${translateDatabase(
-                                              itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+                                          Text("${formatAmount()} ${"59".tr}",
                                               style: const TextStyle(decoration: TextDecoration.lineThrough,
                                                   color: AppColor.primaryColor,
                                                   fontSize: 12,

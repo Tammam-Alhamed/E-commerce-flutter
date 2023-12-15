@@ -24,6 +24,27 @@ class ProductDetails extends StatelessWidget {
     ProductDetailsControllerImp controllerImp = Get.put(ProductDetailsControllerImp());
     FavoriteController controllerfav = Get.put(FavoriteController());
     MyServices myServices = Get.find();
+
+
+    String formatAmount(){
+      String price = "${translateDatabase(
+          controllerImp.itemsModel.itemsPriceDiscount, controllerImp.itemsModel.itemspricedisount_d ,controllerImp.itemsModel.itemspricedisount_d)}";
+      String priceInText = "";
+      int counter = 0;
+      for(int i = (price.length - 1);  i >= 0; i--){
+        counter++;
+        String str = price[i];
+        if((counter % 3) != 0 && i !=0){
+          priceInText = "$str$priceInText";
+        }else if(i == 0 ){
+          priceInText = "$str$priceInText";
+
+        }else{
+          priceInText = ",$str$priceInText";
+        }
+      }
+      return priceInText.trim();
+    }
     return Scaffold(
         persistentFooterAlignment : AlignmentDirectional.bottomCenter,
         bottomNavigationBar: Container(
@@ -158,8 +179,7 @@ class ProductDetails extends StatelessWidget {
                                         controller.remove();
                                       },
                                       price:
-                                      "${translateDatabase(
-                                          controller.itemsModel.itemsPriceDiscount, controller.itemsModel.itemspricedisount_d ,controller.itemsModel.itemspricedisount_d)}",
+                                      "${formatAmount()}",
                                       count: "${controller.countitems}"),
                                   const SizedBox(height: 15),
 
