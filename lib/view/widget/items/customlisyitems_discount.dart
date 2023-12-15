@@ -19,8 +19,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          print("==============================");
-          controller.goToPageProductDetails(itemsModel);
+          itemsModel.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel);
         },
         child: Card(
           // margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
@@ -74,6 +73,10 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+
+                            if(itemsModel.itemsSold != "0")
+                              Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
+                            else
                             if(itemsModel.itemsDiscount!="0")
                               Column(
                                 children: [

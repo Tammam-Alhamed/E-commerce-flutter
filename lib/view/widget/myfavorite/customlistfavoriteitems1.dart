@@ -3,6 +3,7 @@ import 'package:ecommercecourse/controller/favorite_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/myfavoritecontroller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/constant/imgaeasset.dart';
 import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/data/model/myfavorite.dart';
@@ -22,7 +23,8 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          controller.goToPageProductDetails(itemsModel1);
+          print(itemsModel1.itemsPriceDiscount);
+          itemsModel1.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel1);
         },
         child: Card(
           child: Padding(
@@ -76,6 +78,10 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        if(itemsModel1.itemsSold != "0")
+                          Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
+                        else
+                          if(itemsModel1.itemsSold == "0")
                         Text("${translateDatabase(
                             itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)}  ${"59".tr}",
                             style: const TextStyle(
