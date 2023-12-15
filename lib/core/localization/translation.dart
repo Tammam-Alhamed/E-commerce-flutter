@@ -135,7 +135,7 @@ class MyTranslation extends Translations {
       "1": "Choose Language",
       "2": "Choose Product",
       "3":
-      "Welcome to bazaar hmeimim virtual market A place where you can in on button make shopping funand safe experience",
+      "Welcome to bazaar hmeimim virtual market A place where you can in on button make shopping fun and safe experience",
       "4": "Easy And Safe Paymnet",
       "5": "Speed in performance good quality merchandise,brands and more, We try our best to make your shopping experience safe and easy.",
       "6": "Track Your Order",

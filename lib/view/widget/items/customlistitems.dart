@@ -46,7 +46,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
         onTap: () {
           print("==============================");
-          controller.goToPageProductDetails(itemsModel);
+          itemsModel.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel);
         },
         child: Card(
           // margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
@@ -105,13 +105,10 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                            padding: const EdgeInsets.only(left: 3),
                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 if(itemsModel.itemsSold != "0")
-                                  Positioned(
-                                      bottom: 2,
-                                      left:2,
-                                      child: Image.asset(AppImageAsset.Sold , width: 75,height: 80,))
+                                       Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
                                 else
                                 if(itemsModel.itemsDiscount!="0")
                                     Column(

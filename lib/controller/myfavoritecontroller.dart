@@ -65,7 +65,7 @@ class MyFavoriteControllerImp extends SearchMixController {
     super.onInit();
   }
 
-  goToPageProductDetails(itemsModel) {
-    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
+  goToPageProductDetails(itemsModel1) {
+    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel1});
   }
 }
