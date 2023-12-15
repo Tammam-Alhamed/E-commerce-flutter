@@ -18,8 +18,27 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    String formatAmount(){
+      String price = "${translateDatabase(
+          itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)}";
+      String priceInText = "";
+      int counter = 0;
+      for(int i = (price.length - 1);  i >= 0; i--){
+        counter++;
+        String str = price[i];
+        if((counter % 3) != 0 && i !=0){
+          priceInText = "$str$priceInText";
+        }else if(i == 0 ){
+          priceInText = "$str$priceInText";
+
+        }else{
+          priceInText = ",$str$priceInText";
+        }
+      }
+      return priceInText.trim();
+    }
     var f = NumberFormat.decimalPattern();
-    print(f.format(12.345));
+    print( formatAmount());
 
     controller.discount =  itemsModel.itemsDiscount ;
     print(controller.discount);
@@ -115,8 +134,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
                                   else Padding(
     padding: const EdgeInsets.only(left: 7),
-    child: Text("${translateDatabase(
-        itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+    child: Text("${formatAmount()} ${"59".tr}",
         style: const TextStyle(
             color: AppColor.primaryColor,
             fontSize: 12,
