@@ -1,18 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/categories_controller.dart';
-import 'package:ecommercecourse/controller/favorite_controller.dart';
-import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
-import 'package:ecommercecourse/controller/slides_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
 import 'package:ecommercecourse/view/screen/othersview.dart';
 import 'package:ecommercecourse/view/screen/slideimage.dart';
-import 'package:ecommercecourse/view/widget/categories/listshope.dart';
 import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/home/customtitlehome.dart';
 import 'package:ecommercecourse/view/widget/home/listcategorieshome.dart';
@@ -35,7 +28,8 @@ class HomePage extends StatelessWidget {
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: ListView(
+
+            child:  ListView(
                 physics: AlwaysScrollableScrollPhysics(),
                 children: [
                   CustomAppBar(
