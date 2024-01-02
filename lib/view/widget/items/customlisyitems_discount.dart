@@ -91,14 +91,14 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                               Column(
                                 children: [
                                   Text("${translateDatabase(
-                                      itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
+                                      itemsModel.itemspricedisount_d, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
                                       style: const TextStyle(
                                           color: AppColor.primaryColor,
                                           fontSize: 13,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: "sans")),
                                   Text("${translateDatabase(
-                                      itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+                                      itemsModel.itemsPriceD, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
                                       style: const TextStyle(decoration: TextDecoration.lineThrough,
                                           color: AppColor.primaryColor,
                                           fontSize: 13,
@@ -109,7 +109,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 8),
                                 child: Text("${translateDatabase(
-                                    itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+                                    itemsModel.itemsPriceD, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
                                     style: const TextStyle(
                                         color: AppColor.primaryColor,
                                         fontSize: 13,

@@ -28,7 +28,7 @@ class ProductDetails extends StatelessWidget {
 
     String formatAmount(){
       String price = "${translateDatabase(
-          controllerImp.itemsModel.itemsPriceDiscount, controllerImp.itemsModel.itemspricedisount_d ,controllerImp.itemsModel.itemspricedisount_d)}";
+          controllerImp.itemsModel.itemspricedisount_d, controllerImp.itemsModel.itemspricedisount_d ,controllerImp.itemsModel.itemspricedisount_d)}";
       String priceInText = "";
       int counter = 0;
       for(int i = (price.length - 1);  i >= 0; i--){

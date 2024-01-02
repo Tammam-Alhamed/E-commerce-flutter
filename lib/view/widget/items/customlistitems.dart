@@ -20,7 +20,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
   Widget build(BuildContext context) {
     String formatAmount(){
       String price = "${translateDatabase(
-          itemsModel.itemsPrice, itemsModel.itemsPriceD,itemsModel.itemsPriceD)}";
+          itemsModel.itemsPriceD, itemsModel.itemsPriceD,itemsModel.itemsPriceD)}";
       String priceInText = "";
       int counter = 0;
       for(int i = (price.length - 1);  i >= 0; i--){
@@ -39,7 +39,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
     }
     String formatAmount1(){
       String price = "${translateDatabase(
-          itemsModel.itemsPriceDiscount, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)}";
+          itemsModel.itemspricedisount_d, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)}";
       String priceInText = "";
       int counter = 0;
       for(int i = (price.length - 1);  i >= 0; i--){
@@ -136,7 +136,12 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 if(itemsModel.itemsSold != "0")
-                                       Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+                                    child: Image.asset( translateDatabase(
+                                        AppImageAsset.Sold_a, AppImageAsset.Sold ,AppImageAsset.Sold_r),width: 75,height: 80,),
+                                  )
+                                       //Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
                                 else
                                 if(itemsModel.itemsDiscount!="0")
                                     Column(

@@ -127,7 +127,10 @@ class MyTranslation extends Translations {
       "119":"يجب إضافة منتج واحد على الأقل الى السلة",
       "120":"نسيت أن تختار لون",
       "121":"نسيت أن تختار مقاس",
-      "122":"   \n مكان يمكنك من خلاله الضغط على الزر لجعل التسوق تجربة ممتعة وآمنة بضائع وعلامات تجارية ذات نوعية جيدة والمزيد، نحن نبذل قصارى جهدنا  لجعل تجربة التسوق الخاصة بك آمنة وسهلة لدينا مصباح علاء الدين السحري <زر> للسؤال عما تحتاجه وتريده،  + فريق خدمة العملاء جاهز 7/24\n مرحبا بكم في البازار سوق حميميم الافتراضي "
+      "122":"   \n مكان يمكنك من خلاله الضغط على الزر لجعل التسوق تجربة ممتعة وآمنة بضائع وعلامات تجارية ذات نوعية جيدة والمزيد، نحن نبذل قصارى جهدنا  لجعل تجربة التسوق الخاصة بك آمنة وسهلة لدينا مصباح علاء الدين السحري <زر> للسؤال عما تحتاجه وتريده،  + فريق خدمة العملاء جاهز 7/24\n مرحبا بكم في البازار سوق حميميم الافتراضي ",
+      "123":"نفذت الكمية",
+      "124":"نفذت الكمية",
+
 
 
     },
@@ -194,7 +197,7 @@ class MyTranslation extends Translations {
       "56":"About us",
       "57":"Contact us",
       "58":"Logout",
-      "59":"\$",
+      "59":"S.P",
       "60":"ResetPassword",
       "61":"Verification Code",
       "62":"Check code",
@@ -269,6 +272,7 @@ class MyTranslation extends Translations {
           "For example, a verb phrase consists of a verb together with any objects and other dependents; a prepositional phrase consists of a preposition and its complement (and is therefore usually a type of adverbial phrase); and a determiner phrase is a type of noun phrase containing a determiner."
           "Many common suffixes form nouns from other nouns or from other types of words, such as -age (shrinkage), -hood (sisterhood), and so on"
           "though many nouns are base forms containing no such suffix (cat, grass, France). Nouns are also created by converting verbs and adjectives, as with the words talk and reading (a boring talk, the assigned reading)",
+      "124":" Sold",
 
     },
     "ru":{
@@ -334,7 +338,7 @@ class MyTranslation extends Translations {
       "56":"О нас",
       "57":"Связаться с нами",
       "58":"Выйти",
-      "59":"\$",
+      "59":"S.P",
       "60":"Сброс пароля",
       "61":"Проверочный код",
       "62":"Проверить код",
@@ -397,6 +401,10 @@ class MyTranslation extends Translations {
       "119":"В корзину должен быть добавлен хотя бы один товар",
       "120":"Вы забыли выбрать цвет",
       "121":"Вы забыли выбрать размер",
+      "122":"* Добро пожаловать на виртуальный рынок базара hmeimim. Место, где вы можете нажать кнопку, чтобы сделать покупки увлекательными и безопасными.\n* Товары хорошего качества, бренды и многое другое. Мы делаем все возможное, чтобы сделать ваши покупки безопасными и легкими,\n"
+ "* У нас есть волшебная лампа Аладдина <кнопка>, чтобы спросить, что вам нужно и чего вы хотите, + служба поддержки клиентов готова круглосуточно и без выходных",
+      "123":"",
+      "124":"Продал"
     }
   };
 }

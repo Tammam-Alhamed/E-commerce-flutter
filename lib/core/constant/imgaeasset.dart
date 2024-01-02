@@ -11,6 +11,8 @@ class AppImageAsset {
   static const String saleTwo    = "$rootImages/002-sale-tag.png";
   static const String saleThree  = "$rootImages/003-sale-1.png";
   static const String Sold    = "$rootImages/sold.png";
+  static const String Sold_r    = "$rootImages/sold_r.png";
+  static const String Sold_a    = "$rootImages/sold_a.png";
 
   static const String ecommerce = "$rootLottie/ecommerce.json"; 
   static const String loading = "$rootLottie/cart.json";
