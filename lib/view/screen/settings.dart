@@ -88,7 +88,9 @@ class Settings extends StatelessWidget {
                 // ),
                 ListTile(
                   onTap: () {
-                    Get.bottomSheet( About_us());
+                    Get.bottomSheet( About_us(),
+                      enterBottomSheetDuration: Duration(milliseconds: 325),
+                      exitBottomSheetDuration : Duration(milliseconds: 325),);
                   },
                   trailing: Icon(Icons.help_outline_rounded),
                   title: Text("56".tr),

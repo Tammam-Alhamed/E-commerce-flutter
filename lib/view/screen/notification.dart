@@ -26,7 +26,7 @@ Future  ref()async{
               statusRequest: controller.statusRequest,
               widget: Container(
 
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.only(left: 3),
                   child:  RefreshIndicator(
                     onRefresh:ref,
                     child: ListView(children: [
@@ -44,14 +44,14 @@ Future  ref()async{
                       ...List.generate(
                           controller.data.length,
                           (index) => Container(
-
+                            padding: EdgeInsets.only(left: 2 , right: 5),
                                 margin: const EdgeInsets.symmetric(vertical: 5),
                                 child: Stack(
 
                                   children: [
                                     PhysicalModel(
                                       color: AppColor.secondColor,
-                                      elevation: 10,
+                                      elevation: 5,
                                       shadowColor: AppColor.primaryColor,
                                       borderRadius: BorderRadius.circular(20),
                                       child: Container(

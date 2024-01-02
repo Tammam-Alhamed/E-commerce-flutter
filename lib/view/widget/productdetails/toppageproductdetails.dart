@@ -3,6 +3,7 @@ import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/constant/imgaeasset.dart';
 
 import 'package:ecommercecourse/data/model/itemsimagesmodel.dart';
 
@@ -44,7 +45,15 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
                       "${AppLink.imagestItems}/${imagesModel.imagesName!}",
                   height: 400,
                   width: 500,
-
+                  placeholder: (BuildContext context, String url) => Container(
+                    width: 320,
+                    height: 240,
+                    decoration: BoxDecoration(
+                        color: AppColor.backgroundcolor.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Center(child:  Image.asset(AppImageAsset.logo ,width: 100,)),
+                  ),
+                  fadeInDuration: const Duration(milliseconds: 500),
                   fit: BoxFit.fill,
                 ),
 

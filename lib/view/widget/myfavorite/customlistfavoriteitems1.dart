@@ -22,6 +22,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+        highlightColor: Colors.white,
         onTap: () {
           print(itemsModel1.itemsPriceDiscount);
           itemsModel1.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel1);
@@ -33,17 +34,24 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Flexible(
-                    child: Hero(
-                      tag: "${itemsModel.itemsId}",
-                      child: CachedNetworkImage(
+
+                       CachedNetworkImage(
                         imageUrl:
                             AppLink.imagestItems + "/" + itemsModel.itemsImage!,
                         height: 100,
+                        placeholder: (BuildContext context, String url) => Container(
+                          width: 320,
+                          height: 240,
+                          decoration: BoxDecoration(
+                              color: AppColor.backgroundcolor.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(child:  Image.asset(AppImageAsset.logo ,width: 100,)),
+                        ),
+                        fadeInDuration: const Duration(milliseconds: 500),
                         fit: BoxFit.fill,
                       ),
-                    ),
-                  ),
+
+
                   const SizedBox(height: 10),
                   Text(
                       translateDatabase(

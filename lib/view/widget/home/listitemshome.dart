@@ -38,6 +38,7 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      highlightColor: Colors.white,
       onTap: () {
         controller.goToPageProductDetails(itemsModel);
       },

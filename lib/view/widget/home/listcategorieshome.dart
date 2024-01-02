@@ -48,6 +48,7 @@ class Categories extends GetView<HomeShopeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      highlightColor: Colors.white,
       onTap: () {
       controller.goToItems( controller.shope, i! , shopemodel.shopesId!  );
       },
@@ -63,7 +64,7 @@ class Categories extends GetView<HomeShopeControllerImp> {
               imageUrl:
               AppLink.imagestShopes + "/" + shopemodel.shopesImage!,
 
-              imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(50.0),)
+              imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(24.0),)
                   ,image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
               fit: BoxFit.fill,
             ),

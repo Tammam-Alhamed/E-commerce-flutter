@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/categories_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/constant/imgaeasset.dart';
 import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/data/model/categoriesmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
@@ -17,6 +18,7 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
   Widget build(BuildContext context) {
 
     return InkWell(
+        highlightColor: Colors.white,
         onTap: () {
           print(i);
           controller.goToItems(controller.categories, i , categoriesModel.categoriesId! );
@@ -35,11 +37,21 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                       Container(
                         margin:EdgeInsets.only(bottom: 10 , top: 6),
                         child: CachedNetworkImage(
+                          imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(5.0),)
+                              ,image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
                           imageUrl:
                               AppLink.imagestCategories + "/" + categoriesModel.categoriesImage!,
                           height: 150,
                           width: 150,
-
+                          placeholder: (BuildContext context, String url) => Container(
+                            width: 320,
+                            height: 240,
+                            decoration: BoxDecoration(
+                                color: AppColor.backgroundcolor.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Center(child:  Image.asset(AppImageAsset.logo ,width: 100,)),
+                          ),
+                          fadeInDuration: const Duration(milliseconds: 500),
                           fit: BoxFit.fill,
                         ),
                       ),
