@@ -37,11 +37,21 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                         margin:EdgeInsets.only(bottom: 5 , top: 6),
 
                         child: CachedNetworkImage(
+                          imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(5.0),)
+                              ,image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
                           imageUrl:
                           AppLink.imagestItems + "/" + itemsModel.itemsImage!,
                           height: 150,
                           width: 150,
-
+                          placeholder: (BuildContext context, String url) => Container(
+                            width: 320,
+                            height: 240,
+                            decoration: BoxDecoration(
+                                color: AppColor.backgroundcolor.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Center(child:  Image.asset(AppImageAsset.logo ,width: 100,)),
+                          ),
+                          fadeInDuration: const Duration(milliseconds: 500),
                           fit: BoxFit.fill,
 
 

@@ -19,8 +19,11 @@ class Checkout extends StatelessWidget {
         title:  Text('74'.tr),
       ),
       bottomNavigationBar: Container(
+
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: MaterialButton(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)),
             color: AppColor.primaryColor,
             textColor: Colors.white,
             onPressed: () {

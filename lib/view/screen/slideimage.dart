@@ -3,6 +3,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:ecommercecourse/controller/slides_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/class/statusrequest.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/imgaeasset.dart';
 import 'package:ecommercecourse/data/model/slidesmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
@@ -35,14 +36,24 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
             itemBuilder: (BuildContext context,int index){
               return InkWell(
                 onTap: (){
-                  print("asdasdad");
-                  print(slideModel[0].slidesImage );
                   slideModel[index].slidesImage == slideModel[1].slidesImage ? controller.goToItemsNew(controller.data) : slideModel[index].slidesImage == slideModel[0].slidesImage ? controller.goToItemsDiscount(controller.data) :
                   controller.goToItemsOffer(controller.data);
                 },
-                child: CachedNetworkImage(
-                  imageUrl : '${AppLink.imagestSlides}/${slideModel[index].slidesImage}',
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: CachedNetworkImage(
+                    placeholder: (BuildContext context, String url) => Container(
+                      width: 320,
+                      height: 240,
+                      decoration: BoxDecoration(
+                          color: AppColor.backgroundcolor.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Center(child:  Image.asset(AppImageAsset.logo ,width: 100,)),
+                    ),
+                    fadeInDuration: const Duration(milliseconds: 500),
+                    imageUrl : '${AppLink.imagestSlides}/${slideModel[index].slidesImage}',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               );
             },

@@ -15,7 +15,7 @@ class OthersView extends GetView<LocaleController> {
   Widget build(BuildContext context) {
 
     void send()async{
-      var contactusWhatsapp= "963 937754196";
+      var contactusWhatsapp= "";
       var whatappURLIos =
       Uri.parse('https://wa.me/$contactusWhatsapp?text=${Uri.parse("hello")}');
       var whatsappApp = Uri.parse("whatsapp://send?phone=$contactusWhatsapp&text=hello");
@@ -50,6 +50,8 @@ class OthersView extends GetView<LocaleController> {
             textColor: AppColor.backgroundcolor,
             onPressed: () {
               Get.bottomSheet(
+                  enterBottomSheetDuration: Duration(milliseconds: 325),
+                  exitBottomSheetDuration : Duration(milliseconds: 325),
                   StatefulBuilder(
                       builder: (context, setState) {
                         return Container(
