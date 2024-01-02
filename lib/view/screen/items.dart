@@ -10,6 +10,7 @@ import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/items/customlistitems.dart';
 import 'package:ecommercecourse/view/widget/items/listCat.dart';
 import 'package:ecommercecourse/view/widget/items/listcategoirseitems.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

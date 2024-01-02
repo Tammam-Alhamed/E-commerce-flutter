@@ -36,8 +36,19 @@ class CustomItemsCartList extends StatelessWidget {
           Expanded(
               flex: 2,
               child: CachedNetworkImage(
+                imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(25.0),)
+                    ,image: DecorationImage(image:imageProvider  )),),
+                fadeInDuration: const Duration(milliseconds: 500),
                 imageUrl: "${AppLink.imagestItems}/$imagename",
                 height: 80,
+                placeholder: (BuildContext context, String url) => Container(
+                  width: 320,
+                  height: 240,
+                  decoration: BoxDecoration(
+                      color: AppColor.backgroundcolor.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Center(child:  Image.asset(AppImageAsset.logo )),
+                ),
               )),
           Expanded(
               flex: 3,
@@ -48,7 +59,7 @@ class CustomItemsCartList extends StatelessWidget {
                         TextStyle(color: AppColor.primaryColor, fontSize: 17)),
               )),
           Container(
-              height: 30,
+            alignment: Alignment.center,
               child: IconButton(onPressed: delete, icon: Icon(Icons.delete))),
           Expanded(
               child: Column(

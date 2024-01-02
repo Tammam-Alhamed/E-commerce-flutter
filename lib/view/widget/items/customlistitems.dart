@@ -58,14 +58,12 @@ class CustomListItems extends GetView<ItemsControllerImp> {
     }
 
     var f = NumberFormat.decimalPattern();
-    print( formatAmount());
 
     controller.discount =  itemsModel.itemsDiscount ;
-    print(controller.discount);
-    return InkWell(
 
+    return InkWell(
+      highlightColor: Colors.white,
         onTap: () {
-          print("==============================");
           itemsModel.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel);
         },
         child: Card(
@@ -88,7 +86,17 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                     AppLink.imagestItems + "/" + itemsModel.itemsImage!,
                                 height: 150,
                              width: 150,
-
+                                 imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(5.0),)
+                                     ,image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
+                                 placeholder: (BuildContext context, String url) => Container(
+                                   width: 320,
+                                   height: 240,
+                                   decoration: BoxDecoration(
+                                       color: AppColor.backgroundcolor.withOpacity(0.2),
+                                       borderRadius: BorderRadius.circular(20)),
+                                   child: Center(child:  Image.asset(AppImageAsset.logo ,width: 100,)),
+                                 ),
+                                 fadeInDuration: const Duration(milliseconds: 500),
                                 fit: BoxFit.fill,
 
 
