@@ -139,7 +139,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                   Padding(
                                     padding: const EdgeInsets.only(left: 8.0,right: 8.0),
                                     child: Image.asset( translateDatabase(
-                                        AppImageAsset.Sold_a, AppImageAsset.Sold ,AppImageAsset.Sold_r),width: 75,height: 80,),
+                                        AppImageAsset.Sold_a, AppImageAsset.Sold ,AppImageAsset.Sold_r),width:50,height: 55,),
                                   )
                                        //Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
                                 else
