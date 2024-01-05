@@ -85,7 +85,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                           children: [
 
                             if(itemsModel.itemsSold != "0")
-                              Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
+                              Image.asset(AppImageAsset.Sold , width: 50,height: 55,)
                             else
                             if(itemsModel.itemsDiscount!="0")
                               Column(
@@ -98,7 +98,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                                           fontWeight: FontWeight.bold,
                                           fontFamily: "sans")),
                                   Text("${translateDatabase(
-                                      itemsModel.itemsPriceD, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+                                      itemsModel.itemsPrice, itemsModel.itemsPrice,itemsModel.itemsPrice)} ${"59".tr}",
                                       style: const TextStyle(decoration: TextDecoration.lineThrough,
                                           color: AppColor.primaryColor,
                                           fontSize: 13,
@@ -109,7 +109,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 8),
                                 child: Text("${translateDatabase(
-                                    itemsModel.itemsPriceD, itemsModel.itemsPriceD,itemsModel.itemsPriceD)} ${"59".tr}",
+                                    itemsModel.itemsPrice, itemsModel.itemsPrice,itemsModel.itemsPrice)} ${"59".tr}",
                                     style: const TextStyle(
                                         color: AppColor.primaryColor,
                                         fontSize: 13,

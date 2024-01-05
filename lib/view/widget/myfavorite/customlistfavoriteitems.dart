@@ -72,7 +72,7 @@ class CustomListFavoriteItems1 extends GetView<ItemsControllerImp> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("${itemsModel.itemsPriceDiscount}  ${"59".tr}",
+                            Text("${itemsModel.itemsPrice}  ${"59".tr}",
                                 style: const TextStyle(
                                     color: AppColor.primaryColor,
                                     fontSize: 16,

@@ -24,7 +24,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
     return InkWell(
         highlightColor: Colors.white,
         onTap: () {
-          print(itemsModel1.itemsPriceDiscount);
+          print(itemsModel1.itemsPrice);
           itemsModel1.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel1);
         },
         child: Card(

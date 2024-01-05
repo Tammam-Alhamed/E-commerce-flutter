@@ -20,7 +20,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
   Widget build(BuildContext context) {
     String formatAmount(){
       String price = "${translateDatabase(
-          itemsModel.itemsPriceD, itemsModel.itemsPriceD,itemsModel.itemsPriceD)}";
+          itemsModel.itemsPrice, itemsModel.itemsPrice,itemsModel.itemsPrice)}";
       String priceInText = "";
       int counter = 0;
       for(int i = (price.length - 1);  i >= 0; i--){

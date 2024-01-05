@@ -9,7 +9,7 @@ class ItemsModel {
   String? itemsImage;
   String? itemsCount;
   String? itemsActive;
-  String? itemsPrice;
+  //String? itemsPrice;
   String? itemsPriceD;
   String? itemsDiscount;
   String? itemsDate;
@@ -21,7 +21,7 @@ class ItemsModel {
   String? categoriesImage;
   String? categoriesDatetime;
   String? favorite;
-  String? itemsPriceDiscount ;
+  String? itemsPrice ;
   String? itemspricedisount_d ;
   String? itemsStatus ;
   String? itemsNew ;
@@ -38,14 +38,14 @@ class ItemsModel {
       this.itemsImage,
       this.itemsCount,
       this.itemsActive,
-      this.itemsPrice,
+     // this.itemsPrice,
         this.itemsPriceD,
       this.itemsDiscount,
       this.itemsDate,
       this.itemsCat,
         this.itemsStatus,
         this.itemsNew,
-      this.itemsPriceDiscount ,
+      this.itemsPrice ,
       this.itemspricedisount_d ,
       this.categoriesId,
       this.categoriesName,
@@ -67,14 +67,14 @@ class ItemsModel {
     itemsImage = json['items_image_main'];
     itemsCount = json['items_count'];
     itemsActive = json['items_active'];
-    itemsPrice = json['items_price'];
+   // itemsPrice = json['items_price'];
     itemsPriceD = json['items_price_d'];
     itemsDiscount = json['items_discount'];
     itemsDate = json['items_date'];
     itemsCat = json['items_cat'];
     itemsStatus = json['items_status'];
     itemsNew = json['items_new'];
-    itemsPriceDiscount = json['itemspricedisount'];
+    itemsPrice = json['itemsprice'];
     itemspricedisount_d = json['itemspricedisount_d'];
     categoriesId = json['categories_id'];
     categoriesName = json['categories_name'];
@@ -98,7 +98,7 @@ class ItemsModel {
     data['items_image_main'] = this.itemsImage;
     data['items_count'] = this.itemsCount;
     data['items_active'] = this.itemsActive;
-    data['items_price'] = this.itemsPrice;
+   // data['items_price'] = this.itemsPrice;
     data['items_price_d'] = this.itemsPriceD;
     data['items_discount'] = this.itemsDiscount;
     data['items_date'] = this.itemsDate;
