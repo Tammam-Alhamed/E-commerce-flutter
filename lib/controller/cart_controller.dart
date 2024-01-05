@@ -30,8 +30,8 @@ class CartController extends GetxController {
 
   List<CartModel> data = [];
 
-  double priceorders = 0.0;
-  double priceorders_d = 0.0;
+ int priceorders = 0;
+ int priceorders_d = 0;
 
   int totalcountitems = 0;
 
@@ -173,8 +173,8 @@ class CartController extends GetxController {
 
   resetVarCart() {
     totalcountitems = 0;
-    priceorders = 0.0;
-    priceorders_d = 0.0;
+    priceorders = 0;
+    priceorders_d = 0;
     data.clear();
   }
 
@@ -199,8 +199,8 @@ class CartController extends GetxController {
           data.clear();
           data.addAll(dataresponse.map((e) => CartModel.fromJson(e)));
           totalcountitems = int.parse(dataresponsecountprice['totalcount']);
-          priceorders = double.parse(dataresponsecountprice['totalprice']);
-          priceorders_d = double.parse(dataresponsecountprice['totalprice_d']);
+          priceorders = int.parse(dataresponsecountprice['totalprice']);
+          priceorders_d = int.parse(dataresponsecountprice['totalprice_d']);
           print(priceorders);
           print(priceorders_d);
         }

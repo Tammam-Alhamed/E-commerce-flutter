@@ -27,8 +27,11 @@ class CustomItemsCartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
+      constraints: const BoxConstraints(
+        maxHeight: double.infinity,
+      ),
       margin: EdgeInsets.only(bottom: 10),
-        height: 100,
+
         decoration: BoxDecoration(
             color: AppColor.grey2.withOpacity(0.2) ,
             borderRadius: BorderRadius.circular(20)),
@@ -53,10 +56,10 @@ class CustomItemsCartList extends StatelessWidget {
           Expanded(
               flex: 3,
               child: ListTile(
-                title: Text(name, style: TextStyle(fontSize: 15)),
+                title: Text(name, style: TextStyle(height:1.2,fontSize: 13)),
                 subtitle: Text(price,
                     style:
-                        TextStyle(color: AppColor.primaryColor, fontSize: 17)),
+                        TextStyle(color: AppColor.primaryColor, fontSize: 15)),
               )),
           Container(
             alignment: Alignment.center,

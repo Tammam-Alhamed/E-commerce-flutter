@@ -3,6 +3,7 @@
 import 'package:ecommercecourse/controller/orders/details_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/functions/numberstyle.dart';
 import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,7 +66,7 @@ class OrdersDetails extends StatelessWidget {
                                             controller.data[index].itemsNameAr, controller.data[index].itemsName ,controller.data[index].itemsNameRu),
                                             textAlign: TextAlign.center),
                                         Text("${controller.data[index].countitems}", textAlign: TextAlign.center),
-                                        Text("${translateDatabase(controller.data[index].itemsprice, controller.data[index].itemsprice_d, controller.data[index].itemsprice)}",
+                                        Text("${formatAmount(controller.data[index].itemsprice_d, controller.data[index].itemsprice_d, controller.data[index].itemsprice_d)}",
                                             textAlign: TextAlign.center),
                                     Text(controller.data[index].itemsDelay == "0"
                                         ? ""
@@ -85,7 +86,7 @@ class OrdersDetails extends StatelessWidget {
                           SizedBox(height: 10),
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 10),
-                            child:   Text("${"52".tr} : ${translateDatabase(controller.ordersModel.ordersTotalprice , controller.ordersModel.ordersTotalprice_d ,controller.ordersModel.ordersTotalprice_d)} ${"59".tr}",
+                            child:   Text("${"52".tr} : ${formatAmount(controller.ordersModel.ordersTotalprice_d , controller.ordersModel.ordersTotalprice_d ,controller.ordersModel.ordersTotalprice_d)} ${"59".tr}",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     color: AppColor.primaryColor,

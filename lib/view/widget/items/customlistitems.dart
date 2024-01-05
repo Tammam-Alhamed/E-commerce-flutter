@@ -106,18 +106,19 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                       SizedBox(height: 5,),
 
                       Container(
-                        padding: EdgeInsets.only(left: 5 , right: 10),
-                        margin: EdgeInsets.only(left: 5 , right: 10),
+
+                        padding: EdgeInsets.only(left:3 , right: 3),
+                        //margin: EdgeInsets.only(left: 5 , right: 10),
                         alignment: Alignment.center,
                         child: Text(
                             translateDatabase(
                                 itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
                             textAlign:TextAlign.center,
                             style: const TextStyle(
-                              height: 1,
+                              height:1,
                               overflow: TextOverflow.clip,
                                 color: AppColor.black,
-                                fontSize: 16,
+                                fontSize: 15,
                             )),
                       ),
 

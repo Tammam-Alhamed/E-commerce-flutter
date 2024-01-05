@@ -4,6 +4,7 @@ import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/myfavoritecontroller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/imgaeasset.dart';
+import 'package:ecommercecourse/core/functions/numberstyle.dart';
 import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/data/model/myfavorite.dart';
@@ -29,7 +30,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
         },
         child: Card(
           child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(5),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,49 +53,32 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                       ),
 
 
-                  const SizedBox(height: 10),
+                  const SizedBox(height:5),
+
                   Text(
                       translateDatabase(
                           itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
+                    textAlign: TextAlign.center,
                       style: const TextStyle(
+                        height: 1.2,
                           color: AppColor.black,
-                          fontSize: 16,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold)),
-                  Flexible(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Rating", textAlign: TextAlign.center),
-                        Container(
-                          alignment: Alignment.bottomCenter,
-                          height: 22,
-                          child: Row(
-                            children: [
-                              ...List.generate(
-                                  5,
-                                  (index) => const Icon(
-                                        Icons.star,
-                                        size: 15,
-                                      ))
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+
                   Flexible(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         if(itemsModel1.itemsSold != "0")
-                          Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
+                          Image.asset( translateDatabase(
+                              AppImageAsset.Sold_a, AppImageAsset.Sold ,AppImageAsset.Sold_r),width:50,height: 55,)
                         else
                           if(itemsModel1.itemsSold == "0")
-                        Text("${translateDatabase(
-                            itemsModel.itemsPrice, itemsModel.itemsPriceD ,itemsModel.itemsPriceD)}  ${"59".tr}",
+                        Text("${formatAmount(
+                            itemsModel1.itemspricedisount_d,   itemsModel1.itemspricedisount_d ,  itemsModel1.itemspricedisount_d)}  ${"59".tr}",
                             style: const TextStyle(
                                 color: AppColor.primaryColor,
-                                fontSize: 16,
+                                fontSize:13,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: "sans")),
                         IconButton(

@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path/path.dart';
 
+import '../../../core/functions/numberstyle.dart';
+
 class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
   final ItemsModel itemsModel;
   // final bool active;
@@ -17,6 +19,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+
     return InkWell(
         onTap: () {
           itemsModel.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel);
@@ -60,17 +63,18 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                       SizedBox(height: 5,),
                       Container(
 
-                        padding: EdgeInsets.only(left: 15 , right: 10),
-                        margin: EdgeInsets.only(left: 15 , right: 10),
+                        padding: EdgeInsets.only(left:3 , right: 3),
+                        //margin: EdgeInsets.only(left: 15 , right: 10),
                         alignment: Alignment.center,
                         child: Text(
                             translateDatabase(
                                 itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               height: 1,
                               overflow: TextOverflow.clip,
                               color: AppColor.black,
-                              fontSize: 16,
+                              fontSize: 15,
                             )),
                       ),
 
@@ -78,27 +82,26 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                         SizedBox(height: 10,),
 
                       Padding(
-                        padding: const EdgeInsets.only(left: 11),
+                        padding: const EdgeInsets.only(left: 7),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
 
                             if(itemsModel.itemsSold != "0")
-                              Image.asset(AppImageAsset.Sold , width: 50,height: 55,)
+                              Image.asset( translateDatabase(
+                                  AppImageAsset.Sold_a, AppImageAsset.Sold ,AppImageAsset.Sold_r),width:50,height: 55,)
                             else
                             if(itemsModel.itemsDiscount!="0")
                               Column(
                                 children: [
-                                  Text("${translateDatabase(
-                                      itemsModel.itemspricedisount_d, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
+                                  Text("${formatAmount(itemsModel.itemspricedisount_d, itemsModel.itemspricedisount_d ,itemsModel.itemspricedisount_d)} ${"59".tr}",
                                       style: const TextStyle(
                                           color: AppColor.primaryColor,
                                           fontSize: 13,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: "sans")),
-                                  Text("${translateDatabase(
-                                      itemsModel.itemsPrice, itemsModel.itemsPrice,itemsModel.itemsPrice)} ${"59".tr}",
+                                  Text("${formatAmount(itemsModel.itemsPrice, itemsModel.itemsPrice,itemsModel.itemsPrice)} ${"59".tr}",
                                       style: const TextStyle(decoration: TextDecoration.lineThrough,
                                           color: AppColor.primaryColor,
                                           fontSize: 13,
@@ -107,9 +110,8 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
 
                             else
                               Padding(
-                                padding: const EdgeInsets.only(left: 8),
-                                child: Text("${translateDatabase(
-                                    itemsModel.itemsPrice, itemsModel.itemsPrice,itemsModel.itemsPrice)} ${"59".tr}",
+                                padding: const EdgeInsets.only(left: 2),
+                                child: Text("${formatAmount( itemsModel.itemsPrice, itemsModel.itemsPrice,itemsModel.itemsPrice)} ${"59".tr}",
                                     style: const TextStyle(
                                         color: AppColor.primaryColor,
                                         fontSize: 13,

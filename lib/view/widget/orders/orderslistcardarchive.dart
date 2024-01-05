@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/orders/archive_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
+import 'package:ecommercecourse/core/functions/numberstyle.dart';
 import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/data/model/ordersmodel.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
               const Divider(),
               Text(
                   "${"82".tr} : ${controller.printOrderType(listdata.ordersType!)}"),
-              Text("${"83".tr} : ${translateDatabase(listdata.ordersPrice_d , listdata.ordersPrice_d , listdata.ordersPrice_d)}  ${"59".tr}"),
+              Text("${"83".tr} : ${formatAmount(listdata.ordersPrice_d , listdata.ordersPrice_d , listdata.ordersPrice_d)}  ${"59".tr}"),
               // Text("Delivery Price : ${listdata.ordersPricedelivery}  ${"59".tr} "),
               Text(
                   "${"84".tr} : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)} "),
@@ -48,7 +49,7 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
               const Divider(),
               Row(
                 children: [
-                  Text("${"52".tr} : ${translateDatabase(listdata.ordersTotalprice_d , listdata.ordersTotalprice_d , listdata.ordersTotalprice_d)} ${"59".tr} ",
+                  Text("${"52".tr} : ${formatAmount(listdata.ordersTotalprice_d , listdata.ordersTotalprice_d , listdata.ordersTotalprice_d)} ${"59".tr} ",
                       style: const TextStyle(
                           color: AppColor.primaryColor,
                           fontWeight: FontWeight.bold)),

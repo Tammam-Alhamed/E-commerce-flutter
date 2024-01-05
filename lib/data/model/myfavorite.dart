@@ -15,6 +15,7 @@ class MyFavoriteModel {
   String? itemsPrice;
   String? itemsPriceD;
   String? itemsDiscount;
+  String? itemsPriceDiscountD;
   String? itemsDate;
   String? itemsCat;
   String? usersId;
@@ -36,6 +37,7 @@ class MyFavoriteModel {
       this.itemsPrice,
       this.itemsPriceD,
       this.itemsDiscount,
+        this.itemsPriceDiscountD,
       this.itemsDate,
       this.itemsCat,
       this.usersId});
@@ -57,6 +59,7 @@ class MyFavoriteModel {
     itemsPrice = json['items_price'];
     itemsPriceD = json['items_price_d'];
     itemsDiscount = json['items_discount'];
+    itemsPriceDiscountD= json['itemspricediscount_d'];
     itemsDate = json['items_date'];
     itemsCat = json['items_cat'];
     usersId = json['users_id'];
@@ -80,6 +83,7 @@ class MyFavoriteModel {
     data['items_price'] = this.itemsPrice;
     data['items_price_d'] = this.itemsPriceD;
     data['items_discount'] = this.itemsDiscount;
+    data['itemspricediscount_d'] = this.itemsPriceDiscountD;
     data['items_date'] = this.itemsDate;
     data['items_cat'] = this.itemsCat;
     data['users_id'] = this.usersId;

@@ -3,6 +3,7 @@ import 'package:ecommercecourse/controller/cart_controller.dart';
 import 'package:ecommercecourse/controller/productdetails_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/functions/numberstyle.dart';
 import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/view/widget/cart/custom_bottom_navgationbar_cart.dart';
 import 'package:ecommercecourse/view/widget/cart/customitemscartlist.dart';
@@ -29,9 +30,9 @@ class Cart extends StatelessWidget {
                 onApplyCoupon: () {
                   controller.checkcoupon();
                 },
-                price: "${translateDatabase(cartController.priceorders, cartController.priceorders_d, cartController.priceorders_d)}",
+                price: "${formatAmount(cartController.priceorders_d, cartController.priceorders_d, cartController.priceorders_d)}",
                 discount: "${controller.discountcoupon}%",
-                totalprice: "${translateDatabase(controller.getTotalPrice(), controller.getTotalPrice_d() ,controller.getTotalPrice_d())}")),
+                totalprice: "${translateDatabase(controller.getTotalPrice_d(), controller.getTotalPrice_d() ,controller.getTotalPrice_d())}")),
         body: GetBuilder<CartController>(
             builder: ((controller) => HandlingDataView(
                 statusRequest: controller.statusRequest,
@@ -68,7 +69,7 @@ class Cart extends StatelessWidget {
                                 name:translateDatabase(
                                     cartController.data[index].itemsNameAr, cartController.data[index].itemsName ,cartController.data[index].itemsNameRu),
                                 price:
-                                    "${translateDatabase(cartController.data[index].itemsprice, cartController.data[index].itemsprice_d , cartController.data[index].itemsprice_d)}  ${"59".tr}",
+                                    "${formatAmount(cartController.data[index].itemsprice_d, cartController.data[index].itemsprice_d , cartController.data[index].itemsprice_d)}  ${"59".tr}",
                                 count:
                                     "${cartController.data[index].countitems}"),
                           )
