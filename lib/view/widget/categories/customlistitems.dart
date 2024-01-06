@@ -20,6 +20,9 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
 
 
     return InkWell(
+        splashColor: Colors.white,
+        hoverColor: Colors.white,
+        focusColor: Colors.white,
         highlightColor: Colors.white,
         onTap: () {
           categoriesModel.comingsoon!="0" ? "" :  controller.goToItems(controller.categories, i , categoriesModel.categoriesId! );

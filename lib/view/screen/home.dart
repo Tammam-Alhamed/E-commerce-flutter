@@ -90,6 +90,10 @@ class ListItemsSearch extends GetView<HomeShopeControllerImp> {
         physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return InkWell(
+            splashColor: Colors.white,
+            hoverColor: Colors.white,
+            focusColor: Colors.white,
+            highlightColor: Colors.white,
             onTap: () {
               controller.goToPageProductDetails(listdatamodel[index]);
             },

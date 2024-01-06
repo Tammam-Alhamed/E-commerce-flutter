@@ -21,6 +21,9 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+        splashColor: Colors.white,
+        hoverColor: Colors.white,
+        focusColor: Colors.white,
         highlightColor: Colors.white,
         onTap: () {
           itemsModel1.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel1);

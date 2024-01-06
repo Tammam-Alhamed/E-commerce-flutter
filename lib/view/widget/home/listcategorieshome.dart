@@ -22,6 +22,7 @@ class ListCategoriesHome extends GetView<HomeShopeControllerImp> {
         separatorBuilder: (context, index) => const SizedBox(width:0),
         itemCount: controller.shope.length,
         scrollDirection: Axis.horizontal,
+        physics: BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return Categories(
             i: index,
@@ -48,12 +49,13 @@ class Categories extends GetView<HomeShopeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.white,
+      hoverColor: Colors.white,
+      focusColor: Colors.white,
       highlightColor: Colors.white,
       onTap: () {
       controller.goToItems( controller.shope, i! , shopemodel.shopesId!  );
       },
-      // highlightColor: AppColor.backgroundcolor,
-      // splashColor: AppColor.backgroundcolor,
       child: Column(
         children: [
           Container(

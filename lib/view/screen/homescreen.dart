@@ -23,7 +23,6 @@ class HomeScreen extends StatelessWidget {
             bottomOpacity: 0,
             toolbarHeight: 0,
             toolbarOpacity: 0,
-
           ),
               floatingActionButton: FloatingActionButton(
                 backgroundColor: AppColor.primaryColor,
