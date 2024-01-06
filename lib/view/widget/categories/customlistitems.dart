@@ -74,7 +74,7 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                                   fontWeight: FontWeight.bold)),
                         ),
                       if (categoriesModel.comingsoon !="0")
-                        Text( translateDatabase("🎁قريباً","comingsoon🎁","вскоре🎁"), style:  TextStyle(  fontWeight: FontWeight.bold,fontStyle: FontStyle.italic, fontSize: 16,)),
+                        Text( translateDatabase("🎁قريباً","Coming Soon🎁","Вскоре🎁"), style:  TextStyle(  fontWeight: FontWeight.bold,fontStyle: FontStyle.italic, fontSize: 16,)),
 
 
 
