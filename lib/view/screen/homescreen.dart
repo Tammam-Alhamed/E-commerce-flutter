@@ -17,16 +17,13 @@ class HomeScreen extends StatelessWidget {
       GetBuilder<HomeScreenControllerImp>(
         builder: (controller) => Scaffold (
           appBar: AppBar(
+            backgroundColor: AppColor.backgroundcolor,
             leadingWidth: 0,
             centerTitle : true,
             bottomOpacity: 0,
             toolbarHeight: 0,
             toolbarOpacity: 0,
-            systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarColor: AppColor.backgroundcolor, // <-- SEE HERE
-              statusBarIconBrightness: Brightness.light, //<-- For Android SEE HERE (dark icons)
-              statusBarBrightness: Brightness.light, //<-- For iOS SEE HERE (dark icons)
-            ),
+
           ),
               floatingActionButton: FloatingActionButton(
                 backgroundColor: AppColor.primaryColor,
