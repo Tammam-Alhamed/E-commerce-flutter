@@ -20,7 +20,6 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
     return InkWell(
         highlightColor: Colors.white,
         onTap: () {
-          print("kmfijfouhfowi");
           categoriesModel.comingsoon!="0" ? "" :  controller.goToItems(controller.categories, i , categoriesModel.categoriesId! );
         },
         child: Card(
@@ -66,8 +65,8 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
 
                               translateDatabase(
                                   categoriesModel.categoriesNamaAr, categoriesModel.categoriesName , categoriesModel.categoriesNamaRu),
-                              style:  TextStyle(
-height: 1,
+                              style: const TextStyle(
+                                  height: 1,
                                   color: AppColor.black,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold)),

@@ -1,6 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/favorite_controller.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/myfavoritecontroller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/imgaeasset.dart';
@@ -25,7 +23,6 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
     return InkWell(
         highlightColor: Colors.white,
         onTap: () {
-          print(itemsModel1.itemsPrice);
           itemsModel1.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel1);
         },
         child: Card(
@@ -85,7 +82,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                             onPressed: () {
                                 controller.deleteFromFavorite(itemsModel.favoriteId!) ;
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.delete_outline_outlined,
                               color: AppColor.primaryColor,
                             ))

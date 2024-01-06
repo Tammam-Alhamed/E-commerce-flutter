@@ -63,7 +63,7 @@ Future  ref()async{
                                           title: Text(  controller.data[index]
                                           ['notification_title'],),
                                           subtitle: Text(translateDatabase(controller.data[index]
-                                              ['notification_body'],controller.data[index]
+                                          ['notification_body'],controller.data[index]
                                           ['notification_body_en'],controller.data[index]
                                           ['notification_body_ru'])),
                                         ),
