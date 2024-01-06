@@ -62,7 +62,10 @@ class CustomListItems extends GetView<ItemsControllerImp> {
     controller.discount =  itemsModel.itemsDiscount ;
 
     return InkWell(
-      highlightColor: Colors.white,
+        splashColor: Colors.white,
+        hoverColor: Colors.white,
+        focusColor: Colors.white,
+        highlightColor: Colors.white,
         onTap: () {
           itemsModel.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel);
         },
