@@ -40,9 +40,10 @@ class Categories extends StatelessWidget {
             },
             onPressed: (String ) { controller.onSearchItems(); },
             container:Container(
+              alignment:Alignment.center ,
             decoration: BoxDecoration(
                 color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
-            width: 40,
+            width: 60,
             padding: EdgeInsets.symmetric(horizontal: 6),
 
             child: ListShope(onChange:controller.changeShopee),
