@@ -6,6 +6,7 @@ import 'package:ecommercecourse/core/functions/translatefatabase.dart';
 import 'package:ecommercecourse/data/model/categoriesmodel.dart';
 import 'package:ecommercecourse/linkapi.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:get/get.dart';
 
 class CustomListcategories extends GetView<CategoriesControllerImp> {
@@ -16,6 +17,7 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+
 
     return InkWell(
         highlightColor: Colors.white,
@@ -68,11 +70,11 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                               style: const TextStyle(
                                   height: 1,
                                   color: AppColor.black,
-                                  fontSize: 15,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold)),
                         ),
                       if (categoriesModel.comingsoon !="0")
-                        Text( translateDatabase("قريباً","comingsoon","вскоре")),
+                        Text( translateDatabase("🎁قريباً","comingsoon🎁","вскоре🎁"), style:  TextStyle(  fontWeight: FontWeight.bold,fontStyle: FontStyle.italic, fontSize: 16,)),
 
 
 

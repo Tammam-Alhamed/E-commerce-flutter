@@ -15,7 +15,7 @@ class MyTranslation extends Translations {
       "9": "تسجيل الدخول",
       "10": "اهلا بك",
       "11":
-      "يمكنك تسجيل الدخول من خلال البريد وكلمة المرور او من خلال وسائل التواصل الاجتماعي",
+      "يمكنك تسجيل الدخول من خلال رقم الهاتف وكلمة المرور ",
       "12": "ادخل البريد الالكتروني",
       "13": "ادخل كلمة المرور",
       "14": "هل نسيت كلمة المرور",
@@ -29,7 +29,7 @@ class MyTranslation extends Translations {
       "22": "ادخل رقم الهاتف",
       "23": "ادخل اسم المستخدم",
       "24":
-      "انشاء حساب من خلال البريد وكلمة المرور او من خلال وسائل التواصل الاجتماعي",
+      "انشاء حساب من خلال البريد وكلمة المرور",
       "25": " لديك حساب ? ",
       "26": "تسجيل الدخول",
       "27": "فحص البريد الالكتروني",
@@ -148,7 +148,7 @@ class MyTranslation extends Translations {
       "9": "Sign In",
       "10": "Welcome Back",
       "11":
-      "Sign In Your Email And Password Or  Continue With Social Media",
+      "Sign In Your Phone And Password",
       "12": "Enter Your Email",
       "13": "Enter Your Password",
       "14": "Forget Password",
@@ -162,7 +162,7 @@ class MyTranslation extends Translations {
       "22": "Enter Your Phone",
       "23": "Enter Your Username",
       "24":
-      "Sign Up With Your Email And Password OR Continue With Social Media",
+      "Sign Up With Your Email And Password",
       "25": " have an account ? ",
       "26": "SignIn",
       "27": "Check Email",
@@ -289,7 +289,7 @@ class MyTranslation extends Translations {
       "9": "Войти",
       "10": "Добро пожаловать",
       "11":
-      "Войдите в свой адрес электронной почты и пароль или продолжите работу в социальных сетях",
+      "Войдите в свой телефон и пароль",
       "12": "Введите адрес электронной почты",
       "13": "Введите ваш пароль",
       "14": "Забыть пароль",
@@ -303,7 +303,7 @@ class MyTranslation extends Translations {
       "22": "Введите свой телефон",
       "23": "Введите имя пользователя",
       "24":
-      "Зарегистрируйтесь, указав свой адрес электронной почты и пароль, ИЛИ продолжите работу в социальных сетях",
+      "Зарегистрируйтесь, указав свой адрес электронной почты и пароль",
       "25": " Иметь аккаунт ?",
       "26": "Войти",
       "27": "Проверить электронную почту",

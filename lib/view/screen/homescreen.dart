@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
             toolbarOpacity: 0,
             systemOverlayStyle: const SystemUiOverlayStyle(
               statusBarColor: AppColor.backgroundcolor, // <-- SEE HERE
-              statusBarIconBrightness: Brightness.dark, //<-- For Android SEE HERE (dark icons)
+              statusBarIconBrightness: Brightness.light, //<-- For Android SEE HERE (dark icons)
               statusBarBrightness: Brightness.light, //<-- For iOS SEE HERE (dark icons)
             ),
           ),
