@@ -6,6 +6,7 @@ class CategoriesModel {
   String? categoriesNamaRu;
   String? categoriesImage;
   String? categoriesDatetime;
+  String? comingsoon;
 
   CategoriesModel(
       {this.categoriesId,
@@ -14,7 +15,8 @@ class CategoriesModel {
       this.categoriesNamaAr,
       this.categoriesNamaRu,
       this.categoriesImage,
-      this.categoriesDatetime});
+      this.categoriesDatetime,
+      this.comingsoon});
 
   CategoriesModel.fromJson(Map<String, dynamic> json) {
     categoriesId = json['categories_id'];
@@ -24,6 +26,7 @@ class CategoriesModel {
     categoriesNamaRu = json['categories_name_ru'];
     categoriesImage = json['categories_image'];
     categoriesDatetime = json['categories_datetime'];
+    comingsoon= json['categories_soon'];
   }
 
   Map<String, dynamic> toJson() {
@@ -35,6 +38,8 @@ class CategoriesModel {
     data['categories_name_ru'] = this.categoriesNamaRu;
     data['categories_image'] = this.categoriesImage;
     data['categories_datetime'] = this.categoriesDatetime;
+    data['categories_soon'] = this.comingsoon;
+
     return data;
   }
 }

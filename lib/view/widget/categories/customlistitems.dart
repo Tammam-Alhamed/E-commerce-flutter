@@ -20,8 +20,8 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
     return InkWell(
         highlightColor: Colors.white,
         onTap: () {
-          print(i);
-          controller.goToItems(controller.categories, i , categoriesModel.categoriesId! );
+          print("kmfijfouhfowi");
+          categoriesModel.comingsoon!="0" ? "" :  controller.goToItems(controller.categories, i , categoriesModel.categoriesId! );
         },
         child: Card(
           //margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
@@ -58,9 +58,9 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
 
 
                      Container(
-                          margin: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+                          margin: EdgeInsets.symmetric(vertical:3,horizontal:3),
                           alignment: Alignment.center,
-                          padding:EdgeInsets.all(3),
+                         // padding:EdgeInsets.all(3),
 
                           child: Text(
 
@@ -69,9 +69,11 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                               style:  TextStyle(
 height: 1,
                                   color: AppColor.black,
-                                  fontSize: 16,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold)),
                         ),
+                      if (categoriesModel.comingsoon !="0")
+                        Text( translateDatabase("قريباً","comingsoon","вскоре")),
 
 
 
