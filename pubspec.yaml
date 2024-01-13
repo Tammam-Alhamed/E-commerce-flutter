@@ -92,6 +92,7 @@ dependencies:
   card_swiper: ^3.0.1
   flutter_blurhash: ^0.8.2
   flutter_emoji: ^2.5.1
+  flutter_speed_dial: ^7.0.0
 
 
 

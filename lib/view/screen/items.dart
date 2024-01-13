@@ -12,7 +12,11 @@ import 'package:ecommercecourse/view/widget/items/listCat.dart';
 import 'package:ecommercecourse/view/widget/items/listcategoirseitems.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
+
+import '../../core/constant/color.dart';
+import '../widget/items/floatingButtom.dart';
 
 class Items extends StatelessWidget {
   const Items({Key? key}) : super(key: key);
@@ -24,6 +28,7 @@ class Items extends StatelessWidget {
       FavoriteController controllerFav = Get.put(FavoriteController());
 
       return Scaffold(
+
         body: Container(
           padding: const EdgeInsets.all(15),
           child: ListView(children: [
@@ -45,7 +50,7 @@ class Items extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(10)),
-                width: 40,
+                width: 60,
                 padding: EdgeInsets.symmetric(horizontal: 6),
 
                 child: ListCat(onChange: controller.changeCat),
@@ -75,9 +80,68 @@ class Items extends StatelessWidget {
                                       controller.data[index]));
                             })
                             : ListItemsSearch(
-                            listdatamodel: controller.listdata)))
+                            listdatamodel: controller.listdata))),
+
+
           ]),
         ),
+        floatingActionButton:  SpeedDial(
+          childrenButtonSize : const Size(60.0, 70.0),
+          animatedIcon: AnimatedIcons.menu_close,
+            spaceBetweenChildren:10,
+          animatedIconTheme: IconThemeData(size: 22.0),
+          // this is ignored if animatedIcon is non null
+          // child: Icon(Icons.add),
+          visible: true,
+          curve: Curves.bounceIn,
+          overlayColor: Colors.black,
+          overlayOpacity: 0.5,
+
+          tooltip: 'Speed Dial',
+          heroTag: 'speed-dial-hero-tag',
+          backgroundColor: AppColor.primaryColor,
+          foregroundColor: Colors.white,
+          elevation: 8.0,
+          shape: CircleBorder(),
+          children: [
+            SpeedDialChild(
+                child: Icon(Icons.sort_sharp, color:AppColor.primaryColor),
+                backgroundColor: Colors.yellow,
+                label: 'Sort',
+          labelBackgroundColor:Colors.white,
+                labelStyle: TextStyle(fontSize: 18.0,color:AppColor.primaryColor),
+                onTap: () {
+    Get.bottomSheet(
+        backgroundColor:Colors.white,
+    enterBottomSheetDuration: Duration(milliseconds: 325),
+    exitBottomSheetDuration : Duration(milliseconds: 325),
+    StatefulBuilder(
+    builder: (context, setState) {
+    return Container(height: 255,child: RadioListTileExample());}));}
+            ),
+           /* SpeedDialChild(
+              child: Icon(Icons.filter_alt_rounded, color:AppColor.primaryColor,),
+              backgroundColor:Colors.yellow,
+              label: 'Filter',
+              labelBackgroundColor:Colors.white,
+              labelStyle:  TextStyle(fontSize: 18.0,color:AppColor.primaryColor),
+              onTap: () {
+
+                Get.bottomSheet(
+                    backgroundColor:Colors.white,
+                    enterBottomSheetDuration: Duration(milliseconds: 325),
+                    exitBottomSheetDuration : Duration(milliseconds: 325),
+                    StatefulBuilder(
+                        builder: (context, setState) {
+                          return Container(
+                            height: 255,
+                              child: RadioListTileExample());}));},
+            ),*/
+
+          ],
+        ),
+
+
       );
   }
 }

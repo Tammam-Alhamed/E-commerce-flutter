@@ -13,7 +13,6 @@ class CustomButtonAppBar extends StatelessWidget {
       required this.onPressed,
       required this.active})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialButton(

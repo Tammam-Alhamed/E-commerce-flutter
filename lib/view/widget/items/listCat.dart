@@ -23,14 +23,15 @@ class ListCat extends GetView<ItemsControllerImp> {
           child: DropdownButton(
             isExpanded: true,
             borderRadius: BorderRadius.circular(20),
-            padding: EdgeInsets.only(right:3),
-            icon: Icon(Icons.import_export),
+            padding: EdgeInsets.only(right:10),
+            icon: Icon(Icons.list_sharp),
             value: controller.currentTabCat,
             items: cont.data
                 .map((list) {
               return DropdownMenuItem(
                 child: Container(
-                    width: 200, height: 20, child: Text(list['categories_name'])),
+                    alignment : AlignmentDirectional.center,
+                    width: 200, height:double.infinity, child: Text(list['categories_name'],style:TextStyle( fontSize:13,overflow:  TextOverflow.ellipsis))),
                 value: list['categories_id'].toString(),
               );
             }).toList(),
