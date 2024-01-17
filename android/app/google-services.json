@@ -7,6 +7,64 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:235768477147:android:1e0086c27918501ceca3fe",
+        "android_client_info": {
+          "package_name": "com.Bazar.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235768477147-61e86gr564155eu6fofav6sv17mkia1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHrFO4pCD8FFW2atCUAcFFJIooGG_ZnZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235768477147-61e86gr564155eu6fofav6sv17mkia1l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235768477147:android:4bd058351733f779eca3fe",
+        "android_client_info": {
+          "package_name": "com.example.bazar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235768477147-61e86gr564155eu6fofav6sv17mkia1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHrFO4pCD8FFW2atCUAcFFJIooGG_ZnZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235768477147-61e86gr564155eu6fofav6sv17mkia1l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:235768477147:android:7544ed3c625dab20eca3fe",
         "android_client_info": {
           "package_name": "com.waelabohamza.ecommercecourse"
