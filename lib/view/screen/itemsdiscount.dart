@@ -12,6 +12,7 @@ import 'package:ecommercecourse/view/widget/items/customlistitems.dart';
 import 'package:ecommercecourse/view/widget/items/customlisyitems_discount.dart';
 import 'package:ecommercecourse/view/widget/items/listcategoirseitems.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
 class ItemsDiscount extends StatelessWidget {
@@ -48,21 +49,34 @@ class ItemsDiscount extends StatelessWidget {
               builder: (controller) => HandlingDataView(
                   statusRequest: controller.statusRequest,
                   widget: !controller.isSearch
-                      ? GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: controller.data.length,
-                      gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2, childAspectRatio: 0.6),
-                      itemBuilder: (BuildContext context, index) {
-                        controllerFav.isFavorite[controller.data[index]
-                        ['items_id']] =
-                        controller.data[index]['favorite'];
-                        return CustomListItemsDiscount(
-                            itemsModel: ItemsModel.fromJson(
-                                controller.data[index]));
-                      })
+                      ? AnimationLimiter(
+                    child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: controller.data.length,
+                        gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2, childAspectRatio: 0.6),
+                        itemBuilder: (BuildContext context, index) {
+                          // controller.data[index]['items_discount'] = controller.discount;
+                          controllerFav.isFavorite[controller.data[index]
+                          ['items_id']] =
+                          controller.data[index]['favorite'];
+                          return AnimationConfiguration.staggeredGrid(
+                            position: index,
+                            duration: const Duration(milliseconds: 900),
+                            columnCount: controller.data.length,
+                            child: SlideAnimation(
+                              verticalOffset: 40.0,
+                              child: FadeInAnimation(
+                                child: CustomListItemsDiscount(
+                                    itemsModel: ItemsModel.fromJson(
+                                        controller.data[index])),
+                              ),
+                            ),
+                          );
+                        }),
+                  )
                       : ListItemsSearch(listdatamodel: controller.listdata)))
         ]),
       ),

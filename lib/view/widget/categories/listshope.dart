@@ -23,15 +23,18 @@ class ListShope extends GetView<HomeShopeControllerImp> {
         DropdownButtonHideUnderline(
           child: DropdownButton(
             isExpanded: true,
+
             borderRadius: BorderRadius.circular(20),
-            padding: EdgeInsets.only(right:3),
-            icon: Icon(Icons.import_export),
+            padding: EdgeInsets.only(right:10),
+            icon: Icon(Icons.list_sharp),
             value: controller.currentTabShope,
             items: controller.shope
                 .map((list) {
               return DropdownMenuItem(
+                  alignment : AlignmentDirectional.center,
+                  enabled :true,
                 child: Container(
-                    width: 200, height: 20, child: Text(list['shopes_name'])),
+                    width: 400, height: double.infinity, child: Text(list['shopes_name'],style:TextStyle( fontSize:13,overflow:  TextOverflow.ellipsis))),
                 value: list['shopes_id'].toString(),
               );
             }).toList(),
