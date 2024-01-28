@@ -15,7 +15,7 @@ class OthersView extends GetView<LocaleController> {
   Widget build(BuildContext context) {
 
     void send()async{
-      var contactusWhatsapp= "";
+      var contactusWhatsapp= "+961 70542149";
       var whatappURLIos =
       Uri.parse('https://wa.me/$contactusWhatsapp?text=${Uri.parse("hello")}');
       var whatsappApp = Uri.parse("whatsapp://send?phone=$contactusWhatsapp&text=hello");
@@ -97,7 +97,7 @@ class OthersView extends GetView<LocaleController> {
                                         button:BoxIcons.bxl_telegram,
                                         onPressed: () {
                                           launch(
-                                              "https://t.me/RsuavsyBot");
+                                              "https://t.me/Bazaar0app0");
                                         }),
                                   ],
                                 ),

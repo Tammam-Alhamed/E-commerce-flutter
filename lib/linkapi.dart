@@ -42,6 +42,10 @@ class AppLink {
 
   //sort
   static const String A_to_Z = "$server/sort/A_to_Z.php";
+  static const String Z_to_A = "$server/sort/Z_to_A.php";
+  static const String Lowest_to_Highest = "$server/sort/price_lowest.php";
+  static const String Highest_to_Lowest = "$server/sort/price_highest.php";
+
 
  //Checkout
 

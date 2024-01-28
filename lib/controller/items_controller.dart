@@ -130,10 +130,82 @@ class ItemsControllerImp extends SearchMixController {
     update();
   }
 
+  getZ_to_A(categoryid , lang) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await sort.getZ_to_A(
+        categoryid, myServices.sharedPreferences.getString("id")! , lang);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        data.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+
+
+  getLowest_to_Highest(categoryid , lang) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await sort.getLowest_to_Highest(
+        categoryid, myServices.sharedPreferences.getString("id")! , lang);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        data.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+  getHighest_to_Lowest(categoryid , lang) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await sort.getHighest_to_Lowest(
+        categoryid, myServices.sharedPreferences.getString("id")! , lang);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        data.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+
 
   goToA_to_Z(lang) {
     Get.toNamed(AppRoute.items);
     getA_to_Z(catid , lang );
+    update();
+  }
+
+  goToZ_to_A(lang) {
+    Get.toNamed(AppRoute.items);
+    getZ_to_A(catid , lang );
+    update();
+  }
+
+  goToLowest_to_Highest(lang) {
+    Get.toNamed(AppRoute.items);
+    getLowest_to_Highest(catid , lang );
+    update();
+  }
+  goToHighest_to_Lowest(lang) {
+    Get.toNamed(AppRoute.items);
+    getLowest_to_Highest(catid , lang );
+    update();
   }
 
 

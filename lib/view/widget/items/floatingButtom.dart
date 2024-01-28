@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import '../../../core/constant/color.dart';
 
 
-enum SingingCharacter { Default,A_to_Z,Z_to_A,Price }
+enum SingingCharacter { Default,A_to_Z,Z_to_A,Lowest_to_Highest,Highest_to_Lowest }
 
 class RadioListTileExample extends StatefulWidget {
   const RadioListTileExample({super.key});
@@ -57,17 +57,31 @@ class _RadioListTileExampleState extends State<RadioListTileExample> {
           groupValue: _character,
           onChanged: (SingingCharacter? value) {
             setState(() {
+              controller.goToZ_to_A(myServices.sharedPreferences.getString("lang"));
               _character = value;
             });
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('Price'),
-          value: SingingCharacter.Price,
+          title: const Text('Lowest to Highest'),
+          value: SingingCharacter.Lowest_to_Highest,
           activeColor:AppColor.primaryColor,
           groupValue: _character,
           onChanged: (SingingCharacter? value) {
             setState(() {
+              controller.goToLowest_to_Highest(myServices.sharedPreferences.getString("lang"));
+              _character = value;
+            });
+          },
+        ),
+        RadioListTile<SingingCharacter>(
+          title: const Text('Highest to Lowest'),
+          value: SingingCharacter.Highest_to_Lowest,
+          activeColor:AppColor.primaryColor,
+          groupValue: _character,
+          onChanged: (SingingCharacter? value) {
+            setState(() {
+              controller.goToHighest_to_Lowest(myServices.sharedPreferences.getString("lang"));
               _character = value;
             });
           },
