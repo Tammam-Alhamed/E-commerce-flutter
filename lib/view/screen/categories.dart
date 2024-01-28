@@ -11,6 +11,7 @@ import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/items/customlistitems.dart';
 import 'package:ecommercecourse/view/widget/items/listcategoirseitems.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
 import '../../controller/categories_controller.dart';
@@ -55,18 +56,29 @@ class Categories extends StatelessWidget {
               builder: (controller) => HandlingDataView(
                   statusRequest: controller.statusRequest,
                   widget: !controller.isSearch
-                      ? GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: controller.data.length,
-                      gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2, childAspectRatio: 0.7),
-                      itemBuilder: (BuildContext context, index) {
-                        return CustomListcategories(
-                            categoriesModel: CategoriesModel.fromJson(
-                                controller.data[index]));
-                      })
+                      ? AnimationLimiter(
+                        child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: controller.data.length,
+                        gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2, childAspectRatio: 0.7),
+                        itemBuilder: (BuildContext context, index) {
+                          return AnimationConfiguration.staggeredGrid(
+                            position: index,
+                            duration: const Duration(milliseconds: 900),
+                            columnCount: controller.data.length,
+                            child: SlideAnimation(
+                              child: FadeInAnimation(
+                                child: CustomListcategories(
+                                    categoriesModel: CategoriesModel.fromJson(
+                                        controller.data[index])),
+                              ),
+                            ),
+                          );
+                        }),
+                      )
                       : ListItemsSearch(listdatamodel: controller.listdata)))
         ]),
       ),

@@ -36,6 +36,7 @@ class ImageSliderScreen extends GetView<HomeShopeControllerImp> {
             itemBuilder: (BuildContext context,int index){
               return InkWell(
                 onTap: (){
+
                   slideModel[index].slidesImage == slideModel[1].slidesImage ? controller.goToItemsNew(controller.data) : slideModel[index].slidesImage == slideModel[0].slidesImage ? controller.goToItemsDiscount(controller.data) :
                   controller.goToItemsOffer(controller.data);
                 },

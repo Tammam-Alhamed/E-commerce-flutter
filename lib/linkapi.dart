@@ -40,6 +40,8 @@ class AppLink {
   static const String itemsoffer = "$server/items/itemsOffer.php";
 
 
+  //sort
+  static const String A_to_Z = "$server/sort/A_to_Z.php";
 
  //Checkout
 

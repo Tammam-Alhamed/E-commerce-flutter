@@ -1,4 +1,4 @@
-package com.waelabohamza.ecommercecourse
+package com.Bazar.ecommerce
 
 import io.flutter.embedding.android.FlutterActivity
 

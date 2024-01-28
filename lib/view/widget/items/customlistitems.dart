@@ -150,20 +150,23 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                        //Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
                                 else
                                 if(itemsModel.itemsDiscount!="0")
-                                    Column(
-                                        children: [
-                                      Text("${formatAmount1()} ${"59".tr}",
-                                          style: const TextStyle(
-                                              color: AppColor.primaryColor,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: "sans")),
-                                          Text("${formatAmount()} ${"59".tr}",
-                                              style: const TextStyle(decoration: TextDecoration.lineThrough,
-                                                  color: AppColor.primaryColor,
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontFamily: "sans"))],)
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 7 , top: 10),
+                                      child: Column(
+                                          children: [
+                                        Text("${formatAmount1()} ${"59".tr}",
+                                            style: const TextStyle(
+                                                color: AppColor.primaryColor,
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: "sans")),
+                                            Text("${formatAmount()} ${"59".tr}",
+                                                style: const TextStyle(decoration: TextDecoration.lineThrough,
+                                                    color: AppColor.primaryColor,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.normal,
+                                                    fontFamily: "sans"))],),
+                                    )
 
 
                                   else Padding(

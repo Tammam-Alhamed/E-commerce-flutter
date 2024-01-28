@@ -1,8 +1,9 @@
-
-
+import 'package:ecommercecourse/controller/home_shope_controller.dart';
+import 'package:ecommercecourse/controller/items_controller.dart';
+import 'package:ecommercecourse/controller/sort_items_controller.dart';
+import 'package:ecommercecourse/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../core/constant/color.dart';
 
 
@@ -13,11 +14,13 @@ class RadioListTileExample extends StatefulWidget {
 
   @override
   State<RadioListTileExample> createState() => _RadioListTileExampleState();
+
 }
 
 class _RadioListTileExampleState extends State<RadioListTileExample> {
   SingingCharacter? _character = SingingCharacter.Default;
-
+  ItemsControllerImp controller = Get.put(ItemsControllerImp());
+  MyServices myServices = Get.find();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -41,6 +44,8 @@ class _RadioListTileExampleState extends State<RadioListTileExample> {
           groupValue: _character,
           onChanged: (SingingCharacter? value) {
             setState(() {
+              print(myServices.sharedPreferences.getString("lang"));
+              controller.goToA_to_Z(myServices.sharedPreferences.getString("lang"));
               _character = value;
             });
           },
