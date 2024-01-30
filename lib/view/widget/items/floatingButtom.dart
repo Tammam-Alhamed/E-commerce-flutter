@@ -25,20 +25,21 @@ class _RadioListTileExampleState extends State<RadioListTileExample> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text("Choose the sort as you want :",style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,color:AppColor.primaryColor,),),
+        Text("125".tr,style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,color:AppColor.primaryColor,),),
         RadioListTile<SingingCharacter>(
-          title: const Text('Default'),
+          title: Text("126".tr),
           value: SingingCharacter.Default,
           activeColor:AppColor.primaryColor,
           groupValue: _character,
           onChanged: (SingingCharacter? value) {
             setState(() {
+              controller.goToitems();
               _character = value;
             });
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('From A to Z'),
+          title: Text('127'.tr),
           value: SingingCharacter.A_to_Z,
           activeColor:AppColor.primaryColor,
           groupValue: _character,
@@ -51,7 +52,7 @@ class _RadioListTileExampleState extends State<RadioListTileExample> {
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('From Z to A'),
+          title:Text('128'.tr),
           activeColor:AppColor.primaryColor,
           value: SingingCharacter.Z_to_A,
           groupValue: _character,
@@ -63,7 +64,7 @@ class _RadioListTileExampleState extends State<RadioListTileExample> {
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('Lowest to Highest'),
+          title:  Text('129'.tr),
           value: SingingCharacter.Lowest_to_Highest,
           activeColor:AppColor.primaryColor,
           groupValue: _character,
@@ -75,7 +76,7 @@ class _RadioListTileExampleState extends State<RadioListTileExample> {
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('Highest to Lowest'),
+          title: Text('130'.tr),
           value: SingingCharacter.Highest_to_Lowest,
           activeColor:AppColor.primaryColor,
           groupValue: _character,

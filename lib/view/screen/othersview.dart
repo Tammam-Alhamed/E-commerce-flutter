@@ -67,19 +67,21 @@ class OthersView extends GetView<LocaleController> {
 
                             children: [
                               Container(
-                                height: 100,
+                                  constraints: const BoxConstraints(
+                                    maxHeight: double.infinity,
+                                  ),
                                   decoration:
-                                  BoxDecoration(border: Border.all(color: AppColor.grey2), borderRadius: BorderRadius.circular(30),color: AppColor.grey2 ,boxShadow: [
-                                    BoxShadow(
+                                  BoxDecoration(borderRadius: BorderRadius.circular(30),color: AppColor.backgroundcolor ,boxShadow: [
+                                    /*BoxShadow(
                                       color: AppColor.grey2,
                                       blurRadius: 5,
                                       offset: Offset(0, 6), // Shadow position
-                                    ),
+                                    ),*/
                                   ], ),
                                   alignment: Alignment.center,
                                   margin:EdgeInsets.all(10) ,
                                   padding:EdgeInsets.all(10) ,
-                                  child: Text("46".tr, style: TextStyle(fontSize: 17,height: 1.2,fontWeight: FontWeight.bold,color: AppColor.backgroundcolor))),
+                                  child: Text("46".tr, style: TextStyle(fontSize: 17,height: 1.2,fontWeight: FontWeight.bold,color: AppColor.primaryColor))),
                               const SizedBox(height: 20),
                               Flexible(
                                 child: Row(

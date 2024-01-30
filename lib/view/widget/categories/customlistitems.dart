@@ -36,17 +36,19 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                 padding: const EdgeInsets.all(0),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                 //   crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        margin:EdgeInsets.only(bottom: 10 , top: 6),
+                        height: 75,
+                        width: 100,
+                        margin:EdgeInsets.only(bottom: 3, top: 0),
                         child: CachedNetworkImage(
                           imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(5.0),)
                               ,image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
                           imageUrl:
                               AppLink.imagestCategories + "/" + categoriesModel.categoriesImage!,
-                          height: 150,
-                          width: 150,
+                          height:10,
+                          width: 10,
                           placeholder: (BuildContext context, String url) => Container(
                             width: 320,
                             height: 240,
@@ -62,7 +64,7 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
 
 
                      Container(
-                          margin: EdgeInsets.symmetric(vertical:3,horizontal:3),
+                          margin: EdgeInsets.symmetric(vertical:2,horizontal:2),
                           alignment: Alignment.center,
                          // padding:EdgeInsets.all(3),
 
@@ -73,11 +75,11 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                               style: const TextStyle(
                                   height: 1,
                                   color: AppColor.black,
-                                  fontSize: 16,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.bold)),
                         ),
                       if (categoriesModel.comingsoon !="0")
-                        Text( translateDatabase("🎁قريباً","Coming Soon🎁","Вскоре🎁"), style:  TextStyle(  fontWeight: FontWeight.bold,fontStyle: FontStyle.italic, fontSize: 16,)),
+                        Text( translateDatabase("🎁قريباً","Coming Soon🎁","Вскоре🎁"), style:  TextStyle(  fontWeight: FontWeight.bold,fontStyle: FontStyle.italic, fontSize: 12,)),
 
 
 

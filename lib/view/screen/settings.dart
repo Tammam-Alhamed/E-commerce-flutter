@@ -98,20 +98,21 @@ class Settings extends StatelessWidget {
             ListTile(
                   onTap: () {
                     //Get.bottomSheet( Term_and_Conditions());
-                /*    showModalBottomSheet(
+                   showModalBottomSheet(
                       isScrollControlled :true,
                       context: context,
                       builder: (context) {
                         return Container(
-                          height:600,
+                          height:680,
+                          padding:EdgeInsets.all(10) ,
 
 
                           child: SingleChildScrollView(
                               scrollDirection: Axis.vertical,
-                              child: Text("123".tr))
+                              child: Text("123".tr,style:TextStyle(color:Colors.black)))
                         );
                       },
-                    );*/
+                    );
 
                   },
                   trailing: Icon(Icons.gavel),

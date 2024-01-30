@@ -63,7 +63,7 @@ class Categories extends StatelessWidget {
                         itemCount: controller.data.length,
                         gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, childAspectRatio: 0.7),
+                            crossAxisCount:3, childAspectRatio: 0.7),
                         itemBuilder: (BuildContext context, index) {
                           return AnimationConfiguration.staggeredGrid(
                             position: index,

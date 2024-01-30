@@ -204,7 +204,12 @@ class ItemsControllerImp extends SearchMixController {
   }
   goToHighest_to_Lowest(lang) {
     Get.toNamed(AppRoute.items);
-    getLowest_to_Highest(catid , lang );
+    getHighest_to_Lowest(catid , lang );
+    update();
+  }
+  goToitems() {
+    Get.toNamed(AppRoute.items);
+   getItems(catid);
     update();
   }
 
