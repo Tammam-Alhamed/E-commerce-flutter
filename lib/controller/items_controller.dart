@@ -36,7 +36,7 @@ class ItemsControllerImp extends SearchMixController {
 
   String? currentTabCat;
 
-
+var character;
   List data = [];
   List image = [];
 
@@ -186,28 +186,33 @@ class ItemsControllerImp extends SearchMixController {
 
 
   goToA_to_Z(lang) {
+    character;
     Get.toNamed(AppRoute.items);
     getA_to_Z(catid , lang );
     update();
   }
 
   goToZ_to_A(lang) {
+    character;
     Get.toNamed(AppRoute.items);
     getZ_to_A(catid , lang );
     update();
   }
 
   goToLowest_to_Highest(lang) {
+    character;
     Get.toNamed(AppRoute.items);
     getLowest_to_Highest(catid , lang );
     update();
   }
   goToHighest_to_Lowest(lang) {
+    character;
     Get.toNamed(AppRoute.items);
     getHighest_to_Lowest(catid , lang );
     update();
   }
   goToitems() {
+    character;
     Get.toNamed(AppRoute.items);
    getItems(catid);
     update();

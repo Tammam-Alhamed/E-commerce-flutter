@@ -39,9 +39,9 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                  //   crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        height: 75,
+                        height: 90,
                         width: 100,
-                        margin:EdgeInsets.only(bottom: 3, top: 0),
+                        margin:EdgeInsets.only(bottom: 5, top: 0),
                         child: CachedNetworkImage(
                           imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(5.0),)
                               ,image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
