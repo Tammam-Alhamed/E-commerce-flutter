@@ -55,7 +55,7 @@ class SignUp extends StatelessWidget {
                               labeltext: "20".tr,
                               // mycontroller: ,
                             ),
-                            CustomTextFormAuth(
+                           /* CustomTextFormAuth(
                               isNumber: false,
 
                               valid: (val) {
@@ -66,7 +66,7 @@ class SignUp extends StatelessWidget {
                               iconData: Icons.email_outlined,
                               labeltext: "18".tr,
                               // mycontroller: ,
-                            ),
+                            ),*/
                             CustomTextFormAuth(
                               isNumber: true,
                               valid: (val) {
