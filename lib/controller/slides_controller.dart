@@ -65,7 +65,7 @@ class SlidesControllerImp extends SearchMixController {
 
   getimage() async {
     statusRequest = StatusRequest.loading;
-    var response = await homedata.getData();
+    var response = await homedata.getData(myServices.sharedPreferences.getString("id")!);
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {

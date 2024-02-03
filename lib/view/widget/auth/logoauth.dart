@@ -9,7 +9,7 @@ class LogoAuth extends StatelessWidget {
     return CircleAvatar(
 
         radius: 80,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(0), // Border radius
           child: ClipOval(

@@ -43,6 +43,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   List shope = [];
   List items = [];
   List slides = [];
+  List users = [];
 
 
   @override
@@ -64,15 +65,17 @@ class HomeShopeControllerImp extends HomeShopeController {
   @override
   getdata() async {
     data.clear();
-shope.clear();
-items.clear();
-image.clear();
+    shope.clear();
+    items.clear();
+    image.clear();
+    users.clear();
     statusRequest = StatusRequest.loading;
-    var response = await homedata.getData();
+    var response = await homedata.getData(myServices.sharedPreferences.getString("id")!);
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
+        users.addAll(response['users']['data']);
         shope.addAll(response['shope']['data']);
         items.addAll(response['items']['data']);
         List responsedata = response['slides']['data'];
