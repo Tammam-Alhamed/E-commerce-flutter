@@ -46,9 +46,9 @@ class ForgetPassword extends StatelessWidget {
                         isNumber: false,
                         valid: (val) {},
                         mycontroller: controller.email,
-                        hinttext: "12".tr,
-                        iconData: Icons.email_outlined,
-                        labeltext: "18".tr,
+                        hinttext: "22".tr,
+                        iconData: Icons.phone_android_outlined,
+                        labeltext: "21".tr,
                         // mycontroller: ,
                       ),
                       CustomButtomAuth(

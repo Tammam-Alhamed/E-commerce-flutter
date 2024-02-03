@@ -50,8 +50,8 @@ class LoginControllerImp extends LoginController {
             var userid = myServices.sharedPreferences.getString("id")!;
             myServices.sharedPreferences
                 .setString("username", response['data']['name']);
-            myServices.sharedPreferences
-                .setString("email", response['data']['email']);
+            // myServices.sharedPreferences
+            //     .setString("email", response['data']['email']);
             myServices.sharedPreferences
                 .setString("phone", response['data']['phone']);
             myServices.sharedPreferences.setString("step", "2");

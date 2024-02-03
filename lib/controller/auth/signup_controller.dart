@@ -14,7 +14,7 @@ class SignUpControllerImp extends SignUpController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
   late TextEditingController username;
-  late TextEditingController email;
+  // late TextEditingController email;
   late TextEditingController phone;
   late TextEditingController password;
 
@@ -30,14 +30,14 @@ class SignUpControllerImp extends SignUpController {
       statusRequest = StatusRequest.loading; 
       update() ; 
       var response = await signupData.postdata(
-          username.text, password.text, email.text, phone.text);
+          username.text, password.text,  phone.text);
       print("=============================== Controller $response ");
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
           // data.addAll(response['data']);
           Get.offNamed(AppRoute.verfiyCodeSignUp  ,arguments: {
-            "email" : email.text
+            "email" : phone.text
           });
         } else {
           Get.defaultDialog(title: "90".tr , middleText: "92".tr) ;
@@ -59,7 +59,7 @@ class SignUpControllerImp extends SignUpController {
   void onInit() {
     username = TextEditingController();
     phone = TextEditingController();
-    email = TextEditingController();
+    // email = TextEditingController();
     password = TextEditingController();
     super.onInit();
   }
@@ -67,7 +67,7 @@ class SignUpControllerImp extends SignUpController {
   @override
   void dispose() {
     username.dispose();
-    email.dispose();
+    // email.dispose();
     phone.dispose();
     password.dispose();
     super.dispose();

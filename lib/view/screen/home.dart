@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeShopeControllerImp controllerImp=    Get.put(HomeShopeControllerImp());
+
     Future  ref()async{
 
       controllerImp.reff()  ;
@@ -61,7 +62,7 @@ class HomePage extends StatelessWidget {
                                   ],
                                 ),
                                 ListCategoriesHome(),
-                                OthersView(),
+                                controller.users.isEmpty ? SizedBox()   : OthersView() ,
                                 CustomTitleHome(title: "41".tr),
                                 ListItemsHome(),
                               ],
