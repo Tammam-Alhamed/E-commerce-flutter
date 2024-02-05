@@ -3,6 +3,7 @@ import 'package:ecommercecourse/controller/home_shope_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/slides_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/view/screen/home.dart';
@@ -24,6 +25,14 @@ class ItemsDiscount extends StatelessWidget {
     FavoriteController controllerFav = Get.put(FavoriteController());
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColor.backgroundcolor,
+        leadingWidth: 0,
+        centerTitle : true,
+        bottomOpacity: 0,
+        toolbarHeight: 0,
+        toolbarOpacity: 0,
+      ),
       body: Container(
         padding: const EdgeInsets.all(15),
         child: ListView(children: [

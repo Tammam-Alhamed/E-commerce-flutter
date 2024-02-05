@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/orders/archive_controller.dart';
 import 'package:ecommercecourse/controller/orders/pending_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart'; 
+import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/view/widget/orders/orderslistcard.dart';
 import 'package:ecommercecourse/view/widget/orders/orderslistcardarchive.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class OrdersArchiveView extends StatelessWidget {
     Get.put(OrdersArchiveController());
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: AppColor.backgroundcolor,
           title:  Text('54'.tr),
         ),
         body: Container(

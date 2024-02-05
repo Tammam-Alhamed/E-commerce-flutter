@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/controller/orders/pending_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart'; 
+import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/view/widget/orders/orderslistcard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart'; 
@@ -11,6 +12,7 @@ class OrdersPending extends StatelessWidget {
     Get.put(OrdersPendingController());
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: AppColor.backgroundcolor,
           title:  Text('54'.tr),
         ),
         body: Container(

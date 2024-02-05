@@ -13,6 +13,14 @@ class OnBoarding extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp()) ;
     return Scaffold(
+        appBar: AppBar(
+          backgroundColor:  Color(0xff6b7afe),
+          leadingWidth: 0,
+          centerTitle : true,
+          bottomOpacity: 0,
+          toolbarHeight: 0,
+          toolbarOpacity: 0,
+        ),
         backgroundColor: AppColor.backgroundcolor,
         body: SafeArea(
           child: Column(children: [

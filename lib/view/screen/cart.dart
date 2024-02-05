@@ -21,6 +21,7 @@ class Cart extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          backgroundColor: AppColor.backgroundcolor,
           title: Text("42".tr),
         ),
         bottomNavigationBar: GetBuilder<CartController>(

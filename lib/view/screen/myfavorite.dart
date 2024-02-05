@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/controller/myfavoritecontroller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/view/widget/categories/listshope.dart';
 import 'package:ecommercecourse/view/widget/customappbar.dart';
@@ -16,6 +17,14 @@ class MyFavorite extends StatelessWidget {
 
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColor.backgroundcolor,
+        leadingWidth: 0,
+        centerTitle : true,
+        bottomOpacity: 0,
+        toolbarHeight: 0,
+        toolbarOpacity: 0,
+      ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: GetBuilder<MyFavoriteControllerImp>(

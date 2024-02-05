@@ -10,6 +10,7 @@ import 'package:ecommercecourse/view/widget/customappbar.dart';
 import 'package:ecommercecourse/view/widget/home/customtitlehome.dart';
 import 'package:ecommercecourse/view/widget/home/listcategorieshome.dart';
 import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeShopeControllerImp controllerImp=    Get.put(HomeShopeControllerImp());
-
+    FirebaseMessaging.onMessageOpenedApp.listen((message) {
+      print("عم تشتغل");
+      print(message);
+      Get.toNamed(AppRoute.orderspending);
+    });
     Future  ref()async{
 
       controllerImp.reff()  ;

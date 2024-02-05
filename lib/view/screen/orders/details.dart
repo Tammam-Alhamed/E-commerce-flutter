@@ -17,6 +17,7 @@ class OrdersDetails extends StatelessWidget {
     OrdersDetailsController controller = Get.put(OrdersDetailsController());
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColor.backgroundcolor,
         title:  Text('66'.tr),
       ),
       body: Container(

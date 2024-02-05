@@ -16,6 +16,7 @@ class Checkout extends StatelessWidget {
     CheckoutController controller = Get.put(CheckoutController());
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColor.backgroundcolor,
         title:  Text('74'.tr),
       ),
       bottomNavigationBar: Container(

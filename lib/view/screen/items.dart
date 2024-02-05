@@ -29,7 +29,14 @@ class Items extends StatelessWidget {
       FavoriteController controllerFav = Get.put(FavoriteController());
 
       return Scaffold(
-
+        appBar: AppBar(
+          backgroundColor: AppColor.backgroundcolor,
+          leadingWidth: 0,
+          centerTitle : true,
+          bottomOpacity: 0,
+          toolbarHeight: 0,
+          toolbarOpacity: 0,
+        ),
         body: Container(
           padding: const EdgeInsets.all(15),
           child: ListView(children: [
