@@ -25,6 +25,7 @@ class Items extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+
       ItemsControllerImp controller = Get.put(ItemsControllerImp());
       FavoriteController controllerFav = Get.put(FavoriteController());
 
@@ -75,7 +76,8 @@ class Items extends StatelessWidget {
                               child: GridView.builder(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemCount: controller.data.length,
+                              controller: controller.scrollController ,
+                              itemCount:controller.lodengmor? controller.data.length+1 :controller.data.length,
                               gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2, childAspectRatio: 0.6),
