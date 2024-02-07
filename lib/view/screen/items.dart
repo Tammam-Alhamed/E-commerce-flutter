@@ -88,7 +88,7 @@ class Items extends StatelessWidget {
                                 controller.data[index]['favorite'];
                                 return AnimationConfiguration.staggeredGrid(
                                   position: index,
-                                  duration: const Duration(milliseconds: 900),
+                                  duration: const Duration(milliseconds: 600),
                                   columnCount: controller.data.length,
                                   child: SlideAnimation(
                                     curve: Curves.ease,
