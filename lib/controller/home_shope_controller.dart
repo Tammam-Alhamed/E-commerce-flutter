@@ -5,6 +5,7 @@ import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
 import 'package:ecommercecourse/data/model/itemsmodel.dart';
 import 'package:ecommercecourse/data/model/slidesmodel.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../data/datasource/remote/categories_data.dart';
@@ -56,6 +57,11 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   @override
   void onInit() {
+    FirebaseMessaging.onMessageOpenedApp.listen((message) {
+      print("عم تشتغل");
+      print(message);
+      Get.toNamed(AppRoute.homepage);
+    });
     search = TextEditingController();
     getdata();
     initialData();
