@@ -22,7 +22,8 @@ abstract class ItemsController extends GetxController {
 }
 
 class ItemsControllerImp extends SearchMixController {
-
+  int page=1;
+bool lodengmor=false;
   List categories = [];
   String? catid;
   String? imgid;
@@ -33,6 +34,7 @@ class ItemsControllerImp extends SearchMixController {
   ItemsData testData = ItemsData(Get.find());
   ItemsImages dataimage =ItemsImages(Get.find());
   SortData sort = SortData(Get.find());
+final  scrollController =ScrollController();
 
   String? currentTabCat;
 
@@ -47,6 +49,7 @@ var character;
   @override
   void onInit() {
      search = TextEditingController();
+     scrollController.addListener(_scrollController);
     intialData();
     super.onInit();
   }
@@ -222,5 +225,17 @@ var character;
 
   goToPageProductDetails(itemsModel) {
     Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
+  }
+
+ Future <void> _scrollController() async {
+    if(scrollController.position.pixels==scrollController.position.maxScrollExtent){
+      lodengmor=true;
+
+      page=page+1;
+      update();
+    }
+    await getItems(catid);
+    lodengmor=false;
+    update();
   }
 }
