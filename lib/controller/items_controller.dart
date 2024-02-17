@@ -22,8 +22,7 @@ abstract class ItemsController extends GetxController {
 }
 
 class ItemsControllerImp extends SearchMixController {
-  int page=1;
-bool lodengmor=false;
+
   List categories = [];
   String? catid;
   String? imgid;
@@ -34,7 +33,9 @@ bool lodengmor=false;
   ItemsData testData = ItemsData(Get.find());
   ItemsImages dataimage =ItemsImages(Get.find());
   SortData sort = SortData(Get.find());
-final  scrollController =ScrollController();
+  List<dynamic> list = [];
+  ScrollController controller = ScrollController();
+  int listLength = 6;
 
   String? currentTabCat;
 
@@ -49,8 +50,9 @@ var character;
   @override
   void onInit() {
      search = TextEditingController();
-     scrollController.addListener(_scrollController);
-    intialData();
+
+
+   intialData();
     super.onInit();
   }
 
@@ -63,6 +65,19 @@ var character;
 
 
   }
+ /* addItems() async {
+    controller.addListener(() {
+      if (controller.position.maxScrollExtent == controller.position.pixels) {
+        for (int i = 0; i < 2; i++) {
+          listLength++;
+          list.add( (data));
+          print(list.length);
+          update();
+        }
+      }
+    });
+  }*/
+
 
   // changeShopee( shopeval) {
   //   Get.back(result: 'hello');
@@ -227,15 +242,5 @@ var character;
     Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
   }
 
- Future <void> _scrollController() async {
-    if(scrollController.position.pixels==scrollController.position.maxScrollExtent){
-      lodengmor=true;
 
-      page=page+1;
-      update();
-    }
-    await getItems(catid);
-    lodengmor=false;
-    update();
-  }
 }

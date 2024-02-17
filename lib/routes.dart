@@ -50,7 +50,7 @@ List<GetPage<dynamic>>? routes = [
   //
   GetPage(name: AppRoute.homepage, page: () => const HomeScreen(), transitionDuration: Duration(milliseconds: 100)),
   GetPage(name: AppRoute.categories, page: () => const Categories(),transition: Transition.fadeIn , transitionDuration: Duration(milliseconds: 100)),
-  GetPage(name: AppRoute.items, page: () => const Items() , transitionDuration: Duration(milliseconds: 100) , transition: Transition.fadeIn),
+  GetPage(name: AppRoute.items, page: () => Items() , transitionDuration: Duration(milliseconds: 100) , transition: Transition.fadeIn),
   GetPage(name: AppRoute.itemsDiscount, page: () => const ItemsDiscount() ,transition: Transition.fadeIn, transitionDuration: Duration(milliseconds: 100)),
   GetPage(name: AppRoute.productdetails, page: () => const ProductDetails(),transition: Transition.fadeIn, transitionDuration: Duration(milliseconds: 100)),
   GetPage(name: AppRoute.myfavroite, page: () => const MyFavorite(),transition: Transition.fadeIn, transitionDuration: Duration(milliseconds: 100)),

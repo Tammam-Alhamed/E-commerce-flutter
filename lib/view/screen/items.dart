@@ -76,8 +76,8 @@ class Items extends StatelessWidget {
                               child: GridView.builder(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              controller: controller.scrollController ,
-                              itemCount:controller.lodengmor? controller.data.length+1 :controller.data.length,
+
+                              itemCount: controller .data.length,
                               gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2, childAspectRatio: 0.6),
@@ -86,7 +86,9 @@ class Items extends StatelessWidget {
                                 controllerFav.isFavorite[controller.data[index]
                                 ['items_id']] =
                                 controller.data[index]['favorite'];
-                                return AnimationConfiguration.staggeredGrid(
+
+                                  return
+                                  AnimationConfiguration.staggeredGrid(
                                   position: index,
                                   duration: const Duration(milliseconds: 900),
                                   columnCount: controller.data.length,
@@ -94,9 +96,10 @@ class Items extends StatelessWidget {
                                     curve: Curves.ease,
                                     verticalOffset: 50.0,
                                     child: FadeInAnimation(
-                                      child: CustomListItems(
+
+                                      child:CustomListItems(
                                           itemsModel: ItemsModel.fromJson(
-                                              controller.data[index])),
+                                              controller.list[index])),
                                     ),
                                   ),
                                 );
