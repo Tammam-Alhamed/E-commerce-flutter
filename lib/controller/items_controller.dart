@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:ecommercecourse/controller/categories_controller.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
@@ -22,23 +23,25 @@ abstract class ItemsController extends GetxController {
 }
 
 class ItemsControllerImp extends SearchMixController {
-  int page=1;
-bool lodengmor=false;
+
   List categories = [];
   String? catid;
   String? imgid;
   String? shopeid;
   String? discount;
+  int page = 10 ;
+
 
   int? selectedCat;
   ItemsData testData = ItemsData(Get.find());
   ItemsImages dataimage =ItemsImages(Get.find());
   SortData sort = SortData(Get.find());
-final  scrollController =ScrollController();
+  ScrollController  scrollController = ScrollController();
+
 
   String? currentTabCat;
 
-var character;
+  var character;
   List data = [];
   List image = [];
 
@@ -49,7 +52,6 @@ var character;
   @override
   void onInit() {
      search = TextEditingController();
-     scrollController.addListener(_scrollController);
     intialData();
     super.onInit();
   }
@@ -59,27 +61,22 @@ var character;
     selectedCat = Get.arguments['selectedcat'];
     catid = Get.arguments['catid'];
     imgid = Get.arguments['imgid'];
-    getItems(catid!);
-
-
+    getItems(catid! , page);
+    getMorePage();
+    scrollController;
   }
 
-  // changeShopee( shopeval) {
-  //   Get.back(result: 'hello');
-  //   shopeid = shopeval;
-  //   getShope(shopeid!);
-  // }
   changeCat( catval) {
     catid = catval;
-    getItems(catid!);
+    getItems(catid! , page);
     update();
   }
 
-  getItems(categoryid) async {
+  getItems(categoryid , page) async {
     data.clear();
     statusRequest = StatusRequest.loading;
     var response = await testData.getData(
-        categoryid, myServices.sharedPreferences.getString("id")!);
+        categoryid, myServices.sharedPreferences.getString("id")! , page.toString());
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -217,8 +214,20 @@ var character;
   goToitems() {
     character;
     Get.toNamed(AppRoute.items);
-   getItems(catid);
+   getItems(catid , page);
     update();
+  }
+
+  getMorePage() async{
+    print(scrollController.position.maxScrollExtent );
+    scrollController.addListener(() {
+      print("object");
+      if(scrollController.position.maxScrollExtent == scrollController.offset){
+        ++page;
+        getItems(catid , page);
+      }
+      update();
+    });
   }
 
 
@@ -227,15 +236,4 @@ var character;
     Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
   }
 
- Future <void> _scrollController() async {
-    if(scrollController.position.pixels==scrollController.position.maxScrollExtent){
-      lodengmor=true;
-
-      page=page+1;
-      update();
-    }
-    await getItems(catid);
-    lodengmor=false;
-    update();
-  }
 }

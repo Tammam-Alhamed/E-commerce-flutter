@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../../core/constant/color.dart';
 import '../widget/items/floatingButtom.dart';
@@ -72,36 +73,38 @@ class Items extends StatelessWidget {
                     HandlingDataView(
                         statusRequest: controller.statusRequest,
                         widget: !controller.isSearch
-                            ? AnimationLimiter(
-                              child: GridView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              controller: controller.scrollController ,
-                              itemCount:controller.lodengmor? controller.data.length+1 :controller.data.length,
-                              gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2, childAspectRatio: 0.6),
-                              itemBuilder: (BuildContext context, index) {
-                                // controller.data[index]['items_discount'] = controller.discount;
-                                controllerFav.isFavorite[controller.data[index]
-                                ['items_id']] =
-                                controller.data[index]['favorite'];
-                                return AnimationConfiguration.staggeredGrid(
-                                  position: index,
-                                  duration: const Duration(milliseconds: 600),
-                                  columnCount: controller.data.length,
-                                  child: SlideAnimation(
-                                    curve: Curves.ease,
-                                    verticalOffset: 50.0,
-                                    child: FadeInAnimation(
-                                      child: CustomListItems(
-                                          itemsModel: ItemsModel.fromJson(
-                                              controller.data[index])),
-                                    ),
-                                  ),
-                                );
-                              }),
-                            )
+                            ? GridView.builder(
+                                controller: controller.scrollController ,
+                                shrinkWrap: true,
+                                physics: const BouncingScrollPhysics(),
+                                itemCount:controller.data.length+2,
+                                gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2, childAspectRatio: 0.6),
+                                itemBuilder: (BuildContext context, index) {
+                                  if(index < controller.data.length){
+                                  controllerFav.isFavorite[controller.data[index]
+                                  ['items_id']] =
+                                  controller.data[index]['favorite'];
+                                    return AnimationConfiguration.staggeredGrid(
+                                      position: index,
+                                      duration: const Duration(milliseconds: 600),
+                                      columnCount: controller.data.length,
+                                      child: SlideAnimation(
+                                        curve: Curves.ease,
+                                        verticalOffset: 50.0,
+                                        child: FadeInAnimation(
+                                          child: CustomListItems(
+                                              itemsModel: ItemsModel.fromJson(
+                                                  controller.data[index])),
+                                        ),
+                                      ),
+                                    );
+                                  }else{
+                                    return Center(child: CircularProgressIndicator());
+                                  }
+                                })
+
                             : ListItemsSearch(
                             listdatamodel: controller.listdata))),
 

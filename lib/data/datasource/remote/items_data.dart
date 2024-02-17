@@ -4,8 +4,8 @@ import 'package:ecommercecourse/linkapi.dart';
 class ItemsData {
   Crud crud;
   ItemsData(this.crud);
-  getData(String id , String userid) async {
-    var response = await crud.postData(AppLink.items, {"id" : id.toString() , "usersid" : userid});
+  getData(String id , String userid , String page) async {
+    var response = await crud.postData(AppLink.items, {"id" : id.toString() , "usersid" : userid , "page" : page});
     return response.fold((l) => l, (r) => r);
   }
 
