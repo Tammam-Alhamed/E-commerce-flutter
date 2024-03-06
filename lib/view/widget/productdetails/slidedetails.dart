@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommercecourse/controller/productdetails_controller.dart';
-import 'package:ecommercecourse/data/model/itemsimagesmodel.dart';
+import 'package:bazar/controller/productdetails_controller.dart';
+import 'package:bazar/data/model/itemsimagesmodel.dart';
 
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
-import 'package:ecommercecourse/view/widget/productdetails/toppageproductdetails.dart';
+import 'package:bazar/data/model/itemsmodel.dart';
+import 'package:bazar/view/widget/productdetails/toppageproductdetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';

@@ -1,21 +1,15 @@
-import 'package:ecommercecourse/controller/home_controller.dart';
-import 'package:ecommercecourse/controller/home_shope_controller.dart';
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
+import 'package:bazar/controller/home_shope_controller.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/functions/handingdatacontroller.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/data/datasource/remote/home_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../data/datasource/remote/categories_data.dart';
-import '../data/model/categoriesmodel.dart';
 
 abstract class CategoriesController extends GetxController {
-  intialData();
-  changeShope(int val, String shopeval);
-  getcat(String shopeid);
-  goToPageProductDetails(CategoriesModel CategoriesModel);
-  goToItems(List categories, int selectedCat, String categoryid);
+
 }
 
 class CategoriesControllerImp extends SearchMixController {
@@ -26,10 +20,8 @@ class CategoriesControllerImp extends SearchMixController {
   int i = 1;
 
   CategoriesData testData = CategoriesData(Get.find());
-  HomeData homedata = HomeData(Get.find());
-  List categories = [];
-  // List items = [];
 
+  List categories = [];
   List data = [];
 
 
@@ -41,7 +33,6 @@ class CategoriesControllerImp extends SearchMixController {
   void onInit() {
     search = TextEditingController();
     intialData();
-    // getdata();
     super.onInit();
   }
 
@@ -50,12 +41,6 @@ class CategoriesControllerImp extends SearchMixController {
     getItems(shopeid!);
   }
 
-  changeShope(val, shopeval) {
-    selectedShope = val;
-    shopeid = shopeval;
-    getItems(shopeid!);
-    update();
-  }
 
   changeShopee( shopeval) {
     shopeid = shopeval;
@@ -66,27 +51,14 @@ class CategoriesControllerImp extends SearchMixController {
 
 
   goToItems(categories, selectedCat, categoryid ) {
-    Get.toNamed(AppRoute.items, arguments: {
+    Get.toNamed(
+        AppRoute.items,
+        arguments: {
       "categories": categories,
       "selectedcat": selectedCat,
       "catid": categoryid,
     });
   }
-  // getdata() async {
-  //   statusRequest = StatusRequest.loading;
-  //   var response = await homedata.getData();
-  //   print("=============================== Controller $response ");
-  //   statusRequest = handlingData(response);
-  //   if (StatusRequest.success == statusRequest) {
-  //     if (response['status'] == "success") {
-  //       categories.addAll(response['categories']['data']);
-  //       // items.addAll(response['items']['data']);
-  //     } else {
-  //       statusRequest = StatusRequest.failure;
-  //     }
-  //   }
-  //   update();
-  // }
 
   getItems(shopeid) async {
     data.clear();

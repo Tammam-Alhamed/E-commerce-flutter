@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/class/statusrequest.dart';
+import 'package:bazar/core/class/statusrequest.dart';
 
 handlingData(response){
   if (response is StatusRequest){

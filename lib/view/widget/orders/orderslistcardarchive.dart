@@ -1,9 +1,9 @@
-import 'package:ecommercecourse/controller/orders/archive_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/functions/numberstyle.dart';
-import 'package:ecommercecourse/core/functions/translatefatabase.dart';
-import 'package:ecommercecourse/data/model/ordersmodel.dart';
+import 'package:bazar/controller/orders/archive_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/functions/numberstyle.dart';
+import 'package:bazar/core/functions/translatefatabase.dart';
+import 'package:bazar/data/model/ordersmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';

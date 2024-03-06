@@ -1,10 +1,8 @@
-import 'package:ecommercecourse/controller/categories_controller.dart';
-import 'package:ecommercecourse/data/model/shopesmodel.dart';
+import 'package:bazar/controller/categories_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
-
 import '../../../controller/home_shope_controller.dart';
 
 class ListShope extends GetView<HomeShopeControllerImp> {
@@ -15,8 +13,6 @@ class ListShope extends GetView<HomeShopeControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    CategoriesControllerImp cont = Get.put(CategoriesControllerImp());
-
     int? i;
     if (controller.shope != "0") {
       return
@@ -26,7 +22,7 @@ class ListShope extends GetView<HomeShopeControllerImp> {
 
             borderRadius: BorderRadius.circular(20),
             padding: EdgeInsets.only(right:10),
-            icon: Icon(Icons.list_sharp),
+            icon: const Icon(Icons.list_sharp),
             value: controller.currentTabShope,
             items: controller.shope
                 .map((list) {

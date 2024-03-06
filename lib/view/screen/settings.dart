@@ -1,12 +1,9 @@
-import 'package:ecommercecourse/controller/settings_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/imgaeasset.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/view/screen/othersview.dart';
+import 'package:bazar/controller/settings_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/constant/imgaeasset.dart';
+import 'package:bazar/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../widget/setting/Term_and_Conditions.dart';
 import '../widget/setting/about_us.dart';
 
 class Settings extends StatelessWidget {
@@ -76,7 +73,7 @@ class Settings extends StatelessWidget {
                   onTap: () {
                     Get.toNamed(AppRoute.ordersarchive );
                   },
-                  trailing: Icon(Icons.card_travel),
+                  trailing: Icon(Icons.archive),
                   title: Text("55".tr),
                 ),
                  //ListTile(

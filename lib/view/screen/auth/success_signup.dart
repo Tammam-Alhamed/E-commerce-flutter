@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/controller/auth/successsignup_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/view/widget/auth/custombuttonauth.dart';
+import 'package:bazar/controller/auth/successsignup_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/view/widget/auth/custombuttonauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

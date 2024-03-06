@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/class/crud.dart';
+import 'package:bazar/core/class/crud.dart';
 import 'package:get/get.dart';
 
 class InitialBindings extends Bindings {

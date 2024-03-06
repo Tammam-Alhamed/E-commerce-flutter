@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:bazar/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 Future<bool> alertExitApp() {

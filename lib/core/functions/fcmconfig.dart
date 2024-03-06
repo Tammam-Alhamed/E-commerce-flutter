@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/controller/orders/pending_controller.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/functions/translatefatabase.dart';
+import 'package:bazar/controller/orders/pending_controller.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/functions/translatefatabase.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';

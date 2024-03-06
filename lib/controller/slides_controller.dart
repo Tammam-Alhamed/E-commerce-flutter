@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:ecommercecourse/controller/home_controller.dart';
-import 'package:ecommercecourse/controller/home_shope_controller.dart';
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
-import 'package:ecommercecourse/data/model/slidesmodel.dart';
+import 'package:bazar/controller/home_controller.dart';
+import 'package:bazar/controller/home_shope_controller.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/functions/handingdatacontroller.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/data/datasource/remote/home_data.dart';
+import 'package:bazar/data/model/slidesmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../data/datasource/remote/categories_data.dart';

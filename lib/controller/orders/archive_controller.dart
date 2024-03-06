@@ -1,9 +1,9 @@
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/orders/archive_data.dart';
-import 'package:ecommercecourse/data/datasource/remote/orders/pending_data.dart';
-import 'package:ecommercecourse/data/model/ordersmodel.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/functions/handingdatacontroller.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/data/datasource/remote/orders/archive_data.dart';
+import 'package:bazar/data/datasource/remote/orders/pending_data.dart';
+import 'package:bazar/data/model/ordersmodel.dart';
 import 'package:get/get.dart';
 
 class OrdersArchiveController extends GetxController {

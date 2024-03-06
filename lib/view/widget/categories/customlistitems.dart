@@ -1,10 +1,11 @@
+import 'package:bazar/view/Support/Images.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/categories_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/imgaeasset.dart';
-import 'package:ecommercecourse/core/functions/translatefatabase.dart';
-import 'package:ecommercecourse/data/model/categoriesmodel.dart';
-import 'package:ecommercecourse/linkapi.dart';
+import 'package:bazar/controller/categories_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/constant/imgaeasset.dart';
+import 'package:bazar/core/functions/translatefatabase.dart';
+import 'package:bazar/data/model/categoriesmodel.dart';
+import 'package:bazar/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:get/get.dart';
@@ -42,27 +43,11 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
                         height: 90,
                         width: 100,
                         margin:EdgeInsets.only(bottom: 5, top: 0),
-                        child: CachedNetworkImage(
-                          imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(5.0),)
-                              ,image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
-                          imageUrl:
-                              AppLink.imagestCategories + "/" + categoriesModel.categoriesImage!,
-                          height:10,
-                          width: 10,
-                          placeholder: (BuildContext context, String url) => Container(
-                            width: 320,
-                            height: 240,
-                            decoration: BoxDecoration(
-                                color: AppColor.backgroundcolor.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Center(child:  Image.asset(AppImageAsset.logo ,width: 100,)),
-                          ),
-                          fadeInDuration: const Duration(milliseconds: 500),
-                          fit: BoxFit.fill,
+                        child: Images(
+                          url: AppLink.imagestCategories + "/" + categoriesModel.categoriesImage!,
+                          raduis: 6.0,
                         ),
                       ),
-
-
                      Container(
                           margin: EdgeInsets.symmetric(vertical:2,horizontal:2),
                           alignment: Alignment.center,

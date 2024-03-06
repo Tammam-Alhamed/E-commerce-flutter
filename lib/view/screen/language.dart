@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/localization/changelocal.dart';
-import 'package:ecommercecourse/view/widget/language/custombuttomlang.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/localization/changelocal.dart';
+import 'package:bazar/view/widget/language/custombuttomlang.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

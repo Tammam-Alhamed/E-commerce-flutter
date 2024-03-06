@@ -1,13 +1,14 @@
 import 'dart:math';
 
+import 'package:bazar/view/Support/Images.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/favorite_controller.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/imgaeasset.dart';
-import 'package:ecommercecourse/core/functions/translatefatabase.dart';
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
-import 'package:ecommercecourse/linkapi.dart';
+import 'package:bazar/controller/favorite_controller.dart';
+import 'package:bazar/controller/items_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/constant/imgaeasset.dart';
+import 'package:bazar/core/functions/translatefatabase.dart';
+import 'package:bazar/data/model/itemsmodel.dart';
+import 'package:bazar/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -71,7 +72,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
         onTap: () {
           itemsModel.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel);
         },
-        child: Card(
+        child: InkWell(
           // margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
 
 
@@ -80,32 +81,17 @@ class CustomListItems extends GetView<ItemsControllerImp> {
               Padding(
                padding: const EdgeInsets.all(0),
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                               Container(
-                               margin:EdgeInsets.only(bottom: 5 , top: 6),
-
-                               child: CachedNetworkImage(
-                                imageUrl:
-                                    AppLink.imagestItems + "/" + itemsModel.itemsImage!,
-                                height: 150,
-                             width: 150,
-                                 imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(5.0),)
-                                     ,image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
-                                 placeholder: (BuildContext context, String url) => Container(
-                                   width: 320,
-                                   height: 240,
-                                   decoration: BoxDecoration(
-                                       color: AppColor.backgroundcolor.withOpacity(0.2),
-                                       borderRadius: BorderRadius.circular(20)),
-                                   child: Center(child:  Image.asset(AppImageAsset.logo ,width: 100,)),
-                                 ),
-                                 fadeInDuration: const Duration(milliseconds: 500),
-                                fit: BoxFit.fill,
-
-
-                          ),
+                               margin:EdgeInsets.only(bottom: 5),
+                               child: Images(
+                                 url: "${AppLink.imagestItems}/${itemsModel.itemsImage!}",
+                                 raduis: 8.0,
+                                 height: 150,
+                                 width: 150,
+                               )
                              ),
 
                       SizedBox(height: 5,),
@@ -127,11 +113,6 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                             )),
                       ),
 
-
-
-
-
-
                          if( itemsModel.itemsDiscount == "0")
                          SizedBox(height: 10,),
 
@@ -145,19 +126,19 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                   Padding(
                                     padding: const EdgeInsets.only(left: 8.0,right: 8.0),
                                     child: Image.asset( translateDatabase(
-                                        AppImageAsset.Sold_a, AppImageAsset.Sold ,AppImageAsset.Sold_r),width:50,height: 55,),
+                                        AppImageAsset.Sold_a, AppImageAsset.Sold ,AppImageAsset.Sold_r),width:30,height: 45,),
                                   )
                                        //Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
                                 else
                                 if(itemsModel.itemsDiscount!="0")
                                     Padding(
-                                      padding: const EdgeInsets.only(left: 7 , top: 10),
+                                      padding: const EdgeInsets.only(left: 15 , top: 10),
                                       child: Column(
                                           children: [
                                         Text("${formatAmount1()} ${"59".tr}",
                                             style: const TextStyle(
                                                 color: AppColor.primaryColor,
-                                                fontSize: 13,
+                                                fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 fontFamily: "sans")),
                                             Text("${formatAmount()} ${"59".tr}",
@@ -170,7 +151,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
 
 
                                   else Padding(
-    padding: const EdgeInsets.only(left: 7),
+    padding: const EdgeInsets.only(left: 15),
     child: Text("${formatAmount()} ${"59".tr}",
         style: const TextStyle(
             color: AppColor.primaryColor,
@@ -210,12 +191,12 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                     ]),
               ),
            if (itemsModel.itemsDiscount != "0")   Positioned(
-                top: 4,
+                top: 0,
                 left: 4,
                 child: Image.asset(AppImageAsset.saleOne , width: 40,)),
               if (itemsModel.itemsNew == "1")   Positioned(
-                  top: -2,
-                  right: -2,
+                  top: -10,
+                  right: 0,
                   child: Image.asset(AppImageAsset.NEW , width: 50,))
             ],
           ),

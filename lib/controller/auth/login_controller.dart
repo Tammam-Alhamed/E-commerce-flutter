@@ -1,10 +1,11 @@
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/auth/login.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/functions/handingdatacontroller.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/data/datasource/remote/auth/login.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 abstract class LoginController extends GetxController {
@@ -55,10 +56,10 @@ class LoginControllerImp extends LoginController {
             myServices.sharedPreferences
                 .setString("phone", response['data']['phone']);
             myServices.sharedPreferences.setString("step", "2");
-
-            FirebaseMessaging.instance.subscribeToTopic("users");
-            FirebaseMessaging.instance.subscribeToTopic("users${userid}");
-            
+            if(!kIsWeb) {
+              FirebaseMessaging.instance.subscribeToTopic("users");
+              FirebaseMessaging.instance.subscribeToTopic("users${userid}");
+            }
             Get.offNamed(AppRoute.homepage);
           } else {
             Get.toNamed(AppRoute.verfiyCodeSignUp,

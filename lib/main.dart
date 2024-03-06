@@ -1,16 +1,19 @@
-import 'package:ecommercecourse/bindings/intialbindings.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/localization/translation.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/routes.dart';
+import 'package:bazar/controller/homescreen_controller.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/bindings/intialbindings.dart';
+import 'package:bazar/core/localization/translation.dart';
+import 'package:bazar/routes.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'core/localization/changelocal.dart';
 
-Future background(RemoteMessage message) async{
 
+HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
+Future background(RemoteMessage message) async{
+  controllerImp.count_notification ++ ;
+  print(controllerImp.count_notification);
 }
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,3 +40,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+

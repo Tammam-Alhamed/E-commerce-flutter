@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/controller/onboarding_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/data/datasource/static/static.dart';
+import 'package:bazar/controller/onboarding_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
