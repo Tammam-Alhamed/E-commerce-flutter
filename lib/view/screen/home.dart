@@ -1,20 +1,17 @@
+import 'package:bazar/view/widget/home/ListNewitemshome.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/home_shope_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
-import 'package:ecommercecourse/linkapi.dart';
-import 'package:ecommercecourse/view/screen/othersview.dart';
-import 'package:ecommercecourse/view/screen/slideimage.dart';
-import 'package:ecommercecourse/view/widget/customappbar.dart';
-import 'package:ecommercecourse/view/widget/home/customtitlehome.dart';
-import 'package:ecommercecourse/view/widget/home/listcategorieshome.dart';
-import 'package:ecommercecourse/view/widget/home/listitemshome.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:bazar/controller/home_shope_controller.dart';
+import 'package:bazar/core/class/handlingdataview.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/data/model/itemsmodel.dart';
+import 'package:bazar/linkapi.dart';
+import 'package:bazar/view/widget/home//SlideTopPage.dart';
+import 'package:bazar/view/widget/customappbar.dart';
+import 'package:bazar/view/widget/home/customtitlehome.dart';
+import 'package:bazar/view/widget/home/listcategorieshome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -56,16 +53,21 @@ class HomePage extends StatelessWidget {
                           ?  Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children:  [
-                                ImageSliderScreen(slideModel: controller.image,),
-                                Row(
-                                  children: [
+                                ImageSliderScreenTop(slideModel: controller.image,),
+
                                     CustomTitleHome(title: "40".tr),
-                                  ],
-                                ),
+
+
                                 ListCategoriesHome(),
-                                controller.users.isEmpty ? SizedBox()   : OthersView() ,
+                                // controller.users.isEmpty ? SizedBox()   :
+                                // // OthersView() ,
+                                // CustomTitleHome(title: "41".tr),
+                                // ListItemsHome(),
+                                // CustomTitleHome( title: 'Offers',),
+                                // ImageSliderScreenMiddle(slideModel: controller.image,),
                                 CustomTitleHome(title: "41".tr),
-                                ListItemsHome(),
+                                ListNewItemsHome(),
+
                               ],
                             )
                           : ListItemsSearch(listdatamodel: controller.listdata)

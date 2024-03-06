@@ -1,10 +1,10 @@
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/cart_data.dart';
-import 'package:ecommercecourse/data/model/cartmodel.dart';
-import 'package:ecommercecourse/data/model/couponmodel.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/functions/handingdatacontroller.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/data/datasource/remote/cart_data.dart';
+import 'package:bazar/data/model/cartmodel.dart';
+import 'package:bazar/data/model/couponmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -199,7 +199,7 @@ class CartController extends GetxController {
           data.clear();
           data.addAll(dataresponse.map((e) => CartModel.fromJson(e)));
           totalcountitems = int.parse(dataresponsecountprice['totalcount']);
-          priceorders = int.parse(dataresponsecountprice['totalprice']);
+          // priceorders = int.parse(dataresponsecountprice['totalprice']);
           priceorders_d = int.parse(dataresponsecountprice['totalprice_d']);
           print(priceorders);
           print(priceorders_d);

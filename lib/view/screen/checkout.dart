@@ -1,10 +1,10 @@
-import 'package:ecommercecourse/controller/checkout_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/imgaeasset.dart';
-import 'package:ecommercecourse/view/widget/checkout/carddeliveerytype.dart';
-import 'package:ecommercecourse/view/widget/checkout/cardpaymentmethod.dart';
-import 'package:ecommercecourse/view/widget/checkout/cardshippingaddress.dart';
+import 'package:bazar/controller/checkout_controller.dart';
+import 'package:bazar/core/class/handlingdataview.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/constant/imgaeasset.dart';
+import 'package:bazar/view/widget/checkout/carddeliveerytype.dart';
+import 'package:bazar/view/widget/checkout/cardpaymentmethod.dart';
+import 'package:bazar/view/widget/checkout/cardshippingaddress.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

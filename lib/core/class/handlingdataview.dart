@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/constant/imgaeasset.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/imgaeasset.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

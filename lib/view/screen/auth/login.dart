@@ -1,15 +1,15 @@
-import 'package:ecommercecourse/controller/auth/login_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/functions/alertexitapp.dart';
-import 'package:ecommercecourse/core/functions/validinput.dart';
-import 'package:ecommercecourse/view/widget/auth/custombuttonauth.dart';
-import 'package:ecommercecourse/view/widget/auth/customtextbodyauth.dart';
-import 'package:ecommercecourse/view/widget/auth/customtextformauth.dart';
-import 'package:ecommercecourse/view/widget/auth/customtexttitleauth.dart';
-import 'package:ecommercecourse/view/widget/auth/logoauth.dart';
-import 'package:ecommercecourse/view/widget/auth/textsignup.dart';
+import 'package:bazar/controller/auth/login_controller.dart';
+import 'package:bazar/core/class/handlingdataview.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/functions/alertexitapp.dart';
+import 'package:bazar/core/functions/validinput.dart';
+import 'package:bazar/view/widget/auth/custombuttonauth.dart';
+import 'package:bazar/view/widget/auth/customtextbodyauth.dart';
+import 'package:bazar/view/widget/auth/customtextformauth.dart';
+import 'package:bazar/view/widget/auth/customtexttitleauth.dart';
+import 'package:bazar/view/widget/auth/logoauth.dart';
+import 'package:bazar/view/widget/auth/textsignup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

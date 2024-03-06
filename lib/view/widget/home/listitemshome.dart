@@ -1,14 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/home_controller.dart';
-import 'package:ecommercecourse/controller/home_shope_controller.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/functions/translatefatabase.dart';
-import 'package:ecommercecourse/data/model/categoriesmodel.dart';
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
-import 'package:ecommercecourse/data/model/shopesmodel.dart';
-import 'package:ecommercecourse/linkapi.dart';
-import 'package:flutter/gestures.dart';
+import 'package:bazar/view/Support/Images.dart';
+import 'package:bazar/controller/home_shope_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/data/model/itemsmodel.dart';
+import 'package:bazar/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,18 +37,17 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
         controller.goToPageProductDetails(itemsModel);
       },
       child: Stack(
+        alignment: AlignmentDirectional.center,
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
             margin: const EdgeInsets.only(right: 20),
-            child: CachedNetworkImage(
-              imageBuilder: (context,imageProvider)=>Container(decoration: BoxDecoration(borderRadius:BorderRadius.all( Radius.circular(12.0),),
-                  image: DecorationImage(image:imageProvider , centerSlice: Rect.largest )),),
-
-              height: 130,
+            child: Images(
+              url: "${AppLink.imagestItems}/${itemsModel.itemsImage}",
+              raduis: 12.0,
               width: 140,
-              fit: BoxFit.fill, imageUrl: '${AppLink.imagestItems}/${itemsModel.itemsImage}',
-            ),
+              height: 130,
+            )
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
@@ -65,16 +58,17 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
             height: 170,
             width: 170,
           ),
-          Positioned(
-              left: 10,
-              child: Text(
-    translateDatabase(
-    itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
-                style: const TextStyle(
-                    color: Colors.white,
-                    // fontWeight: FontWeight.bold,
-                    fontSize: 14),
-              ))
+    //       Positioned(
+    //         bottom: 130,
+    //           left: 10,
+    //           child: Text(
+    // translateDatabase(
+    // itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
+    //             style: const TextStyle(
+    //                 color: AppColor.primaryColor,
+    //                 // fontWeight: FontWeight.bold,
+    //                 fontSize: 14),
+    //           ))
         ],
       ),
     );

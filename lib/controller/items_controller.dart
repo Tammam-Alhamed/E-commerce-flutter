@@ -1,16 +1,16 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommercecourse/controller/categories_controller.dart';
-import 'package:ecommercecourse/controller/home_controller.dart';
-import 'package:ecommercecourse/controller/home_shope_controller.dart';
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/categories_data.dart';
-import 'package:ecommercecourse/data/datasource/remote/items_data.dart';
-import 'package:ecommercecourse/data/datasource/remote/items_images.dart';
-import 'package:ecommercecourse/data/datasource/remote/sort_data.dart';
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
+import 'package:bazar/controller/categories_controller.dart';
+import 'package:bazar/controller/home_controller.dart';
+import 'package:bazar/controller/home_shope_controller.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/functions/handingdatacontroller.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/data/datasource/remote/categories_data.dart';
+import 'package:bazar/data/datasource/remote/items_data.dart';
+import 'package:bazar/data/datasource/remote/items_images.dart';
+import 'package:bazar/data/datasource/remote/sort_data.dart';
+import 'package:bazar/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -62,8 +62,6 @@ class ItemsControllerImp extends SearchMixController {
     catid = Get.arguments['catid'];
     imgid = Get.arguments['imgid'];
     getItems(catid! , page);
-    getMorePage();
-    scrollController;
   }
 
   changeCat( catval) {
@@ -219,14 +217,13 @@ class ItemsControllerImp extends SearchMixController {
   }
 
   getMorePage() async{
-    print(scrollController.position.maxScrollExtent );
     scrollController.addListener(() {
       print("object");
-      if(scrollController.position.maxScrollExtent == scrollController.offset){
-        ++page;
-        getItems(catid , page);
-      }
-      update();
+      // if(scrollController.position.maxScrollExtent == scrollController.offset){
+      //   ++page;
+      //   getItems(catid , page);
+      // }
+      // update();
     });
   }
 

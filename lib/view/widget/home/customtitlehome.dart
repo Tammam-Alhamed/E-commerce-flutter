@@ -1,7 +1,5 @@
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/view/screen/othersview.dart';
+import 'package:bazar/core/constant/color.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CustomTitleHome extends StatelessWidget {
   final String title ; 
@@ -12,7 +10,7 @@ class CustomTitleHome extends StatelessWidget {
     return Row(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(vertical: 10),
+          margin: EdgeInsets.symmetric(vertical: 12),
           child: Text(title,
               style:const  TextStyle(
                   fontSize: 20,

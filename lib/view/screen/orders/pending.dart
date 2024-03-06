@@ -1,7 +1,7 @@
-import 'package:ecommercecourse/controller/orders/pending_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/view/widget/orders/orderslistcard.dart';
+import 'package:bazar/controller/orders/pending_controller.dart';
+import 'package:bazar/core/class/handlingdataview.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/view/widget/orders/orderslistcard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart'; 
 

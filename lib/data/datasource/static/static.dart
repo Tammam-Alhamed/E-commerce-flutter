@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/constant/imgaeasset.dart';
-import 'package:ecommercecourse/data/model/onboardingmodel.dart';
+import 'package:bazar/core/constant/imgaeasset.dart';
+import 'package:bazar/data/model/onboardingmodel.dart';
 import 'package:get/get_utils/get_utils.dart';
 
 List<OnBoardingModel> onBoardingList = [

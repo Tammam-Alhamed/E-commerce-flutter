@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/class/crud.dart';
-import 'package:ecommercecourse/linkapi.dart';
+import 'package:bazar/core/class/crud.dart';
+import 'package:bazar/linkapi.dart';
 
 class OrdersPendingData {
   Crud crud;

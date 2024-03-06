@@ -1,10 +1,10 @@
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/address_data.dart';
-import 'package:ecommercecourse/data/datasource/remote/checkout_date.dart';
-import 'package:ecommercecourse/data/model/addressmodel.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/functions/handingdatacontroller.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/data/datasource/remote/address_data.dart';
+import 'package:bazar/data/datasource/remote/checkout_date.dart';
+import 'package:bazar/data/model/addressmodel.dart';
 import 'package:get/get.dart';
 
 class CheckoutController extends GetxController {

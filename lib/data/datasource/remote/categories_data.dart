@@ -1,11 +1,11 @@
-import 'package:ecommercecourse/core/class/crud.dart';
-import 'package:ecommercecourse/linkapi.dart';
+import 'package:bazar/core/class/crud.dart';
+import 'package:bazar/linkapi.dart';
 
 class CategoriesData {
   Crud crud;
   CategoriesData(this.crud);
   getData(String id , String userid) async {
-    var response = await crud.postData(AppLink.categories, {"id" : id.toString() , "usersid" : userid});
+    var response = await crud.postData(AppLink.categories, {"id" : id , "usersid" : userid});
     return response.fold((l) => l, (r) => r);
   }
 

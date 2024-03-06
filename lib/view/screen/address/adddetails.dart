@@ -1,9 +1,9 @@
-import 'package:ecommercecourse/controller/address/add_controller.dart';
-import 'package:ecommercecourse/controller/address/adddetails_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/shared/custombutton.dart';
-import 'package:ecommercecourse/view/widget/auth/custombuttonauth.dart';
-import 'package:ecommercecourse/view/widget/auth/customtextformauth.dart';
+import 'package:bazar/controller/address/add_controller.dart';
+import 'package:bazar/controller/address/adddetails_controller.dart';
+import 'package:bazar/core/class/handlingdataview.dart';
+import 'package:bazar/core/shared/custombutton.dart';
+import 'package:bazar/view/widget/auth/custombuttonauth.dart';
+import 'package:bazar/view/widget/auth/customtextformauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

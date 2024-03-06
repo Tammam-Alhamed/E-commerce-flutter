@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/constant/imgaeasset.dart'; 
+import 'package:bazar/core/constant/imgaeasset.dart'; 
 import 'package:flutter/material.dart';
 
 class LogoAuth extends StatelessWidget {

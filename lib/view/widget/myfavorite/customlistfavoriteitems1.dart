@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/myfavoritecontroller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/imgaeasset.dart';
-import 'package:ecommercecourse/core/functions/numberstyle.dart';
-import 'package:ecommercecourse/core/functions/translatefatabase.dart';
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
-import 'package:ecommercecourse/data/model/myfavorite.dart';
-import 'package:ecommercecourse/linkapi.dart';
+import 'package:bazar/controller/myfavoritecontroller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/constant/imgaeasset.dart';
+import 'package:bazar/core/functions/numberstyle.dart';
+import 'package:bazar/core/functions/translatefatabase.dart';
+import 'package:bazar/data/model/itemsmodel.dart';
+import 'package:bazar/data/model/myfavorite.dart';
+import 'package:bazar/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

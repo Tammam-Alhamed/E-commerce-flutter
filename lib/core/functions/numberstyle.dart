@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/functions/translatefatabase.dart';
+import 'package:bazar/core/functions/translatefatabase.dart';
 import 'package:get/get.dart';
 
 String formatAmount(var x,var y, var z){

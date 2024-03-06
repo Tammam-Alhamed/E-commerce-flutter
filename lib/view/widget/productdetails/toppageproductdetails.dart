@@ -1,16 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_image_viewer/easy_image_viewer.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
-import 'package:ecommercecourse/controller/productdetails_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/imgaeasset.dart';
+import 'package:bazar/controller/items_controller.dart';
+import 'package:bazar/controller/productdetails_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/constant/imgaeasset.dart';
 
-import 'package:ecommercecourse/data/model/itemsimagesmodel.dart';
+import 'package:bazar/data/model/itemsimagesmodel.dart';
 
-import 'package:ecommercecourse/linkapi.dart';
+import 'package:bazar/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
+import 'package:bazar/data/model/itemsmodel.dart';
 
 class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
 
@@ -36,7 +36,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
 
                     Image.network("${AppLink.imagestItems}/${imagesModel.imagesName!}").image;
 
-                showImageViewer(context, imageProvider , immersive : false);
+                showImageViewer(context, imageProvider , immersive : false ,closeButtonTooltip: "close" , useSafeArea: true );
               },
 
 

@@ -1,8 +1,8 @@
-import 'package:ecommercecourse/controller/items_controller.dart';
-import 'package:ecommercecourse/controller/productdetails_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/data/model/itemssizesmodel.dart';
-import 'package:ecommercecourse/view/widget/productdetails/listsizes.dart';
+import 'package:bazar/controller/items_controller.dart';
+import 'package:bazar/controller/productdetails_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/data/model/itemssizesmodel.dart';
+import 'package:bazar/view/widget/productdetails/listsizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
