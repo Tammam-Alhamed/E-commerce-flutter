@@ -22,11 +22,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeShopeControllerImp controllerImp=    Get.put(HomeShopeControllerImp());
-    FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      print("عم تشتغل");
-      print(message);
-      Get.toNamed(AppRoute.orderspending);
-    });
+
     Future  ref()async{
 
       controllerImp.reff()  ;

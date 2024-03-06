@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:ecommercecourse/controller/categories_controller.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/home_shope_controller.dart';
@@ -28,18 +29,52 @@ class ItemsControllerImp extends SearchMixController {
   String? imgid;
   String? shopeid;
   String? discount;
+  int page = 10 ;
+
 
   int? selectedCat;
   ItemsData testData = ItemsData(Get.find());
   ItemsImages dataimage =ItemsImages(Get.find());
   SortData sort = SortData(Get.find());
-  List<dynamic> list = [];
-  ScrollController controller = ScrollController();
-  int listLength = 6;
 
+ // ScrollController  scrollController = ScrollController();
+   SingleChildScrollView? child;
+  int _totalCount = 0;
+  int limit = 20;
+  int offset = 0;
+  late ScrollController scrollController;
+  bool isLoading = true;
+
+
+  int currentMax = 10;
+  List myList = [];
   String? currentTabCat;
 
-var character;
+  /*void _onScroll() {
+    final offset =scrollController.offset;
+    final minOffset = scrollController.position.minScrollExtent;
+    final maxOffset =scrollController.position.maxScrollExtent;
+    final isOutOfRange =scrollController.position.outOfRange;
+
+    final hasReachedTheEnd = offset >= maxOffset && !isOutOfRange;
+    final hasReachedTheStart = offset <= minOffset && !isOutOfRange;
+    final isScrolling = maxOffset > offset && minOffset < offset;
+
+    // This code doesn't print anything.
+    if (isScrolling) {
+      print('isScrolling');
+    } else if (hasReachedTheStart) {
+      print('hasReachedTheStart');
+    } else if (hasReachedTheEnd) {
+      print('hasReachedTheEnd');
+    } else {
+      print('IDK');
+    }
+  }*/
+
+
+
+  var character;
   List data = [];
   List image = [];
 
@@ -51,8 +86,9 @@ var character;
   void onInit() {
      search = TextEditingController();
 
+    intialData();
 
-   intialData();
+     scrollController = new ScrollController()..addListener(_scrollListener);
     super.onInit();
   }
 
@@ -61,10 +97,19 @@ var character;
     selectedCat = Get.arguments['selectedcat'];
     catid = Get.arguments['catid'];
     imgid = Get.arguments['imgid'];
-    getItems(catid!);
-
+    getItems(catid! , limit, offset);
+    //getMorePage();
 
   }
+
+/* void _scrollListener() {
+
+   if (scrollController.position.pixels ==
+       scrollController.position.maxScrollExtent) {
+     print('Page reached end of page');}
+
+  }*/
+
  /* addItems() async {
     controller.addListener(() {
       if (controller.position.maxScrollExtent == controller.position.pixels) {
@@ -79,22 +124,17 @@ var character;
   }*/
 
 
-  // changeShopee( shopeval) {
-  //   Get.back(result: 'hello');
-  //   shopeid = shopeval;
-  //   getShope(shopeid!);
-  // }
   changeCat( catval) {
     catid = catval;
-    getItems(catid!);
+    getItems(catid! ,  limit, offset);
     update();
   }
 
-  getItems(categoryid) async {
+  getItems(categoryid , limit, offset) async {
     data.clear();
     statusRequest = StatusRequest.loading;
     var response = await testData.getData(
-        categoryid, myServices.sharedPreferences.getString("id")!);
+        categoryid, myServices.sharedPreferences.getString("id")! , limit.toString(),offset.toString());
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -106,6 +146,7 @@ var character;
       }
       // End
     }
+    isLoading = false;
     update();
   }
 
@@ -186,7 +227,9 @@ var character;
   }
   getHighest_to_Lowest(categoryid , lang) async {
     data.clear();
+
     statusRequest = StatusRequest.loading;
+    isLoading = true;
     var response = await sort.getHighest_to_Lowest(
         categoryid, myServices.sharedPreferences.getString("id")! , lang);
     statusRequest = handlingData(response);
@@ -232,8 +275,30 @@ var character;
   goToitems() {
     character;
     Get.toNamed(AppRoute.items);
-   getItems(catid);
+   getItems(catid ,  limit, offset);
     update();
+  }
+
+  getMorePage() async{
+    print(scrollController.position.maxScrollExtent );
+
+   /* scrollController.addListener(() {
+      print("object");
+      if(scrollController.position.maxScrollExtent == scrollController.offset){
+        ++page;
+        getItems(catid , page);
+      }
+      update();
+    });*/
+  }
+
+  _scrollListener() {
+    if (scrollController.position.extentAfter < 50) {
+      if (!isLoading && _totalCount > data.length) {
+        offset += limit;
+        getItems(catid , limit,offset);
+      }
+    }
   }
 
 
@@ -241,6 +306,5 @@ var character;
   goToPageProductDetails(itemsModel) {
     Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
   }
-
 
 }
