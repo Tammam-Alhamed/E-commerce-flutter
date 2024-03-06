@@ -1,14 +1,14 @@
-import 'package:ecommercecourse/core/class/crud.dart';
-import 'package:ecommercecourse/linkapi.dart';
+import 'package:bazar/core/class/crud.dart';
+import 'package:bazar/linkapi.dart';
 
 class SignupData {
   Crud crud;
   SignupData(this.crud);
-  postdata(String username ,String password  ,String phone ) async {
+  postdata(String username ,String password  ,String phone , String code ) async {
     var response = await crud.postData(AppLink.signUp, {
       "username" : username , 
       "password" : password  , 
-      // "email" : email ,
+      "code" : code ,
       "phone" : phone  , 
     });
     return response.fold((l) => l, (r) => r);

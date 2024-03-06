@@ -1,7 +1,7 @@
 
-import 'package:ecommercecourse/controller/productdetails_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/data/model/itemscolorsmodel.dart';
+import 'package:bazar/controller/productdetails_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/data/model/itemscolorsmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';

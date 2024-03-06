@@ -36,9 +36,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:235768477147:android:4bd058351733f779eca3fe",
+        "mobilesdk_app_id": "1:235768477147:android:2233e1923bd74a42eca3fe",
         "android_client_info": {
-          "package_name": "com.example.bazar"
+          "package_name": "com.bazar.bazar"
         }
       },
       "oauth_client": [
@@ -65,9 +65,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:235768477147:android:7544ed3c625dab20eca3fe",
+        "mobilesdk_app_id": "1:235768477147:android:4bd058351733f779eca3fe",
         "android_client_info": {
-          "package_name": "com.waelabohamza.ecommercecourse"
+          "package_name": "com.example.bazar"
         }
       },
       "oauth_client": [

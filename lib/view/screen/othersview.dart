@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/localization/changelocal.dart';
-import 'package:ecommercecourse/view/widget/home/others.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/localization/changelocal.dart';
+import 'package:bazar/view/widget/home/others.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -117,7 +117,7 @@ class OthersView extends GetView<LocaleController> {
                 ),
                 ),
                 Container(width: 4,),
-                Icon(FontAwesome.wand_magic_sparkles),
+                Icon(FontAwesome.wand_magic_solid),
               ],
             ),
 

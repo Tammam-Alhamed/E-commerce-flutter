@@ -1,10 +1,11 @@
-import 'package:ecommercecourse/core/class/statusrequest.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/functions/handingdatacontroller.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
-import 'package:ecommercecourse/data/model/slidesmodel.dart';
+import 'package:bazar/controller/homescreen_controller.dart';
+import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/functions/handingdatacontroller.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/data/datasource/remote/home_data.dart';
+import 'package:bazar/data/model/itemsmodel.dart';
+import 'package:bazar/data/model/slidesmodel.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -23,11 +24,14 @@ class HomeShopeControllerImp extends HomeShopeController {
   String? id;
   String? lang;
   String? currentTabShope;
-
+  double? pageCard = 3;
+  String? discount;
   int i = 1;
 
 
+
   HomeData homedata = HomeData(Get.find());
+
 
   CategoriesData testData = CategoriesData(Get.find());
  List dat =[];
@@ -43,6 +47,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   // List data = [];
   List shope = [];
   List items = [];
+  List itemsNew =[] ;
   List slides = [];
   List users = [];
 
@@ -58,8 +63,6 @@ class HomeShopeControllerImp extends HomeShopeController {
   @override
   void onInit() {
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      print("عم تشتغل");
-      print(message);
       Get.toNamed(AppRoute.homepage);
     });
     search = TextEditingController();
@@ -84,6 +87,7 @@ class HomeShopeControllerImp extends HomeShopeController {
         users.addAll(response['users']['data']);
         shope.addAll(response['shope']['data']);
         items.addAll(response['items']['data']);
+        itemsNew.addAll(response['itemsNew']['data']);
         List responsedata = response['slides']['data'];
         image.addAll(responsedata.map((e) => slidesmodel.fromJson(e)));
       } else {
@@ -92,8 +96,6 @@ class HomeShopeControllerImp extends HomeShopeController {
     }
     update();
   }
-
-// ----------------------------------------------------------------------------------------------------------------------
 
 
 

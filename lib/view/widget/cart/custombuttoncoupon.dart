@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:bazar/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonCoupon extends StatelessWidget {
@@ -13,7 +13,7 @@ class CustomButtonCoupon extends StatelessWidget {
       height: 40,
       decoration: BoxDecoration(
           color: AppColor.primaryColor ,
-          borderRadius: BorderRadius.circular(20)),
+          borderRadius: BorderRadius.circular(13)),
       // padding: const EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
       child: MaterialButton(

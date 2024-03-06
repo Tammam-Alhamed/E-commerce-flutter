@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/controller/categories_controller.dart';
-import 'package:ecommercecourse/view/widget/categories/listshope.dart';
+import 'package:bazar/controller/categories_controller.dart';
+import 'package:bazar/view/widget/categories/listshope.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';

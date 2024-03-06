@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/functions/checkinternet.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/functions/checkinternet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';

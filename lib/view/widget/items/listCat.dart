@@ -1,12 +1,8 @@
-import 'package:ecommercecourse/controller/categories_controller.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
-import 'package:ecommercecourse/data/model/shopesmodel.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:bazar/controller/categories_controller.dart';
+import 'package:bazar/controller/items_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 
-import '../../../controller/home_shope_controller.dart';
 
 class ListCat extends GetView<ItemsControllerImp> {
 

@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:ecommercecourse/controller/orders/details_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/functions/numberstyle.dart';
-import 'package:ecommercecourse/core/functions/translatefatabase.dart';
+import 'package:bazar/controller/orders/details_controller.dart';
+import 'package:bazar/core/class/handlingdataview.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/functions/numberstyle.dart';
+import 'package:bazar/core/functions/translatefatabase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

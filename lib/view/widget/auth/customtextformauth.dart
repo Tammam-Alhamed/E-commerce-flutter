@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextFormAuth extends StatelessWidget {
   final String hinttext;
+  final Widget? widget;
   final String labeltext;
   final IconData iconData;
   final TextEditingController? mycontroller;
@@ -15,6 +16,7 @@ class CustomTextFormAuth extends StatelessWidget {
       this.obscureText,
       this.onTapIcon,
       required this.hinttext,
+       this.widget,
       required this.labeltext,
       required this.iconData,
       required this.mycontroller,
@@ -35,6 +37,7 @@ class CustomTextFormAuth extends StatelessWidget {
         controller: mycontroller,
         obscureText: obscureText == null || obscureText == false  ? false : true,
         decoration: InputDecoration(
+            prefixIcon: widget,
             hintText: hinttext,
             hintStyle: const TextStyle(fontSize: 14),
             floatingLabelBehavior: FloatingLabelBehavior.always,

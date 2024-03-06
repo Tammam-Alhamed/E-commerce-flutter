@@ -1,7 +1,5 @@
-import 'package:ecommercecourse/controller/home_shope_controller.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
-import 'package:ecommercecourse/controller/sort_items_controller.dart';
-import 'package:ecommercecourse/core/services/services.dart';
+import 'package:bazar/controller/items_controller.dart';
+import 'package:bazar/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constant/color.dart';

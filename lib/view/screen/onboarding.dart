@@ -1,8 +1,8 @@
-import 'package:ecommercecourse/controller/onboarding_controller.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/view/widget/onboarding/custombutton.dart';
-import 'package:ecommercecourse/view/widget/onboarding/customslider.dart';
-import 'package:ecommercecourse/view/widget/onboarding/dotcontroller.dart';
+import 'package:bazar/controller/onboarding_controller.dart';
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/view/widget/onboarding/custombutton.dart';
+import 'package:bazar/view/widget/onboarding/customslider.dart';
+import 'package:bazar/view/widget/onboarding/dotcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

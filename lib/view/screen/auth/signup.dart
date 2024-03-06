@@ -1,21 +1,28 @@
-import 'package:ecommercecourse/controller/auth/signup_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart'; 
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/functions/alertexitapp.dart';
-import 'package:ecommercecourse/core/functions/validinput.dart';
-import 'package:ecommercecourse/view/widget/auth/custombuttonauth.dart';
-import 'package:ecommercecourse/view/widget/auth/customtextbodyauth.dart';
-import 'package:ecommercecourse/view/widget/auth/customtextformauth.dart';
-import 'package:ecommercecourse/view/widget/auth/customtexttitleauth.dart';
-import 'package:ecommercecourse/view/widget/auth/textsignup.dart';
+import 'package:bazar/controller/auth/signup_controller.dart';
+import 'package:bazar/core/class/handlingdataview.dart'; 
+import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/functions/alertexitapp.dart';
+import 'package:bazar/core/functions/validinput.dart';
+import 'package:bazar/view/widget/auth/custombuttonauth.dart';
+import 'package:bazar/view/widget/auth/customtextbodyauth.dart';
+import 'package:bazar/view/widget/auth/customtextformauth.dart';
+import 'package:bazar/view/widget/auth/customtexttitleauth.dart';
+import 'package:bazar/view/widget/auth/textsignup.dart';
+import 'package:country_code_picker/country_code_picker.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:country_picker/country_picker.dart';
+
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     Get.put(SignUpControllerImp());
     return Scaffold(
       backgroundColor: AppColor.backgroundcolor,
@@ -67,17 +74,35 @@ class SignUp extends StatelessWidget {
                             //   labeltext: "18".tr,
                             //   // mycontroller: ,
                             // ),
-                            CustomTextFormAuth(
-                              isNumber: true,
-                              valid: (val) {
-                                return validInput(val!, 7, 11, "phone");
-                              },
-                              mycontroller: controller.phone,
-                              hinttext: "22".tr,
-                              iconData: Icons.phone_android_outlined,
-                              labeltext: "21".tr,
-                              // mycontroller: ,
-                            ),
+
+
+                               Column(
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+
+                                   CustomTextFormAuth(
+                                     widget : CountryCodePicker(
+                                       hideSearch: true,
+                                       countryFilter: const ['sy', 'ru'],
+                                       onChanged: (code) => controller.countryCode(code.dialCode),
+                                       // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+                                       initialSelection: 'sy',
+                                       showFlagDialog: true,
+                                     ),
+
+                                    isNumber: true,
+                                    valid: (val) {
+                                      return validInput(val!, 7, 11, "phone");
+                                    },
+                                    mycontroller: controller.phone,
+                                    hinttext: "22".tr,
+                                    iconData: Icons.phone_android_outlined,
+                                    labeltext: "21".tr,
+                                    // mycontroller: ,
+                                   ),
+                                 ],
+                               ),
+
                             CustomTextFormAuth(
                               isNumber: false,
 
@@ -88,7 +113,6 @@ class SignUp extends StatelessWidget {
                               hinttext: "13".tr,
                               iconData: Icons.remove_red_eye_outlined,
                               labeltext: "19".tr,
-                              // mycontroller: ,
                             ),
                             CustomButtomAuth(
                                 text: "17".tr,

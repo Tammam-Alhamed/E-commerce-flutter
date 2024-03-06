@@ -23,10 +23,8 @@ class AppLink {
 // ================================= ForgetPassword ========================== //
 
   static const String checkEmail = "$server/forgetpassword/checkemail.php";
-  static const String resetPassword =
-      "$server/forgetpassword/resetpassword.php";
-  static const String verifycodeforgetpassword =
-      "$server/forgetpassword/verifycode.php";
+  static const String resetPassword = "$server/forgetpassword/resetpassword.php";
+  static const String verifycodeforgetpassword = "$server/forgetpassword/verifycode.php";
 
 // Home
 

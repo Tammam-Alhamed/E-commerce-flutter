@@ -1,6 +1,6 @@
-# Базар
+# bazar
 
-Базар
+BaZaR project
 
 ## Getting Started
 
