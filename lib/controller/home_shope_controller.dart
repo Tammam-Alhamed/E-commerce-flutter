@@ -46,7 +46,6 @@ class HomeShopeControllerImp extends HomeShopeController {
   List data = [];
   // List data = [];
   List shope = [];
-  List items = [];
   List itemsNew =[] ;
   List slides = [];
   List users = [];
@@ -75,7 +74,6 @@ class HomeShopeControllerImp extends HomeShopeController {
   getdata() async {
     data.clear();
     shope.clear();
-    items.clear();
     image.clear();
     users.clear();
     statusRequest = StatusRequest.loading;
@@ -86,7 +84,6 @@ class HomeShopeControllerImp extends HomeShopeController {
       if (response['status'] == "success") {
         users.addAll(response['users']['data']);
         shope.addAll(response['shope']['data']);
-        items.addAll(response['items']['data']);
         itemsNew.addAll(response['itemsNew']['data']);
         List responsedata = response['slides']['data'];
         image.addAll(responsedata.map((e) => slidesmodel.fromJson(e)));

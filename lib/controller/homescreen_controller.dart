@@ -16,12 +16,15 @@ import '../linkapi.dart';
 
 abstract class HomeScreenController extends GetxController {
   changePage(int currentpage);
+  count(int i);
 }
 
 class HomeScreenControllerImp extends HomeScreenController {
   late StatusRequest statusRequest;
   int currentpage = 0;
   int count_notification = 0;
+
+
 
 
   List listPage = [
@@ -34,7 +37,10 @@ class HomeScreenControllerImp extends HomeScreenController {
    Settings(),
   ];
 
-
+  count(i){
+    count_notification = i;
+    update();
+  }
   @override
   changePage(int i) {
     currentpage = i;

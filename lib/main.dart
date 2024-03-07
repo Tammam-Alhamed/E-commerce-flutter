@@ -11,9 +11,11 @@ import 'core/localization/changelocal.dart';
 
 
 HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
+int i = 0 ;
 Future background(RemoteMessage message) async{
-  controllerImp.count_notification ++ ;
-  print(controllerImp.count_notification);
+  controllerImp.count(i++) ;
+  controllerImp.count_notification = i ;
+  print(i);
 }
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

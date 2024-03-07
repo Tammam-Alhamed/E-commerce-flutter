@@ -21,7 +21,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
         builder: (controller) => Container(
           height: size.width * .155,
           child: BottomAppBar(
-            padding: EdgeInsets.only(top: 0),
+            padding: const EdgeInsets.only(top: 0),
             shape: const CircularNotchedRectangle(),
             notchMargin: 5,
           child: Container(
@@ -39,7 +39,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
 
             ),
             child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
             itemCount: controller.listPage.length,
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(horizontal: size.width * .050),
@@ -55,7 +55,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 1500),
+                    duration: const Duration(milliseconds: 1500),
                     curve: Curves.fastLinearToSlowEaseIn,
                     margin: EdgeInsets.only(
                       bottom: index == controller.currentpage ? 0 : size.width * .029,
@@ -73,19 +73,19 @@ class CustomBottomAppBarHome extends StatelessWidget {
                   ),
                   Stack(
                     children: [
-                      if(index == 1)
-                        Positioned(
-                          top: -13,
-                          left: 10.5,
-                          child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 12),
-                            child:  Text("${controller.count_notification}",
-                                style:TextStyle(
-                                    fontSize: 18,
-                                    color: AppColor.primaryColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                        ),
+                      // if(index == 1)
+                      //   Positioned(
+                      //     top: -13,
+                      //     left: 10.5,
+                      //     child: Container(
+                      //       margin: const EdgeInsets.symmetric(vertical: 12),
+                      //       child:  Text('${controller.count_notification}',
+                      //           style:const TextStyle(
+                      //               fontSize: 18,
+                      //               color: AppColor.primaryColor,
+                      //               fontWeight: FontWeight.bold)),
+                      //     ),
+                      //   ),
                       Icon(
                         listOfIcons[index],
                         size: size.width * .076,
