@@ -123,7 +123,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0,right: 8.0),
                                 child: Image.asset( translateDatabase(
-                                    AppImageAsset.Sold_a, AppImageAsset.Sold ,AppImageAsset.Sold_r),width:30,height: 45,),
+                                    AppImageAsset.Sold_a, AppImageAsset.Sold ,AppImageAsset.Sold_r),width:60,height: 45,),
                               )
                             //Image.asset(AppImageAsset.Sold , width: 75,height: 80,)
                             else

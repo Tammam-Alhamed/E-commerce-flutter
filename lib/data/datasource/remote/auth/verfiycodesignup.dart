@@ -4,9 +4,9 @@ import 'package:bazar/linkapi.dart';
 class VerfiyCodeSignUpData {
   Crud crud;
   VerfiyCodeSignUpData(this.crud);
-  postdata(String email, String verifycode) async {
+  postdata(String email, String verifycode , String code) async {
     var response = await crud.postData(
-        AppLink.verifycodessignup, {"email": email, "verifycode": verifycode});
+        AppLink.verifycodessignup, {"email": email, "verifycode": verifycode , "code" : code});
     return response.fold((l) => l, (r) => r);
   }
 

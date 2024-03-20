@@ -1,4 +1,5 @@
 import 'package:bazar/controller/homescreen_controller.dart';
+import 'package:bazar/core/class/crud.dart';
 import 'package:bazar/core/class/statusrequest.dart';
 import 'package:bazar/core/constant/routes.dart';
 import 'package:bazar/core/functions/handingdatacontroller.dart';
@@ -8,6 +9,7 @@ import 'package:bazar/data/model/itemsmodel.dart';
 import 'package:bazar/data/model/slidesmodel.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import '../data/datasource/remote/categories_data.dart';
 
@@ -19,7 +21,9 @@ abstract class HomeShopeController extends SearchMixController {
 }
 
 class HomeShopeControllerImp extends HomeShopeController {
-  MyServices myServices = Get.find();
+  MyServices myServices = Get.put(MyServices());
+  HomeScreenControllerImp controller= Get.put(HomeScreenControllerImp());
+  Crud crud = Get.put(Crud());
   String? username;
   String? id;
   String? lang;
@@ -34,7 +38,7 @@ class HomeShopeControllerImp extends HomeShopeController {
 
 
   CategoriesData testData = CategoriesData(Get.find());
- List dat =[];
+
   List<slidesmodel> image = [];
 
   List NEW = [] ;
@@ -54,6 +58,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   @override
   initialData() {
     // myServices.sharedPreferences.clear() ;
+    myServices.sharedPreferences.reload();
     lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
@@ -188,13 +193,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   }
 
 
-  reff(){
-    searchData();
-    getItems();
-    getOffer();
-    getdata();
-    update();
-  }
+
 
   goToPageProductDetails(itemsModel) {
     Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});

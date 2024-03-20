@@ -126,7 +126,7 @@ class Items extends StatelessWidget {
               ]),
             ),
             floatingActionButton:  SpeedDial(
-
+              closeDialOnPop: false,
               spacing: 30,
               childrenButtonSize : const Size(60.0, 70.0),
               animatedIcon: AnimatedIcons.menu_close,

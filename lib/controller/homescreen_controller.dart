@@ -1,9 +1,13 @@
 import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/services/services.dart';
+import 'package:bazar/main.dart';
 import 'package:bazar/view/screen/cart.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:bazar/view/screen/home.dart';
 import 'package:bazar/view/screen/notification.dart';
 import 'package:bazar/view/screen/settings.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,16 +20,13 @@ import '../linkapi.dart';
 
 abstract class HomeScreenController extends GetxController {
   changePage(int currentpage);
-  count(int i);
 }
 
 class HomeScreenControllerImp extends HomeScreenController {
   late StatusRequest statusRequest;
+  MyServices myServices = Get.find();
   int currentpage = 0;
-  int count_notification = 0;
-
-
-
+  int unreadCount = 0  ;
 
   List listPage = [
     const HomePage(),
@@ -37,12 +38,27 @@ class HomeScreenControllerImp extends HomeScreenController {
    Settings(),
   ];
 
-  count(i){
-    count_notification = i;
+  unreadNotifaction() async{
+
+     unreadCount = myServices.sharedPreferences.getInt('unreadCount') ?? 0;
+
+    // Increment the unread count
+    unreadCount++;
+    // Save the updated count
+    await myServices.sharedPreferences.setInt('unreadCount', unreadCount);
     update();
   }
+
+  void onInit() {
+    myServices.sharedPreferences.reload();
+    myServices.sharedPreferences.getInt('unreadCount');
+    super.onInit();
+  }
+
+
   @override
   changePage(int i) {
+    myServices.sharedPreferences.reload();
     currentpage = i;
     update();
   }

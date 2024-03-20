@@ -19,17 +19,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeShopeControllerImp controllerImp=    Get.put(HomeShopeControllerImp());
-
-    Future  ref()async{
-
-      controllerImp.reff()  ;
-    }
     return GetBuilder<HomeShopeControllerImp>(
         builder: (controller) => Container(
             padding: const EdgeInsets.symmetric(horizontal: 15),
 
             child:  ListView(
-                physics: AlwaysScrollableScrollPhysics(),
+                physics: BouncingScrollPhysics(),
                 children: [
                   CustomAppBar(
                     mycontroller: controller.search!,
@@ -54,13 +49,13 @@ class HomePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children:  [
                                 ImageSliderScreenTop(slideModel: controller.image,),
-
+                                controller.users.isEmpty ? Text("your account has been suspended")   :
                                     CustomTitleHome(title: "40".tr),
 
 
                                 ListCategoriesHome(),
-                                // controller.users.isEmpty ? SizedBox()   :
-                                // // OthersView() ,
+                                controller.users.isEmpty ? Text("your account has been suspended")   :
+                                // OthersView() ,
                                 // CustomTitleHome(title: "41".tr),
                                 // ListItemsHome(),
                                 // CustomTitleHome( title: 'Offers',),

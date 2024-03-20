@@ -3,7 +3,6 @@ import 'package:bazar/core/services/services.dart';
 import 'package:bazar/bindings/intialbindings.dart';
 import 'package:bazar/core/localization/translation.dart';
 import 'package:bazar/routes.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,15 +10,21 @@ import 'core/localization/changelocal.dart';
 
 
 HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
-int i = 0 ;
+
 Future background(RemoteMessage message) async{
-  controllerImp.count(i++) ;
-  controllerImp.count_notification = i ;
-  print(i);
-}
+
+  await initialServices();
+  MyServices myServices = Get.put(MyServices());
+    controllerImp.unreadNotifaction();
+    print(myServices.sharedPreferences.getInt('unreadCount'));
+  }
+
+
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
+  FirebaseMessaging.onBackgroundMessage(background);
   runApp(const MyApp());
 }
 
@@ -28,7 +33,6 @@ class MyApp extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
-    FirebaseMessaging.onBackgroundMessage(background);
     LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
       translations: MyTranslation(),

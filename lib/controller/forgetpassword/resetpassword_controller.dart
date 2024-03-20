@@ -21,6 +21,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   late TextEditingController repassword;
 
   String? email;
+  String? code;
 
   @override
   resetpassword() {}
@@ -35,7 +36,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
     if (formstate.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
-      var response = await resetPasswordData.postdata(email!, password.text);
+      var response = await resetPasswordData.postdata(email!, password.text , code!);
       print("=============================== Controller $response ");
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
@@ -57,6 +58,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   @override
   void onInit() {
     email = Get.arguments['email'];
+    code = Get.arguments['code'];
     password = TextEditingController();
     repassword = TextEditingController();
     super.onInit();
