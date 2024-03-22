@@ -72,7 +72,7 @@ class ProductDetails extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  width: 23,
+                  width: 19,
                 ),
                 InkWell(
                   onTap: () {

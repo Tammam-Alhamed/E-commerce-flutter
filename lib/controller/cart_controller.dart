@@ -1,4 +1,5 @@
 import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/color.dart';
 import 'package:bazar/core/constant/routes.dart';
 import 'package:bazar/core/functions/handingdatacontroller.dart';
 import 'package:bazar/core/services/services.dart';
@@ -32,6 +33,7 @@ class CartController extends GetxController {
 
  int priceorders = 0;
  int priceorders_d = 0;
+  double totalPrice = 0 ;
 
   int totalcountitems = 0;
 
@@ -81,6 +83,8 @@ class CartController extends GetxController {
   }
 
   goToPageCheckout() {
+    print(couponname);
+    if (couponname != null && totalPrice < 100000.0) return Get.snackbar("101".tr, "102".tr);
     if (data.isEmpty) return Get.snackbar("101".tr, "102".tr);
     Get.toNamed(AppRoute.checkout, arguments: {
       "couponid": couponid ?? "0",
@@ -95,7 +99,7 @@ class CartController extends GetxController {
   }
 
   getTotalPrice_d() {
-    return (priceorders_d - priceorders_d * discountcoupon! / 100);
+    return (totalPrice = priceorders_d - priceorders_d * discountcoupon! / 100);
   }
 
   delete(String itemsid) async {
@@ -154,17 +158,23 @@ class CartController extends GetxController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
-        Map<String, dynamic> datacoupon = response['data'];
-        couponModel = CouponModel.fromJson(datacoupon);
-        discountcoupon = int.parse(couponModel!.couponDiscount!);
-        couponname = couponModel!.couponName;
-        couponid = couponModel!.couponId;
+        if(totalPrice > 100000.0){
+          Map<String, dynamic> datacoupon = response['data'];
+          couponModel = CouponModel.fromJson(datacoupon);
+          discountcoupon = int.parse(couponModel!.couponDiscount!);
+          couponname = couponModel!.couponName;
+          couponid = couponModel!.couponId;
+        }else{
+          Get.snackbar("a", "a");
+        }
       } else {
         // statusRequest = StatusRequest.failure;
         discountcoupon = 0;
         couponname = null;
         couponid = null;
-        Get.snackbar("90".tr, "98".tr) ;
+        Get.snackbar("90".tr, "98".tr,
+          colorText: AppColor.backgroundcolor,
+          backgroundColor: AppColor.fourthColor,) ;
       }
       // End
     }

@@ -7,6 +7,7 @@ import 'package:bazar/core/services/services.dart';
 import 'package:bazar/data/datasource/remote/home_data.dart';
 import 'package:bazar/data/model/itemsmodel.dart';
 import 'package:bazar/data/model/slidesmodel.dart';
+import 'package:dartz/dartz.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -31,7 +32,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   double? pageCard = 3;
   String? discount;
   int i = 1;
-
+  String? userBlock ;
 
 
   HomeData homedata = HomeData(Get.find());
@@ -42,6 +43,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   List<slidesmodel> image = [];
 
   List NEW = [] ;
+  List items = [];
   List offer = [] ;
 
   late StatusRequest statusRequest;
@@ -88,10 +90,15 @@ class HomeShopeControllerImp extends HomeShopeController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         users.addAll(response['users']['data']);
-        shope.addAll(response['shope']['data']);
-        itemsNew.addAll(response['itemsNew']['data']);
-        List responsedata = response['slides']['data'];
-        image.addAll(responsedata.map((e) => slidesmodel.fromJson(e)));
+        if(users[0]['blocked'] != "1"){
+          userBlock = users[0]['blocked'] ;
+          shope.addAll(response['shope']['data']);
+          itemsNew.addAll(response['itemsNew']['data']);
+          List responsedata = response['slides']['data'];
+          image.addAll(responsedata.map((e) => slidesmodel.fromJson(e)));
+        }else{
+          statusRequest = StatusRequest.blocked;
+        }
       } else {
         statusRequest = StatusRequest.failure;
       }
