@@ -93,6 +93,7 @@ dependencies:
   country_code_picker: ^3.0.0
   country_picker: ^2.0.25
   animations: ^2.0.11
+  babstrap_settings_screen: ^0.1.6
 
 
 

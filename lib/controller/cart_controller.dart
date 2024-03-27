@@ -84,7 +84,10 @@ class CartController extends GetxController {
 
   goToPageCheckout() {
     print(couponname);
-    if (couponname != null && totalPrice < 100000.0) return Get.snackbar("101".tr, "102".tr);
+    if (couponname != null && totalPrice < 500000.0) return Get.snackbar("90".tr, "132".tr,
+      duration: Duration(milliseconds: 3000),
+      colorText: AppColor.backgroundcolor,
+      backgroundColor: AppColor.fourthColor,) ;
     if (data.isEmpty) return Get.snackbar("101".tr, "102".tr);
     Get.toNamed(AppRoute.checkout, arguments: {
       "couponid": couponid ?? "0",
@@ -158,14 +161,17 @@ class CartController extends GetxController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
-        if(totalPrice > 100000.0){
+        if(totalPrice > 500000.0){
           Map<String, dynamic> datacoupon = response['data'];
           couponModel = CouponModel.fromJson(datacoupon);
           discountcoupon = int.parse(couponModel!.couponDiscount!);
           couponname = couponModel!.couponName;
           couponid = couponModel!.couponId;
         }else{
-          Get.snackbar("a", "a");
+          Get.snackbar("90".tr, "132".tr,
+            duration: Duration(milliseconds: 3000),
+            colorText: AppColor.backgroundcolor,
+            backgroundColor: AppColor.fourthColor,) ;
         }
       } else {
         // statusRequest = StatusRequest.failure;

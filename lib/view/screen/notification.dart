@@ -20,8 +20,14 @@ Future  ref()async{
     MyServices myServices = Get.find();
     String? sharedPrefLang = myServices.sharedPreferences.getString("lang");
     NotificationController controller = Get.put(NotificationController());
-    return Container(
-      child: GetBuilder<NotificationController>(
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+            child: Text(
+              "45".tr,
+            )),
+      ),
+      body: GetBuilder<NotificationController>(
           builder: (controller) => HandlingDataView(
               statusRequest: controller.statusRequest,
               widget: Container(
@@ -33,14 +39,7 @@ Future  ref()async{
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                           children: [
-                         Center(
-                            child: Text(
-                          "45".tr,
-                          style: const TextStyle(
-                              fontSize: 18,
-                              color: AppColor.primaryColor,
-                              fontWeight: FontWeight.bold),
-                        )),
+
                         const SizedBox(height: 10),
 
                         ...List.generate(
@@ -63,11 +62,11 @@ Future  ref()async{
                                         child: Stack(
 
                                           children: [
-                                            PhysicalModel(
+                                            Card(
                                               color: AppColor.secondColor,
                                               elevation: 5,
                                               shadowColor: AppColor.primaryColor,
-                                              borderRadius: BorderRadius.circular(20),
+
                                               child: Container(
                                                 constraints: const BoxConstraints(
                                                   maxHeight: double.infinity,
@@ -86,8 +85,7 @@ Future  ref()async{
 
                                             if( sharedPrefLang == "ar")
                                             Positioned(
-
-                                                left:5,
+                                                left:11,
                                                 child: Text(
                                                   "${Jiffy.parse(controller.data[index]['notification_datetime'], pattern: "yyyy-MM-dd").fromNow()}",
                                                   style:const TextStyle(
@@ -96,7 +94,7 @@ Future  ref()async{
                                                 )),
                                             if( sharedPrefLang == "en")
                                               Positioned(
-                                                  right: 5,
+                                                  right: 11,
                                                   child: Text(
                                                     "${Jiffy.parse(controller.data[index]['notification_datetime'], pattern: "yyyy-MM-dd").fromNow()}",
                                                     style:const TextStyle(
@@ -106,7 +104,7 @@ Future  ref()async{
                                             if( sharedPrefLang == "ru")
                                               Positioned(
 
-                                                  right: 5,
+                                                  right: 11,
                                                   child: Text(
                                                     "${Jiffy.parse(controller.data[index]['notification_datetime'], pattern: "yyyy-MM-dd").fromNow()}",
                                                     style:const TextStyle(

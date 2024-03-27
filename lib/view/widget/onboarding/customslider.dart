@@ -10,6 +10,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
+        allowImplicitScrolling: true,
         controller: controller.pageController,
         onPageChanged: (val) {
           controller.onPageChanged(val);

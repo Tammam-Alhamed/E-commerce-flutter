@@ -26,7 +26,6 @@ class HomeScreenControllerImp extends HomeScreenController {
   late StatusRequest statusRequest;
   MyServices myServices = Get.find();
   int currentpage = 0;
-  int unreadCount = 0  ;
 
   List listPage = [
     const HomePage(),
@@ -39,13 +38,15 @@ class HomeScreenControllerImp extends HomeScreenController {
   ];
 
   unreadNotifaction() async{
-
+    myServices.sharedPreferences.remove('unreadCount');
+    int unreadCount;
      unreadCount = myServices.sharedPreferences.getInt('unreadCount') ?? 0;
 
     // Increment the unread count
     unreadCount++;
     // Save the updated count
     await myServices.sharedPreferences.setInt('unreadCount', unreadCount);
+    myServices.sharedPreferences.reload();
     update();
   }
 

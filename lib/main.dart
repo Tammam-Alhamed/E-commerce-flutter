@@ -9,14 +9,15 @@ import 'package:get/get.dart';
 import 'core/localization/changelocal.dart';
 
 
-HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
 
 Future background(RemoteMessage message) async{
-
+  HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
   await initialServices();
   MyServices myServices = Get.put(MyServices());
-    controllerImp.unreadNotifaction();
+
+    await controllerImp.unreadNotifaction();
     print(myServices.sharedPreferences.getInt('unreadCount'));
+    await myServices.sharedPreferences.reload();
   }
 
 

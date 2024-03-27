@@ -1,5 +1,6 @@
 import 'package:bazar/controller/onboarding_controller.dart';
 import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/constant/routes.dart';
 import 'package:bazar/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class CustomDotControllerOnBoarding extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ...List.generate(
+                  growable: false,
                     onBoardingList.length,
                     (index) => AnimatedContainer(
                           margin: const EdgeInsets.only(right: 5),

@@ -100,7 +100,7 @@ class CustomItemsCartList extends StatelessWidget {
                 height: 30,
                 child: Text(
                   count,
-                  style: TextStyle(fontFamily: "sans"),
+                  style: TextStyle(fontFamily: "sans" , fontSize: 18),
                 )),
             Container(
                 height: 28,

@@ -30,14 +30,14 @@ class HomePage extends StatelessWidget {
                   SliverAppBar(
                     backgroundColor: AppColor.backgroundcolor,
                     primary: false,
-                    actions:[ Image.asset(AppImageAsset.logo , width: 70,)],
+                    actions:[ Image.asset(AppImageAsset.logo , width: 95,)],
                     snap: false,
                     stretch: true,
                     floating: true,
                     pinned: false,
                     centerTitle: false,
                     iconTheme: const IconThemeData(color: Colors.black),
-                    title: Text('B A Z A R') ,
+                    title: Text("${'131'.tr}") ,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15.0),
