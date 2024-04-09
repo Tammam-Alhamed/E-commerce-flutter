@@ -4,10 +4,11 @@ import 'package:bazar/linkapi.dart';
 class ResetPasswordData {
   Crud crud;
   ResetPasswordData(this.crud);
-  postdata(String email ,String password) async {
+  postdata(String email ,String password , String code) async {
     var response = await crud.postData(AppLink.resetPassword, {
       "email" : email , 
-      "password" : password   
+      "password" : password,
+      "code" : code
     });
     return response.fold((l) => l, (r) => r);
   }

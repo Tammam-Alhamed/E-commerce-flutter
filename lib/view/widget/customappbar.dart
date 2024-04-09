@@ -1,4 +1,5 @@
 import 'package:bazar/controller/categories_controller.dart';
+import 'package:bazar/core/constant/color.dart';
 import 'package:bazar/view/widget/categories/listshope.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -54,12 +55,12 @@ class CustomAppBar extends StatelessWidget {
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.circular(10)),
               filled: true,
-              fillColor: Colors.grey[200]),
+              fillColor: AppColor.backgroundcolor),
         )),
         SizedBox(width: 10),
         Container(
           decoration: BoxDecoration(
-              color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
+              color: AppColor.backgroundcolor, borderRadius: BorderRadius.circular(10)),
           width: 60,
           padding: EdgeInsets.symmetric(vertical: 8),
           child: IconButton(

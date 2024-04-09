@@ -24,19 +24,19 @@ class PriceAndCountItems extends StatelessWidget {
         children: [
           Row(
             children: [
-              IconButton(onPressed: onAdd, icon:   Icon(LineAwesome.plus_circle_solid),),
+              IconButton(onPressed: onAdd, icon:   Icon(LineAwesome.plus_circle_solid , size: 28, color: AppColor.primaryColor,),),
               Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.only(bottom: 2),
                   width: 50,
                   height: 30,
                   decoration:
-                      BoxDecoration(border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(10),color: AppColor.secondColor),
+                      BoxDecoration(border: Border.all(color: AppColor.primaryColor), borderRadius: BorderRadius.circular(10),color: AppColor.backgroundcolor),
                   child: Text(
                     count,
-                    style: const TextStyle(fontSize: 15, height: 1.1),
+                    style: const TextStyle(fontSize: 18, height: 1.1 , color: AppColor.sky),
                   )),
-              IconButton(onPressed: onRemove, icon: const Icon(LineAwesome.minus_circle_solid),),
+              IconButton(onPressed: onRemove, icon: const Icon(LineAwesome.minus_circle_solid, size: 28, color: AppColor.primaryColor,),),
             ],
           ),
           Spacer(flex:2 ,),

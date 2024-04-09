@@ -11,7 +11,7 @@ abstract class VerifyCodeController extends GetxController {
 
 class VerifyCodeControllerImp extends VerifyCodeController {
   String? email;
-
+  String? code;
   VerifyCodeForgetPasswordData verifyCodeForgetPasswordData =
       VerifyCodeForgetPasswordData(Get.find());
 
@@ -25,12 +25,13 @@ class VerifyCodeControllerImp extends VerifyCodeController {
     statusRequest = StatusRequest.loading;
     update();
     var response =
-        await verifyCodeForgetPasswordData.postdata(email!, verifycode);
+        await verifyCodeForgetPasswordData.postdata(email!, verifycode , code!);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         Get.offNamed(AppRoute.resetPassword , arguments: {
-          "email" : email
+          "email" : email,
+          "code" : code
         });
       } else {
         Get.defaultDialog(
@@ -44,6 +45,7 @@ class VerifyCodeControllerImp extends VerifyCodeController {
   @override
   void onInit() {
     email = Get.arguments['email'];
+    code = Get.arguments['code'];
     super.onInit();
   }
 }

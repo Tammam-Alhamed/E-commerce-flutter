@@ -47,15 +47,15 @@ dependencies:
   flutter_polyline_points: ^2.0.0
   google_maps_flutter: ^2.1.5
   geolocator: ^11.0.0
-  geocoding: ^2.0.4
+  geocoding: ^3.0.0
   # Firebase And Notification
   firebase_messaging: ^14.6.3
   firebase_core: ^2.14.0
   firebase_core_platform_interface: ^5.0.0
-  flutter_local_notifications: ^16.2.0
+  flutter_local_notifications: ^17.0.0
   cloud_firestore: ^4.8.1
   # Local Data Cache
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.2.2
   path: ^1.8.0
   # Qrcode
   qr_flutter: ^4.0.0
@@ -75,7 +75,6 @@ dependencies:
   timelines: ^0.1.0
   flutter_ringtone_player: ^4.0.0+2
   jiffy: ^6.2.1
-  carousel_slider: ^4.2.1
   icons_plus: ^5.0.0
   auto_size_text: ^3.0.0
   easy_image_viewer: ^1.2.1
@@ -92,6 +91,8 @@ dependencies:
   connectivity_plus: ^5.0.2
   country_code_picker: ^3.0.0
   country_picker: ^2.0.25
+  animations: ^2.0.11
+  babstrap_settings_screen: ^0.1.6
 
 
 

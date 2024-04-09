@@ -68,8 +68,11 @@ class LoginControllerImp extends LoginController {
             }
             Get.offNamed(AppRoute.homepage);
           } else {
-            Get.toNamed(AppRoute.verfiyCodeSignUp,
-                arguments: {"email": email.text});
+            Get.toNamed(AppRoute.homepage,
+                arguments: {
+              "email": email.text ,
+              "code" : code
+            });
           }
         } else {
           Get.defaultDialog(

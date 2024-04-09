@@ -16,7 +16,7 @@ class About_us extends GetView<LocaleController> {
   @override
   Widget build(BuildContext context) {
    return Container(
-     height: 350,
+     height: 400,
      decoration: BoxDecoration(
        color: AppColor.backgroundcolor,
        borderRadius: BorderRadius.only(
@@ -30,42 +30,24 @@ class About_us extends GetView<LocaleController> {
        child: Column(
          children: [
            SizedBox(height: 15,),
-           PhysicalModel(
-             color: AppColor.backgroundcolor,
-             elevation: 10,
-             shadowColor: AppColor.secondColor,
-             borderRadius: BorderRadius.circular(20),
-             child: Container(
-
+           Container(
                  padding: EdgeInsets.all(10),
-                 child: Text("3".tr , style: TextStyle(color: Colors.blueGrey),)
+                 child: Text("3".tr , style: TextStyle(color: Colors.black87),)
+             ),
+           Divider(),
+           SizedBox(height: 15,),
+           Container(
+                 padding: EdgeInsets.all(10),
+                 child: Text("5".tr, style: TextStyle(color: Colors.black54),)
 
              ),
-           ),
-           SizedBox(height: 19,),
-           PhysicalModel(
-             color: AppColor.backgroundcolor,
-             elevation: 10,
-             shadowColor: AppColor.secondColor,
-             borderRadius: BorderRadius.circular(20),
-             child: Container(
+           Divider(),
+           SizedBox(height: 15,),
+           Container(
                  padding: EdgeInsets.all(10),
-                 child: Text("5".tr, style: TextStyle(color: Colors.blueGrey),)
+                 child: Text("7".tr, style: TextStyle(color: Colors.black45))
 
              ),
-           ),
-           SizedBox(height: 19,),
-           PhysicalModel(
-             color: AppColor.backgroundcolor,
-             elevation: 10,
-             shadowColor: AppColor.secondColor,
-             borderRadius: BorderRadius.circular(20),
-             child: Container(
-                 padding: EdgeInsets.all(10),
-                 child: Text("7".tr, style: TextStyle(color: Colors.blueGrey))
-
-             ),
-           ),
          ],
        ),
      ),

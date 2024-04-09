@@ -42,35 +42,13 @@ class ItemsControllerImp extends SearchMixController {
   int _totalCount = 0;
   int limit = 20;
   int offset = 0;
-  late ScrollController scrollController;
+  ScrollController scrollController = ScrollController();
   bool isLoading = true;
 
 
   int currentMax = 10;
   List myList = [];
   String? currentTabCat;
-
-  /*void _onScroll() {
-    final offset =scrollController.offset;
-    final minOffset = scrollController.position.minScrollExtent;
-    final maxOffset =scrollController.position.maxScrollExtent;
-    final isOutOfRange =scrollController.position.outOfRange;
-
-    final hasReachedTheEnd = offset >= maxOffset && !isOutOfRange;
-    final hasReachedTheStart = offset <= minOffset && !isOutOfRange;
-    final isScrolling = maxOffset > offset && minOffset < offset;
-
-    // This code doesn't print anything.
-    if (isScrolling) {
-      print('isScrolling');
-    } else if (hasReachedTheStart) {
-      print('hasReachedTheStart');
-    } else if (hasReachedTheEnd) {
-      print('hasReachedTheEnd');
-    } else {
-      print('IDK');
-    }
-  }*/
 
 
 
@@ -84,11 +62,8 @@ class ItemsControllerImp extends SearchMixController {
 
   @override
   void onInit() {
-     search = TextEditingController();
-
+    search = TextEditingController();
     intialData();
-
-
     super.onInit();
   }
 
@@ -97,31 +72,10 @@ class ItemsControllerImp extends SearchMixController {
     selectedCat = Get.arguments['selectedcat'];
     catid = Get.arguments['catid'];
     imgid = Get.arguments['imgid'];
-
-
-
+    getItems(catid! , page , 1);
+    scrollController;
   }
 
-/* void _scrollListener() {
-
-   if (scrollController.position.pixels ==
-       scrollController.position.maxScrollExtent) {
-     print('Page reached end of page');}
-
-  }*/
-
- /* addItems() async {
-    controller.addListener(() {
-      if (controller.position.maxScrollExtent == controller.position.pixels) {
-        for (int i = 0; i < 2; i++) {
-          listLength++;
-          list.add( (data));
-          print(list.length);
-          update();
-        }
-      }
-    });
-  }*/
 
 
   changeCat( catval) {
@@ -279,18 +233,6 @@ class ItemsControllerImp extends SearchMixController {
     update();
   }
 
-  getMorePage() async{
-
-    scrollController.addListener(() {
-      print("object");
-      // if(scrollController.position.maxScrollExtent == scrollController.offset){
-      //   ++page;
-      //   getItems(catid , page);
-      // }
-      // update();
-    });
-
-  }
 
 
 

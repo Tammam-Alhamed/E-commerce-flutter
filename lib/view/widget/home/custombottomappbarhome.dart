@@ -1,6 +1,8 @@
 import 'package:bazar/controller/cart_controller.dart';
+import 'package:bazar/controller/home_shope_controller.dart';
 import 'package:bazar/controller/homescreen_controller.dart';
 import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/services/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +11,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
   const CustomBottomAppBarHome({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    MyServices myServices = Get.find();
     Size size = MediaQuery.of(context).size;
     List listOfIcons = [
       Icons.home_rounded,
@@ -21,7 +24,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
         builder: (controller) => Container(
           height: size.width * .155,
           child: BottomAppBar(
-            padding: EdgeInsets.only(top: 0),
+            padding: const EdgeInsets.only(top: 0),
             shape: const CircularNotchedRectangle(),
             notchMargin: 5,
           child: Container(
@@ -39,7 +42,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
 
             ),
             child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
             itemCount: controller.listPage.length,
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(horizontal: size.width * .050),
@@ -48,6 +51,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                 int i = index > 4 ? index - 1 : index;
                 i != 3 && i !=2 ?Get.delete<CartController>(force: true) : "";
                 i!=2 ? controller.changePage(i) : "";
+                i != 1 ?  print(myServices.sharedPreferences.getInt('unreadCount')) : myServices.sharedPreferences.remove('unreadCount');
               },
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
@@ -55,7 +59,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 1500),
+                    duration: const Duration(milliseconds: 1500),
                     curve: Curves.fastLinearToSlowEaseIn,
                     margin: EdgeInsets.only(
                       bottom: index == controller.currentpage ? 0 : size.width * .029,
@@ -74,18 +78,16 @@ class CustomBottomAppBarHome extends StatelessWidget {
                   Stack(
                     children: [
                       if(index == 1)
+                        if(myServices.sharedPreferences.getInt('unreadCount') == 0)
                         Positioned(
-                          top: -13,
-                          left: 10.5,
+                          bottom: 0,
+                          left: 0,
                           child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 12),
-                            child:  Text("${controller.count_notification}",
-                                style:TextStyle(
-                                    fontSize: 18,
-                                    color: AppColor.primaryColor,
-                                    fontWeight: FontWeight.bold)),
+                            margin: const EdgeInsets.symmetric(vertical: 12),
+                            child:  const Icon(Icons.brightness_1_rounded, size: 15.0,
+                                color: Colors.red),
+                          )
                           ),
-                        ),
                       Icon(
                         listOfIcons[index],
                         size: size.width * .076,

@@ -20,8 +20,15 @@ Future  ref()async{
     MyServices myServices = Get.find();
     String? sharedPrefLang = myServices.sharedPreferences.getString("lang");
     NotificationController controller = Get.put(NotificationController());
-    return Container(
-      child: GetBuilder<NotificationController>(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColor.backgroundcolor,
+        title: Center(
+            child: Text(
+              "45".tr,
+            )),
+      ),
+      body: GetBuilder<NotificationController>(
           builder: (controller) => HandlingDataView(
               statusRequest: controller.statusRequest,
               widget: Container(
@@ -33,14 +40,7 @@ Future  ref()async{
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                           children: [
-                         Center(
-                            child: Text(
-                          "45".tr,
-                          style: const TextStyle(
-                              fontSize: 18,
-                              color: AppColor.primaryColor,
-                              fontWeight: FontWeight.bold),
-                        )),
+
                         const SizedBox(height: 10),
 
                         ...List.generate(
@@ -63,11 +63,11 @@ Future  ref()async{
                                         child: Stack(
 
                                           children: [
-                                            PhysicalModel(
-                                              color: AppColor.secondColor,
-                                              elevation: 5,
-                                              shadowColor: AppColor.primaryColor,
-                                              borderRadius: BorderRadius.circular(20),
+                                            Card(
+                                              color: Colors.white,
+                                              elevation: 2.5,
+                                              shadowColor: AppColor.fourthColor,
+
                                               child: Container(
                                                 constraints: const BoxConstraints(
                                                   maxHeight: double.infinity,
@@ -75,7 +75,8 @@ Future  ref()async{
 
                                                 child: ListTile(
                                                   title: Text(  controller.data[index]
-                                                  ['notification_title'],),
+                                                  ['notification_title'],
+                                                  style: TextStyle(fontSize: 16),),
                                                   subtitle: Text(translateDatabase(controller.data[index]
                                                   ['notification_body'],controller.data[index]
                                                   ['notification_body_en'],controller.data[index]
@@ -86,8 +87,7 @@ Future  ref()async{
 
                                             if( sharedPrefLang == "ar")
                                             Positioned(
-
-                                                left:5,
+                                                left:11,
                                                 child: Text(
                                                   "${Jiffy.parse(controller.data[index]['notification_datetime'], pattern: "yyyy-MM-dd").fromNow()}",
                                                   style:const TextStyle(
@@ -96,7 +96,7 @@ Future  ref()async{
                                                 )),
                                             if( sharedPrefLang == "en")
                                               Positioned(
-                                                  right: 5,
+                                                  right: 11,
                                                   child: Text(
                                                     "${Jiffy.parse(controller.data[index]['notification_datetime'], pattern: "yyyy-MM-dd").fromNow()}",
                                                     style:const TextStyle(
@@ -106,7 +106,7 @@ Future  ref()async{
                                             if( sharedPrefLang == "ru")
                                               Positioned(
 
-                                                  right: 5,
+                                                  right: 11,
                                                   child: Text(
                                                     "${Jiffy.parse(controller.data[index]['notification_datetime'], pattern: "yyyy-MM-dd").fromNow()}",
                                                     style:const TextStyle(

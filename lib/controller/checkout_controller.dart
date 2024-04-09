@@ -1,4 +1,9 @@
+import 'dart:ui';
+
+import 'package:bazar/controller/cart_controller.dart';
+import 'package:bazar/controller/items_controller.dart';
 import 'package:bazar/core/class/statusrequest.dart';
+import 'package:bazar/core/constant/color.dart';
 import 'package:bazar/core/constant/routes.dart';
 import 'package:bazar/core/functions/handingdatacontroller.dart';
 import 'package:bazar/core/services/services.dart';
@@ -98,10 +103,15 @@ class CheckoutController extends GetxController {
       // Start backend
       if (response['status'] == "success") {
         Get.offAllNamed(AppRoute.homepage);
-        Get.snackbar("32".tr, "106".tr);
+        Get.delete<CartController>(force: true);
+        Get.snackbar("32".tr, "106".tr,
+          colorText: AppColor.backgroundcolor,
+          backgroundColor: AppColor.fourthColor,);
       } else {
         statusRequest = StatusRequest.none;
-        Get.snackbar("90".tr, "96".tr);
+        Get.snackbar("90".tr, "96".tr,
+          colorText: AppColor.backgroundcolor,
+          backgroundColor: AppColor.fourthColor,);
       }
       // End
     }

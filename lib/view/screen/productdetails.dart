@@ -55,7 +55,7 @@ class ProductDetails extends StatelessWidget {
             child: Row(
               children: [
                 MaterialButton(
-                  minWidth: 200.0,
+                  minWidth: 270.0,
                   height: 50.0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
@@ -67,12 +67,12 @@ class ProductDetails extends StatelessWidget {
                   },
                   child: Text(
                     "47".tr,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(
-                  width: 50,
+                const SizedBox(
+                  width: 19,
                 ),
                 InkWell(
                   onTap: () {
@@ -84,7 +84,7 @@ class ProductDetails extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: AppColor.primaryColor,
                         borderRadius: BorderRadius.circular(15)),
-                    child: Icon(
+                    child: const Icon(
                       Icons.shopping_cart,
                       size: 30,
                       color: Colors.white,
@@ -225,16 +225,13 @@ class ProductDetails extends StatelessWidget {
                                         count: "${controller.countitems}"),
                                     const SizedBox(height: 15),
                                     Padding(
-                                      padding: const EdgeInsets.only(left: 5),
+                                      padding: const EdgeInsets.only(right: 8),
                                       child: Row(
-
-                                          // mainAxisAlignment:MainAxisAlignment.end,
-                                          //   crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                           children: [
-                                            /*Text("Color", style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
-                                        ))*/
-                                            //Padding(padding: EdgeInsets.only(left: 10,right: 10)),
-
                                             if (controller.colors.length != 1)
                                               Column(
                                                 children: [
@@ -257,40 +254,20 @@ class ProductDetails extends StatelessWidget {
                                                   ),
                                                 ],
                                               ),
-
                                             const Padding(
                                                 padding: EdgeInsets.only(
-                                                    left: 28, right: 35)),
-                                            /* Text("Size",  style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold,color:  AppColor.fourthColor
-                                      )),*/
-
+                                                    left: 0, right: 0)),
                                             if (controller.sizes.length != 1)
-                                              Flexible(
-                                                child: Container(
-                                                  margin: controller
-                                                              .colors.length ==
-                                                          1
-                                                      ? myServices.sharedPreferences
-                                                                  .getString(
-                                                                      "lang") !=
-                                                              'ar'
-                                                          ? EdgeInsets.only(
-                                                              left: 150)
-                                                          : EdgeInsets.only(
-                                                              right: 150)
-                                                      : EdgeInsets.only(
-                                                          left: 0),
-                                                  decoration:
-                                                      const BoxDecoration(
-                                                    border: Border(
-                                                        bottom: BorderSide(
-                                                            color: AppColor
-                                                                .primaryColor)),
-                                                  ),
-                                                  height: 60,
-                                                  child: Customsize(),
-                                                  width: 110,
+                                              Container(
+                                                decoration: const BoxDecoration(
+                                                  border: Border(
+                                                      bottom: BorderSide(
+                                                          color: AppColor
+                                                              .primaryColor)),
                                                 ),
+                                                height: 60,
+                                                child: Customsize(),
+                                                width: 110,
                                               ),
                                           ]),
                                     ),

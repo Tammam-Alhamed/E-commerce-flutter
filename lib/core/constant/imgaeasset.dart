@@ -21,6 +21,7 @@ class AppImageAsset {
   static const String noData = "$rootLottie/nodata.json";
   static const String server = "$rootLottie/server.json";
   static const String soon = "$rootLottie/soon.json";
+  static const String blocked = "$rootLottie/blocked.json";
 
 
 
