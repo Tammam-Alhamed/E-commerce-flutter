@@ -22,6 +22,7 @@ Future  ref()async{
     NotificationController controller = Get.put(NotificationController());
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColor.backgroundcolor,
         title: Center(
             child: Text(
               "45".tr,
@@ -63,9 +64,9 @@ Future  ref()async{
 
                                           children: [
                                             Card(
-                                              color: AppColor.secondColor,
-                                              elevation: 5,
-                                              shadowColor: AppColor.primaryColor,
+                                              color: Colors.white,
+                                              elevation: 2.5,
+                                              shadowColor: AppColor.fourthColor,
 
                                               child: Container(
                                                 constraints: const BoxConstraints(
@@ -74,7 +75,8 @@ Future  ref()async{
 
                                                 child: ListTile(
                                                   title: Text(  controller.data[index]
-                                                  ['notification_title'],),
+                                                  ['notification_title'],
+                                                  style: TextStyle(fontSize: 16),),
                                                   subtitle: Text(translateDatabase(controller.data[index]
                                                   ['notification_body'],controller.data[index]
                                                   ['notification_body_en'],controller.data[index]

@@ -28,18 +28,19 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
         onTap: () {
           itemsModel1.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel1);
         },
-        child: Card(
+        child: Container(
           child: Padding(
             padding: const EdgeInsets.all(5),
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
                        CachedNetworkImage(
                         imageUrl:
                             AppLink.imagestItems + "/" + itemsModel.itemsImage!,
-                        height: 100,
+                        height: 180,
+                        width: 180,
                         placeholder: (BuildContext context, String url) => Container(
                           width: 320,
                           height: 240,
@@ -49,7 +50,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                           child: Center(child:  Image.asset(AppImageAsset.logo ,width: 100,)),
                         ),
                         fadeInDuration: const Duration(milliseconds: 500),
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       ),
 
 
@@ -58,7 +59,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                   Text(
                       translateDatabase(
                           itemsModel.itemsNameAr, itemsModel.itemsName ,itemsModel.itemsNameRu),
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.start,
                       style: const TextStyle(
                         height: 1.2,
                           color: AppColor.black,
@@ -67,7 +68,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
 
                   Flexible(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         if(itemsModel1.itemsSold != "0")
                           Image.asset( translateDatabase(

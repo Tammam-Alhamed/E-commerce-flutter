@@ -51,7 +51,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                 int i = index > 4 ? index - 1 : index;
                 i != 3 && i !=2 ?Get.delete<CartController>(force: true) : "";
                 i!=2 ? controller.changePage(i) : "";
-                i != 1 ?  print(myServices.sharedPreferences.getInt('unreadCount')) : myServices.sharedPreferences.setInt('unreadCount' , 0);
+                i != 1 ?  print(myServices.sharedPreferences.getInt('unreadCount')) : myServices.sharedPreferences.remove('unreadCount');
               },
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
@@ -78,13 +78,13 @@ class CustomBottomAppBarHome extends StatelessWidget {
                   Stack(
                     children: [
                       if(index == 1)
-                        if(myServices.sharedPreferences.getInt('unreadCount') != 0)
+                        if(myServices.sharedPreferences.getInt('unreadCount') == 0)
                         Positioned(
                           bottom: 0,
                           left: 0,
                           child: Container(
                             margin: const EdgeInsets.symmetric(vertical: 12),
-                            child:  Icon(Icons.brightness_1_rounded, size: 15.0,
+                            child:  const Icon(Icons.brightness_1_rounded, size: 15.0,
                                 color: Colors.red),
                           )
                           ),

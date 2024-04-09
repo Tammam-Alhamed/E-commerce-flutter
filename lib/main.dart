@@ -9,22 +9,20 @@ import 'package:get/get.dart';
 import 'core/localization/changelocal.dart';
 
 
-
-Future background(RemoteMessage message) async{
-  HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
-  await initialServices();
-  MyServices myServices = Get.put(MyServices());
-
-    await controllerImp.unreadNotifaction();
-    print(myServices.sharedPreferences.getInt('unreadCount'));
-    await myServices.sharedPreferences.reload();
-  }
-
+HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
 
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
+  Future background(RemoteMessage message) async{
+    await initialServices();
+    MyServices myServices = Get.put(MyServices());
+    print("object");
+    await controllerImp.unreadNotifaction(message.data['unread']);
+    print(myServices.sharedPreferences.getInt('unreadCount'));
+    await myServices.sharedPreferences.reload();
+  }
   FirebaseMessaging.onBackgroundMessage(background);
   runApp(const MyApp());
 }
