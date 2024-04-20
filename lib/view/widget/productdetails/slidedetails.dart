@@ -1,3 +1,4 @@
+import 'package:bazar/controller/items_controller.dart';
 import 'package:bazar/core/constant/color.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:bazar/controller/productdetails_controller.dart';
@@ -37,8 +38,8 @@ class Sliderdetails extends GetView<ProductDetailsControllerImp> {
                 builder: DotSwiperPaginationBuilder(
                   color: AppColor.sky,
                     activeColor: AppColor.primaryColor,
-                    size: 12.0,
-                    activeSize: 10.0)),
+                    size: 9.0,
+                    activeSize: 7.0)),
 
           ),
         )

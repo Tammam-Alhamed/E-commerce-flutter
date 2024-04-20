@@ -16,7 +16,7 @@ import '../data/datasource/remote/categories_data.dart';
 
 abstract class HomeShopeController extends SearchMixController {
   initialData();
-  getdata();
+  getdata(int limit);
 
   goToItems( List shopes, int selectedShope ,String shopeid );
 }
@@ -30,6 +30,7 @@ class HomeShopeControllerImp extends HomeShopeController {
   String? lang;
   String? currentTabShope;
   double? pageCard = 3;
+  int limit = 30 ;
   String? discount;
   int i = 1;
   String? userBlock ;
@@ -37,7 +38,7 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   HomeData homedata = HomeData(Get.find());
 
-
+  ScrollController scrollController = ScrollController();
   CategoriesData testData = CategoriesData(Get.find());
 
   List<slidesmodel> image = [];
@@ -64,6 +65,8 @@ class HomeShopeControllerImp extends HomeShopeController {
     lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
+    // scrollController;
+    // pagenation();
   }
 
   @override
@@ -72,19 +75,20 @@ class HomeShopeControllerImp extends HomeShopeController {
       Get.toNamed(AppRoute.homepage);
     });
     search = TextEditingController();
-    getdata();
+    getdata(limit);
     initialData();
     super.onInit();
   }
 
   @override
-  getdata() async {
+  getdata(int limit) async {
     data.clear();
     shope.clear();
     image.clear();
     users.clear();
+    itemsNew.clear();
     statusRequest = StatusRequest.loading;
-    var response = await homedata.getData(myServices.sharedPreferences.getString("id")!);
+    var response = await homedata.getData(myServices.sharedPreferences.getString("id")! ,limit.toString());
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -200,6 +204,20 @@ class HomeShopeControllerImp extends HomeShopeController {
   }
 
 
+  // pagenation(){
+  //   scrollController.addListener(() {
+  //     if (scrollController.position.pixels ==
+  //         scrollController.position.maxScrollExtent) {
+  //       // Bottom poistion
+  //       print("end");
+  //       limit = limit + 30;
+  //       getdata(limit);
+  //     }else{
+  //       print('not loading');
+  //     }
+  //   });
+  //
+  // }
 
 
   goToPageProductDetails(itemsModel) {

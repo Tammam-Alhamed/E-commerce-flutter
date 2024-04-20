@@ -40,13 +40,15 @@ class ItemsControllerImp extends SearchMixController {
  // ScrollController  scrollController = ScrollController();
    SingleChildScrollView? child;
   int _totalCount = 0;
-  int limit = 20;
+  int limit = 10;
   int offset = 0;
   ScrollController scrollController = ScrollController();
-  bool isLoading = true;
+  ScrollController scrollController1 = ScrollController();
+  var isLoading = true.obs;
+  var isAddLoading = false.obs;
 
 
-  int currentMax = 10;
+
   List myList = [];
   String? currentTabCat;
 
@@ -74,6 +76,8 @@ class ItemsControllerImp extends SearchMixController {
     imgid = Get.arguments['imgid'];
     getItems(catid! , page , 1);
     scrollController;
+    scrollController1;
+    pagenation();
   }
 
 
@@ -100,7 +104,6 @@ class ItemsControllerImp extends SearchMixController {
       }
       // End
     }
-    isLoading = false;
     update();
   }
 
@@ -183,7 +186,6 @@ class ItemsControllerImp extends SearchMixController {
     data.clear();
 
     statusRequest = StatusRequest.loading;
-    isLoading = true;
     var response = await sort.getHighest_to_Lowest(
         categoryid, myServices.sharedPreferences.getString("id")! , lang);
     statusRequest = handlingData(response);
@@ -231,6 +233,22 @@ class ItemsControllerImp extends SearchMixController {
     Get.toNamed(AppRoute.items);
    getItems(catid ,  limit, offset);
     update();
+  }
+
+  pagenation(){
+      scrollController.addListener(() {
+        if (scrollController.position.pixels ==
+            scrollController.position.maxScrollExtent) {
+          // Bottom poistion
+          print("end");
+          offset = offset + 10;
+          limit = limit + 10;
+          getItems(catid ,  limit, offset);
+        }else{
+          print('not loading');
+        }
+      });
+
   }
 
 

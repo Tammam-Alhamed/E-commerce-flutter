@@ -25,6 +25,7 @@ class HomePage extends StatelessWidget {
       body: GetBuilder<HomeShopeControllerImp>(
           builder: (controller) => Container(
               child:  CustomScrollView(
+                controller: controllerImp.scrollController,
                 physics: BouncingScrollPhysics(),
                 slivers: <Widget>[
                   SliverAppBar(

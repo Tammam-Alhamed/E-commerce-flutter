@@ -5,8 +5,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 class HomeData {
   Crud crud;
   HomeData(this.crud);
-  getData(String usersid) async {
-    var response = await crud.postData(AppLink.homepage, {"usersid": usersid});
+  getData(String usersid , String limit) async {
+    var response = await crud.postData(AppLink.homepage, {"usersid": usersid ,"limit" : limit });
     return response.fold((l) => l, (r) => r);
   }
   searchData(String search) async {

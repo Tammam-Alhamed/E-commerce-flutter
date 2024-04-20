@@ -30,13 +30,6 @@ class HomeScreenControllerImp extends HomeScreenController {
    Settings(),
   ];
 
-  unreadNotifaction(unreadCount) async{
-
-     unreadCount = myServices.sharedPreferences.getInt('unreadCount') ?? 0;
-    await myServices.sharedPreferences.setInt('unreadCount', unreadCount);
-    myServices.sharedPreferences.reload();
-    update();
-  }
 
   void onInit() {
     myServices.sharedPreferences.reload();

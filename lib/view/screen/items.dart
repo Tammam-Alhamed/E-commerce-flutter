@@ -4,7 +4,10 @@ import 'package:bazar/controller/items_controller.dart';
 import 'package:bazar/core/class/handlingdataview.dart';
 import 'package:bazar/core/constant/imgaeasset.dart';
 import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/data/model/itemscolorsmodel.dart';
+import 'package:bazar/data/model/itemsimagesmodel.dart';
 import 'package:bazar/data/model/itemsmodel.dart';
+import 'package:bazar/data/model/itemssizesmodel.dart';
 import 'package:bazar/linkapi.dart';
 import 'package:bazar/view/Support/Images.dart';
 import 'package:bazar/view/screen/home.dart';
@@ -52,6 +55,7 @@ class Items extends StatelessWidget {
               toolbarOpacity: 0,
             ),
             body: CustomScrollView(
+              controller: controller.scrollController ,
               anchor: 0.006,
               physics: const BouncingScrollPhysics(),
               slivers:<Widget> [
@@ -96,7 +100,7 @@ class Items extends StatelessWidget {
                       padding: const EdgeInsets.all(15),
                       child: ListView(
                         shrinkWrap: true,
-                          controller: controller.scrollController ,
+                          controller: controller.scrollController1 ,
 
                           children: [
 
@@ -119,10 +123,7 @@ class Items extends StatelessWidget {
                                             const SliverGridDelegateWithFixedCrossAxisCount(
                                                 crossAxisCount: 2, childAspectRatio: 0.6),
                                             itemBuilder: (BuildContext context, index) {
-
-                                              controllerFav.isFavorite[controller.data[index]
-                                              ['items_id']] =
-                                              controller.data[index]['favorite'];
+                                              controllerFav.isFavorite[controller.data[index]['items_id']] = controller.data[index]['favorite'];
                                                 return AnimationConfiguration.staggeredGrid(
                                                   position: index,
                                                   duration: const Duration(milliseconds: 600),
