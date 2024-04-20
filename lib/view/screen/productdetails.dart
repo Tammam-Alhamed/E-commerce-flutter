@@ -96,14 +96,15 @@ class ProductDetails extends StatelessWidget {
           ),
           body: GetBuilder<ProductDetailsControllerImp>(
               builder: (controller) => ListView(children: [
-                    HandlingDataView(
-                        statusRequest: controller.statusRequest,
-                        widget: Container(
+                     Container(
                           padding: const EdgeInsets.all(10),
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Sliderdetails(),
+                              HandlingDataView(
+                              statusRequest: controller.statusRequest,
+                              widget: Sliderdetails(),
+                              ),
                                 Column(
                                   children: [
                                     Row(
@@ -232,7 +233,7 @@ class ProductDetails extends StatelessWidget {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            if (controller.colors.length != 1)
+                                            if (controller.colors.length != 1 && controller.colors.length != 0)
                                               Column(
                                                 children: [
                                                   const Text(" Select Color",
@@ -257,7 +258,7 @@ class ProductDetails extends StatelessWidget {
                                             const Padding(
                                                 padding: EdgeInsets.only(
                                                     left: 0, right: 0)),
-                                            if (controller.sizes.length != 1)
+                                            if (controller.sizes.length != 1 && controller.sizes.length != 0)
                                               Container(
                                                 decoration: const BoxDecoration(
                                                   border: Border(
@@ -276,7 +277,7 @@ class ProductDetails extends StatelessWidget {
                                   ],
                                 ),
                               ]),
-                        ))
+                        )
                   ]))),
     );
   }

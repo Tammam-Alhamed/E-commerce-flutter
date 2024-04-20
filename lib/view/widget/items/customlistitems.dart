@@ -1,4 +1,7 @@
 import 'package:bazar/core/services/services.dart';
+import 'package:bazar/data/model/itemscolorsmodel.dart';
+import 'package:bazar/data/model/itemsimagesmodel.dart';
+import 'package:bazar/data/model/itemssizesmodel.dart';
 import 'package:bazar/view/Support/Images.dart';
 import 'package:bazar/controller/favorite_controller.dart';
 import 'package:bazar/controller/items_controller.dart';

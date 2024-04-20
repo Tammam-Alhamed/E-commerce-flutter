@@ -6,6 +6,7 @@ import 'package:bazar/core/functions/translatefatabase.dart';
 import 'package:bazar/data/model/itemsmodel.dart';
 import 'package:bazar/linkapi.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
 class ListNewItemsHome extends GetView<HomeShopeControllerImp> {

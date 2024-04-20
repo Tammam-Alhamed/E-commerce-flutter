@@ -9,29 +9,28 @@ import 'package:get/get.dart';
 import 'core/localization/changelocal.dart';
 
 
-HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
-
+@pragma('vm:entry-point')
+Future background(RemoteMessage message) async{
+  await initialServices();
+  MyServices myServices = Get.put(MyServices());
+  var unreadCount = myServices.sharedPreferences.getInt('unreadCount') ?? 0;
+  await myServices.sharedPreferences.setInt('unreadCount', unreadCount);
+  await myServices.sharedPreferences.reload();
+}
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
-  await initialServices();
-  Future background(RemoteMessage message) async{
-    await initialServices();
-    MyServices myServices = Get.put(MyServices());
-    print("object");
-    await controllerImp.unreadNotifaction(message.data['unread']);
-    print(myServices.sharedPreferences.getInt('unreadCount'));
-    await myServices.sharedPreferences.reload();
-  }
   FirebaseMessaging.onBackgroundMessage(background);
+  await initialServices();
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
-
   Widget build(BuildContext context) {
+
     LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
       translations: MyTranslation(),
