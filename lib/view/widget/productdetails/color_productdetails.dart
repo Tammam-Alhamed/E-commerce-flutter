@@ -16,10 +16,7 @@ class CustomColor extends  GetView<ProductDetailsControllerImp>{
   @override
 
   Widget build(BuildContext context) {
-    return CircleColorRow(colors: [],
-
-
-    );
+    return CircleColorRow(colors: [],);
   }
 }
 
@@ -45,7 +42,7 @@ class _CircleColorRowState extends State<CircleColorRow> {
     return Scrollbar(
         thumbVisibility:true,
         interactive:true,
-        radius:Radius.circular(50),
+
         trackVisibility:true,
         controller: _firstController,
         child: SingleChildScrollView(
@@ -73,7 +70,7 @@ class _CircleColorRowState extends State<CircleColorRow> {
                   height: 30,
                   margin: const EdgeInsets.all(4.0),
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
+                    borderRadius: BorderRadius.circular(5),
                     border: controller.colors.length == 1 ?null :controller.currentTabColor == index
                         ? Border.all(color: AppColor.thirdColor, width: 1.5)
                         : null,

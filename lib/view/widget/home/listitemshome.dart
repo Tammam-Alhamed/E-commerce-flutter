@@ -18,7 +18,7 @@ class ListItemsHome extends GetView<HomeShopeControllerImp> {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return ItemsHome(
-                itemsModel: ItemsModel.fromJson(controller.items[index]));
+                itemsModel: ItemsModel.fromJson(controller.items[index]), itemnum: index,);
           }),
     );
   }
@@ -26,15 +26,15 @@ class ListItemsHome extends GetView<HomeShopeControllerImp> {
 
 class ItemsHome extends GetView<HomeShopeControllerImp>  {
   final ItemsModel itemsModel;
-
-  const ItemsHome(  {Key? key, required this.itemsModel, }) : super(key: key);
+  final int itemnum;
+  const ItemsHome(  {Key? key, required this.itemsModel, required this.itemnum }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       highlightColor: Colors.white,
       onTap: () {
-        controller.goToPageProductDetails(itemsModel);
+        controller.goToPageProductDetails(itemsModel , itemnum);
       },
       child: Stack(
         alignment: AlignmentDirectional.center,

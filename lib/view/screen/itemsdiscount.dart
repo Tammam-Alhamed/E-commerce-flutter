@@ -93,7 +93,7 @@ class ItemsDiscount extends StatelessWidget {
                                   child: FadeInAnimation(
                                     child: CustomListItemsDiscount(
                                         itemsModel: ItemsModel.fromJson(
-                                            controller.data[index])),
+                                            controller.data[index]), itemnum: index,),
                                   ),
                                 ),
                               );

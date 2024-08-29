@@ -14,8 +14,9 @@ import 'package:intl/intl.dart';
 
 class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
   final ItemsModel itemsModel;
+  final int itemnum;
   // final bool active;
-  const CustomListItemsDiscount({Key? key, required this.itemsModel}) : super(key: key);
+  const CustomListItemsDiscount({Key? key, required this.itemsModel , required this.itemnum}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +71,7 @@ class CustomListItemsDiscount extends GetView<HomeShopeControllerImp> {
       onTap: () {
         itemsModel.itemsSold != "0"
             ? ""
-            : controller.goToPageProductDetails(itemsModel);
+            : controller.goToPageProductDetails(itemsModel ,itemnum);
       },
       child: Container(
         padding: const EdgeInsets.only(right: 5),

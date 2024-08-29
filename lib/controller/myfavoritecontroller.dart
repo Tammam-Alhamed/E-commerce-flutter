@@ -38,6 +38,7 @@ class MyFavoriteControllerImp extends SearchMixController {
       // Start backend
       if (response['status'] == "success") {
         List responsedata = response['data'];
+        respon = response['data'];
         data.addAll(responsedata.map((e) => MyFavoriteModel.fromJson(e)));
         dataitem.addAll(responsedata.map((e) => ItemsModel.fromJson(e)));
         // print("data");
@@ -65,7 +66,11 @@ class MyFavoriteControllerImp extends SearchMixController {
     super.onInit();
   }
 
-  goToPageProductDetails(itemsModel1) {
-    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel1});
+  goToPageProductDetails(itemsModel1 , itemnum) {
+    Get.toNamed("productdetails", arguments: {
+      "itemsmodel": itemsModel1,
+      "respon" : respon ,
+      "itemnum" : itemnum
+    });
   }
 }

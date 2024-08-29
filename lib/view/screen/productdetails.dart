@@ -103,7 +103,7 @@ class ProductDetails extends StatelessWidget {
                               children: [
                               HandlingDataView(
                               statusRequest: controller.statusRequest,
-                              widget: Sliderdetails(),
+                              widget: Sliderdetails(itemNum: controller.itemnum!,),
                               ),
                                 Column(
                                   children: [
@@ -144,12 +144,7 @@ class ProductDetails extends StatelessWidget {
                                               builder: (controller) =>
                                                   IconButton(
                                                       onPressed: () {
-                                                        if (controller
-                                                                    .isFavorite[
-                                                                controllerImp
-                                                                    .itemsModel
-                                                                    .itemsId] ==
-                                                            "1") {
+                                                        if (controller.isFavorite[controllerImp.itemsModel.itemsId] == "1") {
                                                           controller.setFavorite(
                                                               controllerImp
                                                                   .itemsModel

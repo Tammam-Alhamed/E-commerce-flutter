@@ -10,17 +10,18 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 
 class Sliderdetails extends GetView<ProductDetailsControllerImp> {
-  @override
+  final int itemNum ;
 
+  Sliderdetails({super.key, required this.itemNum});
   Widget build(BuildContext context) {
     return
       Container(
         height: 450,
           child: Swiper(
-            itemCount:controller.images.length,
+            itemCount:controller.data[itemNum]['image'].length,
             itemBuilder: (BuildContext context,int index){
               return TopProductPageDetails(
-                                imagesModel: ImagesModel.fromJson(controller.images[index]
+                                imagesModel: ImagesModel.fromJson(controller.data[itemNum]['image'][index]
                                 ));
             },
             itemHeight: 400,

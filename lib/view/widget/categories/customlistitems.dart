@@ -28,7 +28,7 @@ class CustomListcategories extends GetView<CategoriesControllerImp> {
         onTap: () {
           categoriesModel.comingsoon!="0" ? "" :  controller.goToItems(controller.categories, i , categoriesModel.categoriesId! );
         },
-        child: Card(
+        child: InkWell(
           //margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
 
           child: Stack(

@@ -27,7 +27,8 @@ class SlidesControllerImp extends SearchMixController {
 
   List NEW = [] ;
   List offer = [] ;
-
+  int limit = 30 ;
+  var respon ;
   late StatusRequest statusRequest;
 
   MyServices myServices = Get.find();
@@ -44,28 +45,31 @@ class SlidesControllerImp extends SearchMixController {
 
   intialData() {
     getItems();
-    getimage();
+    getimage(limit);
   }
 
   goToItemsNew(categories ) {
     Get.toNamed(AppRoute.itemsDiscount);
     getNew();
+    update();
   }
 
 
   goToItemsDiscount(categories ) {
     Get.toNamed(AppRoute.itemsDiscount);
     getItems();
+    update();
   }
 
   goToItemsOffer(categories ) {
     Get.toNamed(AppRoute.itemsDiscount);
     getOffer();
+    update();
   }
 
-  getimage() async {
+  getimage(int limit) async {
     statusRequest = StatusRequest.loading;
-    var response = await homedata.getData(myServices.sharedPreferences.getString("id")!);
+    var response = await homedata.getData(myServices.sharedPreferences.getString("id")! , limit.toString());
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -108,6 +112,7 @@ class SlidesControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
         NEW.addAll(response['data']);
       } else {
@@ -138,7 +143,11 @@ class SlidesControllerImp extends SearchMixController {
     update();
   }
 
-  goToPageProductDetails(itemsModel) {
-    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
+  goToPageProductDetails(itemsModel , itemnum) {
+    Get.toNamed("productdetails", arguments: {
+      "itemsmodel": itemsModel,
+      "respon" : respon ,
+      "itemnum" : itemnum
+    });
   }
 }

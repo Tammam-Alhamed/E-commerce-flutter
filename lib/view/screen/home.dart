@@ -92,7 +92,7 @@ class HomePage extends StatelessWidget {
 
                                           ],
                                         )
-                                      : ListItemsSearch(listdatamodel: controller.listdata)
+                                      : ListItemsSearch(listdatamodel: controller.listdata,)
                                       )
 
                               // const CustomTitleHome(title: "Offer"),
@@ -111,6 +111,7 @@ class HomePage extends StatelessWidget {
 
 class ListItemsSearch extends GetView<HomeShopeControllerImp> {
   final List<ItemsModel> listdatamodel;
+
   const ListItemsSearch({Key? key, required this.listdatamodel})
       : super(key: key);
 
@@ -127,7 +128,7 @@ class ListItemsSearch extends GetView<HomeShopeControllerImp> {
             focusColor: Colors.white,
             highlightColor: Colors.white,
             onTap: () {
-              controller.goToPageProductDetails(listdatamodel[index]);
+              controller.goToPageProductDetails(listdatamodel[index] , index);
             },
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 20),

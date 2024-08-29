@@ -116,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                                   ],
                                 ),);} ));
                   },
-                  child: const Icon(FontAwesome.wand_magic_sparkles_solid , color: Colors.white, size: 20,)),
+                  child: const Icon(Iconsax.magicpen_outline , color: Colors.white, size: 30,)),
 
               floatingActionButtonLocation:
               myServices

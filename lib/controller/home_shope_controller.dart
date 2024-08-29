@@ -56,12 +56,13 @@ class HomeShopeControllerImp extends HomeShopeController {
   List itemsNew =[] ;
   List slides = [];
   List users = [];
+  var respon ;
+  var responHome ;
 
 
   @override
   initialData() {
     // myServices.sharedPreferences.clear() ;
-    myServices.sharedPreferences.reload();
     lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
@@ -75,7 +76,9 @@ class HomeShopeControllerImp extends HomeShopeController {
       Get.toNamed(AppRoute.homepage);
     });
     search = TextEditingController();
-    getdata(limit);
+    Future.value(getdata(limit).then((value) => getItems()));
+    // getdata(limit);
+    // getItems();
     initialData();
     super.onInit();
   }
@@ -86,7 +89,6 @@ class HomeShopeControllerImp extends HomeShopeController {
     shope.clear();
     image.clear();
     users.clear();
-    itemsNew.clear();
     statusRequest = StatusRequest.loading;
     var response = await homedata.getData(myServices.sharedPreferences.getString("id")! ,limit.toString());
     // print("=============================== Controller $response ");
@@ -97,7 +99,6 @@ class HomeShopeControllerImp extends HomeShopeController {
         if(users[0]['blocked'] != "1"){
           userBlock = users[0]['blocked'] ;
           shope.addAll(response['shope']['data']);
-          itemsNew.addAll(response['itemsNew']['data']);
           List responsedata = response['slides']['data'];
           image.addAll(responsedata.map((e) => slidesmodel.fromJson(e)));
         }else{
@@ -110,7 +111,26 @@ class HomeShopeControllerImp extends HomeShopeController {
     update();
   }
 
-
+  getItems() async {
+    data.clear();
+    itemsNew.clear();
+    var response = await homedata.getItems();
+    // print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        print(response['data']);
+        // image.addAll(response['data'][0]['image']);
+        responHome = response['data'];
+        itemsNew.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
 
 
 
@@ -132,7 +152,7 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   goToItemsDiscount(categories ) {
     Get.toNamed(AppRoute.itemsDiscount);
-    getItems();
+    getItemsDiscount();
   }
 
   goToItemsOffer(categories ) {
@@ -152,6 +172,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
         offer.addAll(response['data']);
       } else {
@@ -165,7 +186,7 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   getNew() async {
     data.clear();
-    NEW.clear();
+
     statusRequest = StatusRequest.loading;
     var response = await testData.getNew(
         myServices.sharedPreferences.getString("id")!);
@@ -174,8 +195,8 @@ class HomeShopeControllerImp extends HomeShopeController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
-        NEW.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -184,7 +205,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     update();
   }
 
-  getItems() async {
+  getItemsDiscount() async {
     data.clear();
     statusRequest = StatusRequest.loading;
     var response = await testData.getDiscount(
@@ -194,6 +215,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -202,6 +224,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     }
     update();
   }
+
 
 
   // pagenation(){
@@ -220,14 +243,25 @@ class HomeShopeControllerImp extends HomeShopeController {
   // }
 
 
-  goToPageProductDetails(itemsModel) {
-    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
+  goToPageProductDetailsHome(itemsModel , itemnum) {
+    Get.toNamed("productdetails", arguments: {
+      "itemsmodel": itemsModel,
+      "respon" : responHome ,
+      "itemnum" : itemnum
+    });
+  }
+  goToPageProductDetails(itemsModel , itemnum) {
+    Get.toNamed("productdetails", arguments: {
+      "itemsmodel": itemsModel,
+      "respon" : respon ,
+      "itemnum" : itemnum
+    });
   }
 }
 
 class SearchMixController extends GetxController {
   List<ItemsModel> listdata = [];
-
+  var respon ;
   late StatusRequest statusRequest;
   HomeData homedata = HomeData(Get.find());
 
@@ -239,6 +273,7 @@ class SearchMixController extends GetxController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
+        respon = response['data'];
         listdata.clear();
         List responsedata = response['data'];
         listdata.addAll(responsedata.map((e) => ItemsModel.fromJson(e)));

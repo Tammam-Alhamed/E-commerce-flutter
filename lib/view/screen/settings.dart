@@ -58,7 +58,7 @@ class Settings extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(AppRoute.orderspending);
                 },
-                icons: CupertinoIcons.doc_chart_fill,
+                icons: Iconsax.document_upload_bold,
                 iconStyle: IconStyle(backgroundColor: AppColor.primaryColor),
                 title: "54".tr,
                 titleMaxLine: 1,

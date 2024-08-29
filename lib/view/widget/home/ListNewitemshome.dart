@@ -21,7 +21,7 @@ class ListNewItemsHome extends GetView<HomeShopeControllerImp> {
           scrollDirection: Axis.vertical,
           itemBuilder: (context, index) {
             return ItemsHome(
-                itemsModel: ItemsModel.fromJson(controller.itemsNew[index]));
+                itemsModel: ItemsModel.fromJson(controller.itemsNew[index]), itemnum: index,);
           }, gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3, childAspectRatio: 0.6),);
   }
@@ -29,6 +29,8 @@ class ListNewItemsHome extends GetView<HomeShopeControllerImp> {
 
 class ItemsHome extends GetView<HomeShopeControllerImp>  {
   final ItemsModel itemsModel;
+  final int itemnum;
+
   String formatAmount(){
     String price = "${translateDatabase(
         itemsModel.itemsPrice, itemsModel.itemsPrice,itemsModel.itemsPrice)}";
@@ -68,7 +70,7 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
     return priceInText.trim();
   }
 
-  const ItemsHome(  {super.key, required this.itemsModel, });
+  const ItemsHome(  {super.key, required this.itemsModel, required this.itemnum });
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,7 @@ class ItemsHome extends GetView<HomeShopeControllerImp>  {
         focusColor: Colors.white,
         highlightColor: Colors.white,
         onTap: () {
-          itemsModel.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel);
+          itemsModel.itemsSold !="0" ? "" :controller.goToPageProductDetailsHome(itemsModel , itemnum);
         },
         child: InkWell(
           child: Stack(

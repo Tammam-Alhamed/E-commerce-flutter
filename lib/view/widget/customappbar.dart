@@ -4,6 +4,7 @@ import 'package:bazar/view/widget/categories/listshope.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 import 'categories/listshope.dart';
 
@@ -23,7 +24,7 @@ class CustomAppBar extends StatelessWidget {
       this.onPressedSearch,
       required this.onPressedIconFavorite,
       this.onChanged,
-      required this.mycontroller,   this.iconData =   Icons.favorite_border_outlined,
+      required this.mycontroller,   this.iconData =   Iconsax.heart_outline,
 
        this.container,
        required this.onPressed
@@ -48,7 +49,7 @@ class CustomAppBar extends StatelessWidget {
           decoration: InputDecoration(
               prefixIcon: IconButton(
 
-                  icon: Icon(Icons.search), onPressed: onPressedSearch),
+                  icon: Icon(Iconsax.search_normal_1_outline), onPressed: onPressedSearch),
               hintText: titleappbar,
               hintStyle: TextStyle(fontSize: 15),
               border: OutlineInputBorder(

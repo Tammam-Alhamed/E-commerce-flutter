@@ -13,9 +13,9 @@ import 'package:get/get.dart';
 class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
   final MyFavoriteModel itemsModel;
   final ItemsModel itemsModel1;
-
+  final int itemnum;
   // final bool active;
-   CustomListFavoriteItems( {Key? key,required this.itemsModel1, required this.itemsModel})
+   CustomListFavoriteItems( {Key? key,required this.itemsModel1, required this.itemsModel , required this.itemnum})
       : super(key: key);
 
   @override
@@ -26,7 +26,7 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
         focusColor: Colors.white,
         highlightColor: Colors.white,
         onTap: () {
-          itemsModel1.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel1);
+          itemsModel1.itemsSold !="0" ? "" :controller.goToPageProductDetails(itemsModel1 , itemnum);
         },
         child: Container(
           child: Padding(

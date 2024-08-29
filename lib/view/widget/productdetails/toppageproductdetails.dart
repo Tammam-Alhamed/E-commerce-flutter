@@ -38,7 +38,8 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
                           showImageViewer(context, imageProvider,
                               immersive: false,
                               closeButtonTooltip: "close",
-                              useSafeArea: true);
+                              useSafeArea: true
+                              );
                         },
                         child: CachedNetworkImage(
                           imageUrl:
