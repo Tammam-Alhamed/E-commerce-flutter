@@ -17,8 +17,9 @@ import 'package:intl/intl.dart';
 
 class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
+  final int itemnum ;
   // final bool active;
-  const CustomListItems({super.key, required this.itemsModel});
+  const CustomListItems({super.key, required this.itemsModel , required this.itemnum});
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +74,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
         onTap: () {
           itemsModel.itemsSold != "0"
               ? ""
-              : controller.goToPageProductDetails(itemsModel);
+              : controller.goToPageProductDetails(itemsModel , itemnum);
         },
         child: Container(
           padding: const EdgeInsets.only(right: 5),

@@ -56,7 +56,7 @@ class ItemsControllerImp extends SearchMixController {
 
   var character;
   List data = [];
-  List image = [];
+  var respon ;
 
   late StatusRequest statusRequest;
 
@@ -77,7 +77,7 @@ class ItemsControllerImp extends SearchMixController {
     getItems(catid! , page , 1);
     scrollController;
     scrollController1;
-    pagenation();
+    // pagenation();
   }
 
 
@@ -98,6 +98,9 @@ class ItemsControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        print(response['data'][0]['image']);
+        // image.addAll(response['data'][0]['image']);
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -108,24 +111,24 @@ class ItemsControllerImp extends SearchMixController {
   }
 
 
-  getimages(String imageid) async {
-    image.clear();
-    statusRequest = StatusRequest.loading;
-    var response = await dataimage.getData(
-        imageid);
-    // print("=============================== Controller $response ");
-    statusRequest = handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      // Start backend
-      if (response['status'] == "success") {
-        image.addAll(response['data']);
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-      // End
-    }
-    update();
-  }
+  // getimages(String imageid) async {
+  //   image.clear();
+  //   statusRequest = StatusRequest.loading;
+  //   var response = await dataimage.getData(
+  //       imageid);
+  //   // print("=============================== Controller $response ");
+  //   statusRequest = handlingData(response);
+  //   if (StatusRequest.success == statusRequest) {
+  //     // Start backend
+  //     if (response['status'] == "success") {
+  //       image.addAll(response['data']);
+  //     } else {
+  //       statusRequest = StatusRequest.failure;
+  //     }
+  //     // End
+  //   }
+  //   update();
+  // }
 
 
   getA_to_Z(categoryid , lang) async {
@@ -137,6 +140,7 @@ class ItemsControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -155,6 +159,7 @@ class ItemsControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -174,6 +179,7 @@ class ItemsControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -192,6 +198,7 @@ class ItemsControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -235,27 +242,31 @@ class ItemsControllerImp extends SearchMixController {
     update();
   }
 
-  pagenation(){
-      scrollController.addListener(() {
-        if (scrollController.position.pixels ==
-            scrollController.position.maxScrollExtent) {
-          // Bottom poistion
-          print("end");
-          offset = offset + 10;
-          limit = limit + 10;
-          getItems(catid ,  limit, offset);
-        }else{
-          print('not loading');
-        }
-      });
-
-  }
-
-
+  // pagenation(){
+  //     scrollController.addListener(() {
+  //       if (scrollController.position.pixels ==
+  //           scrollController.position.maxScrollExtent) {
+  //         // Bottom poistion
+  //         print("end");
+  //         offset = offset + 10;
+  //         limit = limit + 10;
+  //         getItems(catid ,  limit, offset);
+  //       }else{
+  //         print('not loading');
+  //       }
+  //     });
+  //
+  // }
 
 
-  goToPageProductDetails(itemsModel) {
-    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
+
+
+  goToPageProductDetails(itemsModel , itemnum) {
+    Get.toNamed("productdetails", arguments: {
+      "itemsmodel": itemsModel,
+      "respon" : respon ,
+      "itemnum" : itemnum
+    });
   }
 
 }

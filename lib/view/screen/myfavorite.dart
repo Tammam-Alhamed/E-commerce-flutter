@@ -61,7 +61,7 @@ class MyFavorite extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return CustomListFavoriteItems(
                                 itemsModel: controller.data[index],
-                              itemsModel1: controller.dataitem[index],);
+                              itemsModel1: controller.dataitem[index], itemnum: index,);
                           },
                         ))
                   ]))),

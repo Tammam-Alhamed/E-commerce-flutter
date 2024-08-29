@@ -47,7 +47,7 @@ class Items extends StatelessWidget {
           ),
           child: Scaffold(
             appBar: AppBar(
-              backgroundColor: AppColor.secondColor,
+              backgroundColor: AppColor.backgroundcolor,
               leadingWidth: 0,
               centerTitle : true,
               bottomOpacity: 0,
@@ -70,34 +70,40 @@ class Items extends StatelessWidget {
                   pinned: false,
                   centerTitle: false,
                   iconTheme: IconThemeData(color: Colors.black , fill: 0.41 ,grade: 2),
-                  title: CustomAppBar(
-                    mycontroller: controller.search!,
-                    titleappbar: "39".tr,
-                    // onPressedIcon: () {},
-                    onPressedSearch: () {
-                      controller.onSearchItems();
-                    },
-                    onChanged: (val) {
-                      controller.checkSearch(val);
-                    },
-                    onPressedIconFavorite: () {
-                      Get.offAndToNamed(AppRoute.myfavroite);
-                    },
-                    onPressed: (String ) { controller.onSearchItems(); },
-                    container: Container(
-                      decoration: BoxDecoration(
-                          color: AppColor.backgroundcolor,
-                          borderRadius: BorderRadius.circular(10)),
-                      width: 60,
+                  actions:[
+                    SizedBox(
+                      width: 341,
+                      height:90 ,
+                      child: CustomAppBar(
+                        mycontroller: controller.search!,
+                        titleappbar: "39".tr,
+                        // onPressedIcon: () {},
+                        onPressedSearch: () {
+                          controller.onSearchItems();
+                        },
+                        onChanged: (val) {
+                          controller.checkSearch(val);
+                        },
+                        onPressedIconFavorite: () {
+                          Get.offAndToNamed(AppRoute.myfavroite);
+                        },
+                        onPressed: (String ) { controller.onSearchItems(); },
+                        container: Container(
+                          decoration: BoxDecoration(
+                              color: AppColor.backgroundcolor,
+                              borderRadius: BorderRadius.circular(10)),
+                          width: 60,
 
 
-                      child: ListCat(onChange: controller.changeCat),
-                    ),
-                  ) ,),
+                          child: ListCat(onChange: controller.changeCat),
+                        ),
+                      ),
+                    )
+                  ]  ,),
                 SliverList.list(
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(14),
                       child: ListView(
                         shrinkWrap: true,
                           controller: controller.scrollController1 ,
@@ -134,7 +140,7 @@ class Items extends StatelessWidget {
                                                     child: FadeInAnimation(
                                                       child: CustomListItems(
                                                           itemsModel: ItemsModel.fromJson(
-                                                              controller.data[index])),
+                                                              controller.data[index]), itemnum: index,),
                                                     ),
                                                   ),
                                                 );

@@ -6,6 +6,7 @@ import 'package:bazar/core/services/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 class CustomBottomAppBarHome extends StatelessWidget {
   const CustomBottomAppBarHome({Key? key}) : super(key: key);
@@ -14,23 +15,28 @@ class CustomBottomAppBarHome extends StatelessWidget {
     MyServices myServices = Get.find();
     Size size = MediaQuery.of(context).size;
     List listOfIcons = [
-      Icons.home_rounded,
-      Icons.notifications_active_rounded,
+      Iconsax.home_1_outline,
+      Iconsax.notification_outline,
       Icons.shopping_cart_outlined.fontFamilyFallback,
-      Icons.shopping_cart_outlined,
-      Icons.person_rounded,
+      Iconsax.shopping_cart_outline,
+      Iconsax.user_outline,
+    ];
+
+    List listOfIconsBold = [
+      Iconsax.home_1_bold ,
+      Iconsax.notification_bold,
+      Icons.shopping_cart_outlined.fontFamilyFallback,
+      Iconsax.shopping_cart_bold,
+      Iconsax.user_bold,
     ];
     return GetBuilder<HomeScreenControllerImp>(
         builder: (controller) => Container(
           height: size.width * .155,
-          child: BottomAppBar(
-            padding: const EdgeInsets.only(top: 0),
-            shape: const CircularNotchedRectangle(),
-            notchMargin: 5,
           child: Container(
 
             decoration: BoxDecoration(
                 color: AppColor.backgroundcolor,
+                borderRadius: BorderRadius.only(topRight: Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
                     spreadRadius: 10,
@@ -89,7 +95,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                           )
                           ),
                       Icon(
-                        listOfIcons[index],
+                        controller.currentpage != index ?listOfIcons[index] :listOfIconsBold[index],
                         size: size.width * .076,
                         color: index == controller.currentpage
                             ? AppColor.sky
@@ -103,7 +109,6 @@ class CustomBottomAppBarHome extends StatelessWidget {
             ),
                   ),
           ),
-              ),
         ));
   }
 }

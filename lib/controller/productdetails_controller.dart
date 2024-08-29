@@ -23,24 +23,29 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   int countitems = 0;
   int currentTabColor = 0;
   String? currentTabSize ;
-  List images = [];
+  List respon = [];
   List colors =[];
   List sizes =[];
-
-
+  int? itemnum ;
+  List data = [];
 
   intialData() async {
     statusRequest =  StatusRequest.loading;
     itemsModel = Get.arguments['itemsmodel'];
-    countitems = await getCountItems(itemsModel.itemsId!);
+    respon = Get.arguments['respon'];
+    itemnum = Get.arguments['itemnum'];
+    // countitems = await getCountItems(itemsModel.itemsId!);
     statusRequest = StatusRequest.success;
+    data.addAll(respon);
+    sizes.addAll(data[itemnum!]['size']);
+    colors.addAll(data[itemnum!]['color']);
     update();
   }
 
   getCountItems(String itemsid) async {
     colors.clear();
     sizes.clear();
-    images.clear();
+    // images.clear();
     statusRequest = StatusRequest.loading;
     var response = await cartData.getCountCart(
         myServices.sharedPreferences.getString("id")!, itemsid);
@@ -53,7 +58,6 @@ class ProductDetailsControllerImp extends ProductDetailsController {
         countitems = int.parse(response['data']);
         print("==================================");
         print("$countitems");
-        images.addAll(response['images']['data']);
         colors.addAll(response['colors']['data']);
         sizes.addAll(response['sizes']['data']);
         return countitems;
