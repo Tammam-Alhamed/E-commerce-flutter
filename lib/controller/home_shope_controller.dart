@@ -28,6 +28,33 @@ class HomeShopeControllerImp extends HomeShopeController {
   String? discount;
   int i = 1;
 
+  RxInt unreadNotificationCount = 0.obs;
+  incrementUnreadNotificationCount() {
+    unreadNotificationCount.value++;
+    update();// Increment the count by 1
+  }
+  void configureFirebaseMessaging() async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+    // Request permission to receive notifications
+    await messaging.requestPermission();
+
+    // Configure Firebase Messaging listeners
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      incrementUnreadNotificationCount();
+      update();
+    });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      // Handle notification when app is in the foreground
+    });
+
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  }
+
+  Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+    incrementUnreadNotificationCount();
+  }
 
 
   HomeData homedata = HomeData(Get.find());
@@ -54,10 +81,13 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   @override
   initialData() {
+    print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+    print(unreadNotificationCount);
     // myServices.sharedPreferences.clear() ;
     lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
+
   }
 
   @override
@@ -65,6 +95,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
       Get.toNamed(AppRoute.homepage);
     });
+    configureFirebaseMessaging();
     search = TextEditingController();
     getdata();
     initialData();

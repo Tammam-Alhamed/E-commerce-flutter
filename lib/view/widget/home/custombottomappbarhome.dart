@@ -4,11 +4,17 @@ import 'package:bazar/core/constant/color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart' as badges;
+
+import '../../../controller/home_shope_controller.dart';
 
 class CustomBottomAppBarHome extends StatelessWidget {
   const CustomBottomAppBarHome({Key? key}) : super(key: key);
   @override
+
   Widget build(BuildContext context) {
+    HomeShopeControllerImp controllerImp=    Get.put(HomeShopeControllerImp());
+
     Size size = MediaQuery.of(context).size;
     List listOfIcons = [
       Icons.home_rounded,
@@ -74,18 +80,14 @@ class CustomBottomAppBarHome extends StatelessWidget {
                   Stack(
                     children: [
                       if(index == 1)
-                        Positioned(
-                          top: -13,
-                          left: 10.5,
-                          child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 12),
-                            child:  Text("${controller.count_notification}",
-                                style:TextStyle(
-                                    fontSize: 18,
-                                    color: AppColor.primaryColor,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                        ),
+                        badges.Badge(
+                          badgeContent: Text("${controllerImp.unreadNotificationCount}"),
+                          child: Icon(listOfIcons[index],
+                            size: size.width * .076,
+                            color: index == controller.currentpage
+                                ? AppColor.sky
+                                : Colors.black38,),
+                        )else
                       Icon(
                         listOfIcons[index],
                         size: size.width * .076,

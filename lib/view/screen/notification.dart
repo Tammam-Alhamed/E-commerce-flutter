@@ -8,6 +8,8 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 
+import '../../main.dart';
+
 class NotificationView extends GetView< NotificationController> {
   const NotificationView({super.key});
 

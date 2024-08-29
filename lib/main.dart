@@ -13,6 +13,7 @@ import 'core/localization/changelocal.dart';
 HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
 Future background(RemoteMessage message) async{
   controllerImp.count_notification ++ ;
+  print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
   print(controllerImp.count_notification);
 }
 void main() async {
