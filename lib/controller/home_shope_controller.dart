@@ -1,4 +1,5 @@
 import 'package:bazar/controller/homescreen_controller.dart';
+import 'package:bazar/core/class/crud.dart';
 import 'package:bazar/core/class/statusrequest.dart';
 import 'package:bazar/core/constant/routes.dart';
 import 'package:bazar/core/functions/handingdatacontroller.dart';
@@ -6,65 +7,46 @@ import 'package:bazar/core/services/services.dart';
 import 'package:bazar/data/datasource/remote/home_data.dart';
 import 'package:bazar/data/model/itemsmodel.dart';
 import 'package:bazar/data/model/slidesmodel.dart';
+import 'package:dartz/dartz.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import '../data/datasource/remote/categories_data.dart';
 
 abstract class HomeShopeController extends SearchMixController {
   initialData();
-  getdata();
+  getdata(int limit);
 
   goToItems( List shopes, int selectedShope ,String shopeid );
 }
 
 class HomeShopeControllerImp extends HomeShopeController {
-  MyServices myServices = Get.find();
+  MyServices myServices = Get.put(MyServices());
+  HomeScreenControllerImp controller= Get.put(HomeScreenControllerImp());
+  Crud crud = Get.put(Crud());
   String? username;
   String? id;
   String? lang;
   String? currentTabShope;
   double? pageCard = 3;
+  int limit = 30 ;
   String? discount;
   int i = 1;
 
-  RxInt unreadNotificationCount = 0.obs;
-  incrementUnreadNotificationCount() {
-    unreadNotificationCount.value++;
-    update();// Increment the count by 1
-  }
-  void configureFirebaseMessaging() async {
-    FirebaseMessaging messaging = FirebaseMessaging.instance;
+  String? userBlock ;
 
-    // Request permission to receive notifications
-    await messaging.requestPermission();
-
-    // Configure Firebase Messaging listeners
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      incrementUnreadNotificationCount();
-      update();
-    });
-
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      // Handle notification when app is in the foreground
-    });
-
-    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  }
-
-  Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-    incrementUnreadNotificationCount();
-  }
 
 
   HomeData homedata = HomeData(Get.find());
 
-
+  ScrollController scrollController = ScrollController();
   CategoriesData testData = CategoriesData(Get.find());
- List dat =[];
+
   List<slidesmodel> image = [];
 
   List NEW = [] ;
+  List items = [];
   List offer = [] ;
 
   late StatusRequest statusRequest;
@@ -73,16 +55,17 @@ class HomeShopeControllerImp extends HomeShopeController {
   List data = [];
   // List data = [];
   List shope = [];
-  List items = [];
   List itemsNew =[] ;
   List slides = [];
   List users = [];
+  var respon ;
+  var responHome ;
 
 
   @override
   initialData() {
     print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-    print(unreadNotificationCount);
+
     // myServices.sharedPreferences.clear() ;
     lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
@@ -95,32 +78,36 @@ class HomeShopeControllerImp extends HomeShopeController {
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
       Get.toNamed(AppRoute.homepage);
     });
-    configureFirebaseMessaging();
+
     search = TextEditingController();
-    getdata();
+    Future.value(getdata(limit).then((value) => getItems()));
+    // getdata(limit);
+    // getItems();
     initialData();
     super.onInit();
   }
 
   @override
-  getdata() async {
+  getdata(int limit) async {
     data.clear();
     shope.clear();
-    items.clear();
     image.clear();
     users.clear();
     statusRequest = StatusRequest.loading;
-    var response = await homedata.getData(myServices.sharedPreferences.getString("id")!);
+    var response = await homedata.getData(myServices.sharedPreferences.getString("id")! ,limit.toString());
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         users.addAll(response['users']['data']);
-        shope.addAll(response['shope']['data']);
-        items.addAll(response['items']['data']);
-        itemsNew.addAll(response['itemsNew']['data']);
-        List responsedata = response['slides']['data'];
-        image.addAll(responsedata.map((e) => slidesmodel.fromJson(e)));
+        if(users[0]['blocked'] != "1"){
+          userBlock = users[0]['blocked'] ;
+          shope.addAll(response['shope']['data']);
+          List responsedata = response['slides']['data'];
+          image.addAll(responsedata.map((e) => slidesmodel.fromJson(e)));
+        }else{
+          statusRequest = StatusRequest.blocked;
+        }
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -128,7 +115,26 @@ class HomeShopeControllerImp extends HomeShopeController {
     update();
   }
 
-
+  getItems() async {
+    data.clear();
+    itemsNew.clear();
+    var response = await homedata.getItems();
+    // print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        print(response['data']);
+        // image.addAll(response['data'][0]['image']);
+        responHome = response['data'];
+        itemsNew.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
 
 
 
@@ -150,7 +156,7 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   goToItemsDiscount(categories ) {
     Get.toNamed(AppRoute.itemsDiscount);
-    getItems();
+    getItemsDiscount();
   }
 
   goToItemsOffer(categories ) {
@@ -170,6 +176,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
         offer.addAll(response['data']);
       } else {
@@ -183,7 +190,7 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   getNew() async {
     data.clear();
-    NEW.clear();
+
     statusRequest = StatusRequest.loading;
     var response = await testData.getNew(
         myServices.sharedPreferences.getString("id")!);
@@ -192,8 +199,8 @@ class HomeShopeControllerImp extends HomeShopeController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
-        NEW.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -202,7 +209,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     update();
   }
 
-  getItems() async {
+  getItemsDiscount() async {
     data.clear();
     statusRequest = StatusRequest.loading;
     var response = await testData.getDiscount(
@@ -212,6 +219,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -222,22 +230,42 @@ class HomeShopeControllerImp extends HomeShopeController {
   }
 
 
-  reff(){
-    searchData();
-    getItems();
-    getOffer();
-    getdata();
-    update();
-  }
 
-  goToPageProductDetails(itemsModel) {
-    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
+  // pagenation(){
+  //   scrollController.addListener(() {
+  //     if (scrollController.position.pixels ==
+  //         scrollController.position.maxScrollExtent) {
+  //       // Bottom poistion
+  //       print("end");
+  //       limit = limit + 30;
+  //       getdata(limit);
+  //     }else{
+  //       print('not loading');
+  //     }
+  //   });
+  //
+  // }
+
+
+  goToPageProductDetailsHome(itemsModel , itemnum) {
+    Get.toNamed("productdetails", arguments: {
+      "itemsmodel": itemsModel,
+      "respon" : responHome ,
+      "itemnum" : itemnum
+    });
+  }
+  goToPageProductDetails(itemsModel , itemnum) {
+    Get.toNamed("productdetails", arguments: {
+      "itemsmodel": itemsModel,
+      "respon" : respon ,
+      "itemnum" : itemnum
+    });
   }
 }
 
 class SearchMixController extends GetxController {
   List<ItemsModel> listdata = [];
-
+  var respon ;
   late StatusRequest statusRequest;
   HomeData homedata = HomeData(Get.find());
 
@@ -249,6 +277,7 @@ class SearchMixController extends GetxController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
+        respon = response['data'];
         listdata.clear();
         List responsedata = response['data'];
         listdata.addAll(responsedata.map((e) => ItemsModel.fromJson(e)));

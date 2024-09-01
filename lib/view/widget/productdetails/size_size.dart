@@ -2,7 +2,6 @@ import 'package:bazar/controller/items_controller.dart';
 import 'package:bazar/controller/productdetails_controller.dart';
 import 'package:bazar/core/constant/color.dart';
 import 'package:bazar/data/model/itemssizesmodel.dart';
-import 'package:bazar/view/widget/productdetails/listsizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
@@ -12,11 +11,7 @@ class Customsize extends  GetView<ItemsControllerImp>{
 
   @override
   Widget build(BuildContext context) {
-    return SizeSelector(
-      sizes: [
-
-      ],
-    );
+    return SizeSelector();
   }
 }
 
@@ -27,9 +22,7 @@ class Customsize extends  GetView<ItemsControllerImp>{
 class SizeSelector extends StatefulWidget {
   const SizeSelector({
     super.key,
-    required this.sizes,
   });
-  final List<String> sizes;
   @override
   sizeRowState createState() => sizeRowState();
 }
@@ -46,9 +39,6 @@ class sizeRowState extends State<SizeSelector> {
           isExpanded: true,
           borderRadius:BorderRadius.circular(20),
           padding:EdgeInsets.only(right:0),
-          hint: Text("Size",
-              style: TextStyle(fontSize : 18,color: Colors.black)),
-
           value: controller.currentTabSize,
           items: controller.sizes
               .map((list) {

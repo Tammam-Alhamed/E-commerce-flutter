@@ -1,8 +1,11 @@
 import 'package:bazar/core/class/statusrequest.dart';
 import 'package:bazar/core/constant/routes.dart';
 import 'package:bazar/core/functions/handingdatacontroller.dart';
+import 'package:bazar/core/services/services.dart';
 import 'package:bazar/data/datasource/remote/auth/signup.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 abstract class SignUpController extends GetxController {
@@ -19,7 +22,7 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController password;
 
    StatusRequest statusRequest = StatusRequest.none;
-
+  MyServices myServices = Get.find();
   SignupData signupData = SignupData(Get.find());
 
   List data = [];
@@ -40,9 +43,23 @@ class SignUpControllerImp extends SignUpController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          // data.addAll(response['data']);
-          Get.offNamed(AppRoute.verfiyCodeSignUp  ,arguments: {
-            "email" : phone.text
+          myServices.sharedPreferences
+              .setString("id", response['data']['id']);
+          var userid = myServices.sharedPreferences.getString("id")!;
+          myServices.sharedPreferences
+              .setString("username", response['data']['name']);
+          // myServices.sharedPreferences
+          //     .setString("email", response['data']['email']);
+          myServices.sharedPreferences
+              .setString("phone", response['data']['phone']);
+          myServices.sharedPreferences.setString("step", "2");
+          if(!kIsWeb) {
+            FirebaseMessaging.instance.subscribeToTopic("users");
+            FirebaseMessaging.instance.subscribeToTopic("users${userid}");
+          }
+          Get.offNamed(AppRoute.homepage  ,arguments: {
+            "email" : phone.text ,
+            "code" : code
           });
         } else {
           Get.defaultDialog(title: "90".tr , middleText: "92".tr) ;

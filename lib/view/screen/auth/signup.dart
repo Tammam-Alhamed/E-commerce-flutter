@@ -82,8 +82,8 @@ class SignUp extends StatelessWidget {
 
                                    CustomTextFormAuth(
                                      widget : CountryCodePicker(
-                                       hideSearch: true,
-                                       countryFilter: const ['sy', 'ru'],
+                                       hideSearch: false,
+                                       favorite: ['ru','sy'],
                                        onChanged: (code) => controller.countryCode(code.dialCode),
                                        // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
                                        initialSelection: 'sy',

@@ -19,9 +19,9 @@ class ListShope extends GetView<HomeShopeControllerImp> {
         DropdownButtonHideUnderline(
           child: DropdownButton(
             isExpanded: true,
-
+            alignment: Alignment.center,
             borderRadius: BorderRadius.circular(20),
-            padding: EdgeInsets.only(right:10),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             icon: const Icon(Icons.list_sharp),
             value: controller.currentTabShope,
             items: controller.shope

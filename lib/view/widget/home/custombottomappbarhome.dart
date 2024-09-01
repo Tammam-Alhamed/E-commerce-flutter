@@ -1,39 +1,48 @@
 import 'package:bazar/controller/cart_controller.dart';
+import 'package:bazar/controller/home_shope_controller.dart';
 import 'package:bazar/controller/homescreen_controller.dart';
 import 'package:bazar/core/constant/color.dart';
+import 'package:bazar/core/services/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:badges/badges.dart' as badges;
 
-import '../../../controller/home_shope_controller.dart';
+
+import 'package:icons_plus/icons_plus.dart';
+
 
 class CustomBottomAppBarHome extends StatelessWidget {
   const CustomBottomAppBarHome({Key? key}) : super(key: key);
   @override
 
   Widget build(BuildContext context) {
-    HomeShopeControllerImp controllerImp=    Get.put(HomeShopeControllerImp());
+
+    MyServices myServices = Get.find();
 
     Size size = MediaQuery.of(context).size;
     List listOfIcons = [
-      Icons.home_rounded,
-      Icons.notifications_active_rounded,
+      Iconsax.home_1_outline,
+      Iconsax.notification_outline,
       Icons.shopping_cart_outlined.fontFamilyFallback,
-      Icons.shopping_cart_outlined,
-      Icons.person_rounded,
+      Iconsax.shopping_cart_outline,
+      Iconsax.user_outline,
+    ];
+
+    List listOfIconsBold = [
+      Iconsax.home_1_bold ,
+      Iconsax.notification_bold,
+      Icons.shopping_cart_outlined.fontFamilyFallback,
+      Iconsax.shopping_cart_bold,
+      Iconsax.user_bold,
     ];
     return GetBuilder<HomeScreenControllerImp>(
         builder: (controller) => Container(
           height: size.width * .155,
-          child: BottomAppBar(
-            padding: EdgeInsets.only(top: 0),
-            shape: const CircularNotchedRectangle(),
-            notchMargin: 5,
           child: Container(
 
             decoration: BoxDecoration(
                 color: AppColor.backgroundcolor,
+                borderRadius: BorderRadius.only(topRight: Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
                     spreadRadius: 10,
@@ -45,7 +54,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
 
             ),
             child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
             itemCount: controller.listPage.length,
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(horizontal: size.width * .050),
@@ -54,6 +63,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                 int i = index > 4 ? index - 1 : index;
                 i != 3 && i !=2 ?Get.delete<CartController>(force: true) : "";
                 i!=2 ? controller.changePage(i) : "";
+                i != 1 ?  print(myServices.sharedPreferences.getInt('unreadCount')) : myServices.sharedPreferences.remove('unreadCount');
               },
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
@@ -61,7 +71,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 1500),
+                    duration: const Duration(milliseconds: 1500),
                     curve: Curves.fastLinearToSlowEaseIn,
                     margin: EdgeInsets.only(
                       bottom: index == controller.currentpage ? 0 : size.width * .029,
@@ -80,16 +90,20 @@ class CustomBottomAppBarHome extends StatelessWidget {
                   Stack(
                     children: [
                       if(index == 1)
-                        badges.Badge(
-                          badgeContent: Text("${controllerImp.unreadNotificationCount}"),
-                          child: Icon(listOfIcons[index],
-                            size: size.width * .076,
-                            color: index == controller.currentpage
-                                ? AppColor.sky
-                                : Colors.black38,),
-                        )else
+
+                        if(myServices.sharedPreferences.getInt('unreadCount') == 0)
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(vertical: 12),
+                            child:  const Icon(Icons.brightness_1_rounded, size: 15.0,
+                                color: Colors.red),
+                          )
+                          ),
+
                       Icon(
-                        listOfIcons[index],
+                        controller.currentpage != index ?listOfIcons[index] :listOfIconsBold[index],
                         size: size.width * .076,
                         color: index == controller.currentpage
                             ? AppColor.sky
@@ -103,7 +117,6 @@ class CustomBottomAppBarHome extends StatelessWidget {
             ),
                   ),
           ),
-              ),
         ));
   }
 }

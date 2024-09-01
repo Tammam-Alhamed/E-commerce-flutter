@@ -19,16 +19,17 @@ class ListCat extends GetView<ItemsControllerImp> {
           child: DropdownButton(
             isExpanded: true,
             borderRadius: BorderRadius.circular(20),
-            padding: EdgeInsets.only(right:10),
-            icon: Icon(Icons.list_sharp),
+            padding: const EdgeInsets.symmetric(horizontal:16),
+            icon: const Icon(Icons.list_sharp),
             value: controller.currentTabCat,
             items: cont.data
                 .map((list) {
               return DropdownMenuItem(
-                child: Container(
-                    alignment : AlignmentDirectional.center,
-                    width: 200, height:double.infinity, child: Text(list['categories_name'],style:TextStyle( fontSize:13,overflow:  TextOverflow.ellipsis))),
                 value: list['categories_id'].toString(),
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 3),
+                    alignment : AlignmentDirectional.center,
+                    width: 200, height:double.infinity, child: Text(list['categories_name'],style:TextStyle( fontSize:13,overflow:  TextOverflow.fade))),
               );
             }).toList(),
             onChanged: (value) {

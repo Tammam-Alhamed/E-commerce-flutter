@@ -3,31 +3,36 @@ import 'package:bazar/core/services/services.dart';
 import 'package:bazar/bindings/intialbindings.dart';
 import 'package:bazar/core/localization/translation.dart';
 import 'package:bazar/routes.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/localization/changelocal.dart';
 
 
-HomeScreenControllerImp controllerImp= Get.put(HomeScreenControllerImp());
+@pragma('vm:entry-point')
 Future background(RemoteMessage message) async{
-  controllerImp.count_notification ++ ;
-  print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-  print(controllerImp.count_notification);
+
+  await initialServices();
+  MyServices myServices = Get.put(MyServices());
+  var unreadCount = myServices.sharedPreferences.getInt('unreadCount') ?? 0;
+  await myServices.sharedPreferences.setInt('unreadCount', unreadCount);
+  await myServices.sharedPreferences.reload();
+
 }
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
+  FirebaseMessaging.onBackgroundMessage(background);
   await initialServices();
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
-
   Widget build(BuildContext context) {
-    FirebaseMessaging.onBackgroundMessage(background);
+
     LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
       translations: MyTranslation(),

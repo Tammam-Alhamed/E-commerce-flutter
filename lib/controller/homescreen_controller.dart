@@ -1,18 +1,15 @@
-import 'package:bazar/core/constant/routes.dart';
+import 'package:bazar/core/services/services.dart';
 import 'package:bazar/view/screen/cart.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:bazar/view/screen/home.dart';
 import 'package:bazar/view/screen/notification.dart';
 import 'package:bazar/view/screen/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:lottie/lottie.dart';
+
 
 import '../core/class/statusrequest.dart';
-import '../core/constant/imgaeasset.dart';
-import '../linkapi.dart';
+
 
 abstract class HomeScreenController extends GetxController {
   changePage(int currentpage);
@@ -20,9 +17,8 @@ abstract class HomeScreenController extends GetxController {
 
 class HomeScreenControllerImp extends HomeScreenController {
   late StatusRequest statusRequest;
+  MyServices myServices = Get.find();
   int currentpage = 0;
-  int count_notification = 0;
-
 
   List listPage = [
     const HomePage(),
@@ -35,8 +31,16 @@ class HomeScreenControllerImp extends HomeScreenController {
   ];
 
 
+  void onInit() {
+    myServices.sharedPreferences.reload();
+    myServices.sharedPreferences.getInt('unreadCount');
+    super.onInit();
+  }
+
+
   @override
   changePage(int i) {
+    myServices.sharedPreferences.reload();
     currentpage = i;
     update();
   }

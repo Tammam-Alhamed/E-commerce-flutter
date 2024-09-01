@@ -37,7 +37,7 @@ class Images extends StatelessWidget {
       ),
       height: height,
       width: width,
-      fadeInDuration: const Duration(milliseconds: 200),
+
       fit: BoxFit.cover,
     );
   }

@@ -40,43 +40,23 @@ class ItemsControllerImp extends SearchMixController {
  // ScrollController  scrollController = ScrollController();
    SingleChildScrollView? child;
   int _totalCount = 0;
-  int limit = 20;
+  int limit = 10;
   int offset = 0;
-  late ScrollController scrollController;
-  bool isLoading = true;
+  ScrollController scrollController = ScrollController();
+  ScrollController scrollController1 = ScrollController();
+  var isLoading = true.obs;
+  var isAddLoading = false.obs;
 
 
-  int currentMax = 10;
+
   List myList = [];
   String? currentTabCat;
-
-  /*void _onScroll() {
-    final offset =scrollController.offset;
-    final minOffset = scrollController.position.minScrollExtent;
-    final maxOffset =scrollController.position.maxScrollExtent;
-    final isOutOfRange =scrollController.position.outOfRange;
-
-    final hasReachedTheEnd = offset >= maxOffset && !isOutOfRange;
-    final hasReachedTheStart = offset <= minOffset && !isOutOfRange;
-    final isScrolling = maxOffset > offset && minOffset < offset;
-
-    // This code doesn't print anything.
-    if (isScrolling) {
-      print('isScrolling');
-    } else if (hasReachedTheStart) {
-      print('hasReachedTheStart');
-    } else if (hasReachedTheEnd) {
-      print('hasReachedTheEnd');
-    } else {
-      print('IDK');
-    }
-  }*/
 
 
 
   var character;
   List data = [];
-  List image = [];
+  var respon ;
 
   late StatusRequest statusRequest;
 
@@ -84,11 +64,8 @@ class ItemsControllerImp extends SearchMixController {
 
   @override
   void onInit() {
-     search = TextEditingController();
-
+    search = TextEditingController();
     intialData();
-
-
     super.onInit();
   }
 
@@ -97,31 +74,12 @@ class ItemsControllerImp extends SearchMixController {
     selectedCat = Get.arguments['selectedcat'];
     catid = Get.arguments['catid'];
     imgid = Get.arguments['imgid'];
-
-
-
+    getItems(catid! , page , 1);
+    scrollController;
+    scrollController1;
+    // pagenation();
   }
 
-/* void _scrollListener() {
-
-   if (scrollController.position.pixels ==
-       scrollController.position.maxScrollExtent) {
-     print('Page reached end of page');}
-
-  }*/
-
- /* addItems() async {
-    controller.addListener(() {
-      if (controller.position.maxScrollExtent == controller.position.pixels) {
-        for (int i = 0; i < 2; i++) {
-          listLength++;
-          list.add( (data));
-          print(list.length);
-          update();
-        }
-      }
-    });
-  }*/
 
 
   changeCat( catval) {
@@ -140,35 +98,37 @@ class ItemsControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        print(response['data'][0]['image']);
+        // image.addAll(response['data'][0]['image']);
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
       }
       // End
     }
-    isLoading = false;
     update();
   }
 
 
-  getimages(String imageid) async {
-    image.clear();
-    statusRequest = StatusRequest.loading;
-    var response = await dataimage.getData(
-        imageid);
-    // print("=============================== Controller $response ");
-    statusRequest = handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      // Start backend
-      if (response['status'] == "success") {
-        image.addAll(response['data']);
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-      // End
-    }
-    update();
-  }
+  // getimages(String imageid) async {
+  //   image.clear();
+  //   statusRequest = StatusRequest.loading;
+  //   var response = await dataimage.getData(
+  //       imageid);
+  //   // print("=============================== Controller $response ");
+  //   statusRequest = handlingData(response);
+  //   if (StatusRequest.success == statusRequest) {
+  //     // Start backend
+  //     if (response['status'] == "success") {
+  //       image.addAll(response['data']);
+  //     } else {
+  //       statusRequest = StatusRequest.failure;
+  //     }
+  //     // End
+  //   }
+  //   update();
+  // }
 
 
   getA_to_Z(categoryid , lang) async {
@@ -180,6 +140,7 @@ class ItemsControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -198,6 +159,7 @@ class ItemsControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -217,6 +179,7 @@ class ItemsControllerImp extends SearchMixController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -229,13 +192,13 @@ class ItemsControllerImp extends SearchMixController {
     data.clear();
 
     statusRequest = StatusRequest.loading;
-    isLoading = true;
     var response = await sort.getHighest_to_Lowest(
         categoryid, myServices.sharedPreferences.getString("id")! , lang);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
+        respon = response['data'];
         data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -279,23 +242,31 @@ class ItemsControllerImp extends SearchMixController {
     update();
   }
 
-  getMorePage() async{
+  // pagenation(){
+  //     scrollController.addListener(() {
+  //       if (scrollController.position.pixels ==
+  //           scrollController.position.maxScrollExtent) {
+  //         // Bottom poistion
+  //         print("end");
+  //         offset = offset + 10;
+  //         limit = limit + 10;
+  //         getItems(catid ,  limit, offset);
+  //       }else{
+  //         print('not loading');
+  //       }
+  //     });
+  //
+  // }
 
-    scrollController.addListener(() {
-      print("object");
-      // if(scrollController.position.maxScrollExtent == scrollController.offset){
-      //   ++page;
-      //   getItems(catid , page);
-      // }
-      // update();
+
+
+
+  goToPageProductDetails(itemsModel , itemnum) {
+    Get.toNamed("productdetails", arguments: {
+      "itemsmodel": itemsModel,
+      "respon" : respon ,
+      "itemnum" : itemnum
     });
-
-  }
-
-
-
-  goToPageProductDetails(itemsModel) {
-    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
   }
 
 }

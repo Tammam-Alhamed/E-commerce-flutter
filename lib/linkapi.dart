@@ -2,6 +2,7 @@ class AppLink {
 
 
   static const String server = "http://tammam-com.preview-domain.com/Bazar";
+  static const String serverLaravel = "https://xn----7sbababd9be0gf.com/Bazar_laravel/api";
   static const String imageststatic = "https://xn----7sbababd9be0gf.com/Bazar_laravel/Bazar";
 //========================== Image ============================
   static const String imagestCategories = "$imageststatic/categories";
@@ -29,20 +30,21 @@ class AppLink {
 // Home
 
   static const String homepage = "$server/home.php";
+  static const String homeitems = "$serverLaravel/home/homeItems";
+  static const String searchitems = "$serverLaravel/home/search";
 // items
-  static const String items = "$server/items/items.php";
+  static const String items = "$serverLaravel/items/index";
   static const String itemsImages = "$server/items/images.php";
-  static const String searchitems = "$server/items/search.php";
-  static const String itemsdiscount = "$server/items/itemsDiscount.php";
-  static const String itemsnew = "$server/items/itemsNew.php";
-  static const String itemsoffer = "$server/items/itemsOffer.php";
+  static const String itemsdiscount = "$serverLaravel/items/discountItems";
+  static const String itemsnew = "$serverLaravel/items/newItems";
+  static const String itemsoffer = "$serverLaravel/items/offerItems";
 
 
   //sort
-  static const String A_to_Z = "$server/sort/A_to_Z.php";
-  static const String Z_to_A = "$server/sort/Z_to_A.php";
-  static const String Lowest_to_Highest = "$server/sort/price_lowest.php";
-  static const String Highest_to_Lowest = "$server/sort/price_highest.php";
+  static const String A_to_Z = "$serverLaravel/items/A_to_Z";
+  static const String Z_to_A = "$serverLaravel/items/Z_to_A";
+  static const String Lowest_to_Highest = "$serverLaravel/items/price_lowest";
+  static const String Highest_to_Lowest = "$serverLaravel/items/price_highest";
 
 
  //Checkout
@@ -53,7 +55,7 @@ class AppLink {
 
   static const String favoriteAdd = "$server/favorite/add.php";
   static const String favoriteRemove = "$server/favorite/remove.php";
-  static const String favoriteView = "$server/favorite/view.php";
+  static const String favoriteView = "$serverLaravel/items/favorite";
   static const String deletefromfavroite =
       "$server/favorite/deletefromfavroite.php";
 

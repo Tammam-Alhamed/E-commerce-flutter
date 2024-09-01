@@ -10,6 +10,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
+        allowImplicitScrolling: true,
         controller: controller.pageController,
         onPageChanged: (val) {
           controller.onPageChanged(val);
@@ -19,7 +20,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
               children: [
                 Image.asset(
                   onBoardingList[i].image!,
-                  width: 400 ,
+                  width: 420 ,
                   height: Get.width / 1.3,
                   fit: BoxFit.fill,
                 ),
@@ -38,8 +39,8 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                           height: 2,
-                          color: AppColor.grey,
-                          fontWeight: FontWeight.bold,
+                          color: Color(0xff6b7afe),
+
                           fontSize: 14),
                     )),
               ],

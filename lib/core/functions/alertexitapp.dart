@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:bazar/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 Future<bool> alertExitApp() {
   Get.defaultDialog(
@@ -14,7 +15,7 @@ Future<bool> alertExitApp() {
                 backgroundColor:
                     MaterialStateProperty.all(AppColor.primaryColor)),
             onPressed: () {
-              exit(0);
+              SystemNavigator.pop();
             },
             child: Text("109".tr ,style: TextStyle(color: Colors.white),)
         ),
