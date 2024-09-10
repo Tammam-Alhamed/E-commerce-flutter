@@ -94,6 +94,7 @@ dependencies:
 
   animations: ^2.0.11
   babstrap_settings_screen: ^0.1.6
+  flutter_filter_dialog: ^1.2.0
 
 
 

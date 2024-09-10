@@ -51,7 +51,8 @@ class ItemsControllerImp extends SearchMixController {
 
   List myList = [];
   String? currentTabCat;
-
+  late bool selected;
+   bool isSelected=false;
 
 
   var character;
@@ -257,10 +258,44 @@ class ItemsControllerImp extends SearchMixController {
   //     });
   //
   // }
+  List<RxList<int>> selList = [
+    <int>[].obs, // For "Colors"
+    <int>[].obs, // For "Brands"
+  ];
+
+  // Variables for min and max price
+  var minPrice = ''.obs;
+  var maxPrice = ''.obs;
 
 
 
+  void select(int categoryIndex, int optionIndex) {
 
+    if (selList[categoryIndex].contains(optionIndex)) {
+      selList[categoryIndex].remove(optionIndex); // Deselect
+    } else {
+      selList[categoryIndex].add(optionIndex); // Select
+    }
+    update();
+    print(selList[categoryIndex]);
+    // Update the UI
+  }
+
+  void setMinPrice(String value) {
+    minPrice.value = value;
+    update();
+  }
+
+  void setMaxPrice(String value) {
+    maxPrice.value = value;
+    update();
+  }
+  void resetFilters() {
+    // Clear selected lists and reset prices
+    selList.forEach((list) => list.clear());
+    minPrice.value = '';
+    maxPrice.value = '';
+  }
   goToPageProductDetails(itemsModel , itemnum) {
     Get.toNamed("productdetails", arguments: {
       "itemsmodel": itemsModel,

@@ -36,10 +36,21 @@ class Items extends StatelessWidget {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
       ItemsControllerImp controller = Get.put(ItemsControllerImp() , permanent: true);
       FavoriteController controllerFav = Get.put(FavoriteController(),permanent: true);
-      return WillPopScope(
-        onWillPop: () async{
-          return Future<bool>.value(Get.delete<ItemsControllerImp>(force: true).then((value) => Future<bool>.value(Get.delete<FavoriteController>(force: true))));
-        },
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+    return WillPopScope(
+      onWillPop: () async {
+        if (_scaffoldKey.currentState!.isDrawerOpen) {
+          // Close the drawer without deleting the controllers
+          Navigator.of(context).pop(); // Close the Drawer
+          return false; // Prevent back navigation
+        } else {
+          // If not coming from the drawer, delete the controller and go back
+          await Get.delete<ItemsControllerImp>(force: true);
+          await Get.delete<FavoriteController>(force: true);
+          return true; // Allow back navigation
+        }
+      },
         child: AnnotatedRegion<SystemUiOverlayStyle>(
           value:const SystemUiOverlayStyle(
             statusBarColor: Colors.transparent, //i like transaparent :-)
@@ -48,8 +59,10 @@ class Items extends StatelessWidget {
             systemNavigationBarIconBrightness:Brightness.dark, //navigation bar icons' color
           ),
           child: Scaffold(
+            key: _scaffoldKey,
             drawer:MyCustomDrawer(),
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               backgroundColor: AppColor.backgroundcolor,
               leadingWidth: 0,
               centerTitle : true,
