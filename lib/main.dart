@@ -20,8 +20,10 @@ Future background(RemoteMessage message) async{
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
-  FirebaseMessaging.onBackgroundMessage(background);
   await initialServices();
+  LocaleController controller = Get.put(LocaleController());
+
+  FirebaseMessaging.onBackgroundMessage(background);
 
   runApp(const MyApp());
 }

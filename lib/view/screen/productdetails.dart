@@ -9,6 +9,7 @@ import 'package:bazar/view/widget/productdetails/priceandcount.dart';
 import 'package:bazar/view/widget/productdetails/size_size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:icons_plus/icons_plus.dart';
 import '../../core/functions/translatefatabase.dart';
 import '../widget/productdetails/slidedetails.dart';
 
@@ -24,7 +25,7 @@ class ProductDetails extends StatelessWidget {
 
     String formatAmount() {
       String price =
-          "${translateDatabase(controllerImp.itemsModel.itemspricedisount_d, controllerImp.itemsModel.itemspricedisount_d, controllerImp.itemsModel.itemspricedisount_d)}";
+          "${translateDatabase(controllerImp.price, controllerImp.price, controllerImp.price)}";
       String priceInText = "";
       int counter = 0;
       for (int i = (price.length - 1); i >= 0; i--) {
@@ -61,8 +62,8 @@ class ProductDetails extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15)),
                   color: AppColor.primaryColor,
                   onPressed: () {
-                    controllerImp
-                        .addtocart(controllerImp.countitems.toString());
+                    // print(controllerImp.itemsModel.pricePoint);
+                    controllerImp.addtocart(controllerImp.countitems.toString() , controllerImp.itemsModel.itemsPoint);
                     // Get.toNamed(AppRoute.cart);
                   },
                   child: Text(
@@ -210,6 +211,29 @@ class ProductDetails extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(height: 10),
+                                    Row(
+                                      children: [
+                                        IconButton(onPressed: (){
+                                          controllerImp.addPoint();
+                                        },
+                                          icon:   Icon(LineAwesome.plus_circle_solid , size: 28, color: AppColor.primaryColor,),),
+                                        Container(
+                                            alignment: Alignment.center,
+                                            padding: const EdgeInsets.only(bottom: 2),
+                                            width: 50,
+                                            height: 30,
+                                            decoration:
+                                            BoxDecoration(border: Border.all(color: AppColor.primaryColor), borderRadius: BorderRadius.circular(10),color: AppColor.backgroundcolor),
+                                            child: Text(
+                                              "${controllerImp.countpoint}",
+                                              style: const TextStyle(fontSize: 18, height: 1.1 , color: AppColor.sky),
+                                            )),
+                                        IconButton(onPressed: (){
+                                          controllerImp.removePoint();
+                                        },
+                                          icon: const Icon(LineAwesome.minus_circle_solid, size: 28, color: AppColor.primaryColor,),),
+                                      ],
+                                    ),
                                     PriceAndCountItems(
                                         onAdd: () {
                                           controller.add();

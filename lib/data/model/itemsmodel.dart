@@ -26,6 +26,10 @@ class ItemsModel {
   String? itemsStatus ;
   String? itemsNew ;
   String? itemsSold ;
+  String? itemsPoint ;
+  String? itemsMaxPoint ;
+  String? pricePoint ;
+  String? myPoint ;
 
   ItemsModel(
       {this.itemsId,
@@ -54,7 +58,13 @@ class ItemsModel {
       this.categoriesImage,
       this.categoriesDatetime,
         this.itemsSold,
-      this.favorite});
+      this.favorite,
+        this.itemsPoint,
+        this.itemsMaxPoint,
+        this.pricePoint,
+        this.myPoint,
+
+      });
 
   ItemsModel.fromJson(Map<String, dynamic> json) {
     itemsId = json['items_id'];
@@ -84,6 +94,10 @@ class ItemsModel {
     categoriesDatetime = json['categories_datetime'];
     favorite = json['favorite'];
     itemsSold=json['items_sold'];
+    itemsPoint=json['items_point'];
+    itemsMaxPoint=json['items_maxPoint'];
+    pricePoint=json['price_point'];
+    myPoint=json['my_point'];
   }
 
   Map<String, dynamic> toJson() {
@@ -112,6 +126,10 @@ class ItemsModel {
     data['categories_image'] = this.categoriesImage;
     data['categories_datetime'] = this.categoriesDatetime;
     data['items_sold'] = this.itemsSold;
+    data['items_point'] = this.itemsPoint;
+    data['items_maxPoint'] = this.itemsMaxPoint;
+    data['price_point'] = this.pricePoint;
+    data['my_point'] = this.myPoint;
     return data;
   }
 }

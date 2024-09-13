@@ -4,9 +4,9 @@ import 'package:bazar/linkapi.dart';
 class CartData {
   Crud crud;
   CartData(this.crud);
-  addCart(String usersid, String itemsid , String itemsqua ,String itemscolor ,String itemssize ) async {
+  addCart(String usersid, String itemsid , String itemsqua ,String itemscolor ,String itemssize , itemspoint , price ) async {
     var response = await crud
-        .postData(AppLink.cartadd, {"usersid": usersid, "itemsid": itemsid , "itemsqua" : itemsqua , "itemscolor" : itemscolor, "itemssize" : itemssize});
+        .postData(AppLink.cartadd, {"usersid": usersid, "itemsid": itemsid , "itemsqua" : itemsqua , "itemscolor" : itemscolor, "itemssize" : itemssize , "itemspoint" : itemspoint,'price': price});
     return response.fold((l) => l, (r) => r);
   }
 

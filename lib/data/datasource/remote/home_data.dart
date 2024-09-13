@@ -9,8 +9,8 @@ class HomeData {
     var response = await crud.postData(AppLink.homepage, {"usersid": usersid ,"limit" : limit });
     return response.fold((l) => l, (r) => r);
   }
-  getItems() async {
-    var response = await crud.postData(AppLink.homeitems, {});
+  getItems(usersid) async {
+    var response = await crud.postData(AppLink.homeitems, {"usersid": usersid});
     return response.fold((l) => l, (r) => r);
   }
   searchData(String search) async {

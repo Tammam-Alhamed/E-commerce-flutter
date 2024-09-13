@@ -114,8 +114,8 @@ class HomeShopeControllerImp extends HomeShopeController {
   getItems() async {
     data.clear();
     itemsNew.clear();
-    var response = await homedata.getItems();
-    // print("=============================== Controller $response ");
+    var response = await homedata.getItems(id);
+    print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       // Start backend

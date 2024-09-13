@@ -20,7 +20,10 @@ class ProductDetailsControllerImp extends ProductDetailsController {
    String? sid ;
   MyServices myServices = Get.find();
 
-  int countitems = 0;
+  int countitems = 1;
+   int? price;
+   int? priceImp;
+  int countpoint = 0;
   int currentTabColor = 0;
   String? currentTabSize ;
   List respon = [];
@@ -39,8 +42,15 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     data.addAll(respon);
     sizes.addAll(data[itemnum!]['size']);
     colors.addAll(data[itemnum!]['color']);
+    price = int.parse(itemsModel.itemspricedisount_d!);
+    priceImp = int.parse(itemsModel.itemspricedisount_d!);
     update();
   }
+
+
+
+
+
 
   getCountItems(String itemsid) async {
     colors.clear();
@@ -69,12 +79,12 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     }
   }
 
-  addItems(String itemsid , String itemsqua , String itemscolor , String itemssize) async {
-
+  addItems(String itemsid , String itemsqua , String itemscolor , String itemssize , point ) async {
+    int points = int.parse(itemsqua) * int.parse(point) ;
     statusRequest = StatusRequest.loading;
     update();
     var response = await cartData.addCart(
-        myServices.sharedPreferences.getString("id")!, itemsid , itemsqua , itemscolor , itemssize );
+        myServices.sharedPreferences.getString("id")!, itemsid , itemsqua , itemscolor , itemssize , points.toString() , price.toString());
     // print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -148,7 +158,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
      update();
    }
 
-   addtocart( countitems){
+   addtocart( countitems , point){
      if(sizes.length == 1){currentTabSize = "0";}
      if(colors.length == 1){colr = "0";}
      if (countitems == "0") {
@@ -161,23 +171,54 @@ class ProductDetailsControllerImp extends ProductDetailsController {
        return Get.snackbar("90".tr, "121".tr,colorText: Colors.white ,backgroundColor: Colors.grey);
      }
 
-     addItems(itemsModel.itemsId! , countitems , colr! , currentTabSize! );
+     addItems(itemsModel.itemsId! , countitems , colr! , currentTabSize! , point);
      update();
    }
 
+   int pp = 0;
    add() {
     // addItems(itemsModel.itemsId!);
     countitems++;
+    price = priceImp! * countitems;
+
     update();
   }
 
   remove() {
-    if (countitems > 0) {
+    if (countitems > 1) {
       // deleteitems(itemsModel.itemsId!);
       countitems--;
+      price = price! - priceImp!;
       update();
     }
   }
+
+
+  addPoint(){
+
+       if(int.parse(itemsModel.itemsMaxPoint!) > countpoint){
+         if(int.parse(itemsModel.myPoint!) > countpoint){
+         countpoint++;
+         price = price! - (int.parse(itemsModel.pricePoint!));
+         print(priceImp!);
+         // itemsModel.itemspricedisount_d = price.toString();
+       }
+     }
+
+    update();
+  }
+
+
+   removePoint() {
+     if (countpoint > 0) {
+       countpoint--;
+       price = price! + int.parse(itemsModel.pricePoint!);
+       print(price!);
+       // itemsModel.itemspricedisount_d = price.toString();
+       update();
+     }
+   }
+
 
   @override
   void onInit() {

@@ -6,6 +6,7 @@ class CartModel {
   String? cartUsersid;
   String? cartItemsid;
   String? cartStatus;
+  String? cartQua;
   String? itemsId;
   String? itemsName;
   String? itemsNameAr;
@@ -23,6 +24,8 @@ class CartModel {
   String? itemsCat;
   String? itemsStatus ;
   String? itemsDelay ;
+  String? itemsPoint ;
+  String? itemsMaxPoint ;
 
   CartModel(
       {this.itemsprice,
@@ -32,6 +35,7 @@ class CartModel {
       this.cartUsersid,
       this.cartItemsid,
       this.cartStatus,
+      this.cartQua,
       this.itemsId,
       this.itemsName,
       this.itemsNameAr,
@@ -47,7 +51,8 @@ class CartModel {
       this.itemsDate,
       this.itemsCat,
       this.itemsStatus,
-      this.itemsDelay
+      this.itemsDelay,
+      this.itemsMaxPoint
 
       });
 
@@ -59,6 +64,7 @@ class CartModel {
     cartUsersid = json['cart_usersid'];
     cartItemsid = json['cart_itemsid'];
     cartStatus = json['cart_status'];
+    cartQua = json['cart_qua'];
     itemsId = json['items_id'];
     itemsName = json['items_name'];
     itemsNameAr = json['items_name_ar'];
@@ -76,6 +82,8 @@ class CartModel {
     itemsCat = json['items_cat'];
     itemsStatus = json['items_status'];
     itemsDelay = json['items_delay'];
+    itemsPoint = json['items_point'];
+    itemsMaxPoint = json['items_maxPoint'];
   }
 
   Map<String, dynamic> toJson() {
@@ -87,6 +95,7 @@ class CartModel {
     data['cart_usersid'] = this.cartUsersid;
     data['cart_itemsid'] = this.cartItemsid;
     data['cart_status'] = this.cartStatus;
+    data['cart_qua'] = this.cartQua;
     data['items_id'] = this.itemsId;
     data['items_name'] = this.itemsName;
     data['items_name_ar'] = this.itemsNameAr;
@@ -104,6 +113,8 @@ class CartModel {
     data['items_cat'] = this.itemsCat;
     data['items_status'] = this.itemsStatus;
     data['items_delay'] = this.itemsDelay;
+    data['items_point'] = this.itemsPoint;
+    data['items_maxPoint'] = this.itemsMaxPoint;
     return data;
   }
 }

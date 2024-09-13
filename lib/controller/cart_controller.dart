@@ -22,6 +22,7 @@ class CartController extends GetxController {
   String? couponname;
 
   String? couponid;
+  int points = 0;
 
   late StatusRequest statusRequest;
 
@@ -37,27 +38,27 @@ class CartController extends GetxController {
 
   int totalcountitems = 0;
 
-  add(String itemsid ) async {
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await cartData.addCart(
-        myServices.sharedPreferences.getString("id")!, itemsid , controller.countitems as String , controller.currentTabColor as String , controller.currentTabSize!);
-    print("=============================== Controller $response ");
-    statusRequest = handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      // Start backend
-      if (response['status'] == "success") {
-        Get.rawSnackbar(
-            title: "99".tr,
-            messageText:  Text("100".tr));
-        // data.addAll(response['data']);
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-      // End
-    }
-    update();
-  }
+  // add(String itemsid , point ) async {
+  //   statusRequest = StatusRequest.loading;
+  //   update();
+  //   var response = await cartData.addCart(
+  //       myServices.sharedPreferences.getString("id")!, itemsid , controller.countitems as String , controller.currentTabColor as String , controller.currentTabSize! , point);
+  //   print("=============================== Controller $response ");
+  //   statusRequest = handlingData(response);
+  //   if (StatusRequest.success == statusRequest) {
+  //     // Start backend
+  //     if (response['status'] == "success") {
+  //       Get.rawSnackbar(
+  //           title: "99".tr,
+  //           messageText:  Text("100".tr));
+  //       // data.addAll(response['data']);
+  //     } else {
+  //       statusRequest = StatusRequest.failure;
+  //     }
+  //     // End
+  //   }
+  //   update();
+  // }
 
 
   addfromcart(String cartid , String itemsid ) async {
@@ -93,7 +94,8 @@ class CartController extends GetxController {
       "couponid": couponid ?? "0",
       "priceorder": priceorders.toString() , 
       "priceorder_d": priceorders_d.toString() ,
-      "discountcoupon" : discountcoupon.toString()
+      "discountcoupon" : discountcoupon.toString(),
+      "points" : points
     });
   }
 
@@ -200,6 +202,7 @@ class CartController extends GetxController {
   }
 
   view() async {
+    points = 0;
     statusRequest = StatusRequest.loading;
     update();
     var response =
@@ -217,8 +220,10 @@ class CartController extends GetxController {
           totalcountitems = int.parse(dataresponsecountprice['totalcount']);
           // priceorders = int.parse(dataresponsecountprice['totalprice']);
           priceorders_d = int.parse(dataresponsecountprice['totalprice_d']);
-          print(priceorders);
-          print(priceorders_d);
+          for(var element in data){
+           int ele = int.parse(element.itemsPoint!) * int.parse(element.cartQua!);
+            points = ele + points ;
+          }
         }
       } else {
         statusRequest = StatusRequest.failure;
