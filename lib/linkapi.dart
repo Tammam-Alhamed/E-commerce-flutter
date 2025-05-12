@@ -1,7 +1,7 @@
 class AppLink {
 
 
-  static const String server = "http://tammam-com.preview-domain.com/Bazar";
+  static const String server = "https://coral-rabbit-989837.hostingersite.com/Bazar";
   static const String serverLaravel = "https://xn----7sbababd9be0gf.com/Bazar_laravel/api";
   static const String imageststatic = "https://xn----7sbababd9be0gf.com/Bazar_laravel/Bazar";
 //========================== Image ============================
@@ -45,6 +45,10 @@ class AppLink {
   static const String Z_to_A = "$serverLaravel/items/Z_to_A";
   static const String Lowest_to_Highest = "$serverLaravel/items/price_lowest";
   static const String Highest_to_Lowest = "$serverLaravel/items/price_highest";
+
+
+  //Filter
+  static const String filter_get = "$serverLaravel/items/filter_get";
 
 
  //Checkout

@@ -1,3 +1,5 @@
+import 'package:bazar/data/datasource/remote/fiter_data.dart';
+import 'package:bazar/data/datasource/remote/fiter_data.dart';
 import 'package:dartz/dartz.dart';
 import 'package:bazar/controller/categories_controller.dart';
 import 'package:bazar/controller/home_controller.dart';
@@ -36,6 +38,7 @@ class ItemsControllerImp extends SearchMixController {
   ItemsData testData = ItemsData(Get.find());
   ItemsImages dataimage =ItemsImages(Get.find());
   SortData sort = SortData(Get.find());
+  FilterData filterData = FilterData(Get.find());
 
  // ScrollController  scrollController = ScrollController();
    SingleChildScrollView? child;
@@ -51,11 +54,16 @@ class ItemsControllerImp extends SearchMixController {
 
   List myList = [];
   String? currentTabCat;
-
+  late bool selected;
+   bool isSelected=false;
 
 
   var character;
   List data = [];
+  List filterColor = [];
+  List filterSize = [];
+  List filterTag = [];
+  Map filterRequest = {};
   var respon ;
 
   late StatusRequest statusRequest;
@@ -75,6 +83,7 @@ class ItemsControllerImp extends SearchMixController {
     catid = Get.arguments['catid'];
     imgid = Get.arguments['imgid'];
     getItems(catid! , page , 1);
+    getfilter(catid , myServices.sharedPreferences.getString("lang"));
     scrollController;
     scrollController1;
     // pagenation();
@@ -129,6 +138,56 @@ class ItemsControllerImp extends SearchMixController {
   //   }
   //   update();
   // }
+
+
+  getfilter(categoryid , lang) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await filterData.filter_get(
+        categoryid, myServices.sharedPreferences.getString("id")! , lang);
+    statusRequest = handlingData(response);
+    print(response['data']['color']);
+
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        respon = response['data'];
+        filterColor.addAll(response['data']['color']);
+        filterSize.addAll(response['data']['size']);
+        filterTag.addAll(response['data']['tags']);
+        // print(filter[0]['color']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+
+
+  filterRequests(lang,data, categoryid) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await filterData.filter_request(
+        categoryid, myServices.sharedPreferences.getString("id")! , lang , data);
+    statusRequest = handlingData(response);
+    print(response['data']['color']);
+
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        print(response);
+        // print(filter[0]['color']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+
+
+
 
 
   getA_to_Z(categoryid , lang) async {
@@ -259,8 +318,58 @@ class ItemsControllerImp extends SearchMixController {
   // }
 
 
+  List<RxList<int>> selList = [
+    <int>[].obs, // For "Colors"
+    <int>[].obs, // For "Sizes"
+    <int>[].obs, // For "Tags"
+  ];
+  List filterlistColor =[];
+  List filterlistSize =[];
+  List filterlistTag =[];
+
+  // Variables for min and max price
+  var minPrice = ''.obs;
+  var maxPrice = ''.obs;
 
 
+
+  void select(int categoryIndex, int optionIndex , option) {
+
+    if (selList[categoryIndex].contains(optionIndex)) {
+      selList[categoryIndex].remove(optionIndex); // Deselect
+
+    } else {
+      selList[categoryIndex].add(optionIndex); // Select
+      if(categoryIndex == 0){
+        filterlistColor.add(option);
+      }else if(categoryIndex == 1){
+        filterlistSize.add(option);
+      }else{
+        filterlistTag.add(option);
+      }
+    }
+    update();
+    print(filterlistColor);
+    print(filterlistSize);
+    print(filterlistTag);
+    // Update the UI
+  }
+
+  void setMinPrice(String value) {
+    minPrice.value = value;
+    update();
+  }
+
+  void setMaxPrice(String value) {
+    maxPrice.value = value;
+    update();
+  }
+  void resetFilters() {
+    // Clear selected lists and reset prices
+    selList.forEach((list) => list.clear());
+    minPrice.value = '';
+    maxPrice.value = '';
+  }
   goToPageProductDetails(itemsModel , itemnum) {
     Get.toNamed("productdetails", arguments: {
       "itemsmodel": itemsModel,

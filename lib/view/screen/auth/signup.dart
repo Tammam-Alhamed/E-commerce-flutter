@@ -14,7 +14,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:country_picker/country_picker.dart';
 
 
 class SignUp extends StatelessWidget {
@@ -33,7 +32,7 @@ class SignUp extends StatelessWidget {
         title: Text('17'.tr,
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .copyWith(color: AppColor.grey)),
       ),
       body: WillPopScope(

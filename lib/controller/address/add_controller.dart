@@ -28,11 +28,13 @@ class AddAddressController extends GetxController {
         arguments: {"lat": lat.toString(), "long": long.toString()});
   }
 
-  Position? postion;
+  var postion;
 
   CameraPosition? kGooglePlex;
-
+  late LocationPermission permission;
   getCurrentLocation() async {
+    permission = await Geolocator.requestPermission();
+
     postion = await Geolocator.getCurrentPosition();
     kGooglePlex = CameraPosition(
       target: LatLng(postion!.latitude, postion!.longitude),

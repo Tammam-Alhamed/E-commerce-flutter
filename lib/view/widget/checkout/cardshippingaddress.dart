@@ -3,21 +3,28 @@ import 'package:flutter/material.dart';
 
 class CardShppingAddressCheckout extends StatelessWidget {
   final String title;
-
+  final String body;
+  final bool isactive;
   const CardShppingAddressCheckout(
       {Key? key,
-      required this.title,})
+        required this.title,
+        required this.body,
+        required this.isactive})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color:  AppColor.thirdColor ,
+      color: isactive ? AppColor.secondColor : Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: ListTile(
         title: Text(title,
             style: TextStyle(
-                color:  Colors.white ,
+                color: isactive ? Colors.blue : null,
+                fontWeight: FontWeight.bold)),
+        subtitle: Text(body,
+            style: TextStyle(
+                color: isactive ? Colors.blue : null,
                 fontWeight: FontWeight.bold)),
       ),
     );

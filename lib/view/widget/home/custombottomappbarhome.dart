@@ -6,13 +6,19 @@ import 'package:bazar/core/services/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+
 import 'package:icons_plus/icons_plus.dart';
+
 
 class CustomBottomAppBarHome extends StatelessWidget {
   const CustomBottomAppBarHome({Key? key}) : super(key: key);
   @override
+
   Widget build(BuildContext context) {
+
     MyServices myServices = Get.find();
+
     Size size = MediaQuery.of(context).size;
     List listOfIcons = [
       Iconsax.home_1_outline,
@@ -84,6 +90,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                   Stack(
                     children: [
                       if(index == 1)
+
                         if(myServices.sharedPreferences.getInt('unreadCount') == 0)
                         Positioned(
                           bottom: 0,
@@ -94,6 +101,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                                 color: Colors.red),
                           )
                           ),
+
                       Icon(
                         controller.currentpage != index ?listOfIcons[index] :listOfIconsBold[index],
                         size: size.width * .076,

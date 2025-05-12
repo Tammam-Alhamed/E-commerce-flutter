@@ -29,6 +29,7 @@ class HomePage extends StatelessWidget {
                 physics: BouncingScrollPhysics(),
                 slivers: <Widget>[
                   SliverAppBar(
+                    automaticallyImplyLeading: false,
                     backgroundColor: AppColor.backgroundcolor,
                     primary: false,
                     actions:[ Image.asset(AppImageAsset.logo , width: 95,)],

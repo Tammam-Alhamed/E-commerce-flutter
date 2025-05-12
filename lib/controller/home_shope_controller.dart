@@ -33,7 +33,9 @@ class HomeShopeControllerImp extends HomeShopeController {
   int limit = 30 ;
   String? discount;
   int i = 1;
+
   String? userBlock ;
+
 
 
   HomeData homedata = HomeData(Get.find());
@@ -62,12 +64,13 @@ class HomeShopeControllerImp extends HomeShopeController {
 
   @override
   initialData() {
+    print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+
     // myServices.sharedPreferences.clear() ;
     lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
-    // scrollController;
-    // pagenation();
+
   }
 
   @override
@@ -75,6 +78,7 @@ class HomeShopeControllerImp extends HomeShopeController {
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
       Get.toNamed(AppRoute.homepage);
     });
+
     search = TextEditingController();
     Future.value(getdata(limit).then((value) => getItems()));
     // getdata(limit);

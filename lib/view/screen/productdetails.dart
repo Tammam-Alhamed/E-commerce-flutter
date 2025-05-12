@@ -132,7 +132,7 @@ class ProductDetails extends StatelessWidget {
                                                       .itemsModel.itemsNameRu),
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .headline1!
+                                                  .displayLarge!
                                                   .copyWith(
                                                     color: AppColor.fourthColor,
                                                   )),
@@ -200,7 +200,7 @@ class ProductDetails extends StatelessWidget {
                                                       .itemsModel.itemsDescRu),
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyText1!
+                                                  .bodyLarge!
                                                   .copyWith(
                                                       fontSize: 16,
                                                       fontWeight:
@@ -211,29 +211,29 @@ class ProductDetails extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(height: 10),
-                                    Row(
-                                      children: [
-                                        IconButton(onPressed: (){
-                                          controllerImp.addPoint();
-                                        },
-                                          icon:   Icon(LineAwesome.plus_circle_solid , size: 28, color: AppColor.primaryColor,),),
-                                        Container(
-                                            alignment: Alignment.center,
-                                            padding: const EdgeInsets.only(bottom: 2),
-                                            width: 50,
-                                            height: 30,
-                                            decoration:
-                                            BoxDecoration(border: Border.all(color: AppColor.primaryColor), borderRadius: BorderRadius.circular(10),color: AppColor.backgroundcolor),
-                                            child: Text(
-                                              "${controllerImp.countpoint}",
-                                              style: const TextStyle(fontSize: 18, height: 1.1 , color: AppColor.sky),
-                                            )),
-                                        IconButton(onPressed: (){
-                                          controllerImp.removePoint();
-                                        },
-                                          icon: const Icon(LineAwesome.minus_circle_solid, size: 28, color: AppColor.primaryColor,),),
-                                      ],
-                                    ),
+                                    // Row(
+                                    //   children: [
+                                    //     IconButton(onPressed: (){
+                                    //       controllerImp.addPoint();
+                                    //     },
+                                    //       icon:   Icon(LineAwesome.plus_circle_solid , size: 28, color: AppColor.primaryColor,),),
+                                    //     Container(
+                                    //         alignment: Alignment.center,
+                                    //         padding: const EdgeInsets.only(bottom: 2),
+                                    //         width: 50,
+                                    //         height: 30,
+                                    //         decoration:
+                                    //         BoxDecoration(border: Border.all(color: AppColor.primaryColor), borderRadius: BorderRadius.circular(10),color: AppColor.backgroundcolor),
+                                    //         child: Text(
+                                    //           "${controllerImp.countpoint}",
+                                    //           style: const TextStyle(fontSize: 18, height: 1.1 , color: AppColor.sky),
+                                    //         )),
+                                    //     IconButton(onPressed: (){
+                                    //       controllerImp.removePoint();
+                                    //     },
+                                    //       icon: const Icon(LineAwesome.minus_circle_solid, size: 28, color: AppColor.primaryColor,),),
+                                    //   ],
+                                    // ),
                                     PriceAndCountItems(
                                         onAdd: () {
                                           controller.add();

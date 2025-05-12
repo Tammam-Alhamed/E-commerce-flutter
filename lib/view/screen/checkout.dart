@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bazar/controller/checkout_controller.dart';
 import 'package:bazar/core/class/handlingdataview.dart';
 import 'package:bazar/core/constant/color.dart';
@@ -7,6 +9,7 @@ import 'package:bazar/view/widget/checkout/cardpaymentmethod.dart';
 import 'package:bazar/view/widget/checkout/cardshippingaddress.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Checkout extends StatelessWidget {
   const Checkout({Key? key}) : super(key: key);
@@ -14,6 +17,14 @@ class Checkout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CheckoutController controller = Get.put(CheckoutController());
+     const CameraPosition _kGooglePlex = CameraPosition(
+      target: LatLng(37.42796133580664, -122.085749655962),
+      zoom: 14.4746,
+    );
+
+    Completer<GoogleMapController> _controller =
+    Completer<GoogleMapController>();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.backgroundcolor,
@@ -38,7 +49,9 @@ class Checkout extends StatelessWidget {
               statusRequest: controller.statusRequest,
               widget: Container(
                   padding: const EdgeInsets.all(20),
-                  child: ListView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                        Text(
                         "75".tr,
@@ -115,15 +128,22 @@ class Checkout extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             ...List.generate(
-                              1,
+                              controller.dataaddress.length,
                                   (index) => InkWell(
                                 onTap: () {
-                                  // controller.chooseShippingAddress(
-                                  //     controller.dataaddress[index].addressId!);
+                                  controller.chooseShippingAddress(
+                                      controller.dataaddress[index].addressId!);
                                 },
                                 child: CardShppingAddressCheckout(
                                     title:
-                                    "jablah",),
+                                    "${controller.dataaddress[index].addressName}",
+                                    body:
+                                    "${controller.dataaddress[index].addressCity} ${controller.dataaddress[index].addressStreet}",
+                                    isactive: controller.addressid ==
+                                        controller
+                                            .dataaddress[index].addressId
+                                        ? true
+                                        : false),
                               ),
                             )
                           ],

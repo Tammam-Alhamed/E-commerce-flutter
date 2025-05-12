@@ -22,7 +22,7 @@ class CheckoutController extends GetxController {
 
   String? paymentMethod = "0";
   String? deliveryType;
-  // String addressid = "0";
+  String addressid = "0";
 
   late String couponid;
   late String coupondiscount;
@@ -42,10 +42,10 @@ class CheckoutController extends GetxController {
     update();
   }
 
-  // chooseShippingAddress(String val) {
-  //   addressid = val;
-  //   update();
-  // }
+  chooseShippingAddress(String val) {
+    addressid = val;
+    update();
+  }
 
   getShippingAddress() async {
     statusRequest = StatusRequest.loading;
@@ -62,6 +62,7 @@ class CheckoutController extends GetxController {
       if (response['status'] == "success") {
         List listdata = response['data'];
         dataaddress.addAll(listdata.map((e) => AddressModel.fromJson(e)));
+        print(dataaddress.length);
       } else {
         statusRequest = StatusRequest.success;
       }
@@ -77,14 +78,16 @@ class CheckoutController extends GetxController {
     if (deliveryType == null) {
       return Get.snackbar("90".tr, "105".tr);
     }
-
+    if (addressid == "0") {
+      return Get.snackbar("90".tr, "105".tr);
+    }
     statusRequest = StatusRequest.loading;
 
     update();
 
     Map data = {
       "usersid": myServices.sharedPreferences.getString("id"),
-      // "addressid": addressid,
+      "addressid": addressid,
       "orderstype": deliveryType.toString(),
       "pricedelivery": "0",
       "ordersprice": priceorders,

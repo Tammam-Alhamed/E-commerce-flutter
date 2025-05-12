@@ -58,6 +58,7 @@ class HomeScreen extends StatelessWidget {
                 backgroundColor: AppColor.backgroundcolor,
                 leadingWidth: 0,
                 centerTitle : true,
+                automaticallyImplyLeading: false,
                 bottomOpacity: 0,
                 toolbarHeight: 0,
                 toolbarOpacity: 0,
@@ -134,7 +135,41 @@ class HomeScreen extends StatelessWidget {
               FloatingActionButtonLocation.centerDocked,
 
               bottomNavigationBar: const CustomBottomAppBarHome(),
-              body: WillPopScope(onWillPop: alertExitApp ,
+              body:  WillPopScope(
+                  onWillPop: () async {
+                    // Check if we can pop (i.e., go back)
+                    if (Navigator.of(context).canPop()) {
+                      Navigator.of(context).pop();  // Pop the current page
+                      return false; // Prevent the default behavior
+                    } else {
+                      // Show exit message
+                      Get.defaultDialog(
+                          title: "101".tr,
+                          titleStyle:const  TextStyle(color: AppColor.primaryColor , fontWeight: FontWeight.bold),
+                          middleText: "108".tr,
+                          middleTextStyle: const  TextStyle(color: AppColor.black),
+                          actions: [
+                            ElevatedButton(
+                                style: ButtonStyle(
+                                    backgroundColor:
+                                    MaterialStateProperty.all(AppColor.primaryColor)),
+                                onPressed: () {
+                                  SystemNavigator.pop();
+                                },
+                                child: Text("109".tr ,style: TextStyle(color: Colors.white),)
+                            ),
+                            ElevatedButton(
+                                style: ButtonStyle(
+                                    backgroundColor:
+                                    MaterialStateProperty.all(AppColor.primaryColor)),
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                child: Text("110".tr,style: TextStyle(color: Colors.white),))
+                          ]);
+                      return Future.value(true);// Exit if user confirms, else do nothing
+                    }
+                  },
                   child: controller.listPage.elementAt(controller.currentpage)),
 
             ),

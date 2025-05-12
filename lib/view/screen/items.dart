@@ -21,6 +21,8 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 import '../../core/constant/color.dart';
+import '../widget/customappbaritems.dart';
+import '../widget/drawer.dart';
 import '../widget/items/floatingButtom.dart';
 
 class Items extends StatelessWidget {
@@ -31,13 +33,24 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
       ItemsControllerImp controller = Get.put(ItemsControllerImp() , permanent: true);
       FavoriteController controllerFav = Get.put(FavoriteController(),permanent: true);
-      return WillPopScope(
-        onWillPop: () async{
-          return Future<bool>.value(Get.delete<ItemsControllerImp>(force: true).then((value) => Future<bool>.value(Get.delete<FavoriteController>(force: true))));
-        },
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+    return WillPopScope(
+      onWillPop: () async {
+        if (_scaffoldKey.currentState!.isDrawerOpen) {
+          // Close the drawer without deleting the controllers
+          Navigator.of(context).pop(); // Close the Drawer
+          return false; // Prevent back navigation
+        } else {
+          // If not coming from the drawer, delete the controller and go back
+          await Get.delete<ItemsControllerImp>(force: true);
+          await Get.delete<FavoriteController>(force: true);
+          return true; // Allow back navigation
+        }
+      },
         child: AnnotatedRegion<SystemUiOverlayStyle>(
           value:const SystemUiOverlayStyle(
             statusBarColor: Colors.transparent, //i like transaparent :-)
@@ -46,7 +59,10 @@ class Items extends StatelessWidget {
             systemNavigationBarIconBrightness:Brightness.dark, //navigation bar icons' color
           ),
           child: Scaffold(
+            key: _scaffoldKey,
+            drawer:MyCustomDrawer(),
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               backgroundColor: AppColor.backgroundcolor,
               leadingWidth: 0,
               centerTitle : true,
@@ -62,44 +78,25 @@ class Items extends StatelessWidget {
 
               SliverAppBar(
 
-                  backgroundColor: AppColor.secondColor.withOpacity(0.1),
-                  primary: false,
-                  snap: false,
-                  stretch: false,
-                  floating: false,
-                  pinned: false,
-                  centerTitle: false,
-                  iconTheme: IconThemeData(color: Colors.black , fill: 0.41 ,grade: 2),
-                  actions:[
-                    SizedBox(
-                      width: 341,
-                      height:90 ,
-                      child: CustomAppBar(
-                        mycontroller: controller.search!,
-                        titleappbar: "39".tr,
-                        // onPressedIcon: () {},
-                        onPressedSearch: () {
-                          controller.onSearchItems();
-                        },
-                        onChanged: (val) {
-                          controller.checkSearch(val);
-                        },
-                        onPressedIconFavorite: () {
-                          Get.offAndToNamed(AppRoute.myfavroite);
-                        },
-                        onPressed: (String ) { controller.onSearchItems(); },
-                        container: Container(
-                          decoration: BoxDecoration(
-                              color: AppColor.backgroundcolor,
-                              borderRadius: BorderRadius.circular(10)),
-                          width: 60,
+              automaticallyImplyLeading: false,
+              backgroundColor: AppColor.backgroundcolor,
+              primary: false,
 
-
-                          child: ListCat(onChange: controller.changeCat),
-                        ),
-                      ),
-                    )
-                  ]  ,),
+              snap: false,
+              stretch: true,
+              floating: true,
+              pinned: true,
+              centerTitle: false,
+              iconTheme: const IconThemeData(color: Colors.black),
+              title: Text("${'131'.tr}") ,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15.0),
+                  bottomRight: Radius.circular(15.0), ), ),
+                actions: [Container(width:200,child: CustomAppBarItems(onPressedIconFavorite: () {
+                  Get.toNamed(AppRoute.myfavroite);
+                },),)],
+              ),
                 SliverList.list(
                   children: [
                     Container(
@@ -157,61 +154,63 @@ class Items extends StatelessWidget {
                 ),
               ],
             ),
-            floatingActionButton:  SpeedDial(
-              closeDialOnPop: false,
-              spacing: 30,
-              childrenButtonSize : const Size(60.0, 70.0),
-              animatedIcon: AnimatedIcons.menu_close,
-                spaceBetweenChildren:10,
-              animatedIconTheme: const IconThemeData(size: 22.0),
-              // this is ignored if animatedIcon is non null
-              // child: Icon(Icons.add),
-              visible: true,
-              curve: Curves.fastOutSlowIn,
-              overlayColor: Colors.black,
-              overlayOpacity: 0.5,
-
-              backgroundColor: AppColor.primaryColor,
-              foregroundColor: Colors.white,
-              elevation: 8.0,
-              shape: const CircleBorder(),
-              children: [
-                SpeedDialChild(
-                    child: const Icon(Icons.sort_sharp, color:AppColor.primaryColor),
-                    backgroundColor: Colors.yellow,
-                    label: 'Sort',
-              labelBackgroundColor:Colors.white,
-                    labelStyle: const TextStyle(fontSize: 18.0,color:AppColor.primaryColor),
-                    onTap: () {
-              Get.bottomSheet(
-            backgroundColor:Colors.white,
-              enterBottomSheetDuration:const Duration(milliseconds: 325),
-              exitBottomSheetDuration :const Duration(milliseconds: 325),
-              StatefulBuilder(
-              builder: (context, setState) {
-              return Container(height:350,child: RadioListTileExample());}));}
-                ),
-               /* SpeedDialChild(
-                  child: Icon(Icons.filter_alt_rounded, color:AppColor.primaryColor,),
-                  backgroundColor:Colors.yellow,
-                  label: 'Filter',
-                  labelBackgroundColor:Colors.white,
-                  labelStyle:  TextStyle(fontSize: 18.0,color:AppColor.primaryColor),
-                  onTap: () {
-
-                    Get.bottomSheet(
-                        backgroundColor:Colors.white,
-                        enterBottomSheetDuration: Duration(milliseconds: 325),
-                        exitBottomSheetDuration : Duration(milliseconds: 325),
-                        StatefulBuilder(
-                            builder: (context, setState) {
-                              return Container(
-                                height: 255,
-                                  child: RadioListTileExample());}));},
-                ),*/
-
-              ],
-            ),
+           //  floatingActionButton:  SpeedDial(
+           //    closeDialOnPop: false,
+           //    spacing: 30,
+           //    childrenButtonSize : const Size(60.0, 70.0),
+           //    animatedIcon: AnimatedIcons.home_menu,
+           //      spaceBetweenChildren:10,
+           //    animatedIconTheme: const IconThemeData(size: 22.0),
+           //    // this is ignored if animatedIcon is non null
+           //    // child: Icon(Icons.add),
+           //    visible: true,
+           //    curve: Curves.fastOutSlowIn,
+           //    overlayColor: Colors.black,
+           //    overlayOpacity: 0.5,
+           //    onPress:(){
+           //      Get.toNamed(AppRoute.homepage);
+           //      },
+           //    backgroundColor: AppColor.primaryColor,
+           //    foregroundColor: Colors.white,
+           //    elevation: 8.0,
+           //    shape: const CircleBorder(),
+           //   /* children: [
+           //      SpeedDialChild(
+           //          child: const Icon(Icons.sort_sharp, color:AppColor.primaryColor),
+           //          backgroundColor: Colors.yellow,
+           //          label: 'Sort',
+           //    labelBackgroundColor:Colors.white,
+           //          labelStyle: const TextStyle(fontSize: 18.0,color:AppColor.primaryColor),
+           //          onTap: () {
+           // /*   Get.bottomSheet(
+           //  backgroundColor:Colors.white,
+           //    enterBottomSheetDuration:const Duration(milliseconds: 325),
+           //    exitBottomSheetDuration :const Duration(milliseconds: 325),
+           //    StatefulBuilder(
+           //    builder: (context, setState) {
+           //    return Container(height:350,child: RadioListTileExample());}));*/}
+           //      ),
+           //     /* SpeedDialChild(
+           //        child: Icon(Icons.filter_alt_rounded, color:AppColor.primaryColor,),
+           //        backgroundColor:Colors.yellow,
+           //        label: 'Filter',
+           //        labelBackgroundColor:Colors.white,
+           //        labelStyle:  TextStyle(fontSize: 18.0,color:AppColor.primaryColor),
+           //        onTap: () {
+           //
+           //          Get.bottomSheet(
+           //              backgroundColor:Colors.white,
+           //              enterBottomSheetDuration: Duration(milliseconds: 325),
+           //              exitBottomSheetDuration : Duration(milliseconds: 325),
+           //              StatefulBuilder(
+           //                  builder: (context, setState) {
+           //                    return Container(
+           //                      height: 255,
+           //                        child: RadioListTileExample());}));},
+           //      ),*/
+           //
+           //    ],*/
+           //  ),
 
 
           ),

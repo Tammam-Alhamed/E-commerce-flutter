@@ -1,4 +1,3 @@
-import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:bazar/controller/settings_controller.dart';
 import 'package:bazar/core/constant/color.dart';
 import 'package:bazar/core/constant/imgaeasset.dart';
@@ -6,10 +5,11 @@ import 'package:bazar/core/constant/routes.dart';
 import 'package:bazar/view/widget/language/custombuttomlang.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 import '../widget/setting/about_us.dart';
+import 'package:flutter_settings_ui/flutter_settings_ui.dart';
+
 
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
@@ -17,198 +17,230 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingsController controller = Get.put(SettingsController());
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: ListView(
-        physics: BouncingScrollPhysics(),
-        children: [
-          // user card
-          Stack(
-              clipBehavior: Clip.none,
-              alignment: Alignment.center,
-              children: [
-                Container(
-                    height: Get.width / 2.7,
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            // user card
+            Stack(
+                clipBehavior: Clip.none,
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                      height: Get.width / 2.7,
 
-                  decoration: BoxDecoration(
-                    color: AppColor.primaryColor,
-                    borderRadius: BorderRadius.circular(10)
+                    decoration: BoxDecoration(
+                      color: AppColor.primaryColor,
+                      borderRadius: BorderRadius.circular(10)
+                    ),
                   ),
-                ),
-                Positioned(
-                    top: Get.width / 4.1,
-                    child: Container(
-                      padding: EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(100)),
-                      child: CircleAvatar(
-                        radius: 40,
-                        backgroundColor: Colors.grey[100],
-                        backgroundImage: AssetImage(AppImageAsset.avatar),
-                      ),
-                    )),
-              ]),
-          SizedBox(
-            height: 65,
-          ),
-          SettingsGroup(
-            items: [
-              SettingsItem(
-                onTap: () {
-                  Get.toNamed(AppRoute.orderspending);
-                },
-                icons: Iconsax.document_upload_bold,
-                iconStyle: IconStyle(backgroundColor: AppColor.primaryColor),
-                title: "54".tr,
-                titleMaxLine: 1,
-                subtitleMaxLine: 1,
-              ),
-              SettingsItem(
-                onTap: () {
-                  Get.toNamed(AppRoute.ordersarchive);
-                },
-                icons: CupertinoIcons.archivebox_fill,
-                iconStyle: IconStyle(
-                  backgroundColor: Color(0xda0748d2)
-                ),
-                title: "55".tr,
-                titleMaxLine: 1,
-                subtitleMaxLine: 1,
-              ),
-              SettingsItem(
-
-                onTap: () {
-                  //Get.bottomSheet( Term_and_Conditions());
-                  showModalBottomSheet(
-                    isScrollControlled: true,
-                    context: context,
-                    builder: (context) {
-                      return Container(
-                          height: 680,
-                          padding: EdgeInsets.all(10),
-                          child: SingleChildScrollView(
-                              scrollDirection: Axis.vertical,
-                              child: Text("123".tr,
-                                  style: TextStyle(color: Colors.black))));
-                    },
-                  );
-                },
-                icons: Icons.gavel_sharp,
-                iconStyle: IconStyle(
+                  Positioned(
+                      top: Get.width / 4.1,
+                      child: Container(
+                        padding: EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(100)),
+                        child: CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.grey[100],
+                          backgroundImage: AssetImage(AppImageAsset.avatar),
+                        ),
+                      )),
+                ]),
+            SizedBox(
+              height: 65,
+            ),
+            SettingsList(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              applicationType: ApplicationType.both,
+              lightTheme: SettingsThemeData(settingsListBackground: Colors.white),
+              sections: [
+                SettingsSection(
+                  tiles: [
+                    SettingsTile(
+                      onPressed: (BuildContext context) {
+                        Get.toNamed(AppRoute.orderspending);
+                      },
+                      leading: Container(
+                          decoration: BoxDecoration(
+                            color: AppColor.primaryColor,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: EdgeInsets.all(5),
+                          child: Icon(Iconsax.document_upload_bold,color: AppColor.secondColor, )),
+                      title: Text("54".tr),
+                    ),
+                    // iconStyle: IconStyle(backgroundColor: AppColor.primaryColor),
+                    SettingsTile(
+                      onPressed: (BuildContext context) {
+                        Get.toNamed(AppRoute.addressview);
+                      },
+                      leading: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xf00748d2),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: EdgeInsets.all(5),
+                          child: Icon(CupertinoIcons.archivebox_fill,color: AppColor.secondColor,)),
+                      // iconStyle: IconStyle(
+                      //   backgroundColor: Color(0xda0748d2)
+                      // ),
+                      title: Text("Address",),
+                    ),
+                    SettingsTile(
+                      onPressed: (BuildContext context) {
+                        Get.toNamed(AppRoute.ordersarchive);
+                      },
+                      leading: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xda0748d2),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: EdgeInsets.all(5),
+                          child: Icon(CupertinoIcons.archivebox_fill,color: AppColor.secondColor,)),
+                      // iconStyle: IconStyle(
+                      //   backgroundColor: Color(0xda0748d2)
+                      // ),
+                      title: Text("55".tr,),
+                    ),
+                    SettingsTile(
+                      onPressed: (BuildContext context) {
+                        //Get.bottomSheet( Term_and_Conditions());
+                        showModalBottomSheet(
+                          isScrollControlled: true,
+                          context: context,
+                          builder: (context) {
+                            return Container(
+                                height: 680,
+                                padding: EdgeInsets.all(10),
+                                child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Text("123".tr,
+                                        )));
+                          },
+                        );
+                      },
+                      leading: Container(
+                          decoration: BoxDecoration(
+                            color: AppColor.thirdColor,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: EdgeInsets.all(5),
+                          child: Icon(Icons.gavel_sharp,color: AppColor.secondColor,)),
+            /*                iconStyle: IconStyle(
                   iconsColor: Colors.white,
                   withBackground: true,
                   backgroundColor: AppColor.thirdColor,
-                ),
-                title: "57".tr,
-              ),
-              SettingsItem(
-                onTap: () {
-                  Get.bottomSheet(About_us());
-                },
-                icons: Icons.info_rounded,
-                iconStyle: IconStyle(
-                  backgroundColor: AppColor.home
-                ),
-                title: "56".tr,
-              ),
-            ],
-          ),
+                ),*/
+                      title: Text("57".tr),
+                    ),
 
-          // You can add a settings title
-          SettingsGroup(
-            settingsGroupTitle: "134".tr,
-            items: [
-              SettingsItem(
-                onTap: () {
-                  controller.logout();
-                },
-                icons: Icons.exit_to_app_rounded,
-                title: "58".tr,
-                iconStyle: IconStyle(iconsColor: Colors.red,backgroundColor: AppColor.secondColor),
-                titleStyle: TextStyle(color: Colors.red),
-              ),
-              SettingsItem(
-                onTap: () {
-                  Get.bottomSheet(Container(
-                    height: 300,
-                    color: AppColor.backgroundcolor,
-                    child: Container(
-                        padding: const EdgeInsets.all(15),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("1".tr,
-                                style: Theme.of(context).textTheme.headline1),
-                            const SizedBox(height: 20),
-                            CustomButtonLang(
-                                textbutton: "العربية",
-                                onPressed: () {
-                                  controller.changeLang('ar');
-                                }),
-                            CustomButtonLang(
-                                textbutton: "English",
-                                onPressed: () {
-                                  controller.changeLang('en');
-                                }),
-                            CustomButtonLang(
-                                textbutton: "Русский",
-                                onPressed: () {
-                                  controller.changeLang('ru');
-                                }),
-                          ],
-                        )),
-                  ));
-                },
-                icons: Icons.language,
-                title: "133".tr,
-              ),
-              // SettingsItem(
-              //   onTap: () {},
-              //   icons: CupertinoIcons.repeat,
-              //   title: "Change email",
-              // ),
-              // SettingsItem(
-              //   onTap: () {},
-              //   icons: CupertinoIcons.delete_solid,
-              //   title: "Delete account",
-              //   titleStyle: TextStyle(
-              //     color: Colors.red,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
-            ],
-          ),
-          // SizedBox(height: 20,)
-          Container(
-            height: 150,
-            child: Column(
-              children: [
-                Divider(
-                  height: 12,
-                ),
-                SizedBox(height: 5,),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Brand(Brands.facebook),
-                    Brand(Brands.instagram),
-                    Brand(Brands.telegram_app),
+                    SettingsTile(
+                      onPressed: (BuildContext context) {
+                        Get.bottomSheet(About_us());
+                      },
+                      leading: Container(
+                          decoration: BoxDecoration(
+                            color: AppColor.home,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: EdgeInsets.all(5),
+                          child: Icon(Icons.info_rounded,color: AppColor.secondColor,)),
+                      // iconStyle: IconStyle(
+                      //   backgroundColor: AppColor.home
+                      // ),
+                      title: Text("56".tr,style: TextStyle(color: AppColor.home),),
+                    ),
                   ],
                 ),
-                SizedBox(height: 6,),
-                Text("Bazaar 2024\n    V_1.0.0" ,
-                  style: TextStyle(
-                    color: Colors.black45
 
-                  ),
-                )
+
+
+                SettingsSection(
+                  title: Text("134".tr,style: TextStyle(color: AppColor.grey,fontSize: 25, fontWeight: FontWeight.bold),),
+                  tiles: [
+                    SettingsTile(
+                      onPressed: (BuildContext context) {
+                        controller.logout();
+                      },
+                      leading:Icon(Icons.exit_to_app_rounded,color: Colors.red,) ,
+                      title: Text("58".tr,style: TextStyle(color: Colors.red),),
+                    ),
+
+                    SettingsTile(
+                      onPressed: (BuildContext context) {
+                        Get.bottomSheet(Container(
+                          height: 300,
+                          color: AppColor.backgroundcolor,
+                          child: Container(
+                              padding: const EdgeInsets.all(15),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("1".tr,
+                                      style: Theme.of(context).textTheme.displayLarge),
+                                  const SizedBox(height: 20),
+                                  CustomButtonLang(
+                                      textbutton: "العربية",
+                                      onPressed: () {
+                                        controller.changeLang('ar');
+                                      }),
+                                  CustomButtonLang(
+                                      textbutton: "English",
+                                      onPressed: () {
+                                        controller.changeLang('en');
+                                      }),
+                                  CustomButtonLang(
+                                      textbutton: "Русский",
+                                      onPressed: () {
+                                        controller.changeLang('ru');
+                                      }),
+                                ],
+                              )),
+                        ));
+                      },
+                      leading: Icon(Icons.language),
+                      title: Text("133".tr),
+                    )
+
+                  ],)
               ],
             ),
-          )
-        ],
+            // SizedBox(height: 20,)
+            Container(
+              height: 150,
+              child: Column(
+                children: [
+                  Divider(
+                    height: 12,
+                  ),
+                  SizedBox(height: 5,),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Brand(Brands.facebook),
+                      Brand(Brands.instagram),
+                      Brand(Brands.telegram_app),
+                    ],
+                  ),
+                  SizedBox(height: 6,),
+                  Text("Bazaar 2024\n    V_1.0.0" ,
+                    style: TextStyle(
+                      color: Colors.black45
+
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
